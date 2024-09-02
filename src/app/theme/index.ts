@@ -10,12 +10,32 @@ const roboto = Poppins({
 });
 
 export const theme = createTheme({
+  components: {
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+        disableRipple: true,
+      },
+      styleOverrides: {
+        root: {
+          padding: '12px 24px',
+          border: 'solid 2px',
+        },
+        text: {
+          border: 'none',
+        },
+      },
+    },
+  },
   palette: {
     primary: {
       main: '#4119BC',
     },
     secondary: {
       main: '#FFFFFF',
+    },
+    info: {
+      main: '##3A3A3A',
     },
   },
   shape: {
