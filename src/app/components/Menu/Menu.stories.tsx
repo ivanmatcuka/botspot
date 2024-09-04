@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 import { Menu } from './Menu';
+import { Button } from '../Button/Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -25,6 +25,20 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const BasicMenu: Story = {
   args: {
-    label: 'Contact Us',
+    label: 'Menu',
+    children: [
+      <Button key="1" variant="menuItem">
+        Option 1
+      </Button>,
+      <Button key="2" variant="menuItem">
+        Option 2
+      </Button>,
+      <Button key="3" variant="menuItem">
+        Option 3
+      </Button>,
+      <Button key="4" variant="menuItem">
+        Option 4
+      </Button>,
+    ],
   },
 };
