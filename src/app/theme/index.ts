@@ -1,7 +1,7 @@
 'use client';
 
 import { Poppins } from 'next/font/google';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, Shadows } from '@mui/material/styles';
 
 const roboto = Poppins({
   weight: ['300', '400', '500', '700'],
@@ -10,10 +10,20 @@ const roboto = Poppins({
 });
 
 export const theme = createTheme({
+  shadows: [
+    'none',
+    '0px 36px 72px 0px rgba(22, 25, 79, 0.1)',
+    ...Array(23).fill('none'),
+  ] as Shadows,
   components: {
     MuiMenuItem: {
       defaultProps: {
         disableRipple: true,
+      },
+      styleOverrides: {
+        root: {
+          padding: 0,
+        },
       },
     },
     MuiButton: {
@@ -25,17 +35,40 @@ export const theme = createTheme({
         sizeSmall: {
           padding: '8px 16px',
         },
-        root: {
-          padding: '12px 24px',
-          border: 'solid 2px',
+        outlined: {
+          '&:disabled': {
+            backgroundColor: '#AEAEAE',
+          },
         },
         text: {
           border: 'none',
+          '&:hover': {
+            color: '#4119BC',
+          },
+          '&:disabled': {
+            border: 'none',
+            backgroundColor: '#F3F3F3',
+
+            color: '#000',
+          },
+        },
+        root: {
+          padding: '12px 24px',
+          border: 'solid 2px',
+
+          '&:disabled': {
+            borderColor: '#AEAEAE',
+            color: '#FFFFFF',
+          },
         },
       },
     },
   },
   palette: {
+    action: {
+      disabledBackground: '#AEAEAE',
+      disabledOpacity: 1,
+    },
     primary: {
       main: '#4119BC',
     },
@@ -44,6 +77,10 @@ export const theme = createTheme({
     },
     info: {
       main: '##3A3A3A',
+    },
+    grey: {
+      100: '#F3F3F3',
+      200: '#AEAEAE',
     },
   },
   shape: {

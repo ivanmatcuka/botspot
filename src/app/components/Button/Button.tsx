@@ -1,31 +1,53 @@
 import {
-  ButtonProps as MUIButtonProps,
-  Button as MUIButton,
+  ButtonProps as MuiButtonProps,
+  Button as MuiButton,
+  styled,
 } from '@mui/material';
 import { FC } from 'react';
 import { MenuItem } from '../Menu/Menu';
 
-const PrimaryButton = ({ ...props }: MUIButtonProps) => (
-  <MUIButton color="primary" variant="contained" {...props} />
+const PrimaryButton = styled(({ ...props }: MuiButtonProps) => (
+  <MuiButton color="primary" variant="contained" {...props} />
+))(({ theme }) => ({
+  '&:hover': {
+    backgroundColor: theme.palette.common.white,
+    borderColor: theme.palette.primary.main,
+
+    color: theme.palette.primary.main,
+  },
+}));
+
+const SecondaryButton = styled(({ ...props }: MuiButtonProps) => (
+  <MuiButton color="primary" variant="outlined" {...props} />
+))(({ theme }) => ({
+  '&:hover': {
+    backgroundColor: theme.palette.primary.main,
+    borderColor: theme.palette.common.white,
+
+    color: theme.palette.common.white,
+  },
+}));
+
+const MenuButton = ({ ...props }: MuiButtonProps) => (
+  <MuiButton color="info" variant="text" {...props} />
 );
 
-const SecondaryButton = ({ ...props }: MUIButtonProps) => (
-  <MUIButton color="primary" variant="outlined" {...props} />
-);
-
-const MenuButton = ({ ...props }: MUIButtonProps) => (
-  <MUIButton color="info" variant="text" {...props} />
-);
-
-const MenuItemButton = ({ ...props }: MUIButtonProps) => (
+const MenuItemButton = styled(({ ...props }: MuiButtonProps) => (
   <MenuItem>
-    <MUIButton color="info" variant="text" size="small" {...props} />
+    <MuiButton color="info" variant="text" {...props} />
   </MenuItem>
-);
+))(({ theme }) => ({
+  '&:hover': {
+    color: theme.palette.primary.main,
+  },
+}));
 
 type ButtonProps = {
   variant: 'primary' | 'secondary' | 'menu' | 'menuItem';
-} & Pick<MUIButtonProps, 'id' | 'onClick' | 'children' | 'endIcon'>;
+} & Pick<
+  MuiButtonProps,
+  'id' | 'onClick' | 'children' | 'endIcon' | 'disabled'
+>;
 export const Button: FC<ButtonProps> = ({ variant, ...props }) => {
   switch (variant) {
     case 'primary':
@@ -37,6 +59,6 @@ export const Button: FC<ButtonProps> = ({ variant, ...props }) => {
     case 'menuItem':
       return <MenuItemButton {...props} />;
     default:
-      return <MUIButton {...props} />;
+      return <MuiButton {...props} />;
   }
 };

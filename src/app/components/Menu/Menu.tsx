@@ -2,6 +2,8 @@ import {
   Menu as MuiMenu,
   MenuItem as MuiMenuItem,
   MenuItemProps as MuiMenuItemProps,
+  styled,
+  useTheme,
 } from '@mui/material';
 import { FC, PropsWithChildren, useState } from 'react';
 import { Button } from '../Button/Button';
@@ -17,6 +19,7 @@ type MenuProps = {
 export const Menu: FC<PropsWithChildren<MenuProps>> = ({ label, children }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const { shadows } = useTheme();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -45,6 +48,11 @@ export const Menu: FC<PropsWithChildren<MenuProps>> = ({ label, children }) => {
         onClose={handleClose}
         MenuListProps={{
           'aria-labelledby': `basic-button-${label}`,
+        }}
+        slotProps={{
+          paper: {
+            sx: { boxShadow: shadows[1] },
+          },
         }}
       >
         {children}
