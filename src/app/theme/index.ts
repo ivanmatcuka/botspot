@@ -91,6 +91,7 @@ export const theme = createTheme({
         },
         text: {
           border: 'none',
+          fontWeight: 'normal',
           '&:hover': {
             color: '#4119BC',
           },
@@ -104,6 +105,7 @@ export const theme = createTheme({
         root: {
           padding: '12px 24px',
           border: 'solid 2px',
+          fontWeight: 'normal',
 
           '&:disabled': {
             borderColor: '#AEAEAE',

@@ -1,4 +1,6 @@
-import { Box, styled, Typography } from '@mui/material';
+'use client';
+
+import { Box, Grid, styled, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 
 const StyledBox = styled(Box)(({ theme }) => ({
@@ -28,13 +30,18 @@ export const MainBlock: FC<MainBlockProps> = ({
   return (
     <StyledBox>
       {assetUrl && <StyledImage src={assetUrl} alt="" />}
-      <Typography variant="body1" mb={2} mt={{ xs: 10, sm: 20 }}>
-        {subline}
-      </Typography>
-      <Typography variant="h2" mb={4}>
-        {headline}
-      </Typography>
-      {cta}
+
+      <Grid container justifyContent="center" my={{ xs: 10, sm: 20 }}>
+        <Grid item xs={10}>
+          <Typography variant="body1" mb={2}>
+            {subline}
+          </Typography>
+          <Typography variant="h2" mb={4}>
+            {headline}
+          </Typography>
+          {cta}
+        </Grid>
+      </Grid>
     </StyledBox>
   );
 };

@@ -1,4 +1,6 @@
-import { Box, Grid2, styled, Typography } from '@mui/material';
+'use client';
+
+import { Box, Grid, styled, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 
 const StyledBox = styled(Box)(({ theme }) => ({
@@ -30,18 +32,33 @@ export const SecondaryBlock: FC<SecondaryBlockProps> = ({
   return (
     <StyledBox>
       {assetUrl && <StyledImage src={assetUrl} alt="" />}
-      <Typography variant="h2" mt={{ xs: 2, sm: 3 }}>
-        {headline}
-      </Typography>
-      <Typography variant="body1" mb={{ xs: 3, sm: 2 }} mt={{ xs: 1, sm: 0.5 }}>
-        {subline}
-      </Typography>
-      <Box display="flex">
-        <Grid2 container spacing={2}>
-          <Grid2>{primaryCta}</Grid2>
-          <Grid2>{secondaryCta}</Grid2>
-        </Grid2>
-      </Box>
+      <Grid
+        container
+        justifyContent="center"
+        mt={{ xs: 2, sm: 3 }}
+        mb={{ xs: 10, sm: 15 }}
+      >
+        <Grid item xs={10}>
+          <Typography variant="h2">{headline}</Typography>
+          <Typography
+            variant="body1"
+            mb={{ xs: 3, sm: 2 }}
+            mt={{ xs: 1, sm: 0.5 }}
+          >
+            {subline}
+          </Typography>
+          <Box display="flex">
+            <Grid
+              container
+              spacing={2}
+              justifyContent={{ xs: 'center', sm: 'left' }}
+            >
+              <Grid item>{primaryCta}</Grid>
+              <Grid item>{secondaryCta}</Grid>
+            </Grid>
+          </Box>
+        </Grid>
+      </Grid>
     </StyledBox>
   );
 };

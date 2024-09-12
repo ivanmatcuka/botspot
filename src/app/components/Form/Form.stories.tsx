@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { CustomForm, Input, StyledPaper } from './Form';
+import { Form, Input, StyledPaper } from './Form';
 import { FormProvider, useForm } from 'react-hook-form';
-import { Grid2, Paper } from '@mui/material';
+import { Grid } from '@mui/material';
 import { FC } from 'react';
 import { Button } from '../Button/Button';
 
 const meta = {
   title: 'Example/CustomForm',
-  component: CustomForm,
+  component: Form,
   parameters: {
     layout: 'centered',
   },
@@ -24,10 +24,10 @@ const meta = {
       </FormProvider>
     ),
   ],
-} satisfies Meta<typeof CustomForm>;
+} satisfies Meta<typeof Form>;
 
 export default meta;
-type Story = StoryObj<typeof CustomForm>;
+type Story = StoryObj<typeof Form>;
 
 const FormWithHooks: FC = () => {
   const {
@@ -39,7 +39,7 @@ const FormWithHooks: FC = () => {
   return (
     <StyledPaper elevation={1}>
       <form onSubmit={handleSubmit(() => {})}>
-        <Grid2 display="flex" flexWrap="wrap" gap={3} container p={5}>
+        <Grid display="flex" flexWrap="wrap" gap={3} container p={5}>
           <Input
             label="Name"
             name="name"
@@ -77,7 +77,7 @@ const FormWithHooks: FC = () => {
           <Button variant="primary" type="submit">
             Submit
           </Button>
-        </Grid2>
+        </Grid>
       </form>
     </StyledPaper>
   );

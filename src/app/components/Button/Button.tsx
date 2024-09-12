@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ButtonProps as MuiButtonProps,
   Button as MuiButton,

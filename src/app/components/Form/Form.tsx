@@ -1,7 +1,9 @@
+'use client';
+
 import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import {
   Box,
-  Grid2,
+  Grid,
   InputLabel,
   InputProps,
   Paper,
@@ -27,7 +29,7 @@ export const Input = (
       label?: string;
     },
 ) => (
-  <Grid2 flex={props.fullWidth ? '0 0 100%' : 'auto'} flexGrow={1}>
+  <Grid item flex={props.fullWidth ? '0 0 100%' : 'auto'} flexGrow={1}>
     {props.label && (
       <Box mb={0.5}>
         <InputLabel required={props.required}>{props.label}</InputLabel>
@@ -47,7 +49,7 @@ export const Input = (
         </Typography>
       </Box>
     )}
-  </Grid2>
+  </Grid>
 );
 
 export const StyledPaper = styled(Paper)(({ theme }) => ({
@@ -58,7 +60,7 @@ type FormProps = {
   onSubmit: SubmitHandler<any>;
   slot?: ReactNode;
 };
-export const CustomForm: FC<PropsWithChildren<FormProps>> = ({
+export const Form: FC<PropsWithChildren<FormProps>> = ({
   children,
   slot,
   onSubmit,
@@ -69,12 +71,12 @@ export const CustomForm: FC<PropsWithChildren<FormProps>> = ({
     <StyledPaper elevation={1}>
       {slot}
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Grid2 display="flex" flexWrap="wrap" gap={3} container p={5}>
+        <Grid display="flex" flexWrap="wrap" gap={3} container p={5}>
           {children}
           <Button variant="primary" type="submit">
             Submit
           </Button>
-        </Grid2>
+        </Grid>
       </form>
     </StyledPaper>
   );

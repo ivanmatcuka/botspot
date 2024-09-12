@@ -2,8 +2,11 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from './theme';
+import { Navbar } from './components/Navbar/Navbar';
+import { Button } from './components/Button/Button';
+import { ReactNode } from 'react';
+import ThemeRegistry from './theme/ThemeRegistry';
+import { Footer } from './components/Footer/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -14,13 +17,44 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          <ThemeRegistry>
+            <Navbar
+              navItems={[
+                {
+                  label: 'Products',
+                  children: [
+                    { label: 'Option 1' },
+                    { label: 'Option 2', children: [{ label: 'Option 2.1' }] },
+                  ],
+                },
+                { label: '3D Scan Service' },
+                {
+                  label: 'Areas of use',
+                  children: [
+                    { label: 'Option 1' },
+                    { label: 'Option 2', children: [{ label: 'Option 2.1' }] },
+                  ],
+                },
+                { label: 'Learn About 3D Scanning' },
+                {
+                  label: 'About Us',
+                  children: [
+                    { label: 'Option 1' },
+                    { label: 'Option 2', children: [{ label: 'Option 2.1' }] },
+                  ],
+                },
+              ]}
+              cta={<Button variant="secondary">Call to Action</Button>}
+            />
+            {children}
+            <Footer />
+          </ThemeRegistry>
         </AppRouterCacheProvider>
       </body>
     </html>
