@@ -125,14 +125,18 @@ export const theme = createTheme({
       main: '#FFFFFF',
     },
     info: {
-      main: '##3A3A3A',
+      main: '#3A3A3A',
     },
     grey: {
       100: '#F3F3F3',
       200: '#AEAEAE',
+      700: '#616161',
     },
     error: {
       main: '#D02D24',
+    },
+    common: {
+      black: '#151515',
     },
   },
   shape: {
