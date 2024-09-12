@@ -46,7 +46,7 @@ type ButtonProps = {
   variant: 'primary' | 'secondary' | 'menu' | 'menuItem';
 } & Pick<
   MuiButtonProps,
-  'id' | 'onClick' | 'children' | 'endIcon' | 'disabled'
+  'id' | 'onClick' | 'children' | 'endIcon' | 'disabled' | 'type'
 >;
 export const Button: FC<ButtonProps> = ({ variant, ...props }) => {
   switch (variant) {

@@ -16,6 +16,55 @@ export const theme = createTheme({
     ...Array(23).fill('none'),
   ] as Shadows,
   components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          borderWidth: 2,
+        },
+      },
+    },
+    MuiAccordion: {
+      defaultProps: {
+        disableGutters: true,
+      },
+      styleOverrides: {
+        root: {
+          boxShadow: 'none',
+        },
+      },
+    },
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            color: '#4119BC',
+          },
+        },
+      },
+    },
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            color: '#4119BC',
+          },
+        },
+      },
+    },
+    MuiList: {
+      styleOverrides: {
+        root: {
+          padding: 0,
+        },
+      },
+    },
+    MuiListItem: {
+      styleOverrides: {
+        root: {
+          padding: 0,
+        },
+      },
+    },
     MuiMenuItem: {
       defaultProps: {
         disableRipple: true,
@@ -82,6 +131,9 @@ export const theme = createTheme({
       100: '#F3F3F3',
       200: '#AEAEAE',
     },
+    error: {
+      main: '#D02D24',
+    },
   },
   shape: {
     borderRadius: 8,
@@ -93,5 +145,17 @@ export const theme = createTheme({
       lineHeight: '22.4px',
     },
     fontFamily: roboto.style.fontFamily,
+    body1: {
+      fontSize: 16,
+      lineHeight: 1,
+    },
+    h2: {
+      fontSize: 40,
+      lineHeight: 1,
+    },
+    caption: {
+      fontSize: 12,
+      lineHeight: 1,
+    },
   },
 });

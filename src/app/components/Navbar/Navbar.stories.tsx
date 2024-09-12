@@ -14,7 +14,6 @@ const meta = {
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
-  args: { children: '' },
 } satisfies Meta<typeof Navbar>;
 
 export default meta;
@@ -23,17 +22,16 @@ type Story = StoryObj<typeof meta>;
 export const BasicNavbar: Story = {
   args: {
     cta: <Button variant="secondary">Call to Action</Button>,
-    children: (
-      <>
-        <Menu label="Dropdown Menu">
-          <Button variant="menuItem">Option 1</Button>
-          <Button variant="menuItem">Option 2</Button>
-        </Menu>
-        <Button variant="menu">Menu Button</Button>
-        <Button variant="menu" disabled>
-          Disabled
-        </Button>
-      </>
-    ),
+    navItems: [
+      {
+        label: 'Dropdown Menu',
+        children: [
+          { label: 'Option 1' },
+          { label: 'Option 2', children: [{ label: 'Option 2.1' }] },
+        ],
+      },
+      { label: 'Menu Button' },
+      { label: 'Disabled', disabled: true },
+    ],
   },
 };

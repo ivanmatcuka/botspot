@@ -2,7 +2,6 @@ import {
   Menu as MuiMenu,
   MenuItem as MuiMenuItem,
   MenuItemProps as MuiMenuItemProps,
-  styled,
   useTheme,
 } from '@mui/material';
 import { FC, PropsWithChildren, useState } from 'react';
