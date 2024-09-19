@@ -25,8 +25,8 @@ export const BasicTile: Story = {
     headline: 'Send Us Objects',
     children: (
       <Typography variant="body1">
-        Send us your items, we'll scan them and send you the marketing-ready 3D
-        models.
+        Send us your items, we&apos;ll scan them and send you the
+        marketing-ready 3D models.
       </Typography>
     ),
   },
