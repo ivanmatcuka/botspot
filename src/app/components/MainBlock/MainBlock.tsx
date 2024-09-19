@@ -25,10 +25,7 @@ export const MainBlock: FC<MainBlockProps> = ({
   subAssetUrl,
 }) => {
   return (
-    <Box
-      textAlign={{ xs: 'center', md: 'left' }}
-      maxHeight={{ xs: 800, md: 768, lg: 1024 }}
-    >
+    <Box textAlign={{ xs: 'center', md: 'left' }}>
       {assetUrl && <StyledImage src={assetUrl} alt="" />}
 
       <Container maxWidth="xl">
@@ -48,7 +45,12 @@ export const MainBlock: FC<MainBlockProps> = ({
             {cta}
           </Grid>
           {subAssetUrl && (
-            <Grid item flex={1} mt={6} maxHeight={{ xs: 240, md: 280 }}>
+            <Grid
+              item
+              flex={1}
+              mt={6}
+              maxHeight={{ xs: 800, md: 768, lg: 1024 }}
+            >
               <Image
                 src={subAssetUrl}
                 width={800}

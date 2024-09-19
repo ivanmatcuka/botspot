@@ -16,12 +16,14 @@ export default function Home() {
         primaryCta={<Button variant="primary">Explore Neo</Button>}
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
       />
+
       <MainBlock
         assetUrl="/placeholder.png"
         subline="What we do"
         headline="Professional 3D Scanners for rapid, highly precise and absolutely colorfast 3D data."
         cta={<Button variant="primary">See All Products</Button>}
       />
+
       <SecondaryBlock
         assetUrl="/botscan_neo.png"
         headline="Botscan NEO"
