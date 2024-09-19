@@ -25,7 +25,7 @@ export const Footer = () => {
   return (
     <StyledFooter>
       <Grid container py={8} xs={10} mx="auto">
-        <Grid flexBasis={{ xs: '100%', sm: '40%' }}>
+        <Grid flexBasis={{ xs: '100%', md: '40%' }}>
           <Image width={184} height={74} src="/logo_white.svg" alt="logo" />
           <FooterTypography>botspot 3D Scan GmbH</FooterTypography>
           <FooterTypography>Bruno-Bürgel-Weg 134-144</FooterTypography>
@@ -36,7 +36,7 @@ export const Footer = () => {
             container
             mt={3}
             spacing={3}
-            display={{ xs: 'none', sm: 'flex' }}
+            display={{ xs: 'none', md: 'flex' }}
           >
             <Grid item>
               <Image
@@ -61,8 +61,8 @@ export const Footer = () => {
         </Grid>
         <Grid
           item
-          flexBasis={{ xs: '100%', sm: '20%' }}
-          mt={{ xs: 5, sm: 9.25 }}
+          flexBasis={{ xs: '100%', md: '20%' }}
+          mt={{ xs: 5, md: 9.25 }}
         >
           <FooterTypography mb={2.5}>3D Scanner</FooterTypography>
           <FooterTypography>Botscan NEO</FooterTypography>
@@ -71,8 +71,8 @@ export const Footer = () => {
         </Grid>
         <Grid
           item
-          flexBasis={{ xs: '100%', sm: '20%' }}
-          mt={{ xs: 5, sm: 9.25 }}
+          flexBasis={{ xs: '100%', md: '20%' }}
+          mt={{ xs: 5, md: 9.25 }}
         >
           <FooterTypography mb={2.5}>Resources</FooterTypography>
           <FooterTypography>3D Scan Service</FooterTypography>
@@ -81,8 +81,8 @@ export const Footer = () => {
         </Grid>
         <Grid
           item
-          flexBasis={{ xs: '100%', sm: '20%' }}
-          mt={{ xs: 5, sm: 9.25 }}
+          flexBasis={{ xs: '100%', md: '20%' }}
+          mt={{ xs: 5, md: 9.25 }}
         >
           <FooterTypography mb={2.5}>Company</FooterTypography>
           <FooterTypography>About Us</FooterTypography>
@@ -93,7 +93,7 @@ export const Footer = () => {
           container
           mt={3}
           spacing={3}
-          display={{ xs: 'flex', sm: 'none' }}
+          display={{ xs: 'flex', md: 'none' }}
           justifyContent="center"
         >
           <Grid item>
@@ -116,11 +116,11 @@ export const Footer = () => {
         <Grid
           flexBasis="100%"
           display="flex"
-          alignItems={{ xs: 'center', sm: 'flex-end' }}
+          alignItems={{ xs: 'center', md: 'flex-end' }}
           gap={3}
           xs={10}
           mx="auto"
-          flexDirection={{ xs: 'column', sm: 'row' }}
+          flexDirection={{ xs: 'column', md: 'row' }}
           item
         >
           <FooterTypography mr="auto">

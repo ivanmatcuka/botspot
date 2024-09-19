@@ -28,29 +28,39 @@ export default function RootLayout({
               navItems={[
                 {
                   label: 'Products',
+                  href: '/products',
                   children: [
-                    { label: 'Option 1' },
-                    { label: 'Option 2', children: [{ label: 'Option 2.1' }] },
+                    { label: 'Botscan NEO', href: '/products/botscan-neo' },
+                    { label: '3D Object', href: '/products/3d-object' },
+                    { label: '3D Studio', href: '/products/3d-studio' },
+                    {
+                      label: '3D Scan Service',
+                      href: '/products',
+                    },
                   ],
                 },
-                { label: '3D Scan Service' },
+                { label: '3D Scan Service', href: '/service' },
                 {
                   label: 'Areas of use',
+                  href: '/areas',
                   children: [
-                    { label: 'Option 1' },
-                    { label: 'Option 2', children: [{ label: 'Option 2.1' }] },
+                    { label: 'Commercial', href: '/areas/commercial' },
+                    { label: 'Industrial', href: '/areas/industrial' },
+                    { label: 'Health Care', href: '/areas/healthcare' },
+                    {
+                      label: 'Custom Solutions',
+                      href: '/areas/custom-solutions',
+                    },
+                    { label: 'Learn about 3D Scanning', href: '/areas' },
                   ],
                 },
-                { label: 'Learn About 3D Scanning' },
+                { label: 'Learn About 3D Scanning', href: '/learn' },
                 {
                   label: 'About Us',
-                  children: [
-                    { label: 'Option 1' },
-                    { label: 'Option 2', children: [{ label: 'Option 2.1' }] },
-                  ],
+                  children: [{ label: 'About Us', href: '/about' }],
                 },
               ]}
-              cta={<Button variant="secondary">Call to Action</Button>}
+              cta={<Button variant="secondary">Contact Us</Button>}
             />
             {children}
             <Footer />

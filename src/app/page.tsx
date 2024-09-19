@@ -4,10 +4,18 @@ import { Box, Typography } from '@mui/material';
 import { SecondaryBlock } from './components/SecondaryBlock/SecondaryBlock';
 import { Tile } from './components/Tile/Tile';
 import { FeedbackForm } from './components/FeedbackForm/FeedbackForm';
+import { Banner } from './components/Banner/Banner';
 
 export default function Home() {
   return (
     <main className="">
+      <Banner
+        assetUrl="/banner.png"
+        headline="THE WORLD’S MOST VERSATILE 3D SCANNERS."
+        subline="With over 10 years of experience in Photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
+        primaryCta={<Button variant="primary">Explore Neo</Button>}
+        secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
+      />
       <MainBlock
         assetUrl="/placeholder.png"
         subline="What we do"
@@ -49,15 +57,14 @@ export default function Home() {
         flexDirection="column"
       >
         <MainBlock
-          assetUrl="/placeholder.png"
           subline="How we can help"
           headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
           cta={<Button variant="primary">Explore Our Services</Button>}
         />
         <Tile headline="Send Us Objects">
           <Typography variant="body1">
-            Send us your items, we'll scan them and send you the marketing-ready
-            3D models.
+            Send us your items, we&apos;ll scan them and send you the
+            marketing-ready 3D models.
           </Typography>
         </Tile>
         <Tile headline="Use For Project">

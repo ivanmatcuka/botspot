@@ -22,9 +22,12 @@ const PrimaryButton = styled(({ ...props }: MuiButtonProps) => (
 const SecondaryButton = styled(({ ...props }: MuiButtonProps) => (
   <MuiButton color="primary" variant="outlined" {...props} />
 ))(({ theme }) => ({
+  backgroundColor: theme.palette.common.white,
+
   '&:hover': {
     backgroundColor: theme.palette.primary.main,
     borderColor: theme.palette.common.white,
+    borderWidth: 2,
 
     color: theme.palette.common.white,
   },
@@ -33,6 +36,13 @@ const SecondaryButton = styled(({ ...props }: MuiButtonProps) => (
 const MenuButton = ({ ...props }: MuiButtonProps) => (
   <MuiButton color="info" variant="text" {...props} />
 );
+
+const TopicButton = styled(({ ...props }: MuiButtonProps) => (
+  <MuiButton color="primary" variant="text" {...props} />
+))(({ theme }) => ({
+  padding: 0,
+  ...theme.typography.h2,
+}));
 
 const MenuItemButton = styled(({ ...props }: MuiButtonProps) => (
   <MenuItem>
@@ -44,11 +54,18 @@ const MenuItemButton = styled(({ ...props }: MuiButtonProps) => (
   },
 }));
 
-type ButtonProps = {
-  variant: 'primary' | 'secondary' | 'menu' | 'menuItem';
+export type ButtonProps = {
+  variant: 'primary' | 'secondary' | 'menu' | 'menuItem' | 'topic';
 } & Pick<
   MuiButtonProps,
-  'id' | 'onClick' | 'children' | 'endIcon' | 'disabled' | 'type'
+  | 'id'
+  | 'onClick'
+  | 'children'
+  | 'endIcon'
+  | 'disabled'
+  | 'type'
+  | 'component'
+  | 'onMouseOver'
 >;
 export const Button: FC<ButtonProps> = ({ variant, ...props }) => {
   switch (variant) {
@@ -60,6 +77,8 @@ export const Button: FC<ButtonProps> = ({ variant, ...props }) => {
       return <MenuButton {...props} />;
     case 'menuItem':
       return <MenuItemButton {...props} />;
+    case 'topic':
+      return <TopicButton {...props} />;
     default:
       return <MuiButton {...props} />;
   }

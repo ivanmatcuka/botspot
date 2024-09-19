@@ -23,7 +23,7 @@ import { ErrorOutline } from '@mui/icons-material';
 
 export const Input = (
   props: Pick<UseControllerProps<any>, 'name' | 'rules'> &
-    Pick<InputProps, 'fullWidth' | 'required'> & {
+    Pick<InputProps, 'fullWidth' | 'required' | 'value'> & {
       register: UseFormRegister<any>;
       error: any;
       label?: string;
@@ -32,7 +32,9 @@ export const Input = (
   <Grid item flex={props.fullWidth ? '0 0 100%' : 'auto'} flexGrow={1}>
     {props.label && (
       <Box mb={0.5}>
-        <InputLabel required={props.required}>{props.label}</InputLabel>
+        <InputLabel required={props.required}>
+          <Typography variant="caption">{props.label}</Typography>
+        </InputLabel>
       </Box>
     )}
     <TextField
@@ -40,6 +42,7 @@ export const Input = (
       placeholder={props.label}
       {...props.register(props.name, props.rules)}
       fullWidth
+      value={props.value}
     />
     {props.error && (
       <Box display="flex" alignItems="center" mt={0.5}>
