@@ -22,9 +22,11 @@ import Image from 'next/image';
 import { Button } from '../Button/Button';
 import { Menu } from '../Menu/Menu';
 import { ExpandMore } from '@mui/icons-material';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const ResponsiveMenuIcon = styled(MuiIconButton)(({ theme }) => ({
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up('xl')]: {
     display: 'none',
   },
 }));
@@ -37,6 +39,7 @@ const StyledMuiAppBar = styled(MuiAppBar)(({ theme }) => ({
 type MenuItem = {
   label: string;
   onClick?: () => void;
+  href?: string;
   children?: MenuItem[];
   disabled?: boolean;
 };
@@ -48,23 +51,32 @@ type NavbarProps = {
 export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { breakpoints } = useTheme();
-  const matches = useMediaQuery(breakpoints.up('sm'));
+  const matches = useMediaQuery(breakpoints.up('xl'));
+  const { push } = useRouter();
 
-  const renderMenu = useCallback((item: MenuItem) => {
-    if (!item.children) {
+  const renderMenu = useCallback(
+    (item: MenuItem) => {
+      if (!item.children) {
+        return (
+          <Button
+            key={item.label}
+            variant="menuItem"
+            disabled={item.disabled}
+            onClick={item.onClick ?? (() => push(item.href ?? ''))}
+          >
+            {item.label}
+          </Button>
+        );
+      }
+
       return (
-        <Button key={item.label} variant="menu" disabled={item.disabled}>
-          {item.label}
-        </Button>
+        <Menu label={item.label} key={item.label} href={item.href}>
+          {item.children.map((child) => renderMenu(child))}
+        </Menu>
       );
-    }
-
-    return (
-      <Menu label={item.label} key={item.label}>
-        {item.children.map((child) => renderMenu(child))}
-      </Menu>
-    );
-  }, []);
+    },
+    [push],
+  );
 
   const menu = useMemo(
     () => navItems.map((item) => renderMenu(item)),
@@ -98,7 +110,9 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   return (
     <StyledMuiAppBar position="relative" color="transparent" elevation={24}>
       <Toolbar>
-        <Image width={150} height={46} src="/logo.svg" alt="logo" />
+        <Link href="/">
+          <Image width={150} height={46} src="/logo.svg" alt="logo" />
+        </Link>
         {matches ? (
           <>
             <Box display="flex" sx={{ flexGrow: 1 }}>

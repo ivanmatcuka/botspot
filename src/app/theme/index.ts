@@ -9,7 +9,7 @@ const roboto = Poppins({
   display: 'swap',
 });
 
-export const theme = createTheme({
+const theme = createTheme({
   shadows: [
     'none',
     '0px 36px 72px 0px rgba(22, 25, 79, 0.1)',
@@ -72,6 +72,8 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           padding: 0,
+
+          borderRadius: '8px',
         },
       },
     },
@@ -94,6 +96,7 @@ export const theme = createTheme({
           fontWeight: 'normal',
           '&:hover': {
             color: '#4119BC',
+            backgroundColor: 'transparent',
           },
           '&:disabled': {
             border: 'none',
@@ -113,6 +116,15 @@ export const theme = createTheme({
           },
         },
       },
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 375,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
     },
   },
   palette: {
@@ -153,7 +165,7 @@ export const theme = createTheme({
     fontFamily: roboto.style.fontFamily,
     body1: {
       fontSize: 16,
-      lineHeight: 1,
+      lineHeight: 1.4,
     },
     h2: {
       fontSize: 40,
@@ -165,3 +177,12 @@ export const theme = createTheme({
     },
   },
 });
+
+theme.typography.h1 = {
+  ...theme.typography.h1,
+  [theme.breakpoints.down('xl')]: {
+    fontSize: 40,
+  },
+};
+
+export { theme };
