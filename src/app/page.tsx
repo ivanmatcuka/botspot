@@ -56,8 +56,8 @@ export default function Home() {
         />
         <Tile headline="Send Us Objects">
           <Typography variant="body1">
-            Send us your items, we'll scan them and send you the marketing-ready
-            3D models.
+            Send us your items, we&apos;ll scan them and send you the
+            marketing-ready 3D models.
           </Typography>
         </Tile>
         <Tile headline="Use For Project">
