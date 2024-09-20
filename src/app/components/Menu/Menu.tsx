@@ -14,6 +14,7 @@ import {
   bindHover,
 } from 'material-ui-popup-state/hooks';
 import HoverMenu from 'material-ui-popup-state/HoverMenu';
+import { useRouter } from 'next/navigation';
 export const MenuItem: FC<PropsWithChildren<MuiMenuItemProps>> = ({
   ...props
 }) => <MuiMenuItem {...props} />;
@@ -32,6 +33,7 @@ export const Menu: FC<PropsWithChildren<MenuProps>> = ({
   const { shadows } = useTheme();
   const popupState = usePopupState({ variant: 'popper', popupId: 'demoMenu' });
   const open = popupState.isOpen;
+  const { push } = useRouter();
 
   return (
     <>
@@ -43,7 +45,7 @@ export const Menu: FC<PropsWithChildren<MenuProps>> = ({
         variant={variant}
         endIcon={open ? <ExpandLess /> : <ExpandMore />}
         {...bindHover(popupState)}
-        onClick={() => (href ? (window.location.href = href) : null)}
+        onClick={() => href && push(href)}
       >
         {label}
       </Button>

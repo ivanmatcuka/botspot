@@ -1,23 +1,8 @@
 'use client';
 
-import { Box, Container, Grid, styled, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
-
-const BannerImage = styled('img')(({ theme }) => ({
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-
-  maxHeight: 800,
-
-  [theme.breakpoints.up('xs')]: {
-    maxHeight: 768,
-  },
-
-  [theme.breakpoints.up('md')]: {
-    maxHeight: 1024,
-  },
-}));
+import { BannerImage } from '../BannerImage/BannerImage';
 
 type SecondaryBlockProps = {
   assetUrl?: string;
@@ -34,48 +19,46 @@ export const SecondaryBlock: FC<SecondaryBlockProps> = ({
   primaryCta,
   secondaryCta,
   disableGutter = false,
-}) => {
-  return (
-    <Box textAlign={{ xs: 'center', md: 'left' }}>
-      {assetUrl && <BannerImage src={assetUrl} alt="" />}
+}) => (
+  <Box textAlign={{ xs: 'center', md: 'left' }}>
+    {assetUrl && <BannerImage src={assetUrl} alt="" />}
 
-      <Container maxWidth="xl">
+    <Container maxWidth="xl">
+      <Grid
+        container
+        justifyContent="center"
+        my={{ xs: 2, sm: 3 }}
+        {...(!disableGutter && { mb: { xs: 10, sm: 15 } })}
+      >
         <Grid
-          container
-          justifyContent="center"
-          my={{ xs: 2, sm: 3 }}
-          {...(!disableGutter && { mb: { xs: 10, sm: 15 } })}
+          item
+          xs={10}
+          xl={12}
+          textAlign={{ xs: 'center', md: 'left' }}
+          mx="auto"
         >
-          <Grid
-            item
-            xs={10}
-            xl={12}
-            textAlign={{ xs: 'center', md: 'left' }}
-            mx="auto"
+          <Typography variant="h2">{headline}</Typography>
+          <Typography
+            variant="body1"
+            mb={{ xs: 3, sm: 2 }}
+            mt={{ xs: 1, sm: 0.5 }}
           >
-            <Typography variant="h2">{headline}</Typography>
-            <Typography
-              variant="body1"
-              mb={{ xs: 3, sm: 2 }}
-              mt={{ xs: 1, sm: 0.5 }}
-            >
-              {subline}
-            </Typography>
-            {(primaryCta || secondaryCta) && (
-              <Box display="flex">
-                <Grid
-                  container
-                  spacing={2}
-                  justifyContent={{ xs: 'center', md: 'left' }}
-                >
-                  {primaryCta && <Grid item>{primaryCta}</Grid>}
-                  {secondaryCta && <Grid item>{secondaryCta}</Grid>}
-                </Grid>
-              </Box>
-            )}
-          </Grid>
+            {subline}
+          </Typography>
+          {(primaryCta || secondaryCta) && (
+            <Box display="flex">
+              <Grid
+                container
+                spacing={2}
+                justifyContent={{ xs: 'center', md: 'left' }}
+              >
+                {primaryCta && <Grid item>{primaryCta}</Grid>}
+                {secondaryCta && <Grid item>{secondaryCta}</Grid>}
+              </Grid>
+            </Box>
+          )}
         </Grid>
-      </Container>
-    </Box>
-  );
-};
+      </Grid>
+    </Container>
+  </Box>
+);
