@@ -87,14 +87,22 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
     if (!item.children) {
       return (
         <ListItem key={item.label}>
-          <ListItemButton disableRipple>{item.label}</ListItemButton>
+          <ListItemButton
+            onClick={item.onClick ?? (() => push(item.href ?? ''))}
+            disableRipple
+          >
+            {item.label}
+          </ListItemButton>
         </ListItem>
       );
     }
 
     return (
       <Accordion key={item.label}>
-        <AccordionSummary expandIcon={<ExpandMore />}>
+        <AccordionSummary
+          expandIcon={<ExpandMore />}
+          onClick={item.onClick ?? (() => push(item.href ?? ''))}
+        >
           {item.label}
         </AccordionSummary>
         {item.children.map((child) => renderDrawer(child))}
