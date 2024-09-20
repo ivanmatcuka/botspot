@@ -57,7 +57,11 @@ export default function RootLayout({
                 { label: 'Learn About 3D Scanning', href: '/learn' },
                 {
                   label: 'About Us',
-                  children: [{ label: 'About Us', href: '/about' }],
+                  href: '/about',
+                  children: [
+                    { label: 'Innovation Lab', href: '/about/innovation-lab' },
+                    { label: 'Careers', href: '/about/careers' },
+                  ],
                 },
               ]}
               cta={<Button variant="secondary">Contact Us</Button>}

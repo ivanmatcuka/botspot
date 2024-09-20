@@ -3,7 +3,7 @@
 import { Box, Container, Grid, styled, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 
-const StyledImage = styled('img')(({ theme }) => ({
+const BannerImage = styled('img')(({ theme }) => ({
   width: '100%',
   height: '100%',
   objectFit: 'cover',
@@ -25,6 +25,7 @@ type SecondaryBlockProps = {
   subline?: string;
   primaryCta?: ReactNode;
   secondaryCta?: ReactNode;
+  disableGutter?: boolean;
 };
 export const SecondaryBlock: FC<SecondaryBlockProps> = ({
   assetUrl,
@@ -32,17 +33,18 @@ export const SecondaryBlock: FC<SecondaryBlockProps> = ({
   subline,
   primaryCta,
   secondaryCta,
+  disableGutter = false,
 }) => {
   return (
     <Box textAlign={{ xs: 'center', md: 'left' }}>
-      {assetUrl && <StyledImage src={assetUrl} alt="" />}
+      {assetUrl && <BannerImage src={assetUrl} alt="" />}
 
       <Container maxWidth="xl">
         <Grid
           container
           justifyContent="center"
-          mt={{ xs: 2, sm: 3 }}
-          mb={{ xs: 10, smd: 15 }}
+          my={{ xs: 2, sm: 3 }}
+          {...(!disableGutter && { mb: { xs: 10, sm: 15 } })}
         >
           <Grid
             item
@@ -59,16 +61,18 @@ export const SecondaryBlock: FC<SecondaryBlockProps> = ({
             >
               {subline}
             </Typography>
-            <Box display="flex">
-              <Grid
-                container
-                spacing={2}
-                justifyContent={{ xs: 'center', md: 'left' }}
-              >
-                <Grid item>{primaryCta}</Grid>
-                <Grid item>{secondaryCta}</Grid>
-              </Grid>
-            </Box>
+            {(primaryCta || secondaryCta) && (
+              <Box display="flex">
+                <Grid
+                  container
+                  spacing={2}
+                  justifyContent={{ xs: 'center', md: 'left' }}
+                >
+                  {primaryCta && <Grid item>{primaryCta}</Grid>}
+                  {secondaryCta && <Grid item>{secondaryCta}</Grid>}
+                </Grid>
+              </Box>
+            )}
           </Grid>
         </Grid>
       </Container>

@@ -1,6 +1,6 @@
 import { MainBlock } from '../components/MainBlock/MainBlock';
 import { Button } from '../components/Button/Button';
-import { Grid, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Tile } from '../components/Tile/Tile';
 import { FeedbackForm } from '../components/FeedbackForm/FeedbackForm';
 import { Banner } from '../components/Banner/Banner';
@@ -45,23 +45,15 @@ export default function Learn() {
         </Typography>
       </Tile>
 
-      <Grid
-        container
-        maxWidth="xl"
-        mx="auto"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Grid item xs={12} textAlign="center">
-          <Image
-            src="/img/learn/1.png"
-            alt=""
-            width={1010}
-            height={440}
-            style={{ width: '100%' }}
-          />
-        </Grid>
-      </Grid>
+      <Box maxWidth="xl" mx="auto">
+        <Image
+          src="/img/learn/1.png"
+          alt=""
+          width={1010}
+          height={440}
+          style={{ width: '100%' }}
+        />
+      </Box>
 
       <MainBlock
         subline="Questions & Articles"

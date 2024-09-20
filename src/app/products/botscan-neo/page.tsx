@@ -1,9 +1,10 @@
-import { MainBlock } from '../../components/MainBlock/MainBlock';
-import { Button } from '../../components/Button/Button';
 import { Typography } from '@mui/material';
-import { SecondaryBlock } from '../../components/SecondaryBlock/SecondaryBlock';
-import { Tile } from '../../components/Tile/Tile';
-import { FeedbackForm } from '../../components/FeedbackForm/FeedbackForm';
+
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { Button } from '@/app/components/Button/Button';
+import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { Tile } from '@/app/components/Tile/Tile';
+import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
 import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';

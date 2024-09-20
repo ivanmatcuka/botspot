@@ -1,10 +1,10 @@
-import { MainBlock } from '../../components/MainBlock/MainBlock';
-import { Button } from '../../components/Button/Button';
-import { Typography } from '@mui/material';
-import { SecondaryBlock } from '../../components/SecondaryBlock/SecondaryBlock';
-import { Tile } from '../../components/Tile/Tile';
-import { FeedbackForm } from '../../components/FeedbackForm/FeedbackForm';
 import Image from 'next/image';
+import { Typography } from '@mui/material';
+
+import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { Tile } from '@/app/components/Tile/Tile';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { Button } from '@/app/components/Button/Button';
 
 export default function Healthcare() {
   return (

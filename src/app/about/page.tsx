@@ -1,10 +1,10 @@
-import { MainBlock } from '../components/MainBlock/MainBlock';
-import { Button } from '../components/Button/Button';
-import { Box, Grid, Typography } from '@mui/material';
-import { Tile } from '../components/Tile/Tile';
-import { FeedbackForm } from '../components/FeedbackForm/FeedbackForm';
-import { Banner } from '../components/Banner/Banner';
-import Image from 'next/image';
+import { Box, Typography } from '@mui/material';
+
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { Button } from '@/app/components/Button/Button';
+import { Tile } from '@/app/components/Tile/Tile';
+import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { Banner } from '@/app/components/Banner/Banner';
 
 export default function About() {
   return (
@@ -59,11 +59,13 @@ export default function About() {
           cta={<Button variant="primary">Explore Our Services</Button>}
         />
       </Box>
+
       <MainBlock
         subline="Our Story"
         headline="Delivering excellence for over ten years."
         cta={<Button variant="primary">Explore Our Services</Button>}
       />
+
       <Tile headline="How it all began">
         <Typography variant="body1">
           New York, 2010. Thomas Strenger, a German engineer and TV producer,

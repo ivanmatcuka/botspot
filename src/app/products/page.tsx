@@ -1,11 +1,12 @@
-import { MainBlock } from '../components/MainBlock/MainBlock';
-import { Button } from '../components/Button/Button';
-import { Box, Grid, Typography } from '@mui/material';
-import { SecondaryBlock } from '../components/SecondaryBlock/SecondaryBlock';
-import { Tile } from '../components/Tile/Tile';
-import { FeedbackForm } from '../components/FeedbackForm/FeedbackForm';
-import { Banner } from '../components/Banner/Banner';
-import Image from 'next/image';
+import { Typography } from '@mui/material';
+
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { Button } from '@/app/components/Button/Button';
+import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { Tile } from '@/app/components/Tile/Tile';
+import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { Banner } from '@/app/components/Banner/Banner';
+import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 
 export default function Products() {
   return (
@@ -48,6 +49,7 @@ export default function Products() {
           to scale up 3D asset production and bring down the cost per model.
         </Typography>
       </Tile>
+
       <SecondaryBlock
         assetUrl="/img/products/1.png"
         headline="Botscan NEO"
@@ -63,6 +65,7 @@ export default function Products() {
         primaryCta={<Button variant="primary">Explore 3D Studio</Button>}
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
       />
+
       <SecondaryBlock
         assetUrl="/img/products/3.png"
         headline="3D Object"
@@ -71,36 +74,14 @@ export default function Products() {
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
       />
 
-      <Box
-        width="100%"
-        bgcolor="grey.100"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        py={{ xs: 6, md: 10 }}
-      >
-        <Box maxWidth="xl">
-          <Grid container alignItems="center" justifyContent="center">
-            <Grid item xs={12} md={6} display="flex" justifyContent="center">
-              <Image
-                src="/img/products/4.png"
-                width={493}
-                height={304}
-                alt="Custom Solutions"
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <SecondaryBlock
-                subline="Discover our Areas of Use with a diverse range of applications and industries."
-                headline="Our Scanners in Action"
-                primaryCta={
-                  <Button variant="primary">Explore Applications</Button>
-                }
-              />
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
+      <GalleryTile imgUrl="/img/products/4.png">
+        <SecondaryBlock
+          subline="Discover our Areas of Use with a diverse range of applications and industries."
+          headline="Our Scanners in Action"
+          primaryCta={<Button variant="primary">Explore Applications</Button>}
+        />
+      </GalleryTile>
+
       <FeedbackForm />
     </main>
   );

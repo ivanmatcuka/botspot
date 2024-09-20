@@ -1,7 +1,7 @@
-import { MainBlock } from '../components/MainBlock/MainBlock';
-import { Button } from '../components/Button/Button';
-import { FeedbackForm } from '../components/FeedbackForm/FeedbackForm';
-import { Banner } from '../components/Banner/Banner';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { Button } from '@/app/components/Button/Button';
+import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { Banner } from '@/app/components/Banner/Banner';
 
 export default function Areas() {
   return (
