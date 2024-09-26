@@ -1,3 +1,5 @@
+'use client';
+
 import { MainBlock } from './components/MainBlock/MainBlock';
 import { Button } from './components/Button/Button';
 import { Box, Typography } from '@mui/material';
@@ -5,52 +7,56 @@ import { SecondaryBlock } from './components/SecondaryBlock/SecondaryBlock';
 import { Tile } from './components/Tile/Tile';
 import { FeedbackForm } from './components/FeedbackForm/FeedbackForm';
 import { Banner } from './components/Banner/Banner';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const { push } = useRouter();
+
   return (
     <main className="">
       <Banner
-        assetUrl="/banner.png"
+        assetUrl="/videos/landing-page.mp4"
         headline="THE WORLD’S MOST VERSATILE 3D SCANNERS."
         subline="With over 10 years of experience in Photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
-        primaryCta={<Button variant="primary">Explore Neo</Button>}
+        primaryCta={
+          <Button
+            variant="primary"
+            onClick={() => push('/products/botscan-neo')}
+          >
+            Explore Neo
+          </Button>
+        }
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
       />
 
-      <MainBlock
-        assetUrl="/placeholder.png"
-        subline="What we do"
-        headline="Professional 3D Scanners for rapid, highly precise and absolutely colorfast 3D data."
-        cta={<Button variant="primary">See All Products</Button>}
-      />
-
       <SecondaryBlock
-        assetUrl="/botscan_neo.png"
+        assetUrl="/videos/botscan-neo-landing.mp4"
         headline="Botscan NEO"
         subline="Smart 3D fullbody scanner for high volume 3D model production"
-        primaryCta={<Button variant="primary">Explore Neo</Button>}
+        primaryCta={
+          <Button
+            variant="primary"
+            onClick={() => push('/products/botscan-neo')}
+          >
+            Explore Neo
+          </Button>
+        }
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
+        autoplay={false}
+        scrollable
       />
       <SecondaryBlock
-        assetUrl="/3d_studio.png"
-        headline="3D Studio"
-        subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
-        primaryCta={<Button variant="primary">Explore 3D Studio</Button>}
-        secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
-      />
-      <SecondaryBlock
-        assetUrl="/3d_object.png"
+        assetUrl="/videos/object-scanner-landing.mp4"
         headline="3D Object"
         subline="Fully automated 3D object scanner for precise photogrammetry"
-        primaryCta={<Button variant="primary">Explore 3D Object</Button>}
+        primaryCta={
+          <Button variant="primary" onClick={() => push('/products/3d-object')}>
+            Explore 3D Object
+          </Button>
+        }
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
-      />
-      <SecondaryBlock
-        assetUrl="/custom_solutions.png"
-        headline="Custom Solutions"
-        subline="Our Innovation Lab will assist you with special requirements in order to make your vision come true."
-        primaryCta={<Button variant="primary">See Custom Solutions</Button>}
-        secondaryCta={<Button variant="secondary">Visit Innovation Lab</Button>}
+        autoplay={false}
+        scrollable
       />
       <Box
         width="100%"
@@ -61,7 +67,11 @@ export default function Home() {
         <MainBlock
           subline="How we can help"
           headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
-          cta={<Button variant="primary">Explore Our Services</Button>}
+          cta={
+            <Button variant="primary" onClick={() => push('/services')}>
+              Explore Our Services
+            </Button>
+          }
         />
         <Tile headline="Send Us Objects">
           <Typography variant="body1">
@@ -85,7 +95,11 @@ export default function Home() {
       <MainBlock
         subline="About Us"
         headline="Since 2013, botspot has been bridging the gap between physical and digital."
-        cta={<Button variant="primary">See our Story</Button>}
+        cta={
+          <Button variant="primary" onClick={() => push('/about')}>
+            See our Story
+          </Button>
+        }
       />
       <Tile headline="Our Work Ethic">
         <Typography variant="body1">

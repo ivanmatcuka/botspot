@@ -4,6 +4,7 @@ import { Box, Container, Grid, styled, Typography } from '@mui/material';
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
 import { BannerImage } from '../BannerImage/BannerImage';
+import { ScrollableVideo } from '../ScrollableVideo/ScrollableVideo';
 
 type MainBlockProps = {
   assetUrl?: string;
@@ -11,6 +12,8 @@ type MainBlockProps = {
   subline?: string;
   cta?: ReactNode;
   subAssetUrl?: string;
+  autoplay?: boolean;
+  scrollable?: boolean;
 };
 export const MainBlock: FC<MainBlockProps> = ({
   assetUrl,
@@ -18,9 +21,31 @@ export const MainBlock: FC<MainBlockProps> = ({
   subline,
   cta,
   subAssetUrl,
+  scrollable = false,
+  autoplay = true,
 }) => (
   <Box textAlign={{ xs: 'center', md: 'left' }}>
-    {assetUrl && <BannerImage src={assetUrl} alt="" />}
+    {assetUrl && (
+      <Box height={{ xs: 1024, md: 768, lg: 800 }}>
+        {scrollable ? (
+          <ScrollableVideo videoSrc={assetUrl} autoplay={autoplay} />
+        ) : assetUrl.split('.').pop() === 'mp4' ? (
+          <video
+            preload="preload"
+            className="object-cover max-h-[800px] md:max-h-[768px] xs:max-h-[1024px]"
+            autoPlay={autoplay}
+            muted
+          >
+            <source
+              type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+              src={assetUrl}
+            />
+          </video>
+        ) : (
+          <BannerImage src={assetUrl} alt="" />
+        )}
+      </Box>
+    )}
 
     <Container maxWidth="xl">
       <Grid
