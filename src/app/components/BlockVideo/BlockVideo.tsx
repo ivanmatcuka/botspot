@@ -20,7 +20,7 @@ export const BlockVideo: FC<SecondaryBlockProps> = ({
     ) : assetUrl?.split('.').pop() === 'mp4' ? (
       <video
         preload="preload"
-        className="object-cover max-h-[800px] md:max-h-[768px] xs:max-h-[1024px]"
+        className="object-cover w-full h-full"
         autoPlay={autoplay}
         muted
         loop

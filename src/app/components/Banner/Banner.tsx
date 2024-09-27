@@ -3,6 +3,7 @@
 import { Box, Container, Grid, styled, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 import { ScrollableVideo } from '../ScrollableVideo/ScrollableVideo';
+import { BlockVideo } from '../BlockVideo/BlockVideo';
 
 const AbsoluteContainer = styled(Box)({
   position: 'absolute',
@@ -37,10 +38,14 @@ export const Banner: FC<BannerProps> = ({
   autoplay = true,
 }) => (
   <Box position="relative" height={{ xs: 800, md: 768, lg: 1024 }}>
-    {assetUrl?.split('.').pop() === 'mp4' ? (
-      <ScrollableVideo videoSrc={assetUrl} autoplay={autoplay} />
-    ) : (
-      <StyledImage src={assetUrl} alt="" />
+    {assetUrl && (
+      <Box height={{ xs: 1024, md: 768, lg: 800 }}>
+        <BlockVideo
+          assetUrl={assetUrl}
+          autoplay={autoplay}
+          scrollable={false}
+        />
+      </Box>
     )}
 
     <Gradient />
