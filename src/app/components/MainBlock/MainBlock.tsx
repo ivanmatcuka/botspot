@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { FC, ReactNode } from 'react';
 import { BannerImage } from '../BannerImage/BannerImage';
 import { ScrollableVideo } from '../ScrollableVideo/ScrollableVideo';
+import { BlockVideo } from '../BlockVideo/BlockVideo';
 
 type MainBlockProps = {
   assetUrl?: string;
@@ -27,23 +28,11 @@ export const MainBlock: FC<MainBlockProps> = ({
   <Box textAlign={{ xs: 'center', md: 'left' }}>
     {assetUrl && (
       <Box height={{ xs: 1024, md: 768, lg: 800 }}>
-        {scrollable ? (
-          <ScrollableVideo videoSrc={assetUrl} autoplay={autoplay} />
-        ) : assetUrl.split('.').pop() === 'mp4' ? (
-          <video
-            preload="preload"
-            className="object-cover max-h-[800px] md:max-h-[768px] xs:max-h-[1024px]"
-            autoPlay={autoplay}
-            muted
-          >
-            <source
-              type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-              src={assetUrl}
-            />
-          </video>
-        ) : (
-          <BannerImage src={assetUrl} alt="" />
-        )}
+        <BlockVideo
+          assetUrl={assetUrl}
+          autoplay={autoplay}
+          scrollable={scrollable}
+        />
       </Box>
     )}
 

@@ -30,7 +30,30 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({
       return percentageInView ?? 0;
     };
 
+    const isInCenter = () => {
+      const rect = video.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const elementHeight = rect.height;
+
+      const top = rect.top;
+      const bottom = Math.min(rect.bottom, viewportHeight);
+
+      // Check if the video is within the viewport
+      if (top < 0 || bottom > viewportHeight) false;
+
+      // Calculate the center point of the viewport
+      const viewportCenter = viewportHeight / 2;
+
+      // Calculate the center point of the video element
+      const elementCenter = top + elementHeight / 2;
+
+      // Check if the video is within a certain threshold of the viewport center
+      const threshold = 100; // adjust this value as needed
+      return Math.abs(elementCenter - viewportCenter) < threshold;
+    };
+
     function scrollPlay() {
+      console.log(calculateElementInView(), isInCenter());
       if (video && calculateElementInView() > 0) {
         const frameNumber = calculateElementInView() * video.duration;
         frameNumber && (video.currentTime = frameNumber);
@@ -52,10 +75,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({
           autoPlay={autoplay}
           muted
         >
-          <source
-            type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-            src={videoSrc}
-          />
+          <source type="video/mp4" src={videoSrc} />
         </video>
       </div>
     </div>
