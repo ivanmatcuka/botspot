@@ -119,8 +119,8 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   return (
     <StyledMuiAppBar position="relative" color="transparent" elevation={24}>
       <Toolbar>
-        <Grid container>
-          <Grid item xs={12} md={10} mx="auto" display="flex">
+        <Grid container maxWidth="xl" mx="auto">
+          <Grid item xs={12} display="flex">
             <Link href="/">
               <Image width={150} height={46} src="/logo.svg" alt="logo" />
             </Link>
