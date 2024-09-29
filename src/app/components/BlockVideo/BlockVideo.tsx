@@ -17,7 +17,15 @@ export const BlockVideo: FC<SecondaryBlockProps> = ({
   scrollable = false,
   fullHeight = false,
 }) => (
-  <Box height={fullHeight ? '100vh' : { xs: 1024, md: 768, lg: 800 }}>
+  <Box
+    height={
+      fullHeight
+        ? scrollable
+          ? '300vh'
+          : '100vh'
+        : { xs: 1024, md: 768, lg: 800 }
+    }
+  >
     {assetUrl && scrollable ? (
       <ScrollableVideo videoSrc={assetUrl} autoplay={autoplay} />
     ) : assetUrl?.split('.').pop() === 'mp4' ? (

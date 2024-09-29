@@ -1,5 +1,5 @@
-import { duration } from '@mui/material';
-import { FC, RefObject, useEffect, useMemo, useRef, useState } from 'react';
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
+import useDetectScroll from '@smakss/react-scroll-direction';
 
 type ScrollableVideoProps = {
   videoSrc: string;
@@ -10,68 +10,72 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({
   autoplay,
 }) => {
   const [video, setVideo] = useState<HTMLVideoElement | null>(null);
+  const [videoProgress, setVideoProgress] = useState(0);
+  const [isInViewport, setIsInViewport] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollDir } = useDetectScroll({
+    target: window,
+  });
+
+  const checkInViewport = useCallback(() => {
+    if (!video) return;
+
+    const rect = video.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const elementHeight = rect.height;
+
+    const top = rect.top;
+    const bottom = Math.min(rect.bottom, viewportHeight);
+
+    // Check if the video is within the viewport
+    if (top < 0 || bottom > viewportHeight) false;
+
+    // Calculate the center point of the viewport
+    const viewportCenter = viewportHeight / 2;
+
+    // Calculate the center point of the video element
+    const elementCenter = top + elementHeight / 2;
+
+    // Check if the video is within a certain threshold of the viewport center
+    const threshold = 300; // adjust this value as needed
+    return Math.abs(elementCenter - viewportCenter) < threshold;
+  }, [video]);
 
   useEffect(() => {
     if (autoplay || !video) return;
+    const newTime = videoProgress * video.duration;
 
-    const calculateElementInView = () => {
-      const rect = video.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const elementHeight = rect.height;
+    video.currentTime = isNaN(newTime) ? 0 : newTime;
+  }, [autoplay, video, videoProgress]);
 
-      // Deliberately not using Math.max here
-      // so it only works when scrolling down
-      const top = rect.top;
-      const bottom = Math.min(rect.bottom, viewportHeight);
+  useEffect(() => {
+    const onScroll: EventListener = () => {
+      const containerRect = containerRef.current?.getBoundingClientRect();
+      if (!containerRect || !containerRef.current) return;
 
-      const visibleHeight = bottom - top;
-      const percentageInView = visibleHeight / elementHeight;
+      const progress = Math.min(
+        Math.abs(Math.min(0, containerRect.top)) /
+          (containerRef.current?.clientHeight - window.innerHeight),
+        1,
+      );
 
-      return percentageInView ?? 0;
+      setVideoProgress(progress);
+      setIsInViewport(!!checkInViewport());
     };
+    window.addEventListener('scroll', onScroll);
 
-    const isInCenter = () => {
-      const rect = video.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const elementHeight = rect.height;
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [video]);
 
-      const top = rect.top;
-      const bottom = Math.min(rect.bottom, viewportHeight);
-
-      // Check if the video is within the viewport
-      if (top < 0 || bottom > viewportHeight) false;
-
-      // Calculate the center point of the viewport
-      const viewportCenter = viewportHeight / 2;
-
-      // Calculate the center point of the video element
-      const elementCenter = top + elementHeight / 2;
-
-      // Check if the video is within a certain threshold of the viewport center
-      const threshold = 100; // adjust this value as needed
-      return Math.abs(elementCenter - viewportCenter) < threshold;
-    };
-
-    function scrollPlay() {
-      console.log(calculateElementInView(), isInCenter());
-      if (video && calculateElementInView() > 0) {
-        const frameNumber = calculateElementInView() * video.duration;
-        frameNumber && (video.currentTime = frameNumber);
-      }
-
-      window.requestAnimationFrame(scrollPlay);
-    }
-
-    window.requestAnimationFrame(scrollPlay);
-  }, [videoSrc, autoplay, video]);
+  useEffect(() => {}, []);
 
   return (
-    <div className="relative h-full">
-      <div className="w-full h-full absolute inset-0">
+    <div className="h-full relative" ref={containerRef}>
+      <div className="w-full sticky top-0" ref={containerRef}>
         <video
           ref={setVideo}
           preload="preload"
-          className="w-full h-full object-cover"
+          className="w-full object-cover"
           autoPlay={autoplay}
           muted
         >
