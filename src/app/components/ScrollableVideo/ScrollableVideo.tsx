@@ -55,7 +55,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({
 
   return (
     <div className="h-full relative" ref={containerRef}>
-      <div className="w-full h-[100vh] sticky top-0">
+      <div className="w-full h-[100vh] xs:min-h-[1024px] md:min-h-[768px] lg:min-h-[800px] sticky top-0">
         <video
           ref={videoRef}
           preload="preload"

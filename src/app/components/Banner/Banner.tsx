@@ -31,7 +31,7 @@ export const Banner: FC<BannerProps> = ({
   secondaryCta,
   autoplay = true,
 }) => (
-  <Box position="relative">
+  <Box position="relative" minHeight={{ xs: 1024, md: 768, lg: 800 }}>
     {assetUrl && (
       <BlockVideo
         assetUrl={assetUrl}
@@ -52,7 +52,7 @@ export const Banner: FC<BannerProps> = ({
       mx="auto"
     >
       <Grid container alignItems="end" justifyContent="end" height="100%">
-        <Grid item xs={12} md={8} mb={{ xs: 26, md: 15, lg: 29 }}>
+        <Grid item xs={12} md={8} mb={{ md: 15, lg: 29 }}>
           <Box
             display="flex"
             flexDirection="column"
