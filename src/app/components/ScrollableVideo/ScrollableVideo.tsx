@@ -9,9 +9,11 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ videoSrc }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [frame, setFrame] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const prepareImages = useCallback(async () => {
     let images: HTMLImageElement[] = [];
+    setIsLoading(true);
 
     const loadImage = (url: string): Promise<HTMLImageElement> => {
       return new Promise((resolve, reject) => {
@@ -29,6 +31,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ videoSrc }) => {
         );
         images.push(image);
       } catch (e) {
+        setIsLoading(false);
         break;
       }
     }
@@ -61,10 +64,21 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ videoSrc }) => {
   return (
     <div className="h-full relative" ref={containerRef}>
       <div className="w-full h-[100vh] xs:min-h-[1024px] md:min-h-[768px] lg:min-h-[800px] sticky top-0">
-        <img
-          src={`videos/${videoSrc}/${videoSrc}${frame.toString().padStart(3, '0')}.jpg`}
-          className="w-full h-full object-cover"
-        />
+        {isLoading ? (
+          <>
+            <div className="w-full h-full backdrop-blur-sm bg-white/30 absolute inset-0" />
+
+            <img
+              src={`videos/${videoSrc}/${videoSrc}000.jpg`}
+              className="w-full h-full object-cover"
+            />
+          </>
+        ) : (
+          <img
+            src={`videos/${videoSrc}/${videoSrc}${frame.toString().padStart(3, '0')}.jpg`}
+            className="w-full h-full object-cover"
+          />
+        )}
       </div>
     </div>
   );
