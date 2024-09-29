@@ -39,7 +39,7 @@ export const Banner: FC<BannerProps> = ({
 }) => (
   <Box position="relative" height={{ xs: 800, md: 768, lg: 1024 }}>
     {assetUrl && (
-      <Box height={{ xs: 1024, md: 768, lg: 800 }}>
+      <Box height="100%">
         <BlockVideo
           assetUrl={assetUrl}
           autoplay={autoplay}
