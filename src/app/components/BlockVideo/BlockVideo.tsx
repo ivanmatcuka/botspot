@@ -27,7 +27,7 @@ export const BlockVideo: FC<SecondaryBlockProps> = ({
     }
   >
     {assetUrl && scrollable ? (
-      <ScrollableVideo videoSrc={assetUrl} autoplay={autoplay} />
+      <ScrollableVideo videoSrc={assetUrl} />
     ) : assetUrl?.split('.').pop() === 'mp4' ? (
       <video
         preload="preload"

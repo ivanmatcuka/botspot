@@ -1,8 +1,7 @@
 'use client';
 
-import { Box, Container, Grid, styled, Typography } from '@mui/material';
+import { Box, Grid, styled, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
-import { ScrollableVideo } from '../ScrollableVideo/ScrollableVideo';
 import { BlockVideo } from '../BlockVideo/BlockVideo';
 
 const AbsoluteContainer = styled(Box)({

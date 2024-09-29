@@ -2,8 +2,6 @@
 
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
-import { BannerImage } from '../BannerImage/BannerImage';
-import { ScrollableVideo } from '../ScrollableVideo/ScrollableVideo';
 import { BlockVideo } from '../BlockVideo/BlockVideo';
 
 type SecondaryBlockProps = {

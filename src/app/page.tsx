@@ -30,7 +30,7 @@ export default function Home() {
       />
 
       <SecondaryBlock
-        assetUrl="/videos/botscan-neo-landing.mp4"
+        assetUrl="BotscanNEO_Landing00090"
         headline="Botscan NEO"
         subline="Smart 3D fullbody scanner for high volume 3D model production"
         primaryCta={
@@ -47,7 +47,7 @@ export default function Home() {
         fullHeight
       />
       <SecondaryBlock
-        assetUrl="/videos/object-scanner-landing.mp4"
+        assetUrl="ObjectScanner_Landing00090"
         headline="3D Object"
         subline="Fully automated 3D object scanner for precise photogrammetry"
         primaryCta={

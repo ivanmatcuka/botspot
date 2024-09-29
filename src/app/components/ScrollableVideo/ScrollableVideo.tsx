@@ -1,25 +1,47 @@
 'use client';
 
-import { FC, useEffect, useRef } from 'react';
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
 
 type ScrollableVideoProps = {
   videoSrc: string;
-  autoplay?: boolean;
 };
-export const ScrollableVideo: FC<ScrollableVideoProps> = ({
-  videoSrc,
-  autoplay,
-}) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
+export const ScrollableVideo: FC<ScrollableVideoProps> = ({ videoSrc }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const animationFrameIdRef = useRef<number | null>(null);
+  const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const [frame, setFrame] = useState(0);
+
+  const prepareImages = useCallback(async () => {
+    let images: HTMLImageElement[] = [];
+
+    const loadImage = (url: string): Promise<HTMLImageElement> => {
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.src = url;
+        image.onload = () => resolve(image);
+        image.onerror = () => reject('broken');
+      });
+    };
+
+    for (var i = 0; i < Infinity; i++) {
+      try {
+        const image = await loadImage(
+          `videos/${videoSrc}/${videoSrc}${i.toString().padStart(3, '0')}.jpg`,
+        );
+        images.push(image);
+      } catch (e) {
+        break;
+      }
+    }
+
+    setImages(images);
+  }, []);
 
   useEffect(() => {
-    const video = videoRef.current;
+    prepareImages();
+  }, [prepareImages]);
 
-    if (autoplay || !video) return;
-
-    const onScroll = () => {
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
       const containerRect = containerRef.current?.getBoundingClientRect();
       if (!containerRect || !containerRef.current) return;
 
@@ -28,43 +50,21 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({
           (containerRef.current?.clientHeight - window.innerHeight),
         1,
       );
-      const newTime = progress * video.duration;
 
-      if (!isNaN(newTime) && newTime !== video.currentTime) {
-        video.currentTime = newTime;
-      }
-    };
+      const frameIndex = Math.floor(progress * (images.length - 1));
 
-    const onSeeked = () => {
-      animationFrameIdRef.current = window.requestAnimationFrame(onScroll);
-    };
-
-    animationFrameIdRef.current = window.requestAnimationFrame(onScroll);
-
-    window.addEventListener('scroll', onScroll);
-    video.addEventListener('seeked', onSeeked);
-
-    return () => {
-      animationFrameIdRef.current &&
-        window.cancelAnimationFrame(animationFrameIdRef.current);
-
-      window.removeEventListener('scroll', onScroll);
-      video.removeEventListener('seeked', onSeeked);
-    };
-  }, []);
+      if (!images[frameIndex]) return;
+      setFrame(frameIndex);
+    });
+  }, [images]);
 
   return (
     <div className="h-full relative" ref={containerRef}>
       <div className="w-full h-[100vh] xs:min-h-[1024px] md:min-h-[768px] lg:min-h-[800px] sticky top-0">
-        <video
-          ref={videoRef}
-          preload="preload"
+        <img
+          src={`videos/${videoSrc}/${videoSrc}${frame.toString().padStart(3, '0')}.jpg`}
           className="w-full h-full object-cover"
-          autoPlay={autoplay}
-          muted
-        >
-          <source type="video/mp4" src={videoSrc} />
-        </video>
+        />
       </div>
     </div>
   );
