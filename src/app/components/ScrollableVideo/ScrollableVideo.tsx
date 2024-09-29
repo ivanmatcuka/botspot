@@ -1,4 +1,6 @@
-import { FC, useEffect, useRef, useState } from 'react';
+'use client';
+
+import { FC, useEffect, useRef } from 'react';
 
 type ScrollableVideoProps = {
   videoSrc: string;
@@ -8,11 +10,16 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({
   videoSrc,
   autoplay,
 }) => {
-  const [video, setVideo] = useState<HTMLVideoElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const animationFrameIdRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const onScroll: EventListener = () => {
+    const video = videoRef.current;
+
+    if (autoplay || !video) return;
+
+    const onScroll = () => {
       const containerRect = containerRef.current?.getBoundingClientRect();
       if (!containerRect || !containerRef.current) return;
 
@@ -21,22 +28,36 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({
           (containerRef.current?.clientHeight - window.innerHeight),
         1,
       );
-
-      if (autoplay || !video) return;
       const newTime = progress * video.duration;
 
-      video.currentTime = isNaN(newTime) ? 0 : newTime;
+      if (!isNaN(newTime) && newTime !== video.currentTime) {
+        video.currentTime = newTime;
+      }
     };
-    window.addEventListener('scroll', onScroll);
 
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [video]);
+    const onSeeked = () => {
+      animationFrameIdRef.current = window.requestAnimationFrame(onScroll);
+    };
+
+    animationFrameIdRef.current = window.requestAnimationFrame(onScroll);
+
+    window.addEventListener('scroll', onScroll);
+    video.addEventListener('seeked', onSeeked);
+
+    return () => {
+      animationFrameIdRef.current &&
+        window.cancelAnimationFrame(animationFrameIdRef.current);
+
+      window.removeEventListener('scroll', onScroll);
+      video.removeEventListener('seeked', onSeeked);
+    };
+  }, []);
 
   return (
     <div className="h-full relative" ref={containerRef}>
-      <div className="w-full h-[100vh] sticky top-0" ref={containerRef}>
+      <div className="w-full h-[100vh] sticky top-0">
         <video
-          ref={setVideo}
+          ref={videoRef}
           preload="preload"
           className="w-full h-full object-cover"
           autoPlay={autoplay}
