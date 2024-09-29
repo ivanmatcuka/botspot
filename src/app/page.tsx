@@ -29,6 +29,28 @@ export default function Home() {
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
       />
 
+      <Box
+        p={{ xs: 8, md: 10 }}
+        pl={{ xs: 4, md: 8 }}
+        display="flex"
+        mx="auto"
+        overflow="scroll"
+        className="no-scrollbar"
+        maxWidth="xl"
+      >
+        <img src="/img/partners/canon.png" alt="" />
+        <img src="/img/partners/umg.png" alt="" />
+        <img src="/img/partners/illies.png" alt="" />
+        <img src="/img/partners/iluikii.png" alt="" />
+        <img src="/img/partners/max-plank.png" alt="" />
+        <img src="/img/partners/theater.png" alt="" />
+        <img src="/img/partners/invrsion.png" alt="" />
+        <img src="/img/partners/vyking.png" alt="" />
+        <img src="/img/partners/vrinsight.png" alt="" />
+        <img src="/img/partners/thyng.png" alt="" />
+        <img src="/img/partners/acod.png" alt="" />
+      </Box>
+
       <SecondaryBlock
         assetUrl="BotscanNEO_Landing00090"
         headline="Botscan NEO"
@@ -65,6 +87,7 @@ export default function Home() {
         bgcolor="grey.100"
         display="flex"
         flexDirection="column"
+        pb={{ xs: 4, md: 10 }}
       >
         <MainBlock
           subline="How we can help"
@@ -81,12 +104,6 @@ export default function Home() {
             marketing-ready 3D models.
           </Typography>
         </Tile>
-        <Tile headline="Use For Project">
-          <Typography variant="body1">
-            Invest further by renting one or more scanners to run at your
-            location, which can be operated by anyone.
-          </Typography>
-        </Tile>
         <Tile headline="Buy At Discount">
           <Typography variant="body1">
             If you decide to purchase the scanner, buy our 3D scanners for a
@@ -94,23 +111,6 @@ export default function Home() {
           </Typography>
         </Tile>
       </Box>
-      <MainBlock
-        subline="About Us"
-        headline="Since 2013, botspot has been bridging the gap between physical and digital."
-        cta={
-          <Button variant="primary" onClick={() => push('/about')}>
-            See our Story
-          </Button>
-        }
-      />
-      <Tile headline="Our Work Ethic">
-        <Typography variant="body1">
-          At botspot we share the passion of expanding the boundaries of 3D
-          digitalization and 3D scanning, particularly in e-commerce and health
-          care. We love to set new standards and to redefine the rules in these
-          fields.
-        </Typography>
-      </Tile>
       <FeedbackForm />
     </main>
   );

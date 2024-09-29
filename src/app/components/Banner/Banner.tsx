@@ -4,12 +4,7 @@ import { Box, Grid, styled, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 import { BlockVideo } from '../BlockVideo/BlockVideo';
 
-const AbsoluteContainer = styled(Box)({
-  position: 'absolute',
-  inset: 0,
-});
-
-const Gradient = styled(AbsoluteContainer)({
+const Gradient = styled('div')({
   backgroundImage: 'linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%)',
 });
 
@@ -40,7 +35,7 @@ export const Banner: FC<BannerProps> = ({
       />
     )}
 
-    <Gradient />
+    <Gradient className="absolute inset-0" />
     <Box
       position="absolute"
       top={0}
