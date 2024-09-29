@@ -2,7 +2,8 @@
 
 import { Box, Grid, styled, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
-import { BlockVideo } from '../BlockVideo/BlockVideo';
+
+import { BlockVideo } from '@/app/components/BlockVideo/BlockVideo';
 
 const Gradient = styled('div')({
   backgroundImage: 'linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%)',

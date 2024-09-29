@@ -1,14 +1,10 @@
 'use client';
 
-import { Grid, styled, Typography, Container } from '@mui/material';
+import { Grid, Typography, Container } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
 type TileProps = {
   headline: string;
 };
-
-const GridContainer = styled(Grid)(({ theme }) => ({
-  borderTop: `1px solid ${theme.palette.grey[700]}`,
-}));
 
 export const Tile: FC<PropsWithChildren<TileProps>> = ({
   headline,
@@ -16,7 +12,7 @@ export const Tile: FC<PropsWithChildren<TileProps>> = ({
 }) => {
   return (
     <Container maxWidth="xl" disableGutters>
-      <GridContainer
+      <Grid
         container
         pt={6}
         xs={10}
@@ -25,6 +21,7 @@ export const Tile: FC<PropsWithChildren<TileProps>> = ({
         mx="auto"
         textAlign={{ xs: 'center', md: 'left' }}
         columnSpacing={2}
+        className="border-t border-gray-700"
       >
         <Grid item flexBasis={{ xs: '100%', md: '50%' }}>
           <Typography variant="h4" mb={2}>
@@ -34,7 +31,7 @@ export const Tile: FC<PropsWithChildren<TileProps>> = ({
         <Grid item flexBasis={{ xs: '100%', md: '50%' }}>
           {children}
         </Grid>
-      </GridContainer>
+      </Grid>
     </Container>
   );
 };

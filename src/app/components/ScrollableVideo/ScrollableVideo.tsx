@@ -1,46 +1,48 @@
 'use client';
 
-import { FC, useCallback, useEffect, useRef, useState } from 'react';
+import { Box } from '@mui/material';
+import { FC, useEffect, useRef, useState } from 'react';
 
 type ScrollableVideoProps = {
-  videoSrc: string;
+  fileName: string;
 };
-export const ScrollableVideo: FC<ScrollableVideoProps> = ({ videoSrc }) => {
+export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [frame, setFrame] = useState(0);
   const [isReady, setIsready] = useState(false);
 
-  const prepareImages = useCallback(async () => {
-    let images: HTMLImageElement[] = [];
+  useEffect(() => {
+    const prepareImages = async () => {
+      let images: HTMLImageElement[] = [];
 
-    const loadImage = (url: string): Promise<HTMLImageElement> => {
-      return new Promise((resolve, reject) => {
-        const image = new Image();
-        image.src = url;
-        image.onload = () => resolve(image);
-        image.onerror = () => reject('broken');
-      });
+      const loadImage = (url: string): Promise<HTMLImageElement> => {
+        return new Promise((resolve, reject) => {
+          const image = new Image();
+          image.src = url;
+          image.onload = () => resolve(image);
+          image.onerror = () => reject('broken');
+        });
+      };
+
+      for (var i = 0; i < Infinity; i++) {
+        try {
+          const image = await loadImage(
+            `videos/${fileName}/${fileName}${i.toString().padStart(3, '0')}.jpg`,
+          );
+          images.push(image);
+        } catch (e) {
+          setIsready(true);
+          break;
+        }
+      }
+
+      setImages(images);
     };
 
-    for (var i = 0; i < Infinity; i++) {
-      try {
-        const image = await loadImage(
-          `videos/${videoSrc}/${videoSrc}${i.toString().padStart(3, '0')}.jpg`,
-        );
-        images.push(image);
-      } catch (e) {
-        setIsready(true);
-        break;
-      }
-    }
-
-    setImages(images);
-  }, []);
-
-  useEffect(() => {
     prepareImages();
-  }, [prepareImages]);
+  }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -61,16 +63,18 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ videoSrc }) => {
   }, [images]);
 
   return (
-    <div className="h-full relative" ref={containerRef}>
-      <div className="w-full h-[100vh] xs:min-h-[1024px] md:min-h-[768px] lg:min-h-[800px] sticky top-0">
-        {!isReady && (
-          <div className="w-full h-full backdrop-blur-sm bg-white/30 absolute inset-0" />
-        )}
-        <img
-          src={`videos/${videoSrc}/${videoSrc}${frame.toString().padStart(3, '0')}.jpg`}
-          className="w-full h-full object-cover"
-        />
+    <Box height={isReady ? '300vh' : '100vh'}>
+      <div className="h-full relative" ref={containerRef}>
+        <div className="w-full h-[100vh] xs:min-h-[1024px] md:min-h-[768px] lg:min-h-[800px] sticky top-0">
+          {!isReady && (
+            <div className="w-full h-full backdrop-blur-sm bg-white/30 absolute inset-0" />
+          )}
+          <img
+            src={`videos/${fileName}/${fileName}${frame.toString().padStart(3, '0')}.jpg`}
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
-    </div>
+    </Box>
   );
 };

@@ -6,7 +6,6 @@ import {
   useTheme,
 } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
-import { Button, ButtonProps } from '../Button/Button';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import {
   usePopupState,
@@ -15,6 +14,9 @@ import {
 } from 'material-ui-popup-state/hooks';
 import HoverMenu from 'material-ui-popup-state/HoverMenu';
 import { useRouter } from 'next/navigation';
+
+import { Button, ButtonProps } from '@/app/components/Button/Button';
+
 export const MenuItem: FC<PropsWithChildren<MuiMenuItemProps>> = ({
   ...props
 }) => <MuiMenuItem {...props} />;

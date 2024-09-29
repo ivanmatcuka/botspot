@@ -2,7 +2,8 @@
 
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
-import { BlockVideo } from '../BlockVideo/BlockVideo';
+
+import { BlockVideo } from '@/app/components/BlockVideo/BlockVideo';
 
 type SecondaryBlockProps = {
   assetUrl?: string;

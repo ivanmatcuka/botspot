@@ -3,7 +3,8 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
-import { BlockVideo } from '../BlockVideo/BlockVideo';
+
+import { BlockVideo } from '@/app/components/BlockVideo/BlockVideo';
 
 type MainBlockProps = {
   assetUrl?: string;

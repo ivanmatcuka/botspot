@@ -5,7 +5,6 @@ import {
   IconButton as MuiIconButton,
   AppBar as MuiAppBar,
   Toolbar,
-  styled,
   useTheme,
   useMediaQuery,
   Drawer,
@@ -17,25 +16,17 @@ import {
   Grid,
 } from '@mui/material';
 import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
+
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import Image from 'next/image';
-import { Button } from '../Button/Button';
-import { Menu } from '../Menu/Menu';
 import { ExpandMore } from '@mui/icons-material';
+
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const ResponsiveMenuIcon = styled(MuiIconButton)(({ theme }) => ({
-  [theme.breakpoints.up('xl')]: {
-    display: 'none',
-  },
-}));
-
-const StyledMuiAppBar = styled(MuiAppBar)(({ theme }) => ({
-  borderBottom: `1px solid ${theme.palette.grey[200]}`,
-  zIndex: theme.zIndex.drawer + 1,
-}));
+import { Button } from '@/app/components/Button/Button';
+import { Menu } from '@/app/components/Menu/Menu';
 
 type MenuItem = {
   label: string;
@@ -117,7 +108,12 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   );
 
   return (
-    <StyledMuiAppBar position="relative" color="transparent" elevation={24}>
+    <MuiAppBar
+      position="relative"
+      className="border-b border-gray-200 z-[1201]"
+      color="transparent"
+      elevation={24}
+    >
       <Toolbar>
         <Grid container maxWidth="xl" mx="auto">
           <Grid item xs={12} display="flex">
@@ -137,15 +133,16 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
                 sx={{ flexGrow: 1 }}
                 justifyContent="flex-end"
               >
-                <ResponsiveMenuIcon
+                <MuiIconButton
                   size="large"
                   edge="start"
                   color="inherit"
                   aria-label="menu"
                   onClick={() => setIsOpen(!isOpen)}
+                  className="block xl:none"
                 >
                   {isOpen ? <CloseIcon /> : <MenuIcon />}
-                </ResponsiveMenuIcon>
+                </MuiIconButton>
                 <Drawer
                   anchor="top"
                   open={isOpen}
@@ -160,6 +157,6 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
           </Grid>
         </Grid>
       </Toolbar>
-    </StyledMuiAppBar>
+    </MuiAppBar>
   );
 };
