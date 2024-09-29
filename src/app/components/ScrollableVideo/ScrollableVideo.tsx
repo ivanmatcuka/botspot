@@ -34,11 +34,11 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({
 
   return (
     <div className="h-full relative" ref={containerRef}>
-      <div className="w-full sticky top-0" ref={containerRef}>
+      <div className="w-full h-[100vh] sticky top-0" ref={containerRef}>
         <video
           ref={setVideo}
           preload="preload"
-          className="w-full object-cover"
+          className="w-full h-full object-cover"
           autoPlay={autoplay}
           muted
         >
