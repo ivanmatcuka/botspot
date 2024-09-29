@@ -15,6 +15,7 @@ type SecondaryBlockProps = {
   disableGutter?: boolean;
   autoplay?: boolean;
   scrollable?: boolean;
+  fullHeight?: boolean;
 };
 export const SecondaryBlock: FC<SecondaryBlockProps> = ({
   assetUrl,
@@ -25,6 +26,7 @@ export const SecondaryBlock: FC<SecondaryBlockProps> = ({
   disableGutter = false,
   autoplay = true,
   scrollable = false,
+  fullHeight = false,
 }) => (
   <Box textAlign={{ xs: 'center', md: 'left' }}>
     {assetUrl && (
@@ -32,6 +34,7 @@ export const SecondaryBlock: FC<SecondaryBlockProps> = ({
         assetUrl={assetUrl}
         autoplay={autoplay}
         scrollable={scrollable}
+        fullHeight={fullHeight}
       />
     )}
 

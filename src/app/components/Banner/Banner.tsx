@@ -14,12 +14,6 @@ const Gradient = styled(AbsoluteContainer)({
   backgroundImage: 'linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%)',
 });
 
-const StyledImage = styled('img')({
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-});
-
 type BannerProps = {
   assetUrl: string;
   headline: string;
@@ -37,15 +31,14 @@ export const Banner: FC<BannerProps> = ({
   secondaryCta,
   autoplay = true,
 }) => (
-  <Box position="relative" height={{ xs: 800, md: 768, lg: 1024 }}>
+  <Box position="relative">
     {assetUrl && (
-      <Box height="100%">
-        <BlockVideo
-          assetUrl={assetUrl}
-          autoplay={autoplay}
-          scrollable={false}
-        />
-      </Box>
+      <BlockVideo
+        assetUrl={assetUrl}
+        autoplay={autoplay}
+        scrollable={false}
+        fullHeight
+      />
     )}
 
     <Gradient />

@@ -1,10 +1,8 @@
 'use client';
 
-import { Box, Container, Grid, styled, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
-import { BannerImage } from '../BannerImage/BannerImage';
-import { ScrollableVideo } from '../ScrollableVideo/ScrollableVideo';
 import { BlockVideo } from '../BlockVideo/BlockVideo';
 
 type MainBlockProps = {
@@ -15,6 +13,7 @@ type MainBlockProps = {
   subAssetUrl?: string;
   autoplay?: boolean;
   scrollable?: boolean;
+  fullHeight?: boolean;
 };
 export const MainBlock: FC<MainBlockProps> = ({
   assetUrl,
@@ -24,16 +23,16 @@ export const MainBlock: FC<MainBlockProps> = ({
   subAssetUrl,
   scrollable = false,
   autoplay = true,
+  fullHeight = false,
 }) => (
   <Box textAlign={{ xs: 'center', md: 'left' }}>
     {assetUrl && (
-      <Box height={{ xs: 1024, md: 768, lg: 800 }}>
-        <BlockVideo
-          assetUrl={assetUrl}
-          autoplay={autoplay}
-          scrollable={scrollable}
-        />
-      </Box>
+      <BlockVideo
+        assetUrl={assetUrl}
+        autoplay={autoplay}
+        scrollable={scrollable}
+        fullHeight={fullHeight}
+      />
     )}
 
     <Container maxWidth="xl">

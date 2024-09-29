@@ -14,6 +14,7 @@ import {
   Accordion,
   AccordionSummary,
   ListItemButton,
+  Grid,
 } from '@mui/material';
 import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -118,38 +119,46 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   return (
     <StyledMuiAppBar position="relative" color="transparent" elevation={24}>
       <Toolbar>
-        <Link href="/">
-          <Image width={150} height={46} src="/logo.svg" alt="logo" />
-        </Link>
-        {matches ? (
-          <>
-            <Box display="flex" sx={{ flexGrow: 1 }}>
-              {menu}
-            </Box>
-            {cta}
-          </>
-        ) : (
-          <Box display="flex" sx={{ flexGrow: 1 }} justifyContent="flex-end">
-            <ResponsiveMenuIcon
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <CloseIcon /> : <MenuIcon />}
-            </ResponsiveMenuIcon>
-            <Drawer
-              anchor="top"
-              open={isOpen}
-              onClose={() => setIsOpen(false)}
-              PaperProps={{ sx: { top: 57 } }}
-              slotProps={{ backdrop: { sx: { top: 57 } } }}
-            >
-              <List>{drawer}</List>
-            </Drawer>
-          </Box>
-        )}
+        <Grid container>
+          <Grid item xs={12} md={10} mx="auto" display="flex">
+            <Link href="/">
+              <Image width={150} height={46} src="/logo.svg" alt="logo" />
+            </Link>
+            {matches ? (
+              <>
+                <Box display="flex" sx={{ flexGrow: 1 }}>
+                  {menu}
+                </Box>
+                {cta}
+              </>
+            ) : (
+              <Box
+                display="flex"
+                sx={{ flexGrow: 1 }}
+                justifyContent="flex-end"
+              >
+                <ResponsiveMenuIcon
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  {isOpen ? <CloseIcon /> : <MenuIcon />}
+                </ResponsiveMenuIcon>
+                <Drawer
+                  anchor="top"
+                  open={isOpen}
+                  onClose={() => setIsOpen(false)}
+                  PaperProps={{ sx: { top: 57 } }}
+                  slotProps={{ backdrop: { sx: { top: 57 } } }}
+                >
+                  <List>{drawer}</List>
+                </Drawer>
+              </Box>
+            )}
+          </Grid>
+        </Grid>
       </Toolbar>
     </StyledMuiAppBar>
   );

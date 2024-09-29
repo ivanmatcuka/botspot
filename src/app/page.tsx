@@ -44,6 +44,7 @@ export default function Home() {
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
         autoplay={false}
         scrollable
+        fullHeight
       />
       <SecondaryBlock
         assetUrl="/videos/object-scanner-landing.mp4"
@@ -57,6 +58,7 @@ export default function Home() {
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
         autoplay={false}
         scrollable
+        fullHeight
       />
       <Box
         width="100%"
