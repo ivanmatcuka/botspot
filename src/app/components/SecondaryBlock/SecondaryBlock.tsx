@@ -28,13 +28,11 @@ export const SecondaryBlock: FC<SecondaryBlockProps> = ({
 }) => (
   <Box textAlign={{ xs: 'center', md: 'left' }}>
     {assetUrl && (
-      <Box height={{ xs: 1024, md: 768, lg: 800 }}>
-        <BlockVideo
-          assetUrl={assetUrl}
-          autoplay={autoplay}
-          scrollable={scrollable}
-        />
-      </Box>
+      <BlockVideo
+        assetUrl={assetUrl}
+        autoplay={autoplay}
+        scrollable={scrollable}
+      />
     )}
 
     <Container maxWidth="xl">
