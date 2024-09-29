@@ -98,16 +98,19 @@ export default function Home() {
             </Button>
           }
         />
-        <Tile headline="Send Us Objects">
+        <Tile headline="How We Can Help">
           <Typography variant="body1">
-            Send us your items, we&apos;ll scan them and send you the
-            marketing-ready 3D models.
+            Each business is different. So let&apos;s find out what you need.
+            Our experts will guide and support you on the way to the fitting
+            solution – be it 3D scan services, custom solutions or tailoring
+            your individual workflow.
           </Typography>
         </Tile>
         <Tile headline="Buy At Discount">
           <Typography variant="body1">
-            If you decide to purchase the scanner, buy our 3D scanners for a
-            discount on the money you already invested.
+            No risk – just fun: If you decide to purchase one of our 3D
+            scanners, you will get a discount on the money you already invested
+            in scan services, proof of concepts or scanner rentals.
           </Typography>
         </Tile>
       </Box>
