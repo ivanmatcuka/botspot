@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { Box } from '@mui/material';
-import NextImage from 'next/image';
 import { FC, useEffect, useRef, useState } from 'react';
 
 type ScrollableVideoProps = {
@@ -70,9 +70,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
           {!isReady && (
             <div className="w-full h-full backdrop-blur-sm bg-white/30 absolute inset-0" />
           )}
-          <NextImage
-            width={1920}
-            height={1080}
+          <img
             alt=""
             src={`/videos/${fileName}/${fileName}${frame.toString().padStart(3, '0')}.jpg`}
             className="w-full h-full object-cover"

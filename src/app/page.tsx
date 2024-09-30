@@ -39,42 +39,32 @@ export default function Home() {
         className="no-scrollbar h-[80px]"
         maxWidth="xl"
       >
-        <Image width={300} height={300} src="/img/partners/canon.png" alt="" />
-        <Image width={300} height={300} src="/img/partners/umg.png" alt="" />
-        <Image width={300} height={300} src="/img/partners/illies.png" alt="" />
+        <Image width={168} height={80} src="/img/partners/canon.png" alt="" />
+        <Image width={168} height={80} src="/img/partners/umg.png" alt="" />
+        <Image width={168} height={80} src="/img/partners/illies.png" alt="" />
+        <Image width={168} height={80} src="/img/partners/iluikii.png" alt="" />
         <Image
-          width={300}
-          height={300}
-          src="/img/partners/iluikii.png"
-          alt=""
-        />
-        <Image
-          width={300}
-          height={300}
+          width={168}
+          height={80}
           src="/img/partners/max-plank.png"
           alt=""
         />
+        <Image width={168} height={80} src="/img/partners/theater.png" alt="" />
         <Image
-          width={300}
-          height={300}
-          src="/img/partners/theater.png"
-          alt=""
-        />
-        <Image
-          width={300}
-          height={300}
+          width={168}
+          height={80}
           src="/img/partners/invrsion.png"
           alt=""
         />
-        <Image width={300} height={300} src="/img/partners/vyking.png" alt="" />
+        <Image width={168} height={80} src="/img/partners/vyking.png" alt="" />
         <Image
-          width={300}
-          height={300}
+          width={168}
+          height={80}
           src="/img/partners/vrinsight.png"
           alt=""
         />
-        <Image width={300} height={300} src="/img/partners/thyng.png" alt="" />
-        <Image width={300} height={300} src="/img/partners/acod.png" alt="" />
+        <Image width={168} height={80} src="/img/partners/thyng.png" alt="" />
+        <Image width={168} height={80} src="/img/partners/acod.png" alt="" />
       </Box>
 
       <SecondaryBlock
