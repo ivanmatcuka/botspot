@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
@@ -19,6 +19,7 @@ export default function BorscanNeo() {
         headline="Our Smart 3D Full Body Scanner for High Volume 3D Model Production"
         primaryCta={<Button variant="primary">Download Data Sheet</Button>}
         secondaryCta={<Button variant="secondary">Request a Demo</Button>}
+        banner
       />
 
       <MainBlock
@@ -69,13 +70,16 @@ export default function BorscanNeo() {
         </Typography>
       </Tile>
 
-      <Gallery />
+      <Box mb={{ xs: 5, md: 10 }}>
+        <Gallery />
+      </Box>
 
       <GalleryTile imgUrl="/img/products/botscan-neo/5.png">
         <SecondaryBlock
           subline="Berlin based artist Martin Werthmann designed the set for the German opera “The Dead City”."
           headline="Designing Scenic Spaces"
           primaryCta={<Button variant="primary">Read Full Story</Button>}
+          hasParent
         />
       </GalleryTile>
 

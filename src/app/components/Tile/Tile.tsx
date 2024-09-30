@@ -11,12 +11,12 @@ export const Tile: FC<PropsWithChildren<TileProps>> = ({
   children,
 }) => {
   return (
-    <Container maxWidth="xl" disableGutters>
+    <Container maxWidth="xl">
       <Grid
+        xs={12}
+        md={10}
         container
         pt={6}
-        xs={10}
-        xl={12}
         mb={6}
         mx="auto"
         textAlign={{ xs: 'center', md: 'left' }}

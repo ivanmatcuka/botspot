@@ -13,6 +13,7 @@ export default function Healthcare() {
         assetUrl="/img/areas/healthcare/banner.png"
         subline="Content has yet to be added. Content has yet to be added. Content has yet to be added."
         headline="Health Care"
+        banner
       />
 
       <MainBlock headline="Content has yet to be added." subline="Insight" />

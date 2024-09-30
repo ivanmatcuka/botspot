@@ -1,6 +1,6 @@
 import { MainBlock } from '../components/MainBlock/MainBlock';
 import { Button } from '../components/Button/Button';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Tile } from '../components/Tile/Tile';
 import { FeedbackForm } from '../components/FeedbackForm/FeedbackForm';
 import { Banner } from '../components/Banner/Banner';
@@ -46,7 +46,9 @@ export default function Service() {
         </Typography>
       </Tile>
 
-      <Gallery />
+      <Box mb={{ xs: 5, md: 10 }}>
+        <Gallery />
+      </Box>
 
       <MainBlock
         subline="In-House Scan Service"
@@ -79,6 +81,7 @@ export default function Service() {
           subline="Corporate event, fair show or convention coming up? Guarantee an unforgettable experience with full-body scanning. We deliver and set up the scanner, ensuring a seamless and impressive experience."
           headline="Event Hire"
           primaryCta={<Button variant="primary">Request Event Hire</Button>}
+          hasParent
         />
       </GalleryTile>
 
@@ -87,6 +90,7 @@ export default function Service() {
           subline="Have a large or unusual item that needs scanning? Our Innovation Lab specializes in handling special requests, even for the most challenging projects."
           headline="Special Requests"
           primaryCta={<Button variant="primary">Explore Innovation Lab</Button>}
+          hasParent
         />
       </GalleryTile>
 

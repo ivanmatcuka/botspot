@@ -1,14 +1,9 @@
 'use client';
 
-import { Box, Container, Grid, styled } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
 import Image from 'next/image';
-
-export const WrapperBox = styled(Box)(({ theme }) => ({
-  '.secondary-block': {
-    marginBottom: 0,
-  },
-}));
+import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
 type GalleryTileProps = {
   imgUrl: string;
@@ -18,26 +13,18 @@ export const GalleryTile: FC<PropsWithChildren<GalleryTileProps>> = ({
   imgUrl,
   children,
   alt,
-}) => {
-  return (
-    <Box
-      width="100%"
-      bgcolor="grey.100"
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      py={{ xs: 5, md: 10 }}
-    >
-      <Container maxWidth="xl">
-        <Grid container alignItems="center" justifyContent="center">
-          <Grid item xs={12} md={6} display="flex" justifyContent="center">
-            <Image src={imgUrl} width={493} height={304} alt={alt ?? ''} />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            {children}
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
-  );
-};
+}) => (
+  <Box bgcolor="grey.100" py={{ xs: 5, md: 10 }}>
+    <Grid container alignItems="center" mx="auto" maxWidth="xl" px={3}>
+      <Grid xs={0} md={1} />
+      <Grid item xs={12} md={5}>
+        <Image src={imgUrl} width={493} height={304} alt={alt ?? ''} />
+      </Grid>
+      <Grid xs={0} md={1} />
+      <Grid item xs={12} md={4}>
+        {children}
+      </Grid>
+      <Grid xs={0} md={1} />
+    </Grid>
+  </Box>
+);

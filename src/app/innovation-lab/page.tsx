@@ -135,7 +135,7 @@ export default function InnovationLab() {
           primaryCta={
             <Button variant="primary">Explore 3D Object Scanner</Button>
           }
-          disableGutter
+          hasParent
         />
       </GalleryTile>
     </main>

@@ -14,6 +14,7 @@ import {
   AccordionSummary,
   ListItemButton,
   Grid,
+  Container,
 } from '@mui/material';
 import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
 
@@ -75,32 +76,35 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
     [navItems, renderMenu],
   );
 
-  const renderDrawer = useCallback((item: MenuItem) => {
-    if (!item.children) {
+  const renderDrawer = useCallback(
+    (item: MenuItem) => {
+      if (!item.children) {
+        return (
+          <ListItem key={item.label}>
+            <ListItemButton
+              onClick={item.onClick ?? (() => push(item.href ?? ''))}
+              disableRipple
+            >
+              {item.label}
+            </ListItemButton>
+          </ListItem>
+        );
+      }
+
       return (
-        <ListItem key={item.label}>
-          <ListItemButton
+        <Accordion key={item.label}>
+          <AccordionSummary
+            expandIcon={<ExpandMore />}
             onClick={item.onClick ?? (() => push(item.href ?? ''))}
-            disableRipple
           >
             {item.label}
-          </ListItemButton>
-        </ListItem>
+          </AccordionSummary>
+          {item.children.map((child) => renderDrawer(child))}
+        </Accordion>
       );
-    }
-
-    return (
-      <Accordion key={item.label}>
-        <AccordionSummary
-          expandIcon={<ExpandMore />}
-          onClick={item.onClick ?? (() => push(item.href ?? ''))}
-        >
-          {item.label}
-        </AccordionSummary>
-        {item.children.map((child) => renderDrawer(child))}
-      </Accordion>
-    );
-  }, []);
+    },
+    [push],
+  );
 
   const drawer = useMemo(
     () => navItems.map((item) => renderDrawer(item)),
@@ -114,48 +118,56 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
       color="transparent"
       elevation={24}
     >
-      <Toolbar>
-        <Grid container maxWidth="xl" mx="auto">
-          <Grid item xs={12} display="flex">
-            <Link href="/">
-              <Image width={150} height={46} src="/logo.svg" alt="logo" />
-            </Link>
-            {matches ? (
-              <>
-                <Box display="flex" sx={{ flexGrow: 1 }}>
-                  {menu}
+      <Toolbar disableGutters>
+        <Container maxWidth="xl">
+          <Grid container xs={12} mx="auto">
+            <Grid
+              item
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              flex={1}
+            >
+              <Link href="/">
+                <Image width={150} height={46} src="/logo.svg" alt="logo" />
+              </Link>
+              {matches ? (
+                <>
+                  <Box display="flex" sx={{ flexGrow: 1 }}>
+                    {menu}
+                  </Box>
+                  {cta}
+                </>
+              ) : (
+                <Box
+                  display="flex"
+                  sx={{ flexGrow: 1 }}
+                  justifyContent="flex-end"
+                >
+                  <MuiIconButton
+                    size="large"
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="block xl:none"
+                  >
+                    {isOpen ? <CloseIcon /> : <MenuIcon />}
+                  </MuiIconButton>
+                  <Drawer
+                    anchor="top"
+                    open={isOpen}
+                    onClose={() => setIsOpen(false)}
+                    PaperProps={{ sx: { top: 57 } }}
+                    slotProps={{ backdrop: { sx: { top: 57 } } }}
+                  >
+                    <List>{drawer}</List>
+                  </Drawer>
                 </Box>
-                {cta}
-              </>
-            ) : (
-              <Box
-                display="flex"
-                sx={{ flexGrow: 1 }}
-                justifyContent="flex-end"
-              >
-                <MuiIconButton
-                  size="large"
-                  edge="start"
-                  color="inherit"
-                  aria-label="menu"
-                  onClick={() => setIsOpen(!isOpen)}
-                  className="block xl:none"
-                >
-                  {isOpen ? <CloseIcon /> : <MenuIcon />}
-                </MuiIconButton>
-                <Drawer
-                  anchor="top"
-                  open={isOpen}
-                  onClose={() => setIsOpen(false)}
-                  PaperProps={{ sx: { top: 57 } }}
-                  slotProps={{ backdrop: { sx: { top: 57 } } }}
-                >
-                  <List>{drawer}</List>
-                </Drawer>
-              </Box>
-            )}
+              )}
+            </Grid>
           </Grid>
-        </Grid>
+        </Container>
       </Toolbar>
     </MuiAppBar>
   );

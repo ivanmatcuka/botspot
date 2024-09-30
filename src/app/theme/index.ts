@@ -9,6 +9,33 @@ const roboto = Poppins({
   display: 'swap',
 });
 
+export const colors = {
+  action: {
+    disabledBackground: '#AEAEAE',
+    // disabledOpacity: 1,
+  },
+  primary: {
+    main: '#4119BC',
+  },
+  secondary: {
+    main: '#FFFFFF',
+  },
+  info: {
+    main: '#3A3A3A',
+  },
+  grey: {
+    100: '#F3F3F3',
+    200: '#AEAEAE',
+    700: '#616161',
+  },
+  error: {
+    main: '#D02D24',
+  },
+  common: {
+    black: '#151515',
+  },
+};
+
 const theme = createTheme({
   shadows: [
     'none',
@@ -127,32 +154,7 @@ const theme = createTheme({
       xl: 1280,
     },
   },
-  palette: {
-    action: {
-      disabledBackground: '#AEAEAE',
-      disabledOpacity: 1,
-    },
-    primary: {
-      main: '#4119BC',
-    },
-    secondary: {
-      main: '#FFFFFF',
-    },
-    info: {
-      main: '#3A3A3A',
-    },
-    grey: {
-      100: '#F3F3F3',
-      200: '#AEAEAE',
-      700: '#616161',
-    },
-    error: {
-      main: '#D02D24',
-    },
-    common: {
-      black: '#151515',
-    },
-  },
+  palette: colors,
   shape: {
     borderRadius: 8,
   },

@@ -14,6 +14,7 @@ export default function Industrial() {
         assetUrl="/img/areas/industrial/banner.png"
         subline="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
         headline="Industrial Areas of Use"
+        banner
       />
 
       <MainBlock
@@ -90,6 +91,7 @@ export default function Industrial() {
           primaryCta={
             <Button variant="primary">Explore 3D Object Scanner</Button>
           }
+          hasParent
         />
       </GalleryTile>
     </main>

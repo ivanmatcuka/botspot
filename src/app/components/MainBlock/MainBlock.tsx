@@ -15,6 +15,7 @@ type MainBlockProps = {
   autoplay?: boolean;
   scrollable?: boolean;
   fullHeight?: boolean;
+  objectFit?: string;
 };
 export const MainBlock: FC<MainBlockProps> = ({
   assetUrl,
@@ -25,6 +26,7 @@ export const MainBlock: FC<MainBlockProps> = ({
   scrollable = false,
   autoplay = true,
   fullHeight = false,
+  objectFit = 'cover',
 }) => (
   <Box textAlign={{ xs: 'center', md: 'left' }}>
     {assetUrl && (
@@ -33,6 +35,7 @@ export const MainBlock: FC<MainBlockProps> = ({
         autoplay={autoplay}
         scrollable={scrollable}
         fullHeight={fullHeight}
+        objectFit={objectFit}
       />
     )}
 
@@ -41,9 +44,12 @@ export const MainBlock: FC<MainBlockProps> = ({
         container
         justifyContent="center"
         my={{ xs: 10, md: 20 }}
+        xs={12}
+        md={10}
+        mx="auto"
         direction="column"
       >
-        <Grid item xs={12} textAlign={{ xs: 'center', md: 'left' }}>
+        <Grid item textAlign={{ xs: 'center', md: 'left' }}>
           <Typography variant="body1" mb={2}>
             {subline}
           </Typography>

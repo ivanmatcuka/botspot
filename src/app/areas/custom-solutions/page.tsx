@@ -14,6 +14,7 @@ export default function CustomSolutions() {
         assetUrl="/img/areas/custom-solution/banner.png"
         subline="Create bespoke solutions with our 3D scanners, offering accurate, customized models to fit your unique specifications."
         headline="Custom Solutions"
+        banner
       />
 
       <MainBlock
@@ -69,6 +70,7 @@ export default function CustomSolutions() {
           subline="Our Innovation Lab handles Custom Solutions and bridges the gap between research and industrial production."
           headline="Innovation Lab"
           primaryCta={<Button variant="primary">Visit Innovation Lab</Button>}
+          hasParent
         />
       </GalleryTile>
     </main>

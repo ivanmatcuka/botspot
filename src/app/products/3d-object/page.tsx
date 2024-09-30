@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
@@ -19,6 +19,7 @@ export default function ThreeDObject() {
         headline="3D Object"
         primaryCta={<Button variant="primary">Download Data Sheet</Button>}
         secondaryCta={<Button variant="secondary">Request a Demo</Button>}
+        banner
       />
 
       <MainBlock
@@ -81,13 +82,16 @@ export default function ThreeDObject() {
         </Typography>
       </Tile>
 
-      <Gallery />
+      <Box mb={{ xs: 5, md: 10 }}>
+        <Gallery />
+      </Box>
 
       <GalleryTile imgUrl="/img/products/3d-object/3.png">
         <SecondaryBlock
           subline="Understanding the Basics of 3D Modeling"
           headline="Santa Unwrapped"
           primaryCta={<Button variant="primary">Read Full Story</Button>}
+          hasParent
         />
       </GalleryTile>
 

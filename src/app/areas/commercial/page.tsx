@@ -14,6 +14,7 @@ export default function Commercial() {
         assetUrl="/img/areas/commercial/banner.png"
         subline="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
         headline="Commercial Areas of Use"
+        banner
       />
 
       <MainBlock
@@ -118,7 +119,7 @@ export default function Commercial() {
           primaryCta={
             <Button variant="primary">Explore 3D Object Scanner</Button>
           }
-          disableGutter
+          hasParent
         />
       </GalleryTile>
     </main>

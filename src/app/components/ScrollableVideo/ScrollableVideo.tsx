@@ -42,7 +42,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
     };
 
     prepareImages();
-  }, []);
+  }, [fileName]);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
