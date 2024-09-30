@@ -10,7 +10,9 @@ export default function Healthcare() {
   return (
     <main className="">
       <SecondaryBlock
-        assetUrl="/img/areas/healthcare/banner.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/areas/healthcare/banner.png',
+        }}
         subline="Content has yet to be added. Content has yet to be added. Content has yet to be added."
         headline="Health Care"
         banner

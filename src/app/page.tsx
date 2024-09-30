@@ -8,6 +8,7 @@ import { Tile } from './components/Tile/Tile';
 import { FeedbackForm } from './components/FeedbackForm/FeedbackForm';
 import { Banner } from './components/Banner/Banner';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function Home() {
   const { push } = useRouter();
@@ -30,29 +31,59 @@ export default function Home() {
       />
 
       <Box
-        p={{ xs: 8, md: 10 }}
+        my={{ xs: 8, md: 10 }}
         pl={{ xs: 4, md: 8 }}
         display="flex"
         mx="auto"
         overflow="scroll"
-        className="no-scrollbar"
+        className="no-scrollbar h-[80px]"
         maxWidth="xl"
       >
-        <img src="/img/partners/canon.png" alt="" />
-        <img src="/img/partners/umg.png" alt="" />
-        <img src="/img/partners/illies.png" alt="" />
-        <img src="/img/partners/iluikii.png" alt="" />
-        <img src="/img/partners/max-plank.png" alt="" />
-        <img src="/img/partners/theater.png" alt="" />
-        <img src="/img/partners/invrsion.png" alt="" />
-        <img src="/img/partners/vyking.png" alt="" />
-        <img src="/img/partners/vrinsight.png" alt="" />
-        <img src="/img/partners/thyng.png" alt="" />
-        <img src="/img/partners/acod.png" alt="" />
+        <Image width={300} height={300} src="/img/partners/canon.png" alt="" />
+        <Image width={300} height={300} src="/img/partners/umg.png" alt="" />
+        <Image width={300} height={300} src="/img/partners/illies.png" alt="" />
+        <Image
+          width={300}
+          height={300}
+          src="/img/partners/iluikii.png"
+          alt=""
+        />
+        <Image
+          width={300}
+          height={300}
+          src="/img/partners/max-plank.png"
+          alt=""
+        />
+        <Image
+          width={300}
+          height={300}
+          src="/img/partners/theater.png"
+          alt=""
+        />
+        <Image
+          width={300}
+          height={300}
+          src="/img/partners/invrsion.png"
+          alt=""
+        />
+        <Image width={300} height={300} src="/img/partners/vyking.png" alt="" />
+        <Image
+          width={300}
+          height={300}
+          src="/img/partners/vrinsight.png"
+          alt=""
+        />
+        <Image width={300} height={300} src="/img/partners/thyng.png" alt="" />
+        <Image width={300} height={300} src="/img/partners/acod.png" alt="" />
       </Box>
 
       <SecondaryBlock
-        assetUrl="BotscanNEO_Landing00090"
+        mediaBlockOptions={{
+          assetUrl: 'BotscanNEO_Landing00090',
+          autoplay: true,
+          scrollable: true,
+          fullHeight: true,
+        }}
         headline="Botscan NEO"
         subline="Smart 3D fullbody scanner for high volume 3D model production"
         primaryCta={
@@ -64,12 +95,13 @@ export default function Home() {
           </Button>
         }
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
-        autoplay={false}
-        scrollable
-        fullHeight
       />
       <SecondaryBlock
-        assetUrl="ObjectScanner_Landing00090"
+        mediaBlockOptions={{
+          assetUrl: 'ObjectScanner_Landing00090',
+          scrollable: true,
+          fullHeight: true,
+        }}
         headline="3D Object"
         subline="Fully automated 3D object scanner for precise photogrammetry"
         primaryCta={
@@ -78,9 +110,6 @@ export default function Home() {
           </Button>
         }
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
-        autoplay={false}
-        scrollable
-        fullHeight
       />
       <Box
         width="100%"

@@ -14,7 +14,9 @@ export default function ThreeDStudio() {
   return (
     <main className="">
       <SecondaryBlock
-        assetUrl="/img/products/3d-studio/banner.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/products/3d-studio/banner.png',
+        }}
         subline="Our flexible solution for 3D Scanning, adapting to even most precise requirements."
         headline="3D Studio"
         primaryCta={<Button variant="primary">Download Data Sheet</Button>}
@@ -23,13 +25,17 @@ export default function ThreeDStudio() {
       />
 
       <MainBlock
-        assetUrl="/img/products/3d-studio/1.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/products/3d-studio/1.png',
+        }}
         headline="Engineered with adaptability in mind, every component of the setup is effortlessly adjustable."
         subline="Overview"
       />
 
       <MainBlock
-        assetUrl="/img/products/3d-studio/2.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/products/3d-studio/2.png',
+        }}
         headline="The stunning results of the 3D reconstruction reduce the need for manual post-processing to an absolute minimum. "
         subline="Specifications"
       />

@@ -1,6 +1,7 @@
 'use client';
 
 import { Box } from '@mui/material';
+import NextImage from 'next/image';
 import { FC, useEffect, useRef, useState } from 'react';
 
 type ScrollableVideoProps = {
@@ -69,8 +70,11 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
           {!isReady && (
             <div className="w-full h-full backdrop-blur-sm bg-white/30 absolute inset-0" />
           )}
-          <img
-            src={`videos/${fileName}/${fileName}${frame.toString().padStart(3, '0')}.jpg`}
+          <NextImage
+            width={1920}
+            height={1080}
+            alt=""
+            src={`/videos/${fileName}/${fileName}${frame.toString().padStart(3, '0')}.jpg`}
             className="w-full h-full object-cover"
           />
         </div>

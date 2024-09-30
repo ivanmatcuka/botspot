@@ -3,7 +3,7 @@
 import { Box, Grid, styled, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 
-import { BlockVideo } from '@/app/components/BlockVideo/BlockVideo';
+import { MediaBlock } from '@/app/components/BlockVideo/BlockVideo';
 
 const Gradient = styled('div')({
   backgroundImage: 'linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%)',
@@ -28,7 +28,7 @@ export const Banner: FC<BannerProps> = ({
 }) => (
   <Box position="relative" minHeight={{ xs: '100vh', md: 768, lg: 800 }}>
     {assetUrl && (
-      <BlockVideo
+      <MediaBlock
         assetUrl={assetUrl}
         autoplay={autoplay}
         scrollable={false}

@@ -1,12 +1,12 @@
-import { MainBlock } from '../components/MainBlock/MainBlock';
-import { Button } from '../components/Button/Button';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { Button } from '@/app/components/Button/Button';
 import { Box, Typography } from '@mui/material';
-import { Tile } from '../components/Tile/Tile';
-import { FeedbackForm } from '../components/FeedbackForm/FeedbackForm';
-import { Banner } from '../components/Banner/Banner';
-import { SecondaryBlock } from '../components/SecondaryBlock/SecondaryBlock';
-import { Gallery } from '../components/Gallery/Gallery';
-import { GalleryTile } from '../components/GalleryTile/GalleryTile';
+import { Tile } from '@/app/components/Tile/Tile';
+import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { Banner } from '@/app/components/Banner/Banner';
+import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { Gallery } from '@/app/components/Gallery/Gallery';
+import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 
 export default function Service() {
   return (

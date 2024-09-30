@@ -14,7 +14,9 @@ export default function BorscanNeo() {
   return (
     <main className="">
       <SecondaryBlock
-        assetUrl="/img/products/botscan-neo/banner.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/products/botscan-neo/banner.png',
+        }}
         subline="Botscan NEO"
         headline="Our Smart 3D Full Body Scanner for High Volume 3D Model Production"
         primaryCta={<Button variant="primary">Download Data Sheet</Button>}
@@ -23,13 +25,17 @@ export default function BorscanNeo() {
       />
 
       <MainBlock
-        assetUrl="/img/products/botscan-neo/1.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/products/botscan-neo/1.png',
+        }}
         headline="Highly precise and colorfast 3D data of people in a fraction of a second, creating true digital twins with a measurement accuracy up to 1 mm."
         subline="Overview"
       />
 
       <MainBlock
-        assetUrl="/img/products/botscan-neo/2.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/products/botscan-neo/2.png',
+        }}
         headline="Perfect for Full Body Scanning with automized workflow patterns."
         subline="Specifications"
       />

@@ -51,7 +51,9 @@ export default function Products() {
       </Tile>
 
       <SecondaryBlock
-        assetUrl="/img/products/1.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/products/1.png',
+        }}
         headline="Botscan NEO"
         subline="Smart 3D fullbody scanner for high volume 3D model production"
         primaryCta={<Button variant="primary">Explore Neo</Button>}
@@ -59,7 +61,9 @@ export default function Products() {
       />
 
       <SecondaryBlock
-        assetUrl="/img/products/2.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/products/2.png',
+        }}
         headline="3D Studio"
         subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
         primaryCta={<Button variant="primary">Explore 3D Studio</Button>}
@@ -67,7 +71,9 @@ export default function Products() {
       />
 
       <SecondaryBlock
-        assetUrl="/img/products/3.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/products/3.png',
+        }}
         headline="3D Object"
         subline="Fully automated 3D object scanner for precise photogrammetry"
         primaryCta={<Button variant="primary">Explore 3D Object</Button>}

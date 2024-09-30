@@ -3,49 +3,36 @@
 import { Box, Grid, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 
-import { BlockVideo } from '@/app/components/BlockVideo/BlockVideo';
+import {
+  MediaBlock,
+  MediaBlockProps,
+} from '@/app/components/BlockVideo/BlockVideo';
 
 type SecondaryBlockProps = {
-  assetUrl?: string;
   headline?: string;
   subline?: string;
   primaryCta?: ReactNode;
   secondaryCta?: ReactNode;
   hasParent?: boolean;
-  autoplay?: boolean;
-  scrollable?: boolean;
-  fullHeight?: boolean;
   banner?: boolean;
-  objectFit?: string;
+  mediaBlockOptions?: MediaBlockProps;
 };
 export const SecondaryBlock: FC<SecondaryBlockProps> = ({
-  assetUrl,
   headline,
   subline,
   primaryCta,
   secondaryCta,
   hasParent = false,
-  autoplay = true,
-  scrollable = false,
-  fullHeight = false,
   banner = false,
-  objectFit = 'cover',
+  mediaBlockOptions = {},
 }) => (
   <Box textAlign={{ xs: 'center', md: 'left' }}>
-    {assetUrl && (
-      <BlockVideo
-        assetUrl={assetUrl}
-        autoplay={autoplay}
-        scrollable={scrollable}
-        fullHeight={fullHeight}
-        objectFit={objectFit}
-      />
-    )}
+    {mediaBlockOptions.assetUrl && <MediaBlock {...mediaBlockOptions} />}
 
     <Grid
       container
       maxWidth="xl"
-      justifyContent={banner ? 'flex-end' : 'flex-start'}
+      justifyContent={banner ? 'flex-end' : 'center'}
       mx="auto"
       mb={hasParent ? 0 : { xs: 10, sm: 15 }}
       mt={{ xs: 2, sm: 3 }}

@@ -4,22 +4,21 @@ import { FC } from 'react';
 import { Box } from '@mui/material';
 
 import { ScrollableVideo } from '@/app/components/ScrollableVideo/ScrollableVideo';
+import Image from 'next/image';
 
-type SecondaryBlockProps = {
+export type MediaBlockProps = {
   assetUrl?: string;
   autoplay?: boolean;
   scrollable?: boolean;
   fullHeight?: boolean;
-  objectFit?: string;
 };
-export const BlockVideo: FC<SecondaryBlockProps> = ({
+export const MediaBlock: FC<MediaBlockProps> = ({
   assetUrl,
   autoplay = true,
   scrollable = false,
   fullHeight = false,
-  objectFit = 'cover',
 }) => {
-  const className = `w-full h-full object-${objectFit} xs:min-h-[1024px] md:min-h-[768px] lg:min-h-[800px]`;
+  const className = `w-full h-full object-cover xs:min-h-[1024px] md:min-h-[768px] lg:min-h-[800px]`;
 
   if (assetUrl && scrollable) {
     return <ScrollableVideo fileName={assetUrl} />;
@@ -34,7 +33,13 @@ export const BlockVideo: FC<SecondaryBlockProps> = ({
   ) : (
     assetUrl && (
       <Box height={fullHeight ? '100vh' : { xs: 1024, md: 768, lg: 800 }}>
-        <img src={assetUrl} alt="" className={className} />
+        <Image
+          width={1920}
+          height={1080}
+          src={assetUrl}
+          alt=""
+          className={className}
+        />
       </Box>
     )
   );

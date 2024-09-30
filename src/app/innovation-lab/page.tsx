@@ -10,7 +10,9 @@ export default function InnovationLab() {
   return (
     <main className="">
       <SecondaryBlock
-        assetUrl="/img/banners/innovation-lab.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/banners/innovation-lab.png',
+        }}
         subline="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
         headline="Innovation Lab"
         primaryCta={<Button variant="primary">Contact Innovation Lab</Button>}

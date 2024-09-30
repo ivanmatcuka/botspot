@@ -11,7 +11,9 @@ export default function Commercial() {
   return (
     <main className="">
       <SecondaryBlock
-        assetUrl="/img/areas/commercial/banner.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/areas/commercial/banner.png',
+        }}
         subline="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
         headline="Commercial Areas of Use"
         banner

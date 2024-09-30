@@ -11,7 +11,9 @@ export default function CustomSolutions() {
   return (
     <main className="">
       <SecondaryBlock
-        assetUrl="/img/areas/custom-solution/banner.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/areas/custom-solution/banner.png',
+        }}
         subline="Create bespoke solutions with our 3D scanners, offering accurate, customized models to fit your unique specifications."
         headline="Custom Solutions"
         banner
