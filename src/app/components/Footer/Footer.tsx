@@ -17,8 +17,8 @@ export const Footer = () => {
   return (
     <>
       <footer className="bg-info-main">
-        <Container>
-          <Grid container py={8} xs={12} md={10} mx="auto" maxWidth="xl" p={3}>
+        <Container maxWidth="xl">
+          <Grid container py={8} xs={12} md={10} mx="auto">
             <Grid item flexBasis={{ xs: '100%', md: '40%' }}>
               <Image width={184} height={74} src="/logo_white.svg" alt="logo" />
               <FooterTypography>botspot 3D Scan GmbH</FooterTypography>
