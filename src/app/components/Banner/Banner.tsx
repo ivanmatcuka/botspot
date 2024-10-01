@@ -3,7 +3,7 @@
 import { Box, Grid, styled, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 
-import { MediaBlock } from '@/app/components/BlockVideo/BlockVideo';
+import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 
 const Gradient = styled('div')({
   backgroundImage: 'linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%)',
@@ -35,7 +35,6 @@ export const Banner: FC<BannerProps> = ({
         fullHeight
       />
     )}
-
     <Gradient className="absolute inset-0" />
     <Box
       position="absolute"
@@ -53,35 +52,32 @@ export const Banner: FC<BannerProps> = ({
           md={8}
           mb={{ xs: 'auto', md: 15, lg: 29 }}
           mt={{ xs: 'auto', md: 0 }}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          textAlign={{ xs: 'center', md: 'left' }}
         >
-          <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            textAlign={{ xs: 'center', md: 'left' }}
+          <Typography variant="h1" fontWeight="medium" color="white">
+            {headline}
+          </Typography>
+          <Typography
+            variant="body1"
+            mb={{ xs: 3, md: 2 }}
+            mt={{ xs: 1, md: 0.5 }}
+            color="white"
           >
-            <Typography variant="h1" fontWeight="medium" color="white">
-              {headline}
-            </Typography>
-            <Typography
-              variant="body1"
-              mb={{ xs: 3, md: 2 }}
-              mt={{ xs: 1, md: 0.5 }}
-              color="white"
+            {subline}
+          </Typography>
+          <Box display="flex" mt={{ xs: 3, md: 8 }}>
+            <Grid
+              container
+              spacing={2}
+              justifyContent={{ xs: 'center', md: 'left' }}
+              alignItems="center"
             >
-              {subline}
-            </Typography>
-            <Box display="flex" mt={{ xs: 3, md: 8 }}>
-              <Grid
-                container
-                spacing={2}
-                justifyContent={{ xs: 'center', md: 'left' }}
-                alignItems="center"
-              >
-                <Grid item>{primaryCta}</Grid>
-                <Grid item>{secondaryCta}</Grid>
-              </Grid>
-            </Box>
+              <Grid item>{primaryCta}</Grid>
+              <Grid item>{secondaryCta}</Grid>
+            </Grid>
           </Box>
         </Grid>
       </Grid>

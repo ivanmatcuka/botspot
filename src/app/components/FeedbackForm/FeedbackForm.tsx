@@ -2,7 +2,6 @@
 
 import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Input } from '../Form/Form';
 import {
   Box,
   Checkbox,
@@ -13,8 +12,10 @@ import {
   Paper,
   Typography,
 } from '@mui/material';
-import { Button } from '../Button/Button';
-import { Menu } from '../Menu/Menu';
+
+import { Input } from '@/app/components/Form/Form';
+import { Button } from '@/app/components/Button/Button';
+import { Menu } from '@/app/components/Menu/Menu';
 
 const TOPICS = [
   'Botspot',

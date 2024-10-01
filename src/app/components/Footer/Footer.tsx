@@ -1,12 +1,6 @@
 'use client';
 
-import {
-  Container,
-  Grid,
-  styled,
-  Typography,
-  TypographyProps,
-} from '@mui/material';
+import { Container, Grid, Typography, TypographyProps } from '@mui/material';
 import Image from 'next/image';
 import { FC, PropsWithChildren } from 'react';
 
@@ -23,8 +17,8 @@ export const Footer = () => {
   return (
     <>
       <footer className="bg-info-main">
-        <Container maxWidth="xl">
-          <Grid container py={8} xs={12} md={10} mx="auto">
+        <Container>
+          <Grid container py={8} xs={12} md={10} mx="auto" maxWidth="xl" p={3}>
             <Grid item flexBasis={{ xs: '100%', md: '40%' }}>
               <Image width={184} height={74} src="/logo_white.svg" alt="logo" />
               <FooterTypography>botspot 3D Scan GmbH</FooterTypography>
@@ -125,12 +119,12 @@ export const Footer = () => {
             <Grid
               flexBasis="100%"
               display="flex"
-              alignItems={{ xs: 'center', md: 'flex-end' }}
               gap={3}
               xs={12}
               md={10}
               mx="auto"
               flexDirection={{ xs: 'column', md: 'row' }}
+              alignItems={{ xs: 'center', md: 'flex-end' }}
               item
             >
               <FooterTypography mr={{ xs: 0, md: 'auto' }}>

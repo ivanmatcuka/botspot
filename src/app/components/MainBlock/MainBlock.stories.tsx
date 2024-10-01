@@ -25,6 +25,8 @@ export const BasicMainBlock: Story = {
       'Professional 3D Scanners for rapid, highly precise and absolutely colorfast 3D data.',
     subline: 'What we do',
     cta: <Button variant="primary">See All Products</Button>,
-    assetUrl: '/placeholder.png',
+    mediaBlockOptions: {
+      assetUrl: '/placeholder.png',
+    },
   },
 };

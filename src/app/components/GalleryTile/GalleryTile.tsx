@@ -3,7 +3,6 @@
 import { Box, Grid } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
 import Image from 'next/image';
-import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
 type GalleryTileProps = {
   imgUrl: string;

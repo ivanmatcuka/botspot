@@ -18,14 +18,13 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
     const prepareImages = async () => {
       let images: HTMLImageElement[] = [];
 
-      const loadImage = (url: string): Promise<HTMLImageElement> => {
-        return new Promise((resolve, reject) => {
+      const loadImage = (url: string): Promise<HTMLImageElement> =>
+        new Promise((resolve, reject) => {
           const image = new Image();
           image.src = url;
           image.onload = () => resolve(image);
           image.onerror = () => reject('broken');
         });
-      };
 
       for (var i = 0; i < Infinity; i++) {
         try {
@@ -46,7 +45,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
   }, [fileName]);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    const onScroll = () => {
       const containerRect = containerRef.current?.getBoundingClientRect();
       if (!containerRect || !containerRef.current) return;
 
@@ -60,7 +59,11 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
 
       if (!images[frameIndex]) return;
       setFrame(frameIndex);
-    });
+    };
+
+    window.addEventListener('scroll', onScroll);
+
+    return () => window.removeEventListener('scroll', onScroll);
   }, [images]);
 
   return (

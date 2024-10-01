@@ -6,7 +6,7 @@ import { FC, ReactNode } from 'react';
 import {
   MediaBlock,
   MediaBlockProps,
-} from '@/app/components/BlockVideo/BlockVideo';
+} from '@/app/components/MediaBlock/MediaBlock';
 
 type SecondaryBlockProps = {
   headline?: string;
