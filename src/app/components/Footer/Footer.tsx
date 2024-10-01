@@ -1,16 +1,17 @@
 'use client';
 
-import { Container, Grid, Typography, TypographyProps } from '@mui/material';
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  TypographyProps,
+} from '@mui/material';
 import Image from 'next/image';
 import { FC, PropsWithChildren } from 'react';
 
-const FooterTypography: FC<PropsWithChildren<TypographyProps>> = ({
-  children,
-  ...rest
-}) => (
-  <Typography variant="body2" color="white" {...rest}>
-    {children}
-  </Typography>
+const FooterTypography: FC<PropsWithChildren<TypographyProps>> = (props) => (
+  <Typography variant="body2" color="white" {...props} />
 );
 
 export const Footer = () => {
@@ -24,41 +25,33 @@ export const Footer = () => {
               <FooterTypography>botspot 3D Scan GmbH</FooterTypography>
               <FooterTypography>Bruno-Bürgel-Weg 134-144</FooterTypography>
               <FooterTypography>12439 Berlin</FooterTypography>
+              <br />
               <FooterTypography>+49 30 985 40 400</FooterTypography>
+              <br />
               <FooterTypography>mail@botspot.de</FooterTypography>
-              <Grid
-                container
-                mt={3}
-                spacing={3}
-                display={{ xs: 'none', md: 'flex' }}
-              >
-                <Grid item>
-                  <Image
-                    width={32}
-                    height={32}
-                    src="/link_ig.svg"
-                    alt="instagram"
-                  />
-                </Grid>
-                <Grid item>
-                  <Image width={32} height={32} src="/link_x.svg" alt="x" />
-                </Grid>
-                <Grid item>
-                  <Image
-                    width={32}
-                    height={32}
-                    src="/link_linkedin.svg"
-                    alt="linkedin"
-                  />
-                </Grid>
-              </Grid>
+              <Box mt={3} display={{ xs: 'none', md: 'flex' }} gap={3}>
+                <Image
+                  width={32}
+                  height={32}
+                  src="/link_ig.svg"
+                  alt="instagram"
+                />
+                <Image width={32} height={32} src="/link_x.svg" alt="x" />
+                <Image
+                  width={32}
+                  height={32}
+                  src="/link_linkedin.svg"
+                  alt="linkedin"
+                />
+              </Box>
             </Grid>
             <Grid
               item
               flexBasis={{ xs: '100%', md: '20%' }}
               mt={{ xs: 5, md: 9.25 }}
             >
-              <FooterTypography mb={2.5}>3D Scanner</FooterTypography>
+              <FooterTypography>3D Scanner</FooterTypography>
+              <br />
               <FooterTypography>Botscan NEO</FooterTypography>
               <FooterTypography>3D Object</FooterTypography>
               <FooterTypography>3D Studio</FooterTypography>
@@ -68,7 +61,8 @@ export const Footer = () => {
               flexBasis={{ xs: '100%', md: '20%' }}
               mt={{ xs: 5, md: 9.25 }}
             >
-              <FooterTypography mb={2.5}>Resources</FooterTypography>
+              <FooterTypography>Resources</FooterTypography>
+              <br />
               <FooterTypography>3D Scan Service</FooterTypography>
               <FooterTypography>Areas of Use</FooterTypography>
               <FooterTypography>What is 3D Scanning?</FooterTypography>
@@ -78,64 +72,57 @@ export const Footer = () => {
               flexBasis={{ xs: '100%', md: '20%' }}
               mt={{ xs: 5, md: 9.25 }}
             >
-              <FooterTypography mb={2.5}>Company</FooterTypography>
+              <FooterTypography>Company</FooterTypography>
+              <br />
               <FooterTypography>About Us</FooterTypography>
               <FooterTypography>Innovation Lab</FooterTypography>
               <FooterTypography>Careers</FooterTypography>
             </Grid>
-            <Grid
-              container
+            <Box
               mt={3}
-              spacing={3}
+              gap={3}
               display={{ xs: 'flex', md: 'none' }}
               justifyContent="center"
+              mx="auto"
             >
-              <Grid item>
-                <Image
-                  width={32}
-                  height={32}
-                  src="/link_ig.svg"
-                  alt="instagram"
-                />
-              </Grid>
-              <Grid item>
-                <Image width={32} height={32} src="/link_x.svg" alt="x" />
-              </Grid>
-              <Grid item>
-                <Image
-                  width={32}
-                  height={32}
-                  src="/link_linkedin.svg"
-                  alt="linkedin"
-                />
-              </Grid>
-            </Grid>
+              <Image
+                width={32}
+                height={32}
+                src="/link_ig.svg"
+                alt="instagram"
+              />
+              <Image width={32} height={32} src="/link_x.svg" alt="x" />
+              <Image
+                width={32}
+                height={32}
+                src="/link_linkedin.svg"
+                alt="linkedin"
+              />
+            </Box>
           </Grid>
         </Container>
       </footer>
       <footer className="bg-common-black">
-        <Container maxWidth="xl">
-          <Grid py={3} container>
-            <Grid
-              flexBasis="100%"
-              display="flex"
-              gap={3}
-              xs={12}
-              md={10}
-              mx="auto"
-              flexDirection={{ xs: 'column', md: 'row' }}
-              alignItems={{ xs: 'center', md: 'flex-end' }}
-              item
-            >
-              <FooterTypography mr={{ xs: 0, md: 'auto' }}>
-                Copyright © 2024 botspot, All rights reserved
-              </FooterTypography>
-              <FooterTypography>Privacy Policy</FooterTypography>
-              <FooterTypography>Terms and Conditions</FooterTypography>
-              <FooterTypography>Legal Notice</FooterTypography>
-            </Grid>
+        <Grid container py={3} maxWidth="xl" mx="auto">
+          <Grid
+            flexBasis="100%"
+            display="flex"
+            gap={3}
+            xs={12}
+            md={10}
+            mx="auto"
+            flexDirection={{ xs: 'column', md: 'row' }}
+            alignItems={{ xs: 'center', md: 'flex-end' }}
+            item
+          >
+            <FooterTypography mr={{ xs: 0, md: 'auto' }}>
+              Copyright © 2024 botspot, All rights reserved
+            </FooterTypography>
+            <FooterTypography>Privacy Policy</FooterTypography>
+            <FooterTypography>Terms and Conditions</FooterTypography>
+            <FooterTypography>Legal Notice</FooterTypography>
           </Grid>
-        </Container>
+        </Grid>
       </footer>
     </>
   );
