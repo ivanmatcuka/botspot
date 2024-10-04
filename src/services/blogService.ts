@@ -5,7 +5,7 @@ export const getPosts = async (
   perPage: number = 12,
 ): Promise<{ data: WP_REST_API_Posts; count: number }> => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}posts?per_page=${perPage}&page=${page}&categories=2&_embed`,
+    `${process.env.NEXT_PUBLIC_API_URL}posts?per_page=${perPage}&page=${page}&categories=38&_embed`,
     {
       method: 'GET',
       headers: {
