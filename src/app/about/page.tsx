@@ -46,6 +46,7 @@ export default function About() {
       <MainBlock
         subline="Our Team"
         headline="With commitment and tenacity, we make the impossible possible."
+        botomless
       />
 
       <People />
