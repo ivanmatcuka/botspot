@@ -1,4 +1,6 @@
-import { MainBlock } from '../components/MainBlock/MainBlock';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { Posts } from './Posts';
+import { QuestionForm } from '../components/QuestionForm/QuestionForm';
 
 export default function Blog() {
   return (
@@ -7,6 +9,10 @@ export default function Blog() {
         headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
         subline="Questions & Articles"
       />
+
+      <Posts />
+
+      <QuestionForm />
     </main>
   );
 }

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Form, Input, StyledPaper } from './Form';
+import { Form, Input } from './Form';
 import { FormProvider, useForm } from 'react-hook-form';
-import { Grid } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 import { FC } from 'react';
 import { Button } from '../Button/Button';
 
@@ -37,7 +37,7 @@ const FormWithHooks: FC = () => {
   } = useForm();
 
   return (
-    <StyledPaper elevation={1}>
+    <Paper elevation={1} className="border-2 border-divider">
       <form onSubmit={handleSubmit(() => {})}>
         <Grid display="flex" flexWrap="wrap" gap={3} container p={5}>
           <Input
@@ -79,7 +79,7 @@ const FormWithHooks: FC = () => {
           </Button>
         </Grid>
       </form>
-    </StyledPaper>
+    </Paper>
   );
 };
 

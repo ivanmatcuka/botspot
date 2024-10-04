@@ -7,7 +7,6 @@ import {
   InputLabel,
   InputProps,
   Paper,
-  styled,
   TextField,
   Typography,
 } from '@mui/material';
@@ -20,6 +19,7 @@ import {
   UseFormRegister,
 } from 'react-hook-form';
 import { ErrorOutline } from '@mui/icons-material';
+import { colors } from '@/app/theme';
 
 export const Input = (
   props: Pick<UseControllerProps<any>, 'name' | 'rules'> &
@@ -27,12 +27,21 @@ export const Input = (
       register: UseFormRegister<any>;
       error: any;
       label?: string;
+      color?: 'primary' | 'white';
     },
 ) => (
-  <Grid item flex={props.fullWidth ? '0 0 100%' : 'auto'} flexGrow={1}>
+  <Grid
+    item
+    flex={props.fullWidth ? '0 0 100%' : 'auto'}
+    flexGrow={1}
+    className="!text-white"
+  >
     {props.label && (
       <Box mb={0.5}>
-        <InputLabel required={props.required}>
+        <InputLabel
+          required={props.required}
+          className={props.color === 'white' ? '!text-white' : ''}
+        >
           <Typography variant="caption">{props.label}</Typography>
         </InputLabel>
       </Box>
@@ -40,9 +49,10 @@ export const Input = (
     <TextField
       error={props.error}
       placeholder={props.label}
-      {...props.register(props.name, props.rules)}
       fullWidth
       value={props.value}
+      InputProps={{ className: 'bg-white' }}
+      {...props.register(props.name, props.rules)}
     />
     {props.error && (
       <Box display="flex" alignItems="center" mt={0.5}>
@@ -54,10 +64,6 @@ export const Input = (
     )}
   </Grid>
 );
-
-export const StyledPaper = styled(Paper)(({ theme }) => ({
-  border: `2px solid ${theme.palette.divider}`,
-}));
 
 type FormProps = {
   onSubmit: SubmitHandler<any>;
@@ -71,7 +77,7 @@ export const Form: FC<PropsWithChildren<FormProps>> = ({
   const { handleSubmit } = useForm();
 
   return (
-    <StyledPaper elevation={1}>
+    <Paper elevation={1} className="border-2 border-divider">
       {slot}
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid display="flex" flexWrap="wrap" gap={3} container p={5}>
@@ -81,6 +87,6 @@ export const Form: FC<PropsWithChildren<FormProps>> = ({
           </Button>
         </Grid>
       </form>
-    </StyledPaper>
+    </Paper>
   );
 };

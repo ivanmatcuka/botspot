@@ -45,6 +45,7 @@
     "postcss": "^8",
     "storybook": "^8.2.9",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wp-types": "^4.66.1"
   }
 }
