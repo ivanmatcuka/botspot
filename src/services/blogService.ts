@@ -6,7 +6,7 @@ export const getPosts = async (
 ): Promise<{ data: WP_REST_API_Posts; count: number }> => {
   const category = await getCategory('3d-academy');
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}posts?per_page=${perPage}&page=${page}&categories=38&_embed`,
+    `${process.env.NEXT_PUBLIC_API_URL}posts?per_page=${perPage}&page=${page}&categories=${category.id}&_embed`,
     {
       method: 'GET',
       headers: {

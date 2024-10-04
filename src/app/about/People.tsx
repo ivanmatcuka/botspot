@@ -20,7 +20,7 @@ export const People: FC = () => {
   }, []);
 
   return (
-    <Box maxWidth="xl" className="w-full flex justify-center" mx="auto" p={3}>
+    <Box maxWidth="xl" className="w-full flex justify-center" mx="auto">
       <Grid container spacing={{ xs: 2, md: 3, lg: 5 }} xs={10}>
         {loading
           ? Array(6)

@@ -15,6 +15,7 @@ type MainBlockProps = {
   cta?: ReactNode;
   subAssetUrl?: string;
   mediaBlockOptions?: MediaBlockProps;
+  botomless?: boolean;
 };
 export const MainBlock: FC<MainBlockProps> = ({
   headline,
@@ -22,6 +23,7 @@ export const MainBlock: FC<MainBlockProps> = ({
   cta,
   subAssetUrl,
   mediaBlockOptions = {},
+  botomless = false,
 }) => (
   <Box textAlign={{ xs: 'center', md: 'left' }}>
     {mediaBlockOptions.assetUrl && <MediaBlock {...mediaBlockOptions} />}
@@ -29,7 +31,8 @@ export const MainBlock: FC<MainBlockProps> = ({
     <Grid
       container
       justifyContent="center"
-      my={{ xs: 10, md: 20 }}
+      mb={{ xs: botomless ? 0 : 10, md: botomless ? 0 : 10 }}
+      mt={{ xs: 10, md: 20 }}
       mx="auto"
       maxWidth="xl"
       px={3}
