@@ -15,44 +15,42 @@ export const Post: FC<PostProps> = ({
   link,
   excerpt,
   featuredImage,
-}) => {
-  return (
+}) => (
+  <Box
+    className="relative rounded-lg text-white overflow-hidden h-full min-h-[360px]"
+    display="flex"
+    alignItems="flex-end"
+  >
     <Box
-      className="relative rounded-lg text-white overflow-hidden h-full min-h-[360px]"
+      className="bg-common-black bg-opacity-80 break-all w-full text-center"
       display="flex"
-      alignItems="flex-end"
+      flexDirection="column"
+      alignItems="center"
+      p={2}
+      gap={1}
     >
-      <Box
-        className="bg-common-black bg-opacity-80 break-all w-full"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        p={2}
-        gap={1}
-      >
-        <Typography variant="h4">{title}</Typography>
-        {excerpt && (
-          <Typography
-            variant="body1"
-            mb={1}
-            dangerouslySetInnerHTML={{ __html: excerpt }}
-          />
-        )}
-        {link && (
-          <Button variant="secondary" onClick={() => window.open(link)}>
-            Read Full Story
-          </Button>
-        )}
-        {featuredImage && (
-          <Image
-            height={360}
-            width={310}
-            alt=""
-            src={featuredImage}
-            className="w-full h-full absolute inset-0 z-[-1] object-cover object-top"
-          />
-        )}
-      </Box>
+      <Typography variant="h4">{title}</Typography>
+      {excerpt && (
+        <Typography
+          variant="body1"
+          mb={1}
+          dangerouslySetInnerHTML={{ __html: excerpt }}
+        />
+      )}
+      {link && (
+        <Button variant="secondary" onClick={() => window.open(link)}>
+          Read Full Story
+        </Button>
+      )}
+      {featuredImage && (
+        <Image
+          height={360}
+          width={310}
+          alt=""
+          src={featuredImage}
+          className="w-full h-full absolute inset-0 z-[-1] object-cover object-top"
+        />
+      )}
     </Box>
-  );
-};
+  </Box>
+);
