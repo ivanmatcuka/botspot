@@ -1,4 +1,4 @@
-import type { WP_Post, WP_REST_API_Posts } from 'wp-types';
+import type { WP_REST_API_Posts } from 'wp-types';
 
 export const getPosts = async (
   page: number = 2,
