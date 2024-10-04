@@ -20,7 +20,7 @@ export const Tile: FC<PropsWithChildren<TileProps>> = ({
         mb={6}
         mx="auto"
         textAlign={{ xs: 'center', md: 'left' }}
-        columnSpacing={2}
+        columnSpacing={4}
         className="border-t border-gray-700"
       >
         <Grid item flexBasis={{ xs: '100%', md: '50%' }}>

@@ -22,6 +22,7 @@ export const Gallery: FC<GalleryProps> = ({ firstChild, secondChild }) => (
       height={{ xs: 320, md: 420 }}
       bgcolor="grey.100"
       borderRadius={1}
+      overflow="hidden"
     >
       {firstChild}
     </Grid>
@@ -32,6 +33,7 @@ export const Gallery: FC<GalleryProps> = ({ firstChild, secondChild }) => (
       height={{ xs: 320, md: 420 }}
       bgcolor="grey.100"
       borderRadius={1}
+      overflow="hidden"
     >
       {secondChild}
     </Grid>

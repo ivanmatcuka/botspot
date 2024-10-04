@@ -33,10 +33,6 @@ export default function RootLayout({
                     { label: 'Botscan NEO', href: '/products/botscan-neo' },
                     { label: '3D Object', href: '/products/3d-object' },
                     { label: '3D Studio', href: '/products/3d-studio' },
-                    {
-                      label: '3D Scan Service',
-                      href: '/products',
-                    },
                   ],
                 },
                 { label: '3D Scan Service', href: '/service' },

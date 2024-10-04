@@ -173,6 +173,10 @@ const theme = createTheme({
       fontSize: 40,
       lineHeight: 1,
     },
+    h4: {
+      fontSize: 24,
+      lineHeight: 1,
+    },
     caption: {
       fontSize: 12,
       lineHeight: 1,
@@ -186,5 +190,21 @@ theme.typography.h1 = {
     fontSize: 40,
   },
 };
+theme.components &&
+  (theme.components.MuiPagination = {
+    styleOverrides: {
+      root: {
+        '.MuiPagination-ul': {
+          gap: theme.spacing(3),
+          justifyContent: 'flex-start',
+
+          [theme.breakpoints.down('xl')]: {
+            gap: theme.spacing(1),
+            justifyContent: 'space-evenly',
+          },
+        },
+      },
+    },
+  });
 
 export { theme };

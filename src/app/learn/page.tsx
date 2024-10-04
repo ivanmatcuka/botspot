@@ -2,9 +2,10 @@ import { MainBlock } from '../components/MainBlock/MainBlock';
 import { Button } from '../components/Button/Button';
 import { Box, Typography } from '@mui/material';
 import { Tile } from '../components/Tile/Tile';
-import { FeedbackForm } from '../components/FeedbackForm/FeedbackForm';
 import { Banner } from '../components/Banner/Banner';
 import Image from 'next/image';
+import { QuestionForm } from '../components/QuestionForm/QuestionForm';
+import { Posts } from '../blog/Posts';
 
 export default function Learn() {
   return (
@@ -60,7 +61,10 @@ export default function Learn() {
         headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
         cta={<Button variant="primary">Visit Blog</Button>}
       />
-      <FeedbackForm />
+
+      <Posts perPage={6} hidePagination />
+
+      <QuestionForm />
     </main>
   );
 }

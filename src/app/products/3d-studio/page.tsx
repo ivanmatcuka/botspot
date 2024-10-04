@@ -9,6 +9,7 @@ import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
 import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { Gallery } from '@/app/components/Gallery/Gallery';
+import { Iframe } from '@/app/components/3dIframe/3dIframe';
 
 export default function ThreeDStudio() {
   return (
@@ -87,7 +88,14 @@ export default function ThreeDStudio() {
       </Tile>
 
       <Box mb={{ xs: 5, md: 10 }}>
-        <Gallery />
+        <Gallery
+          firstChild={
+            <Iframe src="https://sketchfab.com/models/0678bf45071d42be92027cf17fbb7b75/embed?autostart=1&camera=0&ui_animations=0&ui_infos=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_help=0&ui_settings=0&ui_annotations=0&dnt=1" />
+          }
+          secondChild={
+            <Iframe src="https://sketchfab.com/models/098f5240cd464aea841f47d137ed53dc/embed?autostart=1&camera=0&ui_animations=0&ui_infos=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_help=0&ui_settings=0&ui_annotations=0&dnt=1" />
+          }
+        />
       </Box>
 
       <GalleryTile imgUrl="/img/products/3d-studio/3.png">

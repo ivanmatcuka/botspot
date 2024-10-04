@@ -7,6 +7,7 @@ import { Banner } from '@/app/components/Banner/Banner';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Gallery } from '@/app/components/Gallery/Gallery';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { Iframe } from '../components/3dIframe/3dIframe';
 
 export default function Service() {
   return (
@@ -47,7 +48,14 @@ export default function Service() {
       </Tile>
 
       <Box mb={{ xs: 5, md: 10 }}>
-        <Gallery />
+        <Gallery
+          firstChild={
+            <Iframe src="https://sketchfab.com/models/87f87f23481f4ed7bd73b2155c1332b4/embed?autostart=1&camera=0&ui_animations=0&ui_infos=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_annotations=0&dnt=1" />
+          }
+          secondChild={
+            <Iframe src="https://sketchfab.com/models/74a79ea84e674a878c5ade45838e457a/embed?autostart=1&camera=0&ui_animations=0&ui_infos=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_annotations=0&dnt=1" />
+          }
+        />
       </Box>
 
       <MainBlock

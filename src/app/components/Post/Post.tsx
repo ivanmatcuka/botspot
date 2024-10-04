@@ -6,7 +6,7 @@ import Image from 'next/image';
 type PostProps = {
   title: string;
   excerpt?: string;
-  link: string;
+  link?: string;
   featuredImage?: string;
 };
 
@@ -23,7 +23,7 @@ export const Post: FC<PostProps> = ({
       alignItems="flex-end"
     >
       <Box
-        className="bg-common-black bg-opacity-80 break-all"
+        className="bg-common-black bg-opacity-80 break-all w-full"
         display="flex"
         flexDirection="column"
         alignItems="center"
@@ -38,16 +38,18 @@ export const Post: FC<PostProps> = ({
             dangerouslySetInnerHTML={{ __html: excerpt }}
           />
         )}
-        <Button variant="secondary" onClick={() => window.open(link)}>
-          Read Full Story
-        </Button>
+        {link && (
+          <Button variant="secondary" onClick={() => window.open(link)}>
+            Read Full Story
+          </Button>
+        )}
         {featuredImage && (
           <Image
             height={360}
             width={310}
             alt=""
             src={featuredImage}
-            className="w-full h-full absolute inset-0 z-[-1]"
+            className="w-full h-full absolute inset-0 z-[-1] object-cover object-top"
           />
         )}
       </Box>

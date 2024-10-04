@@ -1,13 +1,19 @@
+'use client';
+
 import Image from 'next/image';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { Iframe } from '@/app/components/3dIframe/3dIframe';
+import { useRouter } from 'next/navigation';
 
 export default function Industrial() {
+  const { push } = useRouter();
+
   return (
     <main className="">
       <SecondaryBlock
@@ -39,13 +45,10 @@ export default function Industrial() {
       />
 
       <Tile headline="7-Lights">
-        <Image
-          src="/img/areas/industrial/1.png"
-          alt="7-Lights"
-          width={700}
-          height={400}
-          style={{ width: '100%' }}
-        />
+        <Box height={360}>
+          <Iframe src="https://sketchfab.com/models/d839701297f54d978ffb39a4566c0cdf/embed?autospin=1&autostart=1&ui_animations=0&ui_infos=0&ui_stop=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&dnt=1" />
+        </Box>
+
         <Typography variant="body1" my={2}>
           “botspot works with a lot of effort to find the best solution for the
           customer – with success. We are very satisfied and recommend botspot
@@ -54,13 +57,9 @@ export default function Industrial() {
         <Button variant="primary">Read Article</Button>
       </Tile>
       <Tile headline="Reverse Engineering">
-        <Image
-          src="/img/areas/industrial/2.png"
-          alt="Reverse Engineering"
-          width={700}
-          height={400}
-          style={{ width: '100%' }}
-        />
+        <Box height={360}>
+          <Iframe src="https://sketchfab.com/models/21ff92563c824f01a2166f22448f2940/embed?camera=0&ui_animations=0&ui_infos=0&ui_stop=1&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&dnt=1" />
+        </Box>
         <Typography variant="body1" mt={2}>
           Where older components are no longer manufactured and no CAD data of
           the object is available, 3D scanning is the method of choice to
@@ -70,13 +69,9 @@ export default function Industrial() {
       </Tile>
 
       <Tile headline="Documentation of Defects on Car Bodies">
-        <Image
-          src="/img/areas/industrial/3.png"
-          alt="Documentation of Defects on Car Bodies"
-          width={700}
-          height={400}
-          style={{ width: '100%' }}
-        />
+        <Box height={360}>
+          <Iframe src="https://sketchfab.com/models/83cbb24b8aca4dd1882df4a3dc9c6e65/embed?camera=0&ui_animations=0&ui_infos=0&ui_stop=1&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&dnt=1" />
+        </Box>
         <Typography variant="body1" mt={2}>
           A special focus of our current development work is on automotive
           applications, especially for the quality control and the inspection of
@@ -86,12 +81,17 @@ export default function Industrial() {
         </Typography>
       </Tile>
 
-      <GalleryTile imgUrl="/img/areas/industrial/4.png">
+      <GalleryTile imgUrl="/img/areas/industrial/2.png">
         <SecondaryBlock
           subline="Durable and fast, our 3D Studio is ideal for industrial applications."
           headline="We recommend our 3D Studio Scanner"
           primaryCta={
-            <Button variant="primary">Explore 3D Object Scanner</Button>
+            <Button
+              variant="primary"
+              onClick={() => push('/products/3d-studio')}
+            >
+              Explore 3D Object Scanner
+            </Button>
           }
           hasParent
         />
