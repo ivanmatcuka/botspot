@@ -29,7 +29,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
       for (var i = 0; i < Infinity; i++) {
         try {
           const image = await loadImage(
-            `videos/${fileName}/${fileName}${i.toString().padStart(3, '0')}.jpg`,
+            `/videos/${fileName}/${fileName}${i.toString().padStart(3, '0')}.jpg`,
           );
           images.push(image);
         } catch (e) {
@@ -56,7 +56,6 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
       );
 
       const frameIndex = Math.floor(progress * (images.length - 1));
-
       if (!images[frameIndex]) return;
       setFrame(frameIndex);
     };

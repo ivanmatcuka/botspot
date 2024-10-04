@@ -2,10 +2,11 @@ import Image from 'next/image';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { Iframe } from '@/app/components/3dIframe/3dIframe';
 
 export default function CustomSolutions() {
   return (
@@ -37,13 +38,9 @@ export default function CustomSolutions() {
       />
 
       <Tile headline="Scanning Animals for International Series">
-        <Image
-          src="/img/areas/custom-solution/1.png"
-          alt="Scanning Animals for International Series"
-          width={700}
-          height={400}
-          style={{ width: '100%' }}
-        />
+        <Box height={360}>
+          <Iframe src="https://sketchfab.com/models/7d89f65475664a0eabc39e3e7790cddf/embed?autostart=1&camera=0&ui_animations=0&ui_infos=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_annotations=0&dnt=1" />
+        </Box>
         <Typography variant="body1" my={2}>
           Approached by the new historical epic series “Those About to Die”,
           botspot took on the challenge of 3D scanning a horse.

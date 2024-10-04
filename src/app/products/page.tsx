@@ -1,3 +1,5 @@
+'use client';
+
 import { Typography } from '@mui/material';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
@@ -7,8 +9,11 @@ import { Tile } from '@/app/components/Tile/Tile';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { useRouter } from 'next/navigation';
 
 export default function Products() {
+  const { push } = useRouter();
+
   return (
     <main className="">
       <Banner
@@ -52,11 +57,21 @@ export default function Products() {
 
       <SecondaryBlock
         mediaBlockOptions={{
-          assetUrl: '/img/products/1.png',
+          assetUrl: 'BotscanNEO_Landing00090',
+          autoplay: true,
+          scrollable: true,
+          fullHeight: true,
         }}
         headline="Botscan NEO"
         subline="Smart 3D fullbody scanner for high volume 3D model production"
-        primaryCta={<Button variant="primary">Explore Neo</Button>}
+        primaryCta={
+          <Button
+            variant="primary"
+            onClick={() => push('/products/botscan-neo')}
+          >
+            Explore Neo
+          </Button>
+        }
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
       />
 
@@ -85,6 +100,7 @@ export default function Products() {
           subline="Discover our Areas of Use with a diverse range of applications and industries."
           headline="Our Scanners in Action"
           primaryCta={<Button variant="primary">Explore Applications</Button>}
+          hasParent
         />
       </GalleryTile>
 

@@ -5,6 +5,7 @@ import { Button } from '@/app/components/Button/Button';
 import { Tile } from '@/app/components/Tile/Tile';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
+import { People } from './People';
 
 export default function About() {
   return (
@@ -43,15 +44,18 @@ export default function About() {
       </Tile>
 
       <MainBlock
-        subline="Our Mission"
-        headline="We set new standards in the 3D scanning industry."
+        subline="Our Team"
+        headline="With commitment and tenacity, we make the impossible possible."
       />
+
+      <People />
 
       <Box
         width="100%"
         bgcolor="grey.100"
         display="flex"
         flexDirection="column"
+        mt={{ xs: 10, md: 20 }}
       >
         <MainBlock
           subline="Your Opportunity"

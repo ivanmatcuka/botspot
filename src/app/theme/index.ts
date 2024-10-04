@@ -173,6 +173,10 @@ const theme = createTheme({
       fontSize: 40,
       lineHeight: 1,
     },
+    h4: {
+      fontSize: 24,
+      lineHeight: 1,
+    },
     caption: {
       fontSize: 12,
       lineHeight: 1,
