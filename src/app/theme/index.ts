@@ -186,5 +186,21 @@ theme.typography.h1 = {
     fontSize: 40,
   },
 };
+theme.components &&
+  (theme.components.MuiPagination = {
+    styleOverrides: {
+      root: {
+        '.MuiPagination-ul': {
+          gap: theme.spacing(3),
+          justifyContent: 'flex-start',
+
+          [theme.breakpoints.down('xl')]: {
+            gap: theme.spacing(1),
+            justifyContent: 'space-evenly',
+          },
+        },
+      },
+    },
+  });
 
 export { theme };
