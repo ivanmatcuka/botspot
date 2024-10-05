@@ -20,6 +20,23 @@ export const getPosts = async (
   return { data, count: Number(response.headers.get('X-WP-Total')) };
 };
 
+export const getPost = async (
+  id: number,
+): Promise<WP_REST_API_Posts[number]> => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}posts?include=${id}&_embed`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
+
+  const data = await response.json();
+  return data[0];
+};
+
 export const getPeople = async (): Promise<{
   data: WP_REST_API_Posts;
   count: number;

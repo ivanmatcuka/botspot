@@ -1,3 +1,5 @@
+'use client';
+
 import { MainBlock } from '../components/MainBlock/MainBlock';
 import { Button } from '../components/Button/Button';
 import { Typography } from '@mui/material';
@@ -5,8 +7,11 @@ import { Tile } from '../components/Tile/Tile';
 import Image from 'next/image';
 import { GalleryTile } from '../components/GalleryTile/GalleryTile';
 import { SecondaryBlock } from '../components/SecondaryBlock/SecondaryBlock';
+import { useRouter } from 'next/navigation';
 
 export default function InnovationLab() {
+  const { push } = useRouter();
+
   return (
     <main className="">
       <SecondaryBlock
@@ -16,7 +21,11 @@ export default function InnovationLab() {
         subline="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
         headline="Innovation Lab"
         primaryCta={<Button variant="primary">Contact Innovation Lab</Button>}
-        secondaryCta={<Button variant="secondary">Visit Blog</Button>}
+        secondaryCta={
+          <Button variant="secondary" onClick={() => push('/blog')}>
+            Visit Blog
+          </Button>
+        }
       />
 
       <MainBlock

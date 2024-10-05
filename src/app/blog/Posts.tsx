@@ -53,7 +53,7 @@ export const Posts: FC<PostProps> = ({
                 <Grid item xs={12} md={6} lg={4} key={post.id}>
                   <Post
                     title={post.title.rendered}
-                    link={post.link}
+                    id={`${post.id}`}
                     excerpt={post.excerpt.rendered}
                     featuredImage={featuredImage}
                   />

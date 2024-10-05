@@ -1,3 +1,5 @@
+'use client';
+
 import { MainBlock } from '../components/MainBlock/MainBlock';
 import { Button } from '../components/Button/Button';
 import { Box, Typography } from '@mui/material';
@@ -6,8 +8,11 @@ import { Banner } from '../components/Banner/Banner';
 import Image from 'next/image';
 import { QuestionForm } from '../components/QuestionForm/QuestionForm';
 import { Posts } from '../blog/Posts';
+import { useRouter } from 'next/navigation';
 
 export default function Learn() {
+  const { push } = useRouter();
+
   return (
     <main className="">
       <Banner
@@ -59,7 +64,11 @@ export default function Learn() {
       <MainBlock
         subline="Questions & Articles"
         headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
-        cta={<Button variant="primary">Visit Blog</Button>}
+        cta={
+          <Button variant="secondary" onClick={() => push('/blog')}>
+            Visit Blog
+          </Button>
+        }
       />
 
       <Posts perPage={6} hidePagination />
