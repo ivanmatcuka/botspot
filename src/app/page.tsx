@@ -88,6 +88,21 @@ export default function Home() {
       />
       <SecondaryBlock
         mediaBlockOptions={{
+          assetUrl: 'Object_Studio_Landing00090',
+          scrollable: true,
+          fullHeight: true,
+        }}
+        headline="Object Studio"
+        subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
+        primaryCta={
+          <Button variant="primary" onClick={() => push('/products/3d-studio')}>
+            Object Studio
+          </Button>
+        }
+        secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
+      />
+      <SecondaryBlock
+        mediaBlockOptions={{
           assetUrl: 'ObjectScanner_Landing00090',
           scrollable: true,
           fullHeight: true,
