@@ -26,19 +26,17 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
           image.onerror = () => reject('broken');
         });
 
-      for (var i = 0; i < Infinity; i++) {
-        try {
-          const image = await loadImage(
-            `/videos/${fileName}/${fileName}${i.toString().padStart(3, '0')}.jpg`,
-          );
-          images.push(image);
-        } catch (e) {
-          setIsready(true);
-          break;
-        }
+      const imagePromises = [];
+
+      for (var i = 0; i < 150; i++) {
+        const imagePromise = loadImage(
+          `/videos/${fileName}/${fileName}${i.toString().padStart(3, '0')}.jpg`,
+        );
+        imagePromises.push(imagePromise);
       }
 
-      setImages(images);
+      setImages(await Promise.all(imagePromises));
+      setIsready(true);
     };
 
     prepareImages();
