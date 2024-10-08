@@ -1,5 +1,3 @@
-'use client';
-
 import { MainBlock } from './components/MainBlock/MainBlock';
 import { Button } from './components/Button/Button';
 import { Box, Typography } from '@mui/material';
@@ -7,12 +5,10 @@ import { SecondaryBlock } from './components/SecondaryBlock/SecondaryBlock';
 import { Tile } from './components/Tile/Tile';
 import { FeedbackForm } from './components/FeedbackForm/FeedbackForm';
 import { Banner } from './components/Banner/Banner';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
-  const { push } = useRouter();
-
   return (
     <main className="">
       <Banner
@@ -22,14 +18,15 @@ export default function Home() {
         headline="THE WORLD’S MOST VERSATILE 3D SCANNERS."
         subline="With over 10 years of experience in Photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
         primaryCta={
-          <Button
-            variant="primary"
-            onClick={() => push('/products/botscan-neo')}
-          >
-            Explore Neo
-          </Button>
+          <Link href="/products/botscan-neo">
+            <Button variant="primary">Explore Neo</Button>
+          </Link>
         }
-        secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
+        secondaryCta={
+          <Link href="/download-area">
+            <Button variant="secondary">Download Data Sheet</Button>
+          </Link>
+        }
       />
 
       <Box
@@ -76,15 +73,12 @@ export default function Home() {
           scrollable: true,
           fullHeight: true,
         }}
-        headline="Botscan NEO"
+        headline="botscan NEO"
         subline="Smart 3D fullbody scanner for high volume 3D model production"
         primaryCta={
-          <Button
-            variant="primary"
-            onClick={() => push('/products/botscan-neo')}
-          >
-            Explore Neo
-          </Button>
+          <Link href="/products/botscan-neo">
+            <Button variant="primary">Explore Neo</Button>
+          </Link>
         }
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
       />
@@ -97,11 +91,15 @@ export default function Home() {
         headline="Object Studio"
         subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
         primaryCta={
-          <Button variant="primary" onClick={() => push('/products/3d-studio')}>
-            Object Studio
-          </Button>
+          <Link href="/products/3d-studio">
+            <Button variant="primary">Object Studio</Button>
+          </Link>
         }
-        secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
+        secondaryCta={
+          <Link href="/download-area">
+            <Button variant="secondary">Download Data Sheet</Button>
+          </Link>
+        }
       />
       <SecondaryBlock
         mediaBlockOptions={{
@@ -112,11 +110,15 @@ export default function Home() {
         headline="3D Object"
         subline="Fully automated 3D object scanner for precise photogrammetry"
         primaryCta={
-          <Button variant="primary" onClick={() => push('/products/3d-object')}>
-            Explore 3D Object
-          </Button>
+          <Link href="/products/3d-object">
+            <Button variant="primary">Explore 3D Object</Button>
+          </Link>
         }
-        secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
+        secondaryCta={
+          <Link href="/download-area">
+            <Button variant="secondary">Download Data Sheet</Button>
+          </Link>
+        }
       />
       <Box
         width="100%"
@@ -129,9 +131,9 @@ export default function Home() {
           subline="How we can help"
           headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
           cta={
-            <Button variant="primary" onClick={() => push('/services')}>
-              Explore Our Services
-            </Button>
+            <Link href="/services">
+              <Button variant="primary">Explore Our Services</Button>
+            </Link>
           }
         />
         <Tile headline="How We Can Help">

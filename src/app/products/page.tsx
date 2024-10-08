@@ -1,5 +1,3 @@
-'use client';
-
 import { Typography } from '@mui/material';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
@@ -9,11 +7,9 @@ import { Tile } from '@/app/components/Tile/Tile';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Products() {
-  const { push } = useRouter();
-
   return (
     <main className="">
       <Banner
@@ -62,15 +58,12 @@ export default function Products() {
           assetUrl: '/img/products/1.png',
           objectFit: 'contain',
         }}
-        headline="Botscan NEO"
+        headline="botscan NEO"
         subline="Smart 3D fullbody scanner for high volume 3D model production"
         primaryCta={
-          <Button
-            variant="primary"
-            onClick={() => push('/products/botscan-neo')}
-          >
-            Explore Neo
-          </Button>
+          <Link href="/products/botscan-neo">
+            <Button variant="primary">Explore Neo</Button>
+          </Link>
         }
         secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
       />

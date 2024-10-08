@@ -1,6 +1,3 @@
-'use client';
-
-import Image from 'next/image';
 import { Box, Typography } from '@mui/material';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
@@ -9,11 +6,9 @@ import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Industrial() {
-  const { push } = useRouter();
-
   return (
     <main className="">
       <SecondaryBlock
@@ -86,12 +81,9 @@ export default function Industrial() {
           subline="Durable and fast, our 3D Studio is ideal for industrial applications."
           headline="We recommend our 3D Studio Scanner"
           primaryCta={
-            <Button
-              variant="primary"
-              onClick={() => push('/products/3d-studio')}
-            >
-              Explore 3D Object Scanner
-            </Button>
+            <Link href="/products/3d-studio">
+              <Button variant="primary">Explore 3D Object Scanner</Button>
+            </Link>
           }
           hasParent
         />

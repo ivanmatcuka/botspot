@@ -1,12 +1,8 @@
-'use client';
-
 import { Box, Typography } from '@mui/material';
 import { Button } from './components/Button/Button';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function NotFound() {
-  const { push } = useRouter();
-
   return (
     <Box
       mx="auto"
@@ -24,9 +20,10 @@ export default function NotFound() {
       <Typography variant="body1" mt={3} mb={8}>
         Page not Found
       </Typography>
-      <Button variant="primary" onClick={() => push('/')}>
-        Go Home
-      </Button>
+
+      <Link href="/">
+        <Button variant="primary">Go Home</Button>
+      </Link>
     </Box>
   );
 }

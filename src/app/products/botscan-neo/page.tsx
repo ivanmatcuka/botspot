@@ -19,7 +19,7 @@ export default function BorscanNeo() {
           assetUrl: '/img/products/botscan-neo/banner.png',
         }}
         subline="Our Smart 3D Full Body Scanner for High Volume 3D Model Production"
-        headline="Botscan NEO"
+        headline="botscan NEO"
         primaryCta={<Button variant="primary">Download Data Sheet</Button>}
         secondaryCta={<Button variant="secondary">Request a Demo</Button>}
         banner

@@ -6,8 +6,11 @@ import { Tile } from '@/app/components/Tile/Tile';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
 import { People } from './People';
+import { getPeople } from '@/services/blogService';
 
-export default function About() {
+export default async function About() {
+  const { data } = await getPeople();
+
   return (
     <main className="">
       <Banner
@@ -51,7 +54,7 @@ export default function About() {
         botomless
       />
 
-      <People />
+      <People data={data} />
 
       <Box
         width="100%"

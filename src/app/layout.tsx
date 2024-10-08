@@ -31,7 +31,7 @@ export default function RootLayout({
                   label: 'Products',
                   href: '/products',
                   children: [
-                    { label: 'Botscan NEO', href: '/products/botscan-neo' },
+                    { label: 'botscan NEO', href: '/products/botscan-neo' },
                     { label: '3D Object', href: '/products/3d-object' },
                     { label: '3D Studio', href: '/products/3d-studio' },
                   ],

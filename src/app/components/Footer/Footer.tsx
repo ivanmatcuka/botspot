@@ -48,7 +48,7 @@ export const Footer = () => (
           >
             <FooterTypography>3D Scanner</FooterTypography>
             <br />
-            <FooterTypography>Botscan NEO</FooterTypography>
+            <FooterTypography>botscan NEO</FooterTypography>
             <FooterTypography>3D Object</FooterTypography>
             <FooterTypography>3D Studio</FooterTypography>
           </Grid>
