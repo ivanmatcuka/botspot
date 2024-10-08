@@ -5,6 +5,9 @@ export const getPosts = async (
   perPage: number = 12,
 ): Promise<{ data: WP_REST_API_Posts; count: number }> => {
   const category = await getCategory('3d-academy');
+
+  if (!category) return { data: [], count: 0 };
+
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}posts?per_page=${perPage}&page=${page}&categories=${category.id}&_embed`,
     {
@@ -42,6 +45,9 @@ export const getPeople = async (): Promise<{
   count: number;
 }> => {
   const category = await getCategory('people');
+
+  if (!category) return { data: [], count: 0 };
+
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}posts?&categories=${category.id}&_embed`,
     {
