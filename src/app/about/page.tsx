@@ -11,7 +11,9 @@ export default function About() {
   return (
     <main className="">
       <Banner
-        assetUrl="/img/banners/about.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/banners/about.png',
+        }}
         headline="ABOUT US"
         subline="Whenever 3D scanning technology can shift the status quo, botspot is here for you to innovate."
         primaryCta={<Button variant="primary">Read Our Story</Button>}

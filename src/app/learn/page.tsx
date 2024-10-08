@@ -16,7 +16,9 @@ export default function Learn() {
   return (
     <main className="">
       <Banner
-        assetUrl="/img/banners/products.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/banners/products.png',
+        }}
         headline="LEARN ABOUT 3D SCANNING"
         subline="Discover the fundamentals of 3D scanning and explore how this cutting-edge technology is transforming industries, from design to manufacturing."
         primaryCta={<Button variant="primary">Check Our Blog</Button>}

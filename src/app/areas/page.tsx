@@ -7,7 +7,9 @@ export default function Areas() {
   return (
     <main className="">
       <Banner
-        assetUrl="/img/banners/areas.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/banners/areas.png',
+        }}
         headline="AREAS OF USE"
         subline="Potential Areas of Use are as versatile as our 3D Scanners. We have delivered commercial, industrial and custom solutions in order to exceed our clients’  needs."
         primaryCta={<Button variant="primary">Commercial Applications</Button>}

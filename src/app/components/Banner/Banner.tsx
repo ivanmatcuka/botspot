@@ -1,41 +1,28 @@
-'use client';
-
-import { Box, Grid, styled, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 
-import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
-
-const Gradient = styled('div')({
-  backgroundImage: 'linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%)',
-});
+import {
+  MediaBlock,
+  MediaBlockProps,
+} from '@/app/components/MediaBlock/MediaBlock';
 
 type BannerProps = {
-  assetUrl: string;
   headline: string;
   subline: string;
   primaryCta: ReactNode;
   secondaryCta: ReactNode;
-  autoplay?: boolean;
-  scrollable?: boolean;
+  mediaBlockOptions?: Omit<MediaBlockProps, 'fullHeight'>;
 };
 export const Banner: FC<BannerProps> = ({
-  assetUrl,
   headline,
   subline,
   primaryCta,
   secondaryCta,
-  autoplay = true,
+  mediaBlockOptions,
 }) => (
   <Box position="relative" minHeight={{ xs: '100vh', md: 768, lg: 800 }}>
-    {assetUrl && (
-      <MediaBlock
-        assetUrl={assetUrl}
-        autoplay={autoplay}
-        scrollable={false}
-        fullHeight
-      />
-    )}
-    <Gradient className="absolute inset-0" />
+    {mediaBlockOptions && <MediaBlock {...mediaBlockOptions} fullHeight />}
+    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
     <Box
       position="absolute"
       top={0}

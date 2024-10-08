@@ -16,7 +16,9 @@ export default function Home() {
   return (
     <main className="">
       <Banner
-        assetUrl="/videos/landing-page.mp4"
+        mediaBlockOptions={{
+          assetUrl: '/videos/landing-page.mp4',
+        }}
         headline="THE WORLD’S MOST VERSATILE 3D SCANNERS."
         subline="With over 10 years of experience in Photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
         primaryCta={

@@ -27,10 +27,8 @@ export default function BorscanNeo() {
 
       <MainBlock
         mediaBlockOptions={{
-          assetUrl: 'BotscanNEO_Landing00090',
-          autoplay: true,
-          scrollable: true,
-          fullHeight: true,
+          assetUrl: '/img/products/1.png',
+          objectFit: 'contain',
         }}
         headline="Highly precise and colorfast 3D data of people in a fraction of a second, creating true digital twins with a measurement accuracy up to 1 mm."
         subline="Overview"
@@ -39,6 +37,7 @@ export default function BorscanNeo() {
       <MainBlock
         mediaBlockOptions={{
           assetUrl: '/img/products/botscan-neo/2.png',
+          fullHeight: true,
         }}
         headline="Perfect for Full Body Scanning with automized workflow patterns."
         subline="Specifications"

@@ -17,7 +17,9 @@ export default function Products() {
   return (
     <main className="">
       <Banner
-        assetUrl="/img/banners/products.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/banners/products.png',
+        }}
         headline="PRODUCTS"
         subline="Generate photorealistic 3D models with unmatched quality and breathtaking textures in almost no time. "
         primaryCta={<Button variant="primary">Download Data Sheets</Button>}
@@ -50,17 +52,15 @@ export default function Products() {
       </Tile>
       <Tile headline="Fully Automated Software Package">
         <Typography variant="body1">
-          Botspot scanners come with a fully automated software package in order
+          botspot scanners come with a fully automated software package in order
           to scale up 3D asset production and bring down the cost per model.
         </Typography>
       </Tile>
 
       <SecondaryBlock
         mediaBlockOptions={{
-          assetUrl: 'BotscanNEO_Landing00090',
-          autoplay: true,
-          scrollable: true,
-          fullHeight: true,
+          assetUrl: '/img/products/1.png',
+          objectFit: 'contain',
         }}
         headline="Botscan NEO"
         subline="Smart 3D fullbody scanner for high volume 3D model production"
@@ -78,6 +78,7 @@ export default function Products() {
       <SecondaryBlock
         mediaBlockOptions={{
           assetUrl: '/img/products/2.png',
+          objectFit: 'contain',
         }}
         headline="3D Studio"
         subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
@@ -88,6 +89,7 @@ export default function Products() {
       <SecondaryBlock
         mediaBlockOptions={{
           assetUrl: '/img/products/3.png',
+          objectFit: 'contain',
         }}
         headline="3D Object"
         subline="Fully automated 3D object scanner for precise photogrammetry"

@@ -18,8 +18,8 @@ import { Button } from '@/app/components/Button/Button';
 import { Menu } from '@/app/components/Menu/Menu';
 
 const TOPICS = [
-  'Botspot',
-  'Botscan NEO',
+  'botspot',
+  'botscan NEO',
   '3D Object',
   '3D Studio',
   '3D Scan Service',
@@ -35,7 +35,7 @@ export const FeedbackForm: FC = () => {
     setValue,
   } = useForm();
 
-  const [topic, setTopic] = useState('Botspot');
+  const [topic, setTopic] = useState('botspot');
 
   const generateMessage = (topic: (typeof TOPICS)[number]) => {
     return `Hello. I would like to receive some information about ${topic}. Thank you.`;

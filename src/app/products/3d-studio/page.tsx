@@ -28,6 +28,7 @@ export default function ThreeDStudio() {
       <MainBlock
         mediaBlockOptions={{
           assetUrl: '/img/products/3d-studio/1.png',
+          objectFit: 'contain',
         }}
         headline="Engineered with adaptability in mind, every component of the setup is effortlessly adjustable."
         subline="Overview"
@@ -36,6 +37,8 @@ export default function ThreeDStudio() {
       <MainBlock
         mediaBlockOptions={{
           assetUrl: '/img/products/3d-studio/2.png',
+          objectFit: 'contain',
+          fullHeight: true,
         }}
         headline="The stunning results of the 3D reconstruction reduce the need for manual post-processing to an absolute minimum. "
         subline="Specifications"
@@ -73,7 +76,7 @@ export default function ThreeDStudio() {
           </UnorderedList>
         </Typography>
       </Tile>
-      <Tile headline="Botspot Automation Suite Integration">
+      <Tile headline="botspot Automation Suite Integration">
         <Typography variant="body1">
           <UnorderedList>
             <UnorderedListItem>

@@ -27,9 +27,8 @@ export default function ThreeDObject() {
 
       <MainBlock
         mediaBlockOptions={{
-          assetUrl: 'ObjectScanner_Landing00090',
-          scrollable: true,
-          fullHeight: true,
+          assetUrl: '/img/products/3d-object/1.png',
+          objectFit: 'contain',
         }}
         headline="Designed for industrial applications and high 3D model output, our scanner is fully automated, allowing even untrained personnel to operate it."
         subline="Overview"
@@ -77,7 +76,7 @@ export default function ThreeDObject() {
           </UnorderedList>
         </Typography>
       </Tile>
-      <Tile headline="Botspot Auomation Suite Integration">
+      <Tile headline="botspot Auomation Suite Integration">
         <Typography variant="body1">
           <UnorderedList>
             <UnorderedListItem>

@@ -11,7 +11,7 @@ import { Box } from '@mui/material';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Botspot',
+  title: 'botspot',
   description: '3D Scanning Services',
 };
 

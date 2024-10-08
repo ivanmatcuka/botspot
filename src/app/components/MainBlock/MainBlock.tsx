@@ -22,11 +22,11 @@ export const MainBlock: FC<MainBlockProps> = ({
   subline,
   cta,
   subAssetUrl,
-  mediaBlockOptions = {},
+  mediaBlockOptions,
   botomless = false,
 }) => (
   <Box textAlign={{ xs: 'center', md: 'left' }}>
-    {mediaBlockOptions.assetUrl && <MediaBlock {...mediaBlockOptions} />}
+    {mediaBlockOptions?.assetUrl && <MediaBlock {...mediaBlockOptions} />}
 
     <Grid
       container

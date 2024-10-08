@@ -27,6 +27,8 @@ export const BasicBanner: Story = {
     subline: 'Smart 3D fullbody scanner for high volume 3D model production',
     primaryCta: <Button variant="primary">Explore Neo</Button>,
     secondaryCta: <Button variant="secondary">Download Data Sheet</Button>,
-    assetUrl: '/placeholder.png',
+    mediaBlockOptions: {
+      assetUrl: '/placeholder.png',
+    },
   },
 };

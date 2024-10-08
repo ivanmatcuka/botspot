@@ -22,10 +22,10 @@ export const SecondaryBlock: FC<SecondaryBlockProps> = ({
   secondaryCta,
   hasParent = false,
   banner = false,
-  mediaBlockOptions = {},
+  mediaBlockOptions,
 }) => (
   <Box textAlign={{ xs: 'center', md: 'left' }}>
-    {mediaBlockOptions.assetUrl && <MediaBlock {...mediaBlockOptions} />}
+    {mediaBlockOptions?.assetUrl && <MediaBlock {...mediaBlockOptions} />}
 
     <Grid
       container

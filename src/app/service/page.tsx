@@ -13,7 +13,9 @@ export default function Service() {
   return (
     <main className="">
       <Banner
-        assetUrl="/img/banners/services.png"
+        mediaBlockOptions={{
+          assetUrl: '/img/banners/services.png',
+        }}
         headline="3D SCAN SERVICE"
         subline="Our 3D scan services cater to individuals and businesses seeking  high-quality scans without the upfront costs and technical requirements  of owning a scanner."
         primaryCta={<Button variant="primary">Try Before You Buy</Button>}
