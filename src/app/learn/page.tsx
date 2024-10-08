@@ -2,12 +2,13 @@
 
 import { MainBlock } from '../components/MainBlock/MainBlock';
 import { Button } from '../components/Button/Button';
-import { Box, Typography } from '@mui/material';
 import { Tile } from '../components/Tile/Tile';
 import { Banner } from '../components/Banner/Banner';
-import Image from 'next/image';
 import { QuestionForm } from '../components/QuestionForm/QuestionForm';
 import { Posts } from '../blog/Posts';
+
+import Image from 'next/image';
+import { Box, Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
 export default function Learn() {

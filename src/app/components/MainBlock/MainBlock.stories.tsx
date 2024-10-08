@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { MainBlock } from './MainBlock';
+
 import { Button } from '../Button/Button';
+
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
   title: 'Example/MainBlock',

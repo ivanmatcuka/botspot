@@ -1,4 +1,3 @@
-// import { colors } from './src/app/theme';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -18,7 +17,6 @@ const config: Config = {
       colors: {
         action: {
           disabledBackground: '#AEAEAE',
-          // disabledOpacity: 1,
         },
         primary: {
           main: '#4119BC',

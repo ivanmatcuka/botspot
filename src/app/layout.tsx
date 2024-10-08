@@ -1,13 +1,16 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { Navbar } from './components/Navbar/Navbar';
 import { Button } from './components/Button/Button';
-import { ReactNode } from 'react';
-import ThemeRegistry from './theme/ThemeRegistry';
 import { Footer } from './components/Footer/Footer';
+import { Navbar } from './components/Navbar/Navbar';
+import './globals.css';
+import ThemeRegistry from './theme/ThemeRegistry';
+
 import { Box } from '@mui/material';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { Inter } from 'next/font/google';
+import { ReactNode } from 'react';
+
+import type { Metadata } from 'next';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {

@@ -1,12 +1,13 @@
-import Image from 'next/image';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
-import { Box, Typography } from '@mui/material';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
+
+import { Box, Typography } from '@mui/material';
+import Image from 'next/image';
 
 export default function CustomSolutions() {
   return (

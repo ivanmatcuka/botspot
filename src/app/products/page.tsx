@@ -1,12 +1,12 @@
-import { Typography } from '@mui/material';
-
+import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { Button } from '@/app/components/Button/Button';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
-import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
-import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { Button } from '@/app/components/Button/Button';
+
+import { Typography } from '@mui/material';
 import Link from 'next/link';
 
 export default function Products() {

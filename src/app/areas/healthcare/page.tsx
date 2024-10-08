@@ -1,10 +1,11 @@
-import Image from 'next/image';
-import { Typography } from '@mui/material';
 
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
+
+import { Typography } from '@mui/material';
+import Image from 'next/image';
 
 export default function Healthcare() {
   return (

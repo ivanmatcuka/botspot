@@ -1,5 +1,7 @@
 'use client';
 
+import { MenuItem } from '@/app/components/Menu/Menu';
+
 import {
   ButtonProps as MuiButtonProps,
   Button as MuiButton,
@@ -7,7 +9,6 @@ import {
 } from '@mui/material';
 import { FC } from 'react';
 
-import { MenuItem } from '@/app/components/Menu/Menu';
 
 const PrimaryButton = styled(({ ...props }: MuiButtonProps) => (
   <MuiButton color="primary" variant="contained" {...props} />

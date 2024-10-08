@@ -1,10 +1,11 @@
 import { MainBlock } from './components/MainBlock/MainBlock';
 import { Button } from './components/Button/Button';
-import { Box, Typography } from '@mui/material';
 import { SecondaryBlock } from './components/SecondaryBlock/SecondaryBlock';
 import { Tile } from './components/Tile/Tile';
 import { FeedbackForm } from './components/FeedbackForm/FeedbackForm';
 import { Banner } from './components/Banner/Banner';
+
+import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 

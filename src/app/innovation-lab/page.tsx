@@ -2,11 +2,12 @@
 
 import { MainBlock } from '../components/MainBlock/MainBlock';
 import { Button } from '../components/Button/Button';
-import { Typography } from '@mui/material';
 import { Tile } from '../components/Tile/Tile';
-import Image from 'next/image';
 import { GalleryTile } from '../components/GalleryTile/GalleryTile';
 import { SecondaryBlock } from '../components/SecondaryBlock/SecondaryBlock';
+
+import Image from 'next/image';
+import { Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
 export default function InnovationLab() {

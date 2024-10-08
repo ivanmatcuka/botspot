@@ -1,4 +1,3 @@
-import { Box, Typography } from '@mui/material';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
@@ -6,6 +5,8 @@ import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
+
+import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 
 export default function Industrial() {

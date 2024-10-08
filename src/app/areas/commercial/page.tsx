@@ -1,11 +1,12 @@
-import { Typography } from '@mui/material';
-import Image from 'next/image';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+
+import Image from 'next/image';
+import { Typography } from '@mui/material';
 
 export default function Commercial() {
   return (

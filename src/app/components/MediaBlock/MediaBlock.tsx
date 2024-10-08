@@ -1,9 +1,9 @@
 'use client';
 
+import { ScrollableVideo } from '@/app/components/ScrollableVideo/ScrollableVideo';
+
 import { FC } from 'react';
 import { Box } from '@mui/material';
-
-import { ScrollableVideo } from '@/app/components/ScrollableVideo/ScrollableVideo';
 import Image from 'next/image';
 
 export type MediaBlockProps = {

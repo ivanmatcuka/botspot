@@ -1,7 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Button } from '@/app/components/Button/Button';
+
 import { fn } from '@storybook/test';
 
-import { Button } from '@/app/components/Button/Button';
+import type { Meta, StoryObj } from '@storybook/react';
+
 
 const meta = {
   title: 'Example/Button',

@@ -1,5 +1,7 @@
 'use client';
 
+import { Button, ButtonProps } from '@/app/components/Button/Button';
+
 import {
   MenuItem as MuiMenuItem,
   MenuItemProps as MuiMenuItemProps,
@@ -15,7 +17,6 @@ import {
 import HoverMenu from 'material-ui-popup-state/HoverMenu';
 import { useRouter } from 'next/navigation';
 
-import { Button, ButtonProps } from '@/app/components/Button/Button';
 
 export const MenuItem: FC<PropsWithChildren<MuiMenuItemProps>> = ({
   ...props

@@ -1,12 +1,14 @@
-import { Box, Typography } from '@mui/material';
+
+import { People } from './People';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
 import { Tile } from '@/app/components/Tile/Tile';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
-import { People } from './People';
 import { getPeople } from '@/services/blogService';
+
+import { Box, Typography } from '@mui/material';
 
 export default async function About() {
   const { data } = await getPeople();

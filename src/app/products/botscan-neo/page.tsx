@@ -1,15 +1,15 @@
-import { Box, Typography } from '@mui/material';
-
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
+import { Iframe } from '@/app/components/3dIframe/3dIframe';
+import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { Gallery } from '@/app/components/Gallery/Gallery';
+import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
-import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
 import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
-import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
-import { Gallery } from '@/app/components/Gallery/Gallery';
-import { Iframe } from '@/app/components/3dIframe/3dIframe';
+
+import { Box } from '@mui/material';
 
 export default function BorscanNeo() {
   return (

@@ -1,4 +1,3 @@
-import { Box, Typography } from '@mui/material';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
@@ -10,6 +9,8 @@ import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedL
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { Gallery } from '@/app/components/Gallery/Gallery';
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
+
+import { Box, Typography } from '@mui/material';
 
 export default function ThreeDObject() {
   return (

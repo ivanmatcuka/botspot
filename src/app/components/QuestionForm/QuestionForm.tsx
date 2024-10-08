@@ -1,11 +1,12 @@
 'use client';
 
+import { Input } from '@/app/components/Form/Form';
+import { Button } from '@/app/components/Button/Button';
+
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { Box, Container, Grid, Paper, Typography } from '@mui/material';
 
-import { Input } from '@/app/components/Form/Form';
-import { Button } from '@/app/components/Button/Button';
 export const QuestionForm: FC = () => {
   const {
     handleSubmit,

@@ -1,13 +1,14 @@
 'use client';
 
-import { Box, Grid, Typography } from '@mui/material';
-import Image from 'next/image';
-import { FC, ReactNode } from 'react';
-
 import {
   MediaBlock,
   MediaBlockProps,
 } from '@/app/components/MediaBlock/MediaBlock';
+
+import { Box, Grid, Typography } from '@mui/material';
+import Image from 'next/image';
+import { FC, ReactNode } from 'react';
+
 
 type MainBlockProps = {
   headline?: string;

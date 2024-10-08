@@ -1,6 +1,8 @@
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Posts } from './Posts';
+
 import { QuestionForm } from '../components/QuestionForm/QuestionForm';
+
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 
 export default function Blog() {
   return (

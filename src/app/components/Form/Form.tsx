@@ -1,5 +1,9 @@
 'use client';
 
+import { Button } from '../Button/Button';
+
+import { colors } from '@/app/theme';
+
 import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import {
   Box,
@@ -10,8 +14,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { Button } from '../Button/Button';
-
 import {
   useForm,
   UseControllerProps,
@@ -19,7 +21,7 @@ import {
   UseFormRegister,
 } from 'react-hook-form';
 import { ErrorOutline } from '@mui/icons-material';
-import { colors } from '@/app/theme';
+
 
 export const Input = (
   props: Pick<UseControllerProps<any>, 'name' | 'rules'> &

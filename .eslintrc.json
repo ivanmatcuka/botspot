@@ -3,5 +3,30 @@
     "next/core-web-vitals",
     "plugin:storybook/recommended",
     "prettier"
-  ]
+  ],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "index",
+          "sibling",
+          "parent",
+          "internal",
+          "external",
+          "builtin",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "@app/**",
+            "group": "external",
+            "position": "after"
+          }
+        ]
+      }
+    ]
+  }
 }

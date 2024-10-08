@@ -1,12 +1,14 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
-import { getPosts } from '@/services/blogService';
-import { WP_REST_API_Attachment, WP_REST_API_Posts } from 'wp-types';
-import { Box, Grid, Skeleton } from '@mui/material';
-import { Post } from '@/app/components/Post/Post';
 import { Pagination } from '../components/Pagination/Pagination';
 import { Button } from '../components/Button/Button';
+
+import { getPosts } from '@/services/blogService';
+import { Post } from '@/app/components/Post/Post';
+
+import { FC, useEffect, useState } from 'react';
+import { WP_REST_API_Attachment, WP_REST_API_Posts } from 'wp-types';
+import { Box, Grid, Skeleton } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
 type PostProps = {

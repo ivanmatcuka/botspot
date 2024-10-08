@@ -1,7 +1,9 @@
-import { Box, Grid } from '@mui/material';
-import { Post } from '@/app/components/Post/Post';
 import { Button } from '@/app/components/Button/Button';
+import { Post } from '@/app/components/Post/Post';
+
+import { Box, Grid } from '@mui/material';
 import Link from 'next/link';
+
 
 export default function DownloadArea() {
   return (
