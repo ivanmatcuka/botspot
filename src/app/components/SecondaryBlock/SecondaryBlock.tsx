@@ -1,5 +1,3 @@
-'use client';
-
 import { Box, Grid, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 

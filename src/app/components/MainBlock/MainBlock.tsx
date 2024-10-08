@@ -31,7 +31,7 @@ export const MainBlock: FC<MainBlockProps> = ({
     <Grid
       container
       justifyContent="center"
-      mb={{ xs: botomless ? 0 : 10, md: botomless ? 0 : 10 }}
+      mb={{ xs: botomless ? 0 : 10, md: botomless ? 0 : 20 }}
       mt={{ xs: 10, md: 20 }}
       mx="auto"
       maxWidth="xl"

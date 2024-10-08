@@ -7,6 +7,7 @@ import { Button } from './components/Button/Button';
 import { ReactNode } from 'react';
 import ThemeRegistry from './theme/ThemeRegistry';
 import { Footer } from './components/Footer/Footer';
+import { Box } from '@mui/material';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} flex flex-col min-h-screen`}>
         <AppRouterCacheProvider>
           <ThemeRegistry>
             <Navbar
@@ -62,7 +63,7 @@ export default function RootLayout({
               ]}
               cta={<Button variant="secondary">Contact Us</Button>}
             />
-            {children}
+            <Box className="flex-1 flex flex-col">{children}</Box>
             <Footer />
           </ThemeRegistry>
         </AppRouterCacheProvider>

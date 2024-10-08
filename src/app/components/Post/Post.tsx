@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { Button } from '../Button/Button';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -7,11 +7,11 @@ import { useRouter } from 'next/navigation';
 type PostProps = {
   title: string;
   excerpt?: string;
-  id?: string;
+  cta?: ReactNode;
   featuredImage?: string;
 };
 
-export const Post: FC<PostProps> = ({ title, id, excerpt, featuredImage }) => {
+export const Post: FC<PostProps> = ({ title, cta, excerpt, featuredImage }) => {
   const { push } = useRouter();
 
   return (
@@ -36,11 +36,7 @@ export const Post: FC<PostProps> = ({ title, id, excerpt, featuredImage }) => {
             dangerouslySetInnerHTML={{ __html: excerpt }}
           />
         )}
-        {id && (
-          <Button variant="secondary" onClick={() => push(`/blog/${id}`)}>
-            Read Full Story
-          </Button>
-        )}
+        {cta}
         {featuredImage && (
           <Image
             height={360}

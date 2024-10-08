@@ -6,6 +6,8 @@ import { WP_REST_API_Attachment, WP_REST_API_Posts } from 'wp-types';
 import { Box, Grid, Skeleton } from '@mui/material';
 import { Post } from '@/app/components/Post/Post';
 import { Pagination } from '../components/Pagination/Pagination';
+import { Button } from '../components/Button/Button';
+import { useRouter } from 'next/navigation';
 
 type PostProps = {
   perPage?: number;
@@ -19,6 +21,7 @@ export const Posts: FC<PostProps> = ({
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
   const [posts, setPosts] = useState<WP_REST_API_Posts>([]);
+  const { push } = useRouter();
 
   useEffect(() => {
     setLoading(true);
@@ -53,7 +56,14 @@ export const Posts: FC<PostProps> = ({
                 <Grid item xs={12} md={6} lg={4} key={post.id}>
                   <Post
                     title={post.title.rendered}
-                    id={`${post.id}`}
+                    cta={
+                      <Button
+                        variant="secondary"
+                        onClick={() => push(`/blog/${post.id}`)}
+                      >
+                        Read Full Story
+                      </Button>
+                    }
                     excerpt={post.excerpt.rendered}
                     featuredImage={featuredImage}
                   />
