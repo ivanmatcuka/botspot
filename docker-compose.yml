@@ -8,6 +8,8 @@ services:
       - MYSQL_PASSWORD=maria
     ports:
       - "3306:3306"
+    volumes:
+      - ./mariadb:/var/lib/mysql
 
   wordpress:
     build: .
@@ -16,4 +18,7 @@ services:
     ports:
       - 80:80
     restart: always
+    volumes:
+      - ./wordpress:/var/lib/mysql
+    
     

@@ -14,10 +14,12 @@ import { useRouter } from 'next/navigation';
 type PostProps = {
   perPage?: number;
   hidePagination?: boolean;
+  list?: boolean;
 };
 export const Posts: FC<PostProps> = ({
   perPage = 12,
   hidePagination = false,
+  list = false,
 }) => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -55,7 +57,13 @@ export const Posts: FC<PostProps> = ({
                 )?.source_url ?? '/3d_object.png';
 
               return (
-                <Grid item xs={12} md={6} lg={4} key={post.id}>
+                <Grid
+                  item
+                  xs={12}
+                  md={list ? 12 : 6}
+                  lg={list ? 12 : 4}
+                  key={post.id}
+                >
                   <Post
                     title={post.title.rendered}
                     cta={

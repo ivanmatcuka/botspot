@@ -40,6 +40,23 @@ export const getPost = async (
   return data[0];
 };
 
+export const getPostBySlug = async (
+  slug: string,
+): Promise<WP_REST_API_Posts[number]> => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}posts?slug=${slug}&_embed`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
+
+  const data = await response.json();
+  return data[0];
+};
+
 export const getPeople = async (): Promise<{
   data: WP_REST_API_Posts;
   count: number;

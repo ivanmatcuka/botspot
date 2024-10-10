@@ -5,10 +5,9 @@ import {
   MediaBlockProps,
 } from '@/app/components/MediaBlock/MediaBlock';
 
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, GridProps, Typography } from '@mui/material';
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
-
 
 type MainBlockProps = {
   headline?: string;
@@ -17,6 +16,7 @@ type MainBlockProps = {
   subAssetUrl?: string;
   mediaBlockOptions?: MediaBlockProps;
   botomless?: boolean;
+  mt?: GridProps['mt'];
 };
 export const MainBlock: FC<MainBlockProps> = ({
   headline,
@@ -25,6 +25,7 @@ export const MainBlock: FC<MainBlockProps> = ({
   subAssetUrl,
   mediaBlockOptions,
   botomless = false,
+  mt,
 }) => (
   <Box textAlign={{ xs: 'center', md: 'left' }}>
     {mediaBlockOptions?.assetUrl && <MediaBlock {...mediaBlockOptions} />}
@@ -33,7 +34,7 @@ export const MainBlock: FC<MainBlockProps> = ({
       container
       justifyContent="center"
       mb={{ xs: botomless ? 0 : 10, md: botomless ? 0 : 20 }}
-      mt={{ xs: 10, md: 20 }}
+      mt={mt ?? { xs: 10, md: 20 }}
       mx="auto"
       maxWidth="xl"
       px={3}
