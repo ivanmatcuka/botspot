@@ -1,4 +1,3 @@
-
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
@@ -9,41 +8,46 @@ import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedL
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { Gallery } from '@/app/components/Gallery/Gallery';
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
+import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
 
 export default function ThreeDStudio() {
   return (
     <main className="">
-      <SecondaryBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/3d-studio/banner.png',
-        }}
-        subline="Our flexible solution for 3D Scanning, adapting to even most precise requirements."
-        headline="3D Studio"
-        primaryCta={<Button variant="primary">Download Data Sheet</Button>}
-        secondaryCta={<Button variant="secondary">Request a Demo</Button>}
-        banner
-      />
+      <MediaBlock assetUrl="/img/products/3d-studio/banner.png" />
+      <PageContainer banner>
+        <SecondaryBlock
+          subline="Our flexible solution for 3D Scanning, adapting to even most precise requirements."
+          headline="3D Studio"
+          primaryCta={<Button variant="primary">Download Data Sheet</Button>}
+          secondaryCta={<Button variant="secondary">Request a Demo</Button>}
+        />
+      </PageContainer>
 
-      <MainBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/3d-studio/1.png',
-          objectFit: 'contain',
-        }}
-        headline="Engineered with adaptability in mind, every component of the setup is effortlessly adjustable."
-        subline="Overview"
+      <MediaBlock
+        assetUrl="/img/products/3d-studio/1.png"
+        objectFit="contain"
       />
+      <PageContainer>
+        <MainBlock
+          headline="Engineered with adaptability in mind, every component of the setup is effortlessly adjustable."
+          subline="Overview"
+        />
+      </PageContainer>
 
-      <MainBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/3d-studio/2.png',
-          objectFit: 'contain',
-          fullHeight: true,
-        }}
-        headline="The stunning results of the 3D reconstruction reduce the need for manual post-processing to an absolute minimum. "
-        subline="Specifications"
+      <MediaBlock
+        assetUrl="/img/products/3d-studio/2.png"
+        objectFit="contain"
+        fullHeight
       />
+      <PageContainer>
+        <MainBlock
+          headline="The stunning results of the 3D reconstruction reduce the need for manual post-processing to an absolute minimum. "
+          subline="Specifications"
+        />
+      </PageContainer>
 
       <Tile headline="Adaptable Design">
         <Typography variant="body1">
@@ -107,7 +111,6 @@ export default function ThreeDStudio() {
           subline="A white, shiny ceramic bowl is one of the most challenging objects to scan, often called “unscannable”."
           headline="3D Scanning a White Ceramic Bowl"
           primaryCta={<Button variant="primary">Read Full Story</Button>}
-          hasParent
         />
       </GalleryTile>
 

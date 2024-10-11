@@ -40,6 +40,7 @@ export const MediaBlock: FC<MediaBlockProps> = ({
         src={assetUrl}
         alt=""
         className={className}
+        quality={100}
       />
     </Box>
   );

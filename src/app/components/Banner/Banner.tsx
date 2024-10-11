@@ -6,7 +6,6 @@ import {
 import { Box, Grid, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 
-
 type BannerProps = {
   headline: string;
   subline: string;
@@ -23,6 +22,7 @@ export const Banner: FC<BannerProps> = ({
 }) => (
   <Box position="relative" minHeight={{ xs: '100vh', md: 768, lg: 800 }}>
     {mediaBlockOptions && <MediaBlock {...mediaBlockOptions} fullHeight />}
+
     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
     <Box
       position="absolute"

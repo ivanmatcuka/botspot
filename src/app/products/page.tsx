@@ -1,3 +1,6 @@
+import { PageContainer } from '../components/PageContainer/PageContainer';
+import { MediaBlock } from '../components/MediaBlock/MediaBlock';
+
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
@@ -53,49 +56,52 @@ export default function Products() {
         </Typography>
       </Tile>
 
-      <SecondaryBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/1.png',
-          objectFit: 'contain',
-        }}
-        headline="botscan NEO"
-        subline="Smart 3D fullbody scanner for high volume 3D model production"
-        primaryCta={
-          <Link href="/products/botscan-neo">
-            <Button variant="primary">Explore Neo</Button>
-          </Link>
-        }
-        secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
-      />
+      <MediaBlock assetUrl="/img/products/1.png" objectFit="contain" />
+      <PageContainer>
+        <SecondaryBlock
+          headline="botscan NEO"
+          subline="Smart 3D fullbody scanner for high volume 3D model production"
+          primaryCta={
+            <Link href="/products/botscan-neo">
+              <Button variant="primary">Explore Neo</Button>
+            </Link>
+          }
+          secondaryCta={
+            <Button variant="secondary">Download Data Sheet</Button>
+          }
+        />
+      </PageContainer>
 
-      <SecondaryBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/2.png',
-          objectFit: 'contain',
-        }}
-        headline="3D Studio"
-        subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
-        primaryCta={<Button variant="primary">Explore 3D Studio</Button>}
-        secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
-      />
+      <MediaBlock assetUrl="/img/products/2.png" objectFit="contain" />
+      <PageContainer>
+        <SecondaryBlock
+          headline="3D Studio"
+          subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
+          primaryCta={<Button variant="primary">Explore 3D Studio</Button>}
+          secondaryCta={
+            <Button variant="secondary">Download Data Sheet</Button>
+          }
+        />
+      </PageContainer>
 
-      <SecondaryBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/3.png',
-          objectFit: 'contain',
-        }}
-        headline="3D Object"
-        subline="Fully automated 3D object scanner for precise photogrammetry"
-        primaryCta={<Button variant="primary">Explore 3D Object</Button>}
-        secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
-      />
+      <MediaBlock assetUrl="/img/products/3.png" objectFit="contain" />
+
+      <PageContainer>
+        <SecondaryBlock
+          headline="3D Object"
+          subline="Fully automated 3D object scanner for precise photogrammetry"
+          primaryCta={<Button variant="primary">Explore 3D Object</Button>}
+          secondaryCta={
+            <Button variant="secondary">Download Data Sheet</Button>
+          }
+        />
+      </PageContainer>
 
       <GalleryTile imgUrl="/img/products/4.png">
         <SecondaryBlock
           subline="Discover our Areas of Use with a diverse range of applications and industries."
           headline="Our Scanners in Action"
           primaryCta={<Button variant="primary">Explore Applications</Button>}
-          hasParent
         />
       </GalleryTile>
 

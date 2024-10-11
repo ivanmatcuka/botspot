@@ -39,6 +39,7 @@ export const Post: FC<PostProps> = ({ title, cta, excerpt, featuredImage }) => (
           alt=""
           src={featuredImage}
           className="w-full h-full absolute inset-0 z-[-1] object-cover object-top"
+          quality={100}
         />
       )}
     </Box>

@@ -8,6 +8,7 @@ import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
+import Link from 'next/link';
 
 import type { Metadata } from 'next';
 
@@ -64,7 +65,11 @@ export default function RootLayout({
                   ],
                 },
               ]}
-              cta={<Button variant="secondary">Contact Us</Button>}
+              cta={
+                <Link href="/contact-us">
+                  <Button variant="secondary">Contact Us</Button>
+                </Link>
+              }
             />
             <Box className="flex-1 flex flex-col">{children}</Box>
             <Footer />

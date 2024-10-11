@@ -1,5 +1,6 @@
-
 import { People } from './People';
+
+import { PageContainer } from '../components/PageContainer/PageContainer';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
@@ -25,10 +26,12 @@ export default async function About() {
         secondaryCta={<Button variant="secondary">Visit Career Page</Button>}
       />
 
-      <MainBlock
-        subline="Our Mission"
-        headline="We set new standards in the 3D scanning industry."
-      />
+      <PageContainer>
+        <MainBlock
+          subline="Our Mission"
+          headline="We set new standards in the 3D scanning industry."
+        />
+      </PageContainer>
 
       <Tile headline="Empowering Customers">
         <Typography variant="body1">
@@ -50,13 +53,15 @@ export default async function About() {
         </Typography>
       </Tile>
 
-      <MainBlock
-        subline="Our Team"
-        headline="With commitment and tenacity, we make the impossible possible."
-        botomless
-      />
+      <PageContainer>
+        <MainBlock
+          subline="Our Team"
+          headline="With commitment and tenacity, we make the impossible possible."
+          botomless
+        />
 
-      <People data={data} />
+        <People data={data} />
+      </PageContainer>
 
       <Box
         width="100%"
@@ -65,18 +70,22 @@ export default async function About() {
         flexDirection="column"
         mt={{ xs: 10, md: 20 }}
       >
-        <MainBlock
-          subline="Your Opportunity"
-          headline="Want to be part of our team?"
-          cta={<Button variant="primary">Explore Our Services</Button>}
-        />
+        <PageContainer>
+          <MainBlock
+            subline="Your Opportunity"
+            headline="Want to be part of our team?"
+            cta={<Button variant="primary">Explore Our Services</Button>}
+          />
+        </PageContainer>
       </Box>
 
-      <MainBlock
-        subline="Our Story"
-        headline="Delivering excellence for over ten years."
-        cta={<Button variant="primary">Explore Our Services</Button>}
-      />
+      <PageContainer>
+        <MainBlock
+          subline="Our Story"
+          headline="Delivering excellence for over ten years."
+          cta={<Button variant="primary">Explore Our Services</Button>}
+        />
+      </PageContainer>
 
       <Tile headline="How it all began">
         <Typography variant="body1">

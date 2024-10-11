@@ -1,4 +1,5 @@
 import { Iframe } from '../components/3dIframe/3dIframe';
+import { PageContainer } from '../components/PageContainer/PageContainer';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
@@ -26,11 +27,13 @@ export default function Service() {
         }
       />
 
-      <MainBlock
-        subline="Try Before You Buy"
-        headline="Experience the quality of our scanning technology before committing to a purchase."
-        cta={<Button variant="primary">Request Try Before You Buy</Button>}
-      />
+      <PageContainer>
+        <MainBlock
+          subline="Try Before You Buy"
+          headline="Experience the quality of our scanning technology before committing to a purchase."
+          cta={<Button variant="primary">Request Try Before You Buy</Button>}
+        />
+      </PageContainer>
 
       <Tile headline="Send Us Objects">
         <Typography variant="body1">
@@ -62,11 +65,13 @@ export default function Service() {
         />
       </Box>
 
-      <MainBlock
-        subline="In-House Scan Service"
-        headline="We convert physical objects into precise digital models, ideal for design, quality control, and VR."
-        cta={<Button variant="primary">Request In-House Scan Service</Button>}
-      />
+      <PageContainer>
+        <MainBlock
+          subline="In-House Scan Service"
+          headline="We convert physical objects into precise digital models, ideal for design, quality control, and VR."
+          cta={<Button variant="primary">Request In-House Scan Service</Button>}
+        />
+      </PageContainer>
 
       <Tile headline="Deliver Physical Content">
         <Typography variant="body1">
@@ -93,7 +98,6 @@ export default function Service() {
           subline="Corporate event, fair show or convention coming up? Guarantee an unforgettable experience with full-body scanning. We deliver and set up the scanner, ensuring a seamless and impressive experience."
           headline="Event Hire"
           primaryCta={<Button variant="primary">Request Event Hire</Button>}
-          hasParent
         />
       </GalleryTile>
 
@@ -102,7 +106,6 @@ export default function Service() {
           subline="Have a large or unusual item that needs scanning? Our Innovation Lab specializes in handling special requests, even for the most challenging projects."
           headline="Special Requests"
           primaryCta={<Button variant="primary">Explore Innovation Lab</Button>}
-          hasParent
         />
       </GalleryTile>
 

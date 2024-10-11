@@ -80,6 +80,25 @@ export const getPeople = async (): Promise<{
   return { data, count: Number(response.headers.get('X-WP-Total')) };
 };
 
+export const getJobs = async (): Promise<{
+  data: WP_REST_API_Posts;
+  count: number;
+}> => {
+  const category = await getCategory('jobs');
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}posts?&categories=${category.id}&_embed`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
+
+  const data = await response.json();
+  return { data, count: Number(response.headers.get('X-WP-Total')) };
+};
+
 export const getCategory = async (
   slug: string,
 ): Promise<WP_REST_API_Categories[number]> => {

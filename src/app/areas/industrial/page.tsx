@@ -1,10 +1,11 @@
-
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
+import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
@@ -12,19 +13,20 @@ import Link from 'next/link';
 export default function Industrial() {
   return (
     <main className="">
-      <SecondaryBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/areas/industrial/banner.png',
-        }}
-        subline="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
-        headline="Industrial Areas of Use"
-        banner
-      />
+      <MediaBlock assetUrl="/img/areas/industrial/banner.png" />
+      <PageContainer>
+        <SecondaryBlock
+          subline="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
+          headline="Industrial Areas of Use"
+        />
+      </PageContainer>
 
-      <MainBlock
-        headline="We provide high-precision 3D models of objects, 360° images for documentation and extraction of measurement data for quality control."
-        subline="Insight"
-      />
+      <PageContainer>
+        <MainBlock
+          headline="We provide high-precision 3D models of objects, 360° images for documentation and extraction of measurement data for quality control."
+          subline="Insight"
+        />
+      </PageContainer>
 
       <Tile headline="Automated Scanning Process">
         <Typography variant="body1">
@@ -35,10 +37,12 @@ export default function Industrial() {
         </Typography>
       </Tile>
 
-      <MainBlock
-        headline="Streamline industrial processes with our 3D scanners for accurate measurements and improved precision."
-        subline="Industrial Areas of Use"
-      />
+      <PageContainer>
+        <MainBlock
+          headline="Streamline industrial processes with our 3D scanners for accurate measurements and improved precision."
+          subline="Industrial Areas of Use"
+        />
+      </PageContainer>
 
       <Tile headline="7-Lights">
         <Box height={360}>
@@ -86,7 +90,6 @@ export default function Industrial() {
               <Button variant="primary">Explore 3D Object Scanner</Button>
             </Link>
           }
-          hasParent
         />
       </GalleryTile>
     </main>

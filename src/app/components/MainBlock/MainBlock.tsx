@@ -1,11 +1,4 @@
-'use client';
-
-import {
-  MediaBlock,
-  MediaBlockProps,
-} from '@/app/components/MediaBlock/MediaBlock';
-
-import { Box, Grid, GridProps, Typography } from '@mui/material';
+import { Box, GridProps, Typography } from '@mui/material';
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
 
@@ -14,7 +7,6 @@ type MainBlockProps = {
   subline?: string;
   cta?: ReactNode;
   subAssetUrl?: string;
-  mediaBlockOptions?: MediaBlockProps;
   botomless?: boolean;
   mt?: GridProps['mt'];
 };
@@ -23,40 +15,26 @@ export const MainBlock: FC<MainBlockProps> = ({
   subline,
   cta,
   subAssetUrl,
-  mediaBlockOptions,
-  botomless = false,
-  mt,
 }) => (
-  <Box textAlign={{ xs: 'center', md: 'left' }}>
-    {mediaBlockOptions?.assetUrl && <MediaBlock {...mediaBlockOptions} />}
-
-    <Grid
-      container
-      justifyContent="center"
-      mb={{ xs: botomless ? 0 : 10, md: botomless ? 0 : 20 }}
-      mt={mt ?? { xs: 10, md: 20 }}
-      mx="auto"
-      maxWidth="xl"
-      px={3}
-    >
-      <Grid item textAlign={{ xs: 'center', md: 'left' }} xs={12} md={10}>
-        <Typography variant="body1" mb={2}>
-          {subline}
-        </Typography>
-        <Typography variant="h2" mb={4}>
-          {headline}
-        </Typography>
-        {cta}
-        {subAssetUrl && (
-          <Image
-            src={subAssetUrl}
-            width={800}
-            height={800}
-            alt=""
-            className="object-contain w-full h-auto pt-[48px]"
-          />
-        )}
-      </Grid>
-    </Grid>
+  <Box>
+    <Box textAlign={{ xs: 'center', md: 'left' }}>
+      <Typography variant="body1" mb={2}>
+        {subline}
+      </Typography>
+      <Typography variant="h2" mb={4}>
+        {headline}
+      </Typography>
+      {cta}
+      {subAssetUrl && (
+        <Image
+          src={subAssetUrl}
+          width={800}
+          height={800}
+          alt=""
+          className="object-contain w-full h-auto pt-[48px]"
+          quality={100}
+        />
+      )}
+    </Box>
   </Box>
 );

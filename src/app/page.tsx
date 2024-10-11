@@ -4,6 +4,8 @@ import { SecondaryBlock } from './components/SecondaryBlock/SecondaryBlock';
 import { Tile } from './components/Tile/Tile';
 import { FeedbackForm } from './components/FeedbackForm/FeedbackForm';
 import { Banner } from './components/Banner/Banner';
+import { ScrollableBlock } from './ScrollableBlock';
+import { PageContainer } from './components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
@@ -67,76 +69,73 @@ export default function Home() {
         <Image width={168} height={80} src="/img/partners/acod.png" alt="" />
       </Box>
 
-      <SecondaryBlock
-        mediaBlockOptions={{
-          assetUrl: 'BotscanNEO_Landing00090',
-          autoplay: true,
-          scrollable: true,
-          fullHeight: true,
-        }}
-        headline="botscan NEO"
-        subline="Smart 3D fullbody scanner for high volume 3D model production"
-        primaryCta={
-          <Link href="/products/botscan-neo">
-            <Button variant="primary">Explore Neo</Button>
-          </Link>
-        }
-        secondaryCta={<Button variant="secondary">Download Data Sheet</Button>}
-      />
-      <SecondaryBlock
-        mediaBlockOptions={{
-          assetUrl: 'Object_Studio_Landing00090',
-          scrollable: true,
-          fullHeight: true,
-        }}
-        headline="Object Studio"
-        subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
-        primaryCta={
-          <Link href="/products/3d-studio">
-            <Button variant="primary">Object Studio</Button>
-          </Link>
-        }
-        secondaryCta={
-          <Link href="/download-area">
+      <ScrollableBlock assetUrl="BotscanNEO_Landing00090">
+        <SecondaryBlock
+          headline="botscan NEO"
+          subline="Smart 3D fullbody scanner for high volume 3D model production"
+          primaryCta={
+            <Link href="/products/botscan-neo">
+              <Button variant="primary">Explore Neo</Button>
+            </Link>
+          }
+          secondaryCta={
             <Button variant="secondary">Download Data Sheet</Button>
-          </Link>
-        }
-      />
-      <SecondaryBlock
-        mediaBlockOptions={{
-          assetUrl: 'ObjectScanner_Landing00090',
-          scrollable: true,
-          fullHeight: true,
-        }}
-        headline="3D Object"
-        subline="Fully automated 3D object scanner for precise photogrammetry"
-        primaryCta={
-          <Link href="/products/3d-object">
-            <Button variant="primary">Explore 3D Object</Button>
-          </Link>
-        }
-        secondaryCta={
-          <Link href="/download-area">
-            <Button variant="secondary">Download Data Sheet</Button>
-          </Link>
-        }
-      />
+          }
+        />
+      </ScrollableBlock>
+
+      <ScrollableBlock assetUrl="Object_Studio_Landing00090">
+        <SecondaryBlock
+          headline="Object Studio"
+          subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
+          primaryCta={
+            <Link href="/products/3d-studio">
+              <Button variant="primary">Object Studio</Button>
+            </Link>
+          }
+          secondaryCta={
+            <Link href="/download-area">
+              <Button variant="secondary">Download Data Sheet</Button>
+            </Link>
+          }
+        />
+      </ScrollableBlock>
+
+      <ScrollableBlock assetUrl="ObjectScanner_Landing00090">
+        <SecondaryBlock
+          headline="3D Object"
+          subline="Fully automated 3D object scanner for precise photogrammetry"
+          primaryCta={
+            <Link href="/products/3d-object">
+              <Button variant="primary">Explore 3D Object</Button>
+            </Link>
+          }
+          secondaryCta={
+            <Link href="/download-area">
+              <Button variant="secondary">Download Data Sheet</Button>
+            </Link>
+          }
+        />
+      </ScrollableBlock>
+
       <Box
         width="100%"
         bgcolor="grey.100"
         display="flex"
         flexDirection="column"
-        pb={{ xs: 4, md: 10 }}
+        py={{ xs: 4, md: 10 }}
       >
-        <MainBlock
-          subline="How we can help"
-          headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
-          cta={
-            <Link href="/services">
-              <Button variant="primary">Explore Our Services</Button>
-            </Link>
-          }
-        />
+        <PageContainer>
+          <MainBlock
+            subline="How we can help"
+            headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
+            cta={
+              <Link href="/services">
+                <Button variant="primary">Explore Our Services</Button>
+              </Link>
+            }
+          />
+        </PageContainer>
         <Tile headline="How We Can Help">
           <Typography variant="body1">
             Each business is different. So let&apos;s find out what you need.

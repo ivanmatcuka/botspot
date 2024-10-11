@@ -1,4 +1,3 @@
-
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
@@ -9,39 +8,42 @@ import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedL
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { Gallery } from '@/app/components/Gallery/Gallery';
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
+import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
 
 export default function ThreeDObject() {
   return (
     <main className="">
-      <SecondaryBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/3d-object/banner.png',
-        }}
-        subline="Our answer to scanning the unscannable – with unmatched precision, ease, and speed."
-        headline="3D Object"
-        primaryCta={<Button variant="primary">Download Data Sheet</Button>}
-        secondaryCta={<Button variant="secondary">Request a Demo</Button>}
-        banner
-      />
+      <MediaBlock assetUrl="/img/products/3d-object/banner.png" />
+      <PageContainer banner>
+        <SecondaryBlock
+          subline="Our answer to scanning the unscannable – with unmatched precision, ease, and speed."
+          headline="3D Object"
+          primaryCta={<Button variant="primary">Download Data Sheet</Button>}
+          secondaryCta={<Button variant="secondary">Request a Demo</Button>}
+        />
+      </PageContainer>
 
-      <MainBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/3d-object/1.png',
-          objectFit: 'contain',
-        }}
-        headline="Designed for industrial applications and high 3D model output, our scanner is fully automated, allowing even untrained personnel to operate it."
-        subline="Overview"
+      <MediaBlock
+        assetUrl="/img/products/3d-object/1.png"
+        objectFit="contain"
       />
+      <PageContainer>
+        <MainBlock
+          headline="Designed for industrial applications and high 3D model output, our scanner is fully automated, allowing even untrained personnel to operate it."
+          subline="Overview"
+        />
+      </PageContainer>
 
-      <MainBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/3d-object/2.png',
-        }}
-        headline="A unique combination of a fully transparent glass turntable, cross-polarized lighting system, digital spray, and high-resolution cameras."
-        subline="Specifications"
-      />
+      <MediaBlock assetUrl="/img/products/3d-object/2.png" />
+      <PageContainer>
+        <MainBlock
+          headline="A unique combination of a fully transparent glass turntable, cross-polarized lighting system, digital spray, and high-resolution cameras."
+          subline="Specifications"
+        />
+      </PageContainer>
 
       <Tile headline="Ease of Use, Quality and Speed">
         <Typography variant="body1">
@@ -107,7 +109,6 @@ export default function ThreeDObject() {
           subline="Understanding the Basics of 3D Modeling"
           headline="Santa Unwrapped"
           primaryCta={<Button variant="primary">Read Full Story</Button>}
-          hasParent
         />
       </GalleryTile>
 

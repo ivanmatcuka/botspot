@@ -8,40 +8,47 @@ import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
 import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
+import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box } from '@mui/material';
 
 export default function BorscanNeo() {
   return (
     <main className="">
-      <SecondaryBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/botscan-neo/banner.png',
-        }}
-        subline="Our Smart 3D Full Body Scanner for High Volume 3D Model Production"
-        headline="botscan NEO"
-        primaryCta={<Button variant="primary">Download Data Sheet</Button>}
-        secondaryCta={<Button variant="secondary">Request a Demo</Button>}
-        banner
-      />
+      <MediaBlock assetUrl="/img/products/botscan-neo/banner.png" />
 
-      <MainBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/1.png',
-          objectFit: 'contain',
-        }}
-        headline="Highly precise and colorfast 3D data of people in a fraction of a second, creating true digital twins with a measurement accuracy up to 1 mm."
-        subline="Overview"
-      />
+      <PageContainer banner>
+        <SecondaryBlock
+          subline="Our Smart 3D Full Body Scanner for High Volume 3D Model Production"
+          headline="botscan NEO"
+          primaryCta={<Button variant="primary">Download Data Sheet</Button>}
+          secondaryCta={<Button variant="secondary">Request a Demo</Button>}
+        />
+      </PageContainer>
 
-      <MainBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/products/botscan-neo/2.png',
-          fullHeight: true,
-        }}
-        headline="Perfect for Full Body Scanning with automized workflow patterns."
-        subline="Specifications"
+      <MediaBlock
+        assetUrl="/img/products/botscan-neo/1.png"
+        objectFit="contain"
       />
+      <PageContainer>
+        <MainBlock
+          headline="Highly precise and colorfast 3D data of people in a fraction of a second, creating true digital twins with a measurement accuracy up to 1 mm."
+          subline="Overview"
+        />
+      </PageContainer>
+
+      <MediaBlock
+        assetUrl="/img/products/botscan-neo/2.png"
+        fullHeight
+        objectFit="cover"
+      />
+      <PageContainer>
+        <MainBlock
+          headline="Perfect for Full Body Scanning with automized workflow patterns."
+          subline="Specifications"
+        />
+      </PageContainer>
 
       <Tile headline="The Numbers">
         <UnorderedList>
@@ -89,7 +96,6 @@ export default function BorscanNeo() {
           subline="Berlin based artist Martin Werthmann designed the set for the German opera “The Dead City”."
           headline="Designing Scenic Spaces"
           primaryCta={<Button variant="primary">Read Full Story</Button>}
-          hasParent
         />
       </GalleryTile>
 

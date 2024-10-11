@@ -10,6 +10,7 @@ import { Posts } from '../blog/Posts';
 import Image from 'next/image';
 import { Box, Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
+import { PageContainer } from '../components/PageContainer/PageContainer';
 
 export default function Learn() {
   const { push } = useRouter();
@@ -61,18 +62,20 @@ export default function Learn() {
           width={1010}
           height={440}
           style={{ width: '100%' }}
+          quality={100}
         />
       </Box>
-
-      <MainBlock
-        subline="Questions & Articles"
-        headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
-        cta={
-          <Button variant="secondary" onClick={() => push('/blog')}>
-            Visit Blog
-          </Button>
-        }
-      />
+      <PageContainer>
+        <MainBlock
+          subline="Questions & Articles"
+          headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
+          cta={
+            <Button variant="secondary" onClick={() => push('/blog')}>
+              Visit Blog
+            </Button>
+          }
+        />
+      </PageContainer>
 
       <Posts perPage={6} hidePagination />
 

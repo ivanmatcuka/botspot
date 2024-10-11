@@ -1,9 +1,10 @@
-
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import Image from 'next/image';
 import { Typography } from '@mui/material';
@@ -11,19 +12,20 @@ import { Typography } from '@mui/material';
 export default function Commercial() {
   return (
     <main className="">
-      <SecondaryBlock
-        mediaBlockOptions={{
-          assetUrl: '/img/areas/commercial/banner.png',
-        }}
-        subline="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
-        headline="Commercial Areas of Use"
-        banner
-      />
+      <MediaBlock assetUrl="/img/areas/commercial/banner.png" autoplay />
+      <PageContainer banner>
+        <SecondaryBlock
+          subline="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
+          headline="Commercial Areas of Use"
+        />
+      </PageContainer>
 
-      <MainBlock
-        headline="With new emerging technologies, using digital assets is more important than ever before."
-        subline="Insight"
-      />
+      <PageContainer>
+        <MainBlock
+          headline="With new emerging technologies, using digital assets is more important than ever before."
+          subline="Insight"
+        />
+      </PageContainer>
 
       <Tile headline="Marketing Ready 3D Models">
         <Typography variant="body1">
@@ -34,10 +36,12 @@ export default function Commercial() {
         </Typography>
       </Tile>
 
-      <MainBlock
-        headline="Product visualization is an essential part of sales promotion in digital retail – 3D models open up completely new possibilities for product display."
-        subline="E Commerce"
-      />
+      <PageContainer>
+        <MainBlock
+          headline="Product visualization is an essential part of sales promotion in digital retail – 3D models open up completely new possibilities for product display."
+          subline="E Commerce"
+        />
+      </PageContainer>
 
       <Tile headline="Inuikii">
         <Image
@@ -46,6 +50,7 @@ export default function Commercial() {
           width={700}
           height={400}
           style={{ width: '100%' }}
+          quality={100}
         />
         <Typography variant="body1" mt={2}>
           “Working with botspot is exactly what you want from a partner. The
@@ -61,6 +66,7 @@ export default function Commercial() {
           width={700}
           height={400}
           style={{ width: '100%' }}
+          quality={100}
         />
         <Typography variant="body1" mt={2}>
           In order to give an impression of the interplay of different furniture
@@ -71,10 +77,12 @@ export default function Commercial() {
         </Typography>
       </Tile>
 
-      <MainBlock
-        headline="Transform VR experiences with our 3D scanners, delivering precise, high-fidelity models."
-        subline="Virtual Reality"
-      />
+      <PageContainer>
+        <MainBlock
+          headline="Transform VR experiences with our 3D scanners, delivering precise, high-fidelity models."
+          subline="Virtual Reality"
+        />
+      </PageContainer>
 
       <Tile headline="Vyking">
         <Image
@@ -83,6 +91,7 @@ export default function Commercial() {
           width={700}
           height={400}
           style={{ width: '100%' }}
+          quality={100}
         />
         <Typography variant="body1" my={2}>
           With the help of 3D foot tracking, Vyking’s app makes it possible to
@@ -93,10 +102,12 @@ export default function Commercial() {
         <Button variant="primary">Test Virtual Try-On</Button>
       </Tile>
 
-      <MainBlock
-        headline="Bring cultural elements and stage designs to life with unparalleled detail and realism."
-        subline="Culture"
-      />
+      <PageContainer>
+        <MainBlock
+          headline="Bring cultural elements and stage designs to life with unparalleled detail and realism."
+          subline="Culture"
+        />
+      </PageContainer>
 
       <Tile headline="Opera & Scenic Spaces">
         <Image
@@ -105,6 +116,7 @@ export default function Commercial() {
           width={700}
           height={400}
           style={{ width: '100%' }}
+          quality={100}
         />
         <Typography variant="body1" mt={2}>
           Berlin based artist Martin Werthmann designed the set for the german
@@ -122,7 +134,6 @@ export default function Commercial() {
           primaryCta={
             <Button variant="primary">Explore 3D Object Scanner</Button>
           }
-          hasParent
         />
       </GalleryTile>
     </main>
