@@ -1,20 +1,16 @@
-'use client';
-
 import { MainBlock } from '../components/MainBlock/MainBlock';
 import { Button } from '../components/Button/Button';
 import { Tile } from '../components/Tile/Tile';
 import { Banner } from '../components/Banner/Banner';
 import { QuestionForm } from '../components/QuestionForm/QuestionForm';
 import { Posts } from '../blog/Posts';
+import { PageContainer } from '../components/PageContainer/PageContainer';
 
 import Image from 'next/image';
 import { Box, Typography } from '@mui/material';
-import { useRouter } from 'next/navigation';
-import { PageContainer } from '../components/PageContainer/PageContainer';
+import Link from 'next/link';
 
 export default function Learn() {
-  const { push } = useRouter();
-
   return (
     <main className="">
       <Banner
@@ -72,9 +68,9 @@ export default function Learn() {
           subline="Questions & Articles"
           headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
           cta={
-            <Button variant="secondary" onClick={() => push('/blog')}>
-              Visit Blog
-            </Button>
+            <Link href="/blog">
+              <Button variant="secondary">Visit Blog</Button>
+            </Link>
           }
         />
       </PageContainer>

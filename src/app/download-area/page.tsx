@@ -1,10 +1,11 @@
+import { PageContainer } from '../components/PageContainer/PageContainer';
+import { MainBlock } from '../components/MainBlock/MainBlock';
+
 import { Button } from '@/app/components/Button/Button';
 import { Post } from '@/app/components/Post/Post';
 
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import Link from 'next/link';
-import { PageContainer } from '../components/PageContainer/PageContainer';
-import { MainBlock } from '../components/MainBlock/MainBlock';
 
 export default function DownloadArea() {
   return (

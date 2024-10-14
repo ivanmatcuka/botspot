@@ -1,9 +1,8 @@
 import { Posts } from './Posts';
 
-import { QuestionForm } from '../components/QuestionForm/QuestionForm';
-
+import { QuestionForm } from '@/app/components/QuestionForm/QuestionForm';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '../components/PageContainer/PageContainer';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 export default function Blog() {
   return (
