@@ -1,4 +1,3 @@
-
 import { SecondaryBlock } from './SecondaryBlock';
 
 import { Button } from '../Button/Button';
@@ -28,8 +27,5 @@ export const BasicSecondaryBlock: Story = {
     subline: 'Smart 3D fullbody scanner for high volume 3D model production',
     primaryCta: <Button variant="primary">Explore Neo</Button>,
     secondaryCta: <Button variant="secondary">Download Data Sheet</Button>,
-    mediaBlockOptions: {
-      assetUrl: '/placeholder.png',
-    },
   },
 };
