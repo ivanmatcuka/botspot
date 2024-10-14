@@ -8,7 +8,7 @@ import { PageContainer } from '../components/PageContainer/PageContainer';
 export default function Blog() {
   return (
     <main className="">
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }} mb={8}>
         <MainBlock
           headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
           subline="Questions & Articles"
