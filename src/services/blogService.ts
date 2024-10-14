@@ -85,6 +85,9 @@ export const getJobs = async (): Promise<{
   count: number;
 }> => {
   const category = await getCategory('jobs');
+
+  if (!category) return { data: [], count: 0 };
+
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}posts?&categories=${category.id}&_embed`,
     {
