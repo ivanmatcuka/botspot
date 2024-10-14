@@ -28,7 +28,9 @@ export const Post: FC<PostProps> = ({ title, cta, excerpt, featuredImage }) => (
         <Typography
           variant="body1"
           mb={1}
-          dangerouslySetInnerHTML={{ __html: excerpt }}
+          dangerouslySetInnerHTML={{
+            __html: excerpt.replace(/(.{48})..+/, '$1&hellip;'),
+          }}
         />
       )}
       {cta}
