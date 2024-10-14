@@ -20,7 +20,7 @@ export default function Commercial() {
         />
       </PageContainer>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="With new emerging technologies, using digital assets is more important than ever before."
           subline="Insight"
@@ -36,7 +36,7 @@ export default function Commercial() {
         </Typography>
       </Tile>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Product visualization is an essential part of sales promotion in digital retail – 3D models open up completely new possibilities for product display."
           subline="E Commerce"
@@ -77,7 +77,7 @@ export default function Commercial() {
         </Typography>
       </Tile>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Transform VR experiences with our 3D scanners, delivering precise, high-fidelity models."
           subline="Virtual Reality"
@@ -102,7 +102,7 @@ export default function Commercial() {
         <Button variant="primary">Test Virtual Try-On</Button>
       </Tile>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Bring cultural elements and stage designs to life with unparalleled detail and realism."
           subline="Culture"

@@ -37,7 +37,7 @@ export default async function InnovationLab() {
         />
       </PageContainer>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="We lead in innovation with advanced 3D scanning technology, delivering state-of-the-art solutions."
           subline="How We Drive Innovation"

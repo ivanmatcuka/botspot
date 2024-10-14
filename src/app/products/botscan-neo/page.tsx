@@ -31,7 +31,7 @@ export default function BorscanNeo() {
         assetUrl="/img/products/botscan-neo/1.png"
         objectFit="contain"
       />
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Highly precise and colorfast 3D data of people in a fraction of a second, creating true digital twins with a measurement accuracy up to 1 mm."
           subline="Overview"
@@ -43,7 +43,7 @@ export default function BorscanNeo() {
         fullHeight
         objectFit="cover"
       />
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Perfect for Full Body Scanning with automized workflow patterns."
           subline="Specifications"

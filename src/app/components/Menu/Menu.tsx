@@ -17,7 +17,6 @@ import {
 import HoverMenu from 'material-ui-popup-state/HoverMenu';
 import { useRouter } from 'next/navigation';
 
-
 export const MenuItem: FC<PropsWithChildren<MuiMenuItemProps>> = ({
   ...props
 }) => <MuiMenuItem {...props} />;
@@ -59,6 +58,7 @@ export const Menu: FC<PropsWithChildren<MenuProps>> = ({
         slotProps={{
           paper: {
             sx: { boxShadow: shadows[1] },
+            className: 'border-2 border-divider',
           },
         }}
         {...bindMenu(popupState)}

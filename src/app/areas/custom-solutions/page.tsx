@@ -21,7 +21,7 @@ export default function CustomSolutions() {
         />
       </PageContainer>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="We see unconventional 3D scanning requests as an opportunity to collaborate even closer with our clients."
           subline="Insight"
@@ -35,7 +35,7 @@ export default function CustomSolutions() {
         </Typography>
       </Tile>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Streamline industrial processes with our 3D scanners for accurate measurements and improved precision."
           subline="Industrial Areas of Use"

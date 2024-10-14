@@ -14,14 +14,14 @@ export default function Industrial() {
   return (
     <main className="">
       <MediaBlock assetUrl="/img/areas/industrial/banner.png" />
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <SecondaryBlock
           subline="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
           headline="Industrial Areas of Use"
         />
       </PageContainer>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="We provide high-precision 3D models of objects, 360° images for documentation and extraction of measurement data for quality control."
           subline="Insight"
@@ -37,7 +37,7 @@ export default function Industrial() {
         </Typography>
       </Tile>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Streamline industrial processes with our 3D scanners for accurate measurements and improved precision."
           subline="Industrial Areas of Use"

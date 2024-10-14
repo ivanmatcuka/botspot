@@ -26,7 +26,7 @@ import { ExpandMore } from '@mui/icons-material';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-
+import { StickyScrollUp } from 'react-stickup';
 
 type MenuItem = {
   label: string;
@@ -111,63 +111,65 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   );
 
   return (
-    <MuiAppBar
-      position="relative"
-      className="border-b border-gray-200 z-[1201]"
-      color="transparent"
-      elevation={24}
-    >
-      <Toolbar disableGutters>
-        <Container maxWidth="xl">
-          <Grid container xs={12} mx="auto">
-            <Grid
-              item
-              display="flex"
-              alignItems="center"
-              justifyContent="space-between"
-              flex={1}
-            >
-              <Link href="/">
-                <Image width={150} height={46} src="/logo.svg" alt="logo" />
-              </Link>
-              {matches ? (
-                <>
-                  <Box display="flex" sx={{ flexGrow: 1 }}>
-                    {menu}
+    <StickyScrollUp>
+      <MuiAppBar
+        position="sticky"
+        className="border-b border-gray-200 z-[1201]"
+        elevation={24}
+        sx={{ backgroundColor: 'white' }}
+      >
+        <Toolbar disableGutters>
+          <Container maxWidth="xl">
+            <Grid container xs={12} mx="auto">
+              <Grid
+                item
+                display="flex"
+                alignItems="center"
+                justifyContent="space-between"
+                flex={1}
+              >
+                <Link href="/">
+                  <Image width={150} height={46} src="/logo.svg" alt="logo" />
+                </Link>
+                {matches ? (
+                  <>
+                    <Box display="flex" sx={{ flexGrow: 1 }}>
+                      {menu}
+                    </Box>
+                    {cta}
+                  </>
+                ) : (
+                  <Box
+                    display="flex"
+                    sx={{ flexGrow: 1 }}
+                    justifyContent="flex-end"
+                  >
+                    <MuiIconButton
+                      size="large"
+                      edge="start"
+                      color="inherit"
+                      aria-label="menu"
+                      onClick={() => setIsOpen(!isOpen)}
+                      className="block xl:none"
+                    >
+                      {isOpen ? <CloseIcon /> : <MenuIcon />}
+                    </MuiIconButton>
+                    <Drawer
+                      anchor="top"
+                      open={isOpen}
+                      onClose={() => setIsOpen(false)}
+                      PaperProps={{ sx: { top: 57 } }}
+                      slotProps={{ backdrop: { sx: { top: 57 } } }}
+                    >
+                      <List>{drawer}</List>
+                    </Drawer>
                   </Box>
-                  {cta}
-                </>
-              ) : (
-                <Box
-                  display="flex"
-                  sx={{ flexGrow: 1 }}
-                  justifyContent="flex-end"
-                >
-                  <MuiIconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="block xl:none"
-                  >
-                    {isOpen ? <CloseIcon /> : <MenuIcon />}
-                  </MuiIconButton>
-                  <Drawer
-                    anchor="top"
-                    open={isOpen}
-                    onClose={() => setIsOpen(false)}
-                    PaperProps={{ sx: { top: 57 } }}
-                    slotProps={{ backdrop: { sx: { top: 57 } } }}
-                  >
-                    <List>{drawer}</List>
-                  </Drawer>
-                </Box>
-              )}
+                )}
+              </Grid>
             </Grid>
-          </Grid>
-        </Container>
-      </Toolbar>
-    </MuiAppBar>
+          </Container>
+        </Toolbar>
+      </MuiAppBar>
+    </StickyScrollUp>
   );
 };

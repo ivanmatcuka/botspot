@@ -22,13 +22,19 @@ export default function Products() {
         headline="PRODUCTS"
         subline="Generate photorealistic 3D models with unmatched quality and breathtaking textures in almost no time. "
         primaryCta={<Button variant="primary">Download Data Sheets</Button>}
-        secondaryCta={<Button variant="secondary">See Areas of Use</Button>}
+        secondaryCta={
+          <Link href="/download-area">
+            <Button variant="secondary">See Areas of Use</Button>
+          </Link>
+        }
       />
 
-      <MainBlock
-        subline="Effortless Workflow"
-        headline="3D Scanners made by botspot are easy to use and come with a fully automated software package."
-      />
+      <PageContainer mt={{ xs: 10, md: 15 }}>
+        <MainBlock
+          subline="Effortless Workflow"
+          headline="3D Scanners made by botspot are easy to use and come with a fully automated software package."
+        />
+      </PageContainer>
 
       <Tile headline="3D Full Body Scans">
         <Typography variant="body1">
@@ -57,7 +63,8 @@ export default function Products() {
       </Tile>
 
       <MediaBlock assetUrl="/img/products/1.png" objectFit="contain" />
-      <PageContainer>
+
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <SecondaryBlock
           headline="botscan NEO"
           subline="Smart 3D fullbody scanner for high volume 3D model production"
@@ -73,7 +80,8 @@ export default function Products() {
       </PageContainer>
 
       <MediaBlock assetUrl="/img/products/2.png" objectFit="contain" />
-      <PageContainer>
+
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <SecondaryBlock
           headline="3D Studio"
           subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
@@ -86,7 +94,7 @@ export default function Products() {
 
       <MediaBlock assetUrl="/img/products/3.png" objectFit="contain" />
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <SecondaryBlock
           headline="3D Object"
           subline="Fully automated 3D object scanner for precise photogrammetry"

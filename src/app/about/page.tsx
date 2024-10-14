@@ -26,7 +26,7 @@ export default async function About() {
         secondaryCta={<Button variant="secondary">Visit Career Page</Button>}
       />
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           subline="Our Mission"
           headline="We set new standards in the 3D scanning industry."
@@ -53,7 +53,7 @@ export default async function About() {
         </Typography>
       </Tile>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           subline="Our Team"
           headline="With commitment and tenacity, we make the impossible possible."
@@ -68,9 +68,9 @@ export default async function About() {
         bgcolor="grey.100"
         display="flex"
         flexDirection="column"
-        mt={{ xs: 10, md: 20 }}
+        py={10}
       >
-        <PageContainer>
+        <PageContainer my={0} mb={0}>
           <MainBlock
             subline="Your Opportunity"
             headline="Want to be part of our team?"
@@ -79,7 +79,7 @@ export default async function About() {
         </PageContainer>
       </Box>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           subline="Our Story"
           headline="Delivering excellence for over ten years."

@@ -30,7 +30,7 @@ export default function ThreeDStudio() {
         assetUrl="/img/products/3d-studio/1.png"
         objectFit="contain"
       />
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Engineered with adaptability in mind, every component of the setup is effortlessly adjustable."
           subline="Overview"
@@ -42,7 +42,7 @@ export default function ThreeDStudio() {
         objectFit="contain"
         fullHeight
       />
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="The stunning results of the 3D reconstruction reduce the need for manual post-processing to an absolute minimum. "
           subline="Specifications"

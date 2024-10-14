@@ -4,6 +4,8 @@
 import { Box } from '@mui/material';
 import { FC, useEffect, useRef, useState } from 'react';
 
+const FRAMES = 150;
+
 type ScrollableVideoProps = {
   fileName: string;
 };
@@ -13,11 +15,10 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [frame, setFrame] = useState(0);
   const [isReady, setIsready] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
     const prepareImages = async () => {
-      let images: HTMLImageElement[] = [];
-
       const loadImage = (url: string): Promise<HTMLImageElement> =>
         new Promise((resolve, reject) => {
           const image = new Image();
@@ -28,7 +29,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
 
       const imagePromises = [];
 
-      for (var i = 0; i < 150; i++) {
+      for (var i = 0; i < FRAMES; i++) {
         const imagePromise = loadImage(
           `/videos/${fileName}/${fileName}${i.toString().padStart(3, '0')}.jpg`,
         );
@@ -44,6 +45,8 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
 
   useEffect(() => {
     const onScroll = () => {
+      if (hasScrolled) return;
+
       const containerRect = containerRef.current?.getBoundingClientRect();
       if (!containerRect || !containerRef.current) return;
 
@@ -54,6 +57,14 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
       );
 
       const frameIndex = Math.floor(progress * (images.length - 1));
+
+      if (
+        frameIndex === FRAMES - 1 &&
+        containerRect.top < -window.innerHeight * 3
+      ) {
+        setHasScrolled(true);
+      }
+
       if (!images[frameIndex]) return;
       setFrame(frameIndex);
     };
@@ -61,10 +72,10 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
     window.addEventListener('scroll', onScroll);
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, [images]);
+  }, [images, hasScrolled]);
 
   return (
-    <Box height={isReady ? '300vh' : '100vh'}>
+    <Box height={isReady && !hasScrolled ? '300vh' : '100vh'}>
       <div className="h-full relative" ref={containerRef}>
         <div className="w-full h-[100vh] xs:min-h-[1024px] md:min-h-[768px] lg:min-h-[800px] sticky top-0">
           {!isReady && (

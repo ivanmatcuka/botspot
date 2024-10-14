@@ -52,7 +52,6 @@ export default function RootLayout({
                       label: 'Custom Solutions',
                       href: '/areas/custom-solutions',
                     },
-                    { label: 'Learn about 3D Scanning', href: '/areas' },
                   ],
                 },
                 { label: 'Learn About 3D Scanning', href: '/learn' },

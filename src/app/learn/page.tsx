@@ -27,10 +27,12 @@ export default function Learn() {
         secondaryCta={<Button variant="secondary">Ask Us Α Question</Button>}
       />
 
-      <MainBlock
-        subline="What Is 3D Scanning?"
-        headline="3D photogrammetry scanning creates a 3D model by combining many photos taken from different angles of an object or scene."
-      />
+      <PageContainer mt={{ xs: 10, md: 15 }}>
+        <MainBlock
+          subline="What Is 3D Scanning?"
+          headline="3D photogrammetry scanning creates a 3D model by combining many photos taken from different angles of an object or scene."
+        />
+      </PageContainer>
 
       <Tile headline="Capturing Images">
         <Typography variant="body1">
@@ -65,7 +67,7 @@ export default function Learn() {
           quality={100}
         />
       </Box>
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           subline="Questions & Articles"
           headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."

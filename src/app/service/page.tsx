@@ -27,7 +27,7 @@ export default function Service() {
         }
       />
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           subline="Try Before You Buy"
           headline="Experience the quality of our scanning technology before committing to a purchase."
@@ -65,7 +65,7 @@ export default function Service() {
         />
       </Box>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           subline="In-House Scan Service"
           headline="We convert physical objects into precise digital models, ideal for design, quality control, and VR."

@@ -33,6 +33,7 @@ export const colors = {
   },
   common: {
     black: '#151515',
+    white: '#FFFFFF',
   },
 };
 

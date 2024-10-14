@@ -1,20 +1,22 @@
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, GridProps } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
 
 type PageContainerProps = {
   banner?: boolean;
-};
+} & Pick<GridProps, 'mb' | 'mt' | 'mx' | 'my' | 'm'>;
 export const PageContainer: FC<PropsWithChildren<PageContainerProps>> = ({
   banner = false,
   children,
+  ...margins
 }) => (
   <Container maxWidth="xl">
     <Grid
       container
       mx="auto"
       my={{ xs: 2, md: 3 }}
-      mb={{ xs: 10, md: 15 }}
+      mb={{ xs: 10, md: 20 }}
       xs={10}
+      {...margins}
     >
       <Grid
         item

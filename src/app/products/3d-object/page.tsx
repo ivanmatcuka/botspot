@@ -30,7 +30,7 @@ export default function ThreeDObject() {
         assetUrl="/img/products/3d-object/1.png"
         objectFit="contain"
       />
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Designed for industrial applications and high 3D model output, our scanner is fully automated, allowing even untrained personnel to operate it."
           subline="Overview"
@@ -38,7 +38,7 @@ export default function ThreeDObject() {
       </PageContainer>
 
       <MediaBlock assetUrl="/img/products/3d-object/2.png" />
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="A unique combination of a fully transparent glass turntable, cross-polarized lighting system, digital spray, and high-resolution cameras."
           subline="Specifications"

@@ -18,7 +18,7 @@ export default function Areas() {
         secondaryCta={<Button variant="secondary">Custom Solutions</Button>}
       />
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           subline="Commercial"
           headline="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
@@ -27,7 +27,7 @@ export default function Areas() {
         />
       </PageContainer>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           subline="Industrial"
           headline="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
@@ -36,7 +36,7 @@ export default function Areas() {
         />
       </PageContainer>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           subline="Health Care"
           headline="Content has yet to be added. Content has yet to be added. Content has yet to be added."
@@ -45,7 +45,7 @@ export default function Areas() {
         />
       </PageContainer>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }} mb={0}>
         <MainBlock
           subline="Custom Solutions"
           headline="Content has yet to be added. Content has yet to be added. Content has yet to be added."

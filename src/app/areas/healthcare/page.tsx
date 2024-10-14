@@ -19,11 +19,11 @@ export default function Healthcare() {
         />
       </PageContainer>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock headline="Content has yet to be added." subline="Insight" />
       </PageContainer>
 
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="New therapeutic approaches, improved diagnostics and state-of-the-art  prosthetics provided with botspot 3D scanning solutions."
           subline="Health Care"
