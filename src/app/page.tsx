@@ -130,7 +130,7 @@ export default function Home() {
             subline="How we can help"
             headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
             cta={
-              <Link href="/services">
+              <Link href="/service">
                 <Button variant="primary">Explore Our Services</Button>
               </Link>
             }

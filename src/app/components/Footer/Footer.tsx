@@ -6,6 +6,7 @@ import {
   TypographyProps,
 } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const FooterTypography = (props: TypographyProps) => (
   <Typography variant="body2" color="white" {...props} />
@@ -110,7 +111,9 @@ export const Footer = () => (
             Copyright © 2024 botspot, All rights reserved
           </FooterTypography>
           <FooterTypography>Privacy Policy</FooterTypography>
-          <FooterTypography>Terms and Conditions</FooterTypography>
+          <Link href="/terms-and-conditions">
+            <FooterTypography>Terms and Conditions</FooterTypography>
+          </Link>
           <FooterTypography>Legal Notice</FooterTypography>
         </Grid>
       </Grid>
