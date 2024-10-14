@@ -13,7 +13,7 @@ export const PageContainer: FC<PropsWithChildren<PageContainerProps>> = ({
     <Grid
       container
       mx="auto"
-      my={{ xs: 2, md: 3 }}
+      mt={{ xs: 2, md: 3 }}
       mb={{ xs: 10, md: 20 }}
       xs={10}
       {...margins}
