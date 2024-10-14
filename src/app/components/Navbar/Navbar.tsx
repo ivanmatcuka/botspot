@@ -111,7 +111,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
 
   return (
     <MuiAppBar
-      position="sticky"
+      position="relative"
       className="border-b border-gray-200 z-[1201]"
       elevation={24}
       sx={{ backgroundColor: 'white' }}
