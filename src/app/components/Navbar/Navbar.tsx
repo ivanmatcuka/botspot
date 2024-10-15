@@ -19,13 +19,21 @@ import {
   Grid,
   Container,
 } from '@mui/material';
-import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
+import {
+  FC,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { ExpandMore } from '@mui/icons-material';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import useDetectScroll from '@smakss/react-scroll-direction';
 
 type MenuItem = {
   label: string;
@@ -44,6 +52,8 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   const { breakpoints } = useTheme();
   const matches = useMediaQuery(breakpoints.up('xl'));
   const { push } = useRouter();
+  const { scrollDir } = useDetectScroll();
+  const [position, setPosition] = useState<'relative' | 'sticky'>('relative');
 
   const renderMenu = useCallback(
     (item: MenuItem) => {
@@ -109,10 +119,19 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
     [navItems, renderDrawer],
   );
 
+  useEffect(() => {
+    if (scrollDir === 'up') {
+      setPosition('sticky');
+    } else {
+      setPosition('relative');
+    }
+  }, [scrollDir]);
+
   return (
     <MuiAppBar
-      position="relative"
+      position={position}
       className="border-b border-gray-200 z-[1201]"
+      color="transparent"
       elevation={24}
       sx={{ backgroundColor: 'white' }}
     >
