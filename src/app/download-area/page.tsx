@@ -1,10 +1,14 @@
-import { PageContainer } from '../components/PageContainer/PageContainer';
-import { MainBlock } from '../components/MainBlock/MainBlock';
-
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
 import { Post } from '@/app/components/Post/Post';
 
 import { Grid } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'DOWNLOAD AREA – botspot',
+};
 
 export default function DownloadArea() {
   return (
@@ -27,6 +31,7 @@ export default function DownloadArea() {
                 </Button>
               }
               featuredImage="/img/products/1.png"
+              objectFit="contain"
             />
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
@@ -39,6 +44,7 @@ export default function DownloadArea() {
                 </Button>
               }
               featuredImage="/img/products/2.png"
+              objectFit="contain"
             />
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
@@ -51,6 +57,7 @@ export default function DownloadArea() {
                 </Button>
               }
               featuredImage="/img/products/3.png"
+              objectFit="contain"
             />
           </Grid>
         </Grid>

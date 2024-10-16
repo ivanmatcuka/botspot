@@ -10,6 +10,7 @@ import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
+import { WP_REST_API_Attachment } from 'wp-types';
 
 const POST_SLUG = 'scanning-horses-photogrammetry-brings-tv-series-to-life';
 
@@ -68,8 +69,8 @@ export default async function InnovationLab() {
         </Typography>
       </Tile>
 
-      <Box bgcolor="grey.100" pt={{ xs: 5, md: 10 }} overflow="auto">
-        <PageContainer>
+      <Box bgcolor="grey.100" py={{ xs: 5, md: 10 }} overflow="auto">
+        <PageContainer mb={5} mt={0}>
           <MainBlock
             headline="We’re on a mission to build a world-class 3D manufacturing company."
             subline="Our Innovation Lab"
@@ -81,7 +82,7 @@ export default async function InnovationLab() {
             }
           />
         </PageContainer>
-        <PageContainer>
+        <PageContainer mb={0}>
           <Post
             title={data.title.rendered}
             excerpt={data.excerpt.rendered}
@@ -89,6 +90,13 @@ export default async function InnovationLab() {
               <Button variant="secondary" href={`/blog/${data.id}`}>
                 Read Full Story
               </Button>
+            }
+            featuredImage={
+              (
+                data._embedded?.[
+                  'wp:featuredmedia'
+                ]?.[0] as WP_REST_API_Attachment
+              )?.source_url
             }
           />
         </PageContainer>

@@ -7,16 +7,23 @@ type PostProps = {
   excerpt?: string;
   cta?: ReactNode;
   featuredImage?: string;
+  objectFit?: 'cover' | 'contain';
 };
 
-export const Post: FC<PostProps> = ({ title, cta, excerpt, featuredImage }) => (
+export const Post: FC<PostProps> = ({
+  title,
+  cta,
+  excerpt,
+  featuredImage,
+  objectFit = 'cover',
+}) => (
   <Box
     className="relative rounded-lg text-white overflow-hidden h-full min-h-[360px]"
     display="flex"
     alignItems="flex-end"
   >
     <Box
-      className="bg-common-black bg-opacity-80 w-full text-center"
+      className="bg-common-black bg-opacity-80 w-full text-center z-10"
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -34,16 +41,16 @@ export const Post: FC<PostProps> = ({ title, cta, excerpt, featuredImage }) => (
         />
       )}
       {cta}
-      {featuredImage && (
-        <Image
-          height={360}
-          width={310}
-          alt=""
-          src={featuredImage}
-          className="w-full h-full absolute inset-0 z-[-1] object-cover object-top"
-          quality={100}
-        />
-      )}
     </Box>
+    {featuredImage && (
+      <Image
+        height={360}
+        width={310}
+        alt=""
+        src={featuredImage}
+        className={`w-full h-full absolute inset-0 ${objectFit === 'cover' ? 'object-cover' : 'object-contain'} object-top`}
+        quality={100}
+      />
+    )}
   </Box>
 );
