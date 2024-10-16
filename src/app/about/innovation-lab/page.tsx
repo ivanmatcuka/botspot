@@ -1,8 +1,7 @@
-import { MainBlock } from '../../components/MainBlock/MainBlock';
-import { Button } from '../../components/Button/Button';
-import { Tile } from '../../components/Tile/Tile';
-import { SecondaryBlock } from '../../components/SecondaryBlock/SecondaryBlock';
-
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { Button } from '@/app/components/Button/Button';
+import { Tile } from '@/app/components/Tile/Tile';
+import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { getPostBySlug } from '@/services/blogService';
 import { Post } from '@/app/components/Post/Post';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
@@ -10,25 +9,25 @@ import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
-import Link from 'next/link';
+import { Metadata } from 'next';
 
 const POST_SLUG = 'scanning-horses-photogrammetry-brings-tv-series-to-life';
+
+export const metadata: Metadata = {
+  title: 'INNOVATION LAB – botspot',
+};
 
 export default async function InnovationLab() {
   const data = await getPostBySlug(POST_SLUG);
 
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/banners/innovation-lab.png" />
+      <MediaBlock assetUrl="/img/banners/innovation-lab.png" banner />
       <PageContainer banner>
         <SecondaryBlock
           subline="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
           headline="Innovation Lab"
-          primaryCta={
-            <Button variant="primary" href="/innovation-lab">
-              Contact Innovation Lab
-            </Button>
-          }
+          primaryCta={<Button variant="primary">Contact Innovation Lab</Button>}
           secondaryCta={
             <Button variant="secondary" href="/blog">
               Visit Blog

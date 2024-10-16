@@ -8,18 +8,31 @@ import { PageContainer } from '../components/PageContainer/PageContainer';
 
 import Image from 'next/image';
 import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'LEARN ABOUT 3D SCANNING – botspot',
+};
 
 export default function Learn() {
   return (
     <main className="">
       <Banner
         mediaBlockOptions={{
-          assetUrl: '/img/banners/products.png',
+          assetUrl: '/img/banners/learn.png',
         }}
         headline="LEARN ABOUT 3D SCANNING"
         subline="Discover the fundamentals of 3D scanning and explore how this cutting-edge technology is transforming industries, from design to manufacturing."
-        primaryCta={<Button variant="primary">Check Our Blog</Button>}
-        secondaryCta={<Button variant="secondary">Ask Us Α Question</Button>}
+        primaryCta={
+          <Button variant="primary" href="/blog">
+            Check Our Blog
+          </Button>
+        }
+        secondaryCta={
+          <Button variant="secondary" href="/contact-us">
+            Ask Us Α Question
+          </Button>
+        }
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>

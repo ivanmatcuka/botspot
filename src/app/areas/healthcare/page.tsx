@@ -7,11 +7,16 @@ import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 
 import { Typography } from '@mui/material';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Health Care – botspot',
+};
 
 export default function Healthcare() {
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/areas/healthcare/banner.png" />
+      <MediaBlock assetUrl="/img/areas/healthcare/banner.png" banner />
       <PageContainer banner>
         <SecondaryBlock
           subline="Content has yet to be added. Content has yet to be added. Content has yet to be added."
@@ -43,7 +48,9 @@ export default function Healthcare() {
           Our partners from MedReality use our Scanning Solutions optimized for
           pathology, to provide clinicians and surgeons with medical data.
         </Typography>
-        <Button variant="primary">Read Article</Button>
+        <Button variant="primary" href="/blog">
+          Read Article
+        </Button>
       </Tile>
     </main>
   );

@@ -48,7 +48,7 @@ export default function ThreeDStudio() {
 
       <MediaBlock
         assetUrl="/img/products/3d-studio/2.png"
-        objectFit="contain"
+        objectFit="cover"
         fullHeight
       />
       <PageContainer mt={{ xs: 10, md: 15 }}>

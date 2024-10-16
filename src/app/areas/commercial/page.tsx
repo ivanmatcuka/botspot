@@ -8,11 +8,16 @@ import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import Image from 'next/image';
 import { Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Commercial Areas of Use – botspot',
+};
 
 export default function Commercial() {
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/areas/commercial/banner.png" autoplay />
+      <MediaBlock assetUrl="/img/areas/commercial/banner.png" banner />
       <PageContainer banner>
         <SecondaryBlock
           subline="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
@@ -132,7 +137,9 @@ export default function Commercial() {
           subline="Versatile and powerful, our 3D Object is ideal for commercial applications."
           headline="We recommend our 3D Object Scanner"
           primaryCta={
-            <Button variant="primary">Explore 3D Object Scanner</Button>
+            <Button variant="primary" href="/products/3d-object">
+              Explore 3D Object Scanner
+            </Button>
           }
         />
       </GalleryTile>

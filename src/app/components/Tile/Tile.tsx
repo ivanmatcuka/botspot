@@ -20,10 +20,9 @@ export const Tile: FC<PropsWithChildren<TileProps>> = ({
         mb={{ xs: 3, md: 6 }}
         mx="auto"
         textAlign={{ xs: 'center', md: 'left' }}
-        columnSpacing={4}
         className="border-t border-gray-700"
       >
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} mt={0.5}>
           <Typography variant="h4" mb={2}>
             {headline}
           </Typography>

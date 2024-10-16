@@ -9,11 +9,16 @@ import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Custom Solutions – botspot',
+};
 
 export default function CustomSolutions() {
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/areas/custom-solution/banner.png" />
+      <MediaBlock assetUrl="/img/areas/custom-solution/banner.png" banner />
       <PageContainer banner>
         <SecondaryBlock
           subline="Create bespoke solutions with our 3D scanners, offering accurate, customized models to fit your unique specifications."
@@ -50,7 +55,9 @@ export default function CustomSolutions() {
           Approached by the new historical epic series “Those About to Die”,
           botspot took on the challenge of 3D scanning a horse.
         </Typography>
-        <Button variant="primary">Read Article</Button>
+        <Button variant="primary" href="/blog">
+          Read Article
+        </Button>
       </Tile>
       <Tile headline="Large Objects">
         <Image
@@ -74,7 +81,11 @@ export default function CustomSolutions() {
         <SecondaryBlock
           subline="Our Innovation Lab handles Custom Solutions and bridges the gap between research and industrial production."
           headline="Innovation Lab"
-          primaryCta={<Button variant="primary">Visit Innovation Lab</Button>}
+          primaryCta={
+            <Button variant="primary" href="/innovation-lab">
+              Visit Innovation Lab
+            </Button>
+          }
         />
       </GalleryTile>
     </main>

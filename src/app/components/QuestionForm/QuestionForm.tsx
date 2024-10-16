@@ -30,7 +30,7 @@ export const QuestionForm: FC = () => {
             className="border-2 border-divider !bg-primary-main"
           >
             <form onSubmit={handleSubmit(() => {})}>
-              <Box p={5}>
+              <Box p={{ xs: 3, md: 5 }} py={{ xs: 2 }}>
                 <Typography variant="h2" mb={2} color="white">
                   Do you have a question?
                 </Typography>

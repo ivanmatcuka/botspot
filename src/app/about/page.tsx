@@ -10,6 +10,11 @@ import { Banner } from '@/app/components/Banner/Banner';
 import { getPeople } from '@/services/blogService';
 
 import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'ABOUT US – botspot',
+};
 
 export default async function About() {
   const { data } = await getPeople();
@@ -53,13 +58,15 @@ export default async function About() {
         </Typography>
       </Tile>
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ xs: 10, md: 15 }} mb={8}>
         <MainBlock
           subline="Our Team"
           headline="With commitment and tenacity, we make the impossible possible."
           botomless
         />
+      </PageContainer>
 
+      <PageContainer mt={0}>
         <People data={data} />
       </PageContainer>
 
@@ -68,22 +75,22 @@ export default async function About() {
         bgcolor="grey.100"
         display="flex"
         flexDirection="column"
-        py={10}
+        py={{ xs: 5, md: 10 }}
       >
         <PageContainer my={0} mb={0}>
           <MainBlock
             subline="Your Opportunity"
             headline="Want to be part of our team?"
-            cta={<Button variant="primary">Explore Our Services</Button>}
+            cta={<Button variant="primary">Check Our Openings</Button>}
           />
         </PageContainer>
       </Box>
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ xs: 5, md: 10 }}>
         <MainBlock
           subline="Our Story"
           headline="Delivering excellence for over ten years."
-          cta={<Button variant="primary">Explore Our Services</Button>}
+          cta={<Button variant="primary">Read Full Story...</Button>}
         />
       </PageContainer>
 

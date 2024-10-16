@@ -30,7 +30,7 @@ export const MainBlock: FC<MainBlockProps> = ({
         width={800}
         height={800}
         alt=""
-        className="object-contain w-full h-auto pt-[48px]"
+        className="object-cover w-full h-auto pt-[48px] min-h-[240px]"
         quality={100}
       />
     )}

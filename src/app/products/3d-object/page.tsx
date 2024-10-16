@@ -46,7 +46,7 @@ export default function ThreeDObject() {
         />
       </PageContainer>
 
-      <MediaBlock assetUrl="/img/products/3d-object/2.png" />
+      <MediaBlock assetUrl="/img/products/3d-object/2.png" fullHeight />
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="A unique combination of a fully transparent glass turntable, cross-polarized lighting system, digital spray, and high-resolution cameras."

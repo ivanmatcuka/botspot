@@ -7,13 +7,18 @@ import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'CAREERS – botspot',
+};
 
 export default async function Careers() {
   const { data } = await getJobs();
 
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/banners/careers.png" />
+      <MediaBlock assetUrl="/img/banners/careers.png" banner />
 
       <PageContainer banner>
         <SecondaryBlock

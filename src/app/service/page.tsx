@@ -105,7 +105,11 @@ export default function Service() {
         <SecondaryBlock
           subline="Have a large or unusual item that needs scanning? Our Innovation Lab specializes in handling special requests, even for the most challenging projects."
           headline="Special Requests"
-          primaryCta={<Button variant="primary">Explore Innovation Lab</Button>}
+          primaryCta={
+            <Button variant="primary" href="/innovation-lab">
+              Explore Innovation Lab
+            </Button>
+          }
         />
       </GalleryTile>
 

@@ -8,10 +8,16 @@ import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Industrial Areas of Use – botspot',
+};
+
 export default function Industrial() {
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/areas/industrial/banner.png" />
+      <MediaBlock assetUrl="/img/areas/industrial/banner.png" banner />
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <SecondaryBlock
           subline="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
@@ -52,7 +58,9 @@ export default function Industrial() {
           customer – with success. We are very satisfied and recommend botspot
           with a clear conscience!”
         </Typography>
-        <Button variant="primary">Read Article</Button>
+        <Button variant="primary" href="/blog">
+          Read Article
+        </Button>
       </Tile>
       <Tile headline="Reverse Engineering">
         <Box height={360}>

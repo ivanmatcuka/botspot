@@ -5,6 +5,12 @@ import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'AREAS OF USE – botspot',
+};
+
 export default function Areas() {
   return (
     <main className="">
@@ -14,15 +20,27 @@ export default function Areas() {
         }}
         headline="AREAS OF USE"
         subline="Potential Areas of Use are as versatile as our 3D Scanners. We have delivered commercial, industrial and custom solutions in order to exceed our clients’  needs."
-        primaryCta={<Button variant="primary">Commercial Applications</Button>}
-        secondaryCta={<Button variant="secondary">Custom Solutions</Button>}
+        primaryCta={
+          <Button variant="primary" href="/areas/commercial">
+            Commercial Applications
+          </Button>
+        }
+        secondaryCta={
+          <Button variant="secondary" href="/areas/custom-solutions">
+            Custom Solutions
+          </Button>
+        }
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           subline="Commercial"
           headline="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
-          cta={<Button variant="primary">See Commercial Applications</Button>}
+          cta={
+            <Button variant="primary" href="/areas/commercial">
+              See Commercial Applications
+            </Button>
+          }
           subAssetUrl="/img/areas/1.png"
         />
       </PageContainer>
@@ -31,7 +49,11 @@ export default function Areas() {
         <MainBlock
           subline="Industrial"
           headline="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
-          cta={<Button variant="primary">See Industrial Applications</Button>}
+          cta={
+            <Button variant="primary" href="/areas/industrial">
+              See Industrial Applications
+            </Button>
+          }
           subAssetUrl="/img/areas/2.png"
         />
       </PageContainer>
@@ -40,16 +62,24 @@ export default function Areas() {
         <MainBlock
           subline="Health Care"
           headline="Content has yet to be added. Content has yet to be added. Content has yet to be added."
-          cta={<Button variant="primary">Request In-House Scan Service</Button>}
+          cta={
+            <Button variant="primary" href="/areas/healthcare">
+              See Health Care Applications
+            </Button>
+          }
           subAssetUrl="/img/areas/3.png"
         />
       </PageContainer>
 
-      <PageContainer mt={{ xs: 10, md: 15 }} mb={0}>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           subline="Custom Solutions"
           headline="Content has yet to be added. Content has yet to be added. Content has yet to be added."
-          cta={<Button variant="primary">Request In-House Scan Service</Button>}
+          cta={
+            <Button variant="primary" href="/areas/custom-solutions">
+              See Custom Solutions
+            </Button>
+          }
           subAssetUrl="/img/areas/4.png"
         />
       </PageContainer>
