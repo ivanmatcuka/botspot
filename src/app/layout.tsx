@@ -17,6 +17,18 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'botspot',
   description: '3D Scanning Services',
+  icons: [
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      url: '/apple-touch-icon.png',
+    },
+    {
+      rel: 'icon',
+      sizes: '48x48',
+      url: '/favicon-48x48.png',
+    },
+  ],
 };
 
 export default function RootLayout({

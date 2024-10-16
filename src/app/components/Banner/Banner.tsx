@@ -37,7 +37,7 @@ export const Banner: FC<BannerProps> = ({
         <Grid
           item
           xs={12}
-          md={8}
+          md={6}
           mb={{ xs: 'auto', md: 15, lg: 29 }}
           mt={{ xs: 'auto', md: 0 }}
           display="flex"
@@ -68,6 +68,7 @@ export const Banner: FC<BannerProps> = ({
             </Grid>
           </Box>
         </Grid>
+        <Grid xs={0} md={1} />
       </Grid>
     </Box>
   </Box>

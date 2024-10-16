@@ -34,39 +34,90 @@ export default function Home() {
 
       <Box
         my={{ xs: 8, md: 10 }}
-        pl={{ xs: 4, md: 8 }}
+        px={{ xs: 4, md: 8 }}
         display="flex"
         mx="auto"
         overflow="scroll"
         className="no-scrollbar h-[80px]"
         maxWidth="xl"
       >
-        <Image width={168} height={80} src="/img/partners/canon.png" alt="" />
-        <Image width={168} height={80} src="/img/partners/umg.png" alt="" />
-        <Image width={168} height={80} src="/img/partners/illies.png" alt="" />
-        <Image width={168} height={80} src="/img/partners/iluikii.png" alt="" />
+        <Image
+          width={168}
+          height={80}
+          src="/img/partners/canon.png"
+          alt=""
+          className="object-contain flex-shrink-0"
+        />
+        <Image
+          width={168}
+          height={80}
+          src="/img/partners/umg.png"
+          alt=""
+          className="object-contain flex-shrink-0"
+        />
+        <Image
+          width={168}
+          height={80}
+          src="/img/partners/illies.png"
+          alt=""
+          className="object-contain flex-shrink-0"
+        />
+        <Image
+          width={168}
+          height={80}
+          src="/img/partners/iluikii.png"
+          alt=""
+          className="object-contain flex-shrink-0"
+        />
         <Image
           width={168}
           height={80}
           src="/img/partners/max-plank.png"
           alt=""
+          className="object-contain flex-shrink-0"
         />
-        <Image width={168} height={80} src="/img/partners/theater.png" alt="" />
+        <Image
+          width={168}
+          height={80}
+          src="/img/partners/theater.png"
+          alt=""
+          className="object-contain flex-shrink-0"
+        />
         <Image
           width={168}
           height={80}
           src="/img/partners/invrsion.png"
           alt=""
+          className="object-contain flex-shrink-0"
         />
-        <Image width={168} height={80} src="/img/partners/vyking.png" alt="" />
+        <Image
+          width={168}
+          height={80}
+          src="/img/partners/vyking.png"
+          alt=""
+          className="object-contain flex-shrink-0"
+        />
         <Image
           width={168}
           height={80}
           src="/img/partners/vrinsight.png"
           alt=""
+          className="object-contain flex-shrink-0"
         />
-        <Image width={168} height={80} src="/img/partners/thyng.png" alt="" />
-        <Image width={168} height={80} src="/img/partners/acod.png" alt="" />
+        <Image
+          width={168}
+          height={80}
+          src="/img/partners/thyng.png"
+          alt=""
+          className="object-contain flex-shrink-0"
+        />
+        <Image
+          width={168}
+          height={80}
+          src="/img/partners/acod.png"
+          alt=""
+          className="object-contain flex-shrink-0"
+        />
       </Box>
 
       <ScrollableBlock assetUrl="BotscanNEO_Landing00090">
