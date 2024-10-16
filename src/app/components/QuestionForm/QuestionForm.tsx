@@ -74,6 +74,8 @@ export const QuestionForm: FC = () => {
                     error={errors.question}
                     fullWidth
                     color="white"
+                    type="textarea"
+                    rows={3}
                   />
                   <Button variant="primary" type="submit">
                     Submit

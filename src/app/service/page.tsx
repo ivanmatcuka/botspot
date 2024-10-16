@@ -11,6 +11,11 @@ import { Gallery } from '@/app/components/Gallery/Gallery';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 
 import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '3D SCAN SERVICE – botspot',
+};
 
 export default function Service() {
   return (

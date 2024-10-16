@@ -7,9 +7,39 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FC } from 'react';
 
-const FooterTypography = (props: TypographyProps) => (
-  <Typography variant="body2" color="white" {...props} />
+const Text = ({
+  children,
+  href,
+  ...props
+}: TypographyProps & { href?: string }) => {
+  let link;
+
+  if (href) {
+    link = (
+      <Link href={href} className="hover:underline">
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <Typography variant="body2" color="white" {...props}>
+      {link ?? children}
+    </Typography>
+  );
+};
+
+type IconLinkProps = {
+  href: string;
+  src: string;
+  alt: string;
+};
+const IconLink: FC<IconLinkProps> = ({ href, src, alt }) => (
+  <Link href={href} className="hover:underline">
+    <Image width={32} height={32} src={src} alt={alt} />
+  </Link>
 );
 
 export const Footer = () => (
@@ -19,24 +49,26 @@ export const Footer = () => (
         <Grid container py={8} xs={12} md={10} mx="auto">
           <Grid item flexBasis={{ xs: '100%', md: '40%' }}>
             <Image width={184} height={74} src="/logo_white.svg" alt="logo" />
-            <FooterTypography>botspot 3D Scan GmbH</FooterTypography>
-            <FooterTypography>Bruno-Bürgel-Weg 134-144</FooterTypography>
-            <FooterTypography>12439 Berlin</FooterTypography>
+            <Text>botspot 3D Scan GmbH</Text>
+            <Text>Bruno-Bürgel-Weg 134-144</Text>
+            <Text>12439 Berlin</Text>
             <br />
-            <FooterTypography>+49 30 985 40 400</FooterTypography>
+            <Text href="tel:+49 30 985 40 400">+49 30 985 40 400</Text>
             <br />
-            <FooterTypography>mail@botspot.de</FooterTypography>
+            <Text href="mailto:mail@botspot.de">mail@botspot.de</Text>
             <Box mt={3} display={{ xs: 'none', md: 'flex' }} gap={3}>
-              <Image
-                width={32}
-                height={32}
+              <IconLink
+                href="https://instagram.com/botspot3d/"
                 src="/link_ig.svg"
                 alt="instagram"
               />
-              <Image width={32} height={32} src="/link_x.svg" alt="x" />
-              <Image
-                width={32}
-                height={32}
+              <IconLink
+                href="https://x.com/botspot3d"
+                src="/link_x.svg"
+                alt="x"
+              />
+              <IconLink
+                href="https://linkedin.com/company/botspot-3d-scan/"
                 src="/link_linkedin.svg"
                 alt="linkedin"
               />
@@ -47,33 +79,33 @@ export const Footer = () => (
             flexBasis={{ xs: '100%', md: '20%' }}
             mt={{ xs: 5, md: 9.25 }}
           >
-            <FooterTypography>3D Scanner</FooterTypography>
+            <Text href="/products">3D Scanner</Text>
             <br />
-            <FooterTypography>botscan NEO</FooterTypography>
-            <FooterTypography>3D Object</FooterTypography>
-            <FooterTypography>3D Studio</FooterTypography>
+            <Text href="/products/botscan-neo">botscan NEO</Text>
+            <Text href="/products/3d-object">3D Object</Text>
+            <Text href="/products/3d-studio">3D Studio</Text>
           </Grid>
           <Grid
             item
             flexBasis={{ xs: '100%', md: '20%' }}
             mt={{ xs: 5, md: 9.25 }}
           >
-            <FooterTypography>Resources</FooterTypography>
+            <Text>Resources</Text>
             <br />
-            <FooterTypography>3D Scan Service</FooterTypography>
-            <FooterTypography>Areas of Use</FooterTypography>
-            <FooterTypography>What is 3D Scanning?</FooterTypography>
+            <Text href="/service">3D Scan Service</Text>
+            <Text href="/areas">Areas of Use</Text>
+            <Text href="/learn">What is 3D Scanning?</Text>
           </Grid>
           <Grid
             item
             flexBasis={{ xs: '100%', md: '20%' }}
             mt={{ xs: 5, md: 9.25 }}
           >
-            <FooterTypography>Company</FooterTypography>
+            <Text>Company</Text>
             <br />
-            <FooterTypography>About Us</FooterTypography>
-            <FooterTypography>Innovation Lab</FooterTypography>
-            <FooterTypography>Careers</FooterTypography>
+            <Text href="/about">About Us</Text>
+            <Text href="/about/innovation-lab">Innovation Lab</Text>
+            <Text href="/about/careers">Careers</Text>
           </Grid>
           <Box
             mt={3}
@@ -82,11 +114,18 @@ export const Footer = () => (
             justifyContent="center"
             mx="auto"
           >
-            <Image width={32} height={32} src="/link_ig.svg" alt="instagram" />
-            <Image width={32} height={32} src="/link_x.svg" alt="x" />
-            <Image
-              width={32}
-              height={32}
+            <IconLink
+              href="https://instagram.com/botspot3d/"
+              src="/link_ig.svg"
+              alt="instagram"
+            />
+            <IconLink
+              href="https://x.com/botspot3d"
+              src="/link_x.svg"
+              alt="x"
+            />
+            <IconLink
+              href="https://linkedin.com/company/botspot-3d-scan/"
               src="/link_linkedin.svg"
               alt="linkedin"
             />
@@ -107,14 +146,12 @@ export const Footer = () => (
           alignItems={{ xs: 'center', md: 'flex-end' }}
           item
         >
-          <FooterTypography mr={{ xs: 0, md: 'auto' }}>
+          <Text mr={{ xs: 0, md: 'auto' }}>
             Copyright © 2024 botspot, All rights reserved
-          </FooterTypography>
-          <FooterTypography>Privacy Policy</FooterTypography>
-          <Link href="/terms-and-conditions">
-            <FooterTypography>Terms and Conditions</FooterTypography>
-          </Link>
-          <FooterTypography>Legal Notice</FooterTypography>
+          </Text>
+          <Text>Privacy Policy</Text>
+          <Text href="/terms-and-conditions">Terms and Conditions</Text>
+          <Text>Legal Notice</Text>
         </Grid>
       </Grid>
     </footer>

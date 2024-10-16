@@ -2,8 +2,6 @@
 
 import { Button } from '../Button/Button';
 
-import { colors } from '@/app/theme';
-
 import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import {
   Box,
@@ -24,7 +22,7 @@ import { ErrorOutline } from '@mui/icons-material';
 
 export const Input = (
   props: Pick<UseControllerProps<any>, 'name' | 'rules'> &
-    Pick<InputProps, 'fullWidth' | 'required' | 'value' | 'type'> & {
+    Pick<InputProps, 'fullWidth' | 'required' | 'value' | 'type' | 'rows'> & {
       register: UseFormRegister<any>;
       error: any;
       label?: string;
@@ -54,6 +52,7 @@ export const Input = (
       value={props.value}
       InputProps={{ className: 'bg-white' }}
       type={props.type}
+      rows={props.rows}
       {...props.register(props.name, props.rules)}
     />
     {props.error && (

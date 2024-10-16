@@ -114,6 +114,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
             register={register}
             error={errors.message}
             type="textarea"
+            rows={3}
           />
           <Button variant="primary" type="submit">
             Submit

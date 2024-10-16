@@ -1,4 +1,9 @@
 import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'TERMS AND CONDITIONS – botspot',
+};
 
 export default function TermsAndConditions() {
   return (

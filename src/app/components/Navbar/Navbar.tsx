@@ -18,6 +18,7 @@ import {
   ListItemButton,
   Grid,
   Container,
+  AccordionProps,
 } from '@mui/material';
 import {
   FC,
@@ -31,16 +32,33 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import useDetectScroll from '@smakss/react-scroll-direction';
 
+const ControlledAccordion: FC<AccordionProps & { item: MenuItem }> = ({
+  item,
+  children,
+}) => {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <Accordion expanded={expanded}>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon onClick={() => setExpanded(!expanded)} />}
+      >
+        {item.href ? <Link href={item.href}>{item.label}</Link> : item.label}
+      </AccordionSummary>
+      {children}
+    </Accordion>
+  );
+};
+
 type MenuItem = {
   label: string;
-  onClick?: () => void;
   href?: string;
   children?: MenuItem[];
   disabled?: boolean;
+  onClick?: () => void;
 };
 
 type NavbarProps = {
@@ -49,71 +67,55 @@ type NavbarProps = {
 };
 export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { breakpoints } = useTheme();
-  const matches = useMediaQuery(breakpoints.up('xl'));
-  const { push } = useRouter();
-  const { scrollDir } = useDetectScroll();
   const [position, setPosition] = useState<'relative' | 'sticky'>('relative');
 
-  const renderMenu = useCallback(
-    (item: MenuItem) => {
-      if (!item.children) {
-        return (
-          <Button
-            key={item.label}
-            variant="menuItem"
-            disabled={item.disabled}
-            onClick={item.onClick ?? (() => push(item.href ?? ''))}
-          >
-            {item.label}
-          </Button>
-        );
-      }
+  const { breakpoints } = useTheme();
+  const matches = useMediaQuery(breakpoints.up('xl'));
 
+  const { scrollDir } = useDetectScroll();
+
+  const renderMenu = useCallback((item: MenuItem) => {
+    if (!item.children) {
       return (
-        <Menu label={item.label} key={item.label} href={item.href}>
-          {item.children.map((child) => renderMenu(child))}
-        </Menu>
+        <Button key={item.label} variant="menuItem" disabled={item.disabled}>
+          {item.href ? <Link href={item.href}>{item.label}</Link> : item.label}
+        </Button>
       );
-    },
-    [push],
-  );
+    }
+
+    return (
+      <Menu label={item.label} key={item.label} href={item.href}>
+        {item.children.map((child) => renderMenu(child))}
+      </Menu>
+    );
+  }, []);
 
   const menu = useMemo(
     () => navItems.map((item) => renderMenu(item)),
     [navItems, renderMenu],
   );
 
-  const renderDrawer = useCallback(
-    (item: MenuItem) => {
-      if (!item.children) {
-        return (
-          <ListItem key={item.label} className="rounded-none">
-            <ListItemButton
-              onClick={item.onClick ?? (() => push(item.href ?? ''))}
-              disableRipple
-              className="rounded-none"
-            >
-              {item.label}
-            </ListItemButton>
-          </ListItem>
-        );
-      }
-
+  const renderDrawer = useCallback((item: MenuItem) => {
+    if (!item.children) {
       return (
-        <Accordion key={item.label}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            onClick={item.onClick ?? (() => push(item.href ?? ''))}
-          >
-            {item.label}
-          </AccordionSummary>
-          {item.children.map((child) => renderDrawer(child))}
-        </Accordion>
+        <ListItem key={item.label}>
+          <ListItemButton disableRipple>
+            {item.href ? (
+              <Link href={item.href}>{item.label}</Link>
+            ) : (
+              item.label
+            )}
+          </ListItemButton>
+        </ListItem>
       );
-    },
-    [push],
-  );
+    }
+
+    return (
+      <ControlledAccordion key={item.label} item={item}>
+        {item.children.map((child) => renderDrawer(child))}
+      </ControlledAccordion>
+    );
+  }, []);
 
   const drawer = useMemo(
     () => navItems.map((item) => renderDrawer(item)),
@@ -151,17 +153,11 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
               </Link>
               {matches ? (
                 <>
-                  <Box display="flex" sx={{ flexGrow: 1 }}>
-                    {menu}
-                  </Box>
+                  <Box display="flex">{menu}</Box>
                   {cta}
                 </>
               ) : (
-                <Box
-                  display="flex"
-                  sx={{ flexGrow: 1 }}
-                  justifyContent="flex-end"
-                >
+                <Box display="flex" justifyContent="flex-end">
                   <MuiIconButton
                     size="large"
                     edge="start"
@@ -176,8 +172,11 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
                     anchor="top"
                     open={isOpen}
                     onClose={() => setIsOpen(false)}
-                    PaperProps={{ sx: { top: 57 } }}
-                    slotProps={{ backdrop: { sx: { top: 57 } } }}
+                    PaperProps={{ sx: { top: 64 } }}
+                    slotProps={{
+                      root: { style: { top: 64 } },
+                      backdrop: { sx: { top: 64 } },
+                    }}
                   >
                     <List>{drawer}</List>
                   </Drawer>

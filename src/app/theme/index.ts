@@ -58,6 +58,10 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: 'none',
+
+          '&:before': {
+            display: 'none',
+          },
         },
       },
     },
@@ -73,6 +77,7 @@ const theme = createTheme({
     MuiListItemButton: {
       styleOverrides: {
         root: {
+          border: 'none',
           '&:hover': {
             color: '#4119BC',
           },
