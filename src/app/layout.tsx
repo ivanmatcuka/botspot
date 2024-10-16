@@ -1,7 +1,7 @@
 import { Button } from './components/Button/Button';
 import { Footer } from './components/Footer/Footer';
 import { Navbar } from './components/Navbar/Navbar';
-import './globals.css';
+import './globals.scss';
 import ThemeRegistry from './theme/ThemeRegistry';
 
 import { Box } from '@mui/material';
