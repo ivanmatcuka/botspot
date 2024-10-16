@@ -1,7 +1,6 @@
 import { Button } from './components/Button/Button';
 
 import { Box, Typography } from '@mui/material';
-import Link from 'next/link';
 
 export default function NotFound() {
   return (
@@ -22,9 +21,9 @@ export default function NotFound() {
         Page not Found
       </Typography>
 
-      <Link href="/">
-        <Button variant="primary">Go Home</Button>
-      </Link>
+      <Button variant="primary" href="/">
+        Go Home
+      </Button>
     </Box>
   );
 }

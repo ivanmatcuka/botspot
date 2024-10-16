@@ -25,14 +25,14 @@ export default async function InnovationLab() {
           subline="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
           headline="Innovation Lab"
           primaryCta={
-            <Link href="/innovation-lab">
-              <Button variant="primary">Contact Innovation Lab</Button>
-            </Link>
+            <Button variant="primary" href="/innovation-lab">
+              Contact Innovation Lab
+            </Button>
           }
           secondaryCta={
-            <Link href="/blog">
-              <Button variant="secondary">Visit Blog</Button>
-            </Link>
+            <Button variant="secondary" href="/blog">
+              Visit Blog
+            </Button>
           }
         />
       </PageContainer>
@@ -76,9 +76,9 @@ export default async function InnovationLab() {
             subline="Our Innovation Lab"
             mt={{}}
             cta={
-              <Link href="/blog">
-                <Button variant="primary">Visit Blog</Button>
-              </Link>
+              <Button variant="primary" href="/blog">
+                Visit Blog
+              </Button>
             }
           />
         </PageContainer>
@@ -87,9 +87,9 @@ export default async function InnovationLab() {
             title={data.title.rendered}
             excerpt={data.excerpt.rendered}
             cta={
-              <Link href={`/blog/${data.id}`}>
-                <Button variant="secondary">Read Full Story</Button>
-              </Link>
+              <Button variant="secondary" href={`/blog/${data.id}`}>
+                Read Full Story
+              </Button>
             }
           />
         </PageContainer>

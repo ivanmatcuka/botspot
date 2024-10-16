@@ -10,7 +10,6 @@ import { Button } from '@/app/components/Button/Button';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 
 import { Box, Typography } from '@mui/material';
-import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -22,14 +21,14 @@ export default function Home() {
         headline="THE WORLD’S MOST VERSATILE 3D SCANNERS."
         subline="With over 10 years of experience in Photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
         primaryCta={
-          <Link href="/products/botscan-neo">
-            <Button variant="primary">Explore Neo</Button>
-          </Link>
+          <Button variant="primary" href="/products/botscan-neo">
+            Explore Neo
+          </Button>
         }
         secondaryCta={
-          <Link href="/download-area">
-            <Button variant="secondary">Download Data Sheet</Button>
-          </Link>
+          <Button variant="secondary" href="/download-area">
+            Download Data Sheet
+          </Button>
         }
       />
 
@@ -60,14 +59,14 @@ export default function Home() {
           headline="botscan NEO"
           subline="Smart 3D fullbody scanner for high volume 3D model production"
           primaryCta={
-            <Link href="/products/botscan-neo">
-              <Button variant="primary">Explore Neo</Button>
-            </Link>
+            <Button variant="primary" href="/products/botscan-neo">
+              Explore Neo
+            </Button>
           }
           secondaryCta={
-            <Link href="/download-area">
-              <Button variant="secondary">Download Data Sheet</Button>
-            </Link>
+            <Button variant="secondary" href="/download-area">
+              Download Data Sheet
+            </Button>
           }
         />
       </ScrollableBlock>
@@ -77,14 +76,14 @@ export default function Home() {
           headline="Object Studio"
           subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
           primaryCta={
-            <Link href="/products/3d-studio">
-              <Button variant="primary">Object Studio</Button>
-            </Link>
+            <Button variant="primary" href="/products/3d-studio">
+              Object Studio
+            </Button>
           }
           secondaryCta={
-            <Link href="/download-area">
-              <Button variant="secondary">Download Data Sheet</Button>
-            </Link>
+            <Button variant="secondary" href="/download-area">
+              Download Data Sheet
+            </Button>
           }
         />
       </ScrollableBlock>
@@ -94,14 +93,14 @@ export default function Home() {
           headline="3D Object"
           subline="Fully automated 3D object scanner for precise photogrammetry"
           primaryCta={
-            <Link href="/products/3d-object">
-              <Button variant="primary">Explore 3D Object</Button>
-            </Link>
+            <Button variant="primary" href="/products/3d-object">
+              Explore 3D Object
+            </Button>
           }
           secondaryCta={
-            <Link href="/download-area">
-              <Button variant="secondary">Download Data Sheet</Button>
-            </Link>
+            <Button variant="secondary" href="/download-area">
+              Download Data Sheet
+            </Button>
           }
         />
       </ScrollableBlock>
@@ -118,9 +117,9 @@ export default function Home() {
             subline="How we can help"
             headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
             cta={
-              <Link href="/service">
-                <Button variant="primary">Explore Our Services</Button>
-              </Link>
+              <Button variant="primary" href="/service">
+                Explore Our Services
+              </Button>
             }
           />
         </PageContainer>

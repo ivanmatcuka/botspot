@@ -12,16 +12,25 @@ import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '3D STUDIO SCANNER – botspot',
+};
 
 export default function ThreeDStudio() {
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/products/3d-studio/banner.png" />
+      <MediaBlock assetUrl="/img/products/3d-studio/banner.png" banner />
       <PageContainer banner>
         <SecondaryBlock
           subline="Our flexible solution for 3D Scanning, adapting to even most precise requirements."
           headline="3D Studio"
-          primaryCta={<Button variant="primary">Download Data Sheet</Button>}
+          primaryCta={
+            <Button variant="primary" href="/download-area">
+              Download Data Sheet
+            </Button>
+          }
           secondaryCta={<Button variant="secondary">Request a Demo</Button>}
         />
       </PageContainer>
@@ -110,7 +119,11 @@ export default function ThreeDStudio() {
         <SecondaryBlock
           subline="A white, shiny ceramic bowl is one of the most challenging objects to scan, often called “unscannable”."
           headline="3D Scanning a White Ceramic Bowl"
-          primaryCta={<Button variant="primary">Read Full Story</Button>}
+          primaryCta={
+            <Button variant="primary" href="/blog">
+              Read Full Story
+            </Button>
+          }
         />
       </GalleryTile>
 

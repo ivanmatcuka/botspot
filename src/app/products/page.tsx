@@ -9,8 +9,12 @@ import { Tile } from '@/app/components/Tile/Tile';
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 
-import { Typography } from '@mui/material';
-import Link from 'next/link';
+import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '3D Scanners – botspot',
+};
 
 export default function Products() {
   return (
@@ -21,11 +25,15 @@ export default function Products() {
         }}
         headline="PRODUCTS"
         subline="Generate photorealistic 3D models with unmatched quality and breathtaking textures in almost no time. "
-        primaryCta={<Button variant="primary">Download Data Sheets</Button>}
+        primaryCta={
+          <Button variant="primary" href="/download-area">
+            Download Data Sheets
+          </Button>
+        }
         secondaryCta={
-          <Link href="/download-area">
-            <Button variant="secondary">See Areas of Use</Button>
-          </Link>
+          <Button variant="secondary" href="/areas">
+            See Areas of Use
+          </Button>
         }
       />
 
@@ -36,71 +44,85 @@ export default function Products() {
         />
       </PageContainer>
 
-      <Tile headline="3D Full Body Scans">
-        <Typography variant="body1">
-          With 3D full-body scans, the best results are achieved when all images
-          are generated simultaneously, since even involuntary micro movements
-          such as blinking, breathing, or maintaining balance can distort the
-          scanning result. Our 3D full-body scanners are therefore equipped with
-          a variety of cameras that capture a person from all possible
-          perspectives.
-        </Typography>
-      </Tile>
-      <Tile headline="3D Object Scans">
-        <Typography variant="body1">
-          3D object scanners require significantly fewer cameras than 3D
-          full-body scanners as the scan object does not move. The object is
-          placed on a turntable and images can be taken successively. We offer
-          both classic 3D scanners with monochrome turntables and
-          high-performance scanners with fully transparent turntables.
-        </Typography>
-      </Tile>
-      <Tile headline="Fully Automated Software Package">
-        <Typography variant="body1">
-          botspot scanners come with a fully automated software package in order
-          to scale up 3D asset production and bring down the cost per model.
-        </Typography>
-      </Tile>
+      <Box mb={{ xs: 10, md: 15 }}>
+        <Tile headline="3D Full Body Scans">
+          <Typography variant="body1">
+            With 3D full-body scans, the best results are achieved when all
+            images are generated simultaneously, since even involuntary micro
+            movements such as blinking, breathing, or maintaining balance can
+            distort the scanning result. Our 3D full-body scanners are therefore
+            equipped with a variety of cameras that capture a person from all
+            possible perspectives.
+          </Typography>
+        </Tile>
+        <Tile headline="3D Object Scans">
+          <Typography variant="body1">
+            3D object scanners require significantly fewer cameras than 3D
+            full-body scanners as the scan object does not move. The object is
+            placed on a turntable and images can be taken successively. We offer
+            both classic 3D scanners with monochrome turntables and
+            high-performance scanners with fully transparent turntables.
+          </Typography>
+        </Tile>
+        <Tile headline="Fully Automated Software Package">
+          <Typography variant="body1">
+            botspot scanners come with a fully automated software package in
+            order to scale up 3D asset production and bring down the cost per
+            model.
+          </Typography>
+        </Tile>
+      </Box>
 
       <MediaBlock assetUrl="/img/products/1.png" objectFit="contain" />
-
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <SecondaryBlock
           headline="botscan NEO"
           subline="Smart 3D fullbody scanner for high volume 3D model production"
           primaryCta={
-            <Link href="/products/botscan-neo">
-              <Button variant="primary">Explore Neo</Button>
-            </Link>
+            <Button variant="primary" href="/products/botscan-neo">
+              Explore Neo
+            </Button>
           }
           secondaryCta={
-            <Button variant="secondary">Download Data Sheet</Button>
+            <Button variant="secondary" href="/download-area">
+              Download Data Sheets
+            </Button>
           }
         />
       </PageContainer>
 
       <MediaBlock assetUrl="/img/products/2.png" objectFit="contain" />
-
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <SecondaryBlock
           headline="3D Studio"
           subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
-          primaryCta={<Button variant="primary">Explore 3D Studio</Button>}
+          primaryCta={
+            <Button variant="primary" href="/products/3d-studio">
+              Explore 3D Studio
+            </Button>
+          }
           secondaryCta={
-            <Button variant="secondary">Download Data Sheet</Button>
+            <Button variant="secondary" href="/download-area">
+              Download Data Sheets
+            </Button>
           }
         />
       </PageContainer>
 
       <MediaBlock assetUrl="/img/products/3.png" objectFit="contain" />
-
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <SecondaryBlock
           headline="3D Object"
           subline="Fully automated 3D object scanner for precise photogrammetry"
-          primaryCta={<Button variant="primary">Explore 3D Object</Button>}
+          primaryCta={
+            <Button variant="primary" href="/products/3d-object">
+              Explore 3D Object
+            </Button>
+          }
           secondaryCta={
-            <Button variant="secondary">Download Data Sheet</Button>
+            <Button variant="secondary" href="/download-area">
+              Download Data Sheets
+            </Button>
           }
         />
       </PageContainer>
@@ -109,7 +131,11 @@ export default function Products() {
         <SecondaryBlock
           subline="Discover our Areas of Use with a diverse range of applications and industries."
           headline="Our Scanners in Action"
-          primaryCta={<Button variant="primary">Explore Applications</Button>}
+          primaryCta={
+            <Button variant="primary" href="/areas">
+              Explore Applications
+            </Button>
+          }
         />
       </GalleryTile>
 

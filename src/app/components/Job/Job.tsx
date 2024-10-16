@@ -3,7 +3,6 @@ import { Button } from '../Button/Button';
 
 import { FC } from 'react';
 import { Box, Typography } from '@mui/material';
-import Link from 'next/link';
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
 
 type JobProps = {
@@ -21,11 +20,9 @@ export const Job: FC<JobProps> = ({ id, title, excerpt }) => (
       rowGap={{ xs: 2, md: 0 }}
     >
       <Typography dangerouslySetInnerHTML={{ __html: excerpt }} />
-      <Link href={`/blog/${id}`}>
-        <Button variant="primary">
-          <ArrowForwardIos />
-        </Button>
-      </Link>
+      <Button variant="primary" href={`/blog/${id}`}>
+        <ArrowForwardIos />
+      </Button>
     </Box>
   </Tile>
 );

@@ -12,16 +12,25 @@ import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '3D OBJECT SCANNER – botspot',
+};
 
 export default function ThreeDObject() {
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/products/3d-object/banner.png" />
+      <MediaBlock assetUrl="/img/products/3d-object/banner.png" banner />
       <PageContainer banner>
         <SecondaryBlock
           subline="Our answer to scanning the unscannable – with unmatched precision, ease, and speed."
           headline="3D Object"
-          primaryCta={<Button variant="primary">Download Data Sheet</Button>}
+          primaryCta={
+            <Button variant="primary" href="/download-area">
+              Download Data Sheet
+            </Button>
+          }
           secondaryCta={<Button variant="secondary">Request a Demo</Button>}
         />
       </PageContainer>
@@ -108,7 +117,11 @@ export default function ThreeDObject() {
         <SecondaryBlock
           subline="Understanding the Basics of 3D Modeling"
           headline="Santa Unwrapped"
-          primaryCta={<Button variant="primary">Read Full Story</Button>}
+          primaryCta={
+            <Button variant="primary" href="/blog">
+              Read Full Story
+            </Button>
+          }
         />
       </GalleryTile>
 

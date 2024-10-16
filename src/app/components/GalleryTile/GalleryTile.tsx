@@ -24,7 +24,7 @@ export const GalleryTile: FC<PropsWithChildren<GalleryTileProps>> = ({
         />
       </Grid>
       <Grid xs={0} md={1} />
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={4} mt={{ xs: 2, md: 0 }}>
         {children}
       </Grid>
       <Grid xs={0} md={1} />

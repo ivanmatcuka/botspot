@@ -8,7 +8,6 @@ import { PageContainer } from '../components/PageContainer/PageContainer';
 
 import Image from 'next/image';
 import { Box, Typography } from '@mui/material';
-import Link from 'next/link';
 
 export default function Learn() {
   return (
@@ -68,9 +67,9 @@ export default function Learn() {
           subline="Questions & Articles"
           headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
           cta={
-            <Link href="/blog">
-              <Button variant="secondary">Visit Blog</Button>
-            </Link>
+            <Button variant="secondary" href="/blog">
+              Visit Blog
+            </Button>
           }
         />
       </PageContainer>

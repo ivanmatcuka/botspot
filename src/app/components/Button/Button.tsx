@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 import { FC } from 'react';
 
-
 const PrimaryButton = styled(({ ...props }: MuiButtonProps) => (
   <MuiButton color="primary" variant="contained" {...props} />
 ))(({ theme }) => ({
@@ -68,6 +67,8 @@ export type ButtonProps = {
   | 'type'
   | 'component'
   | 'onMouseOver'
+  | 'className'
+  | 'href'
 >;
 export const Button: FC<ButtonProps> = ({ variant, ...props }) => {
   switch (variant) {

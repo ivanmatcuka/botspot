@@ -8,8 +8,6 @@ import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
-import Link from 'next/link';
-
 export default function Industrial() {
   return (
     <main className="">
@@ -86,9 +84,9 @@ export default function Industrial() {
           subline="Durable and fast, our 3D Studio is ideal for industrial applications."
           headline="We recommend our 3D Studio Scanner"
           primaryCta={
-            <Link href="/products/3d-studio">
-              <Button variant="primary">Explore 3D Object Scanner</Button>
-            </Link>
+            <Button variant="primary" href="/products/3d-studio">
+              Explore 3D Object Scanner
+            </Button>
           }
         />
       </GalleryTile>

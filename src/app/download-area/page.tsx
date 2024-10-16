@@ -5,7 +5,6 @@ import { Button } from '@/app/components/Button/Button';
 import { Post } from '@/app/components/Post/Post';
 
 import { Grid } from '@mui/material';
-import Link from 'next/link';
 
 export default function DownloadArea() {
   return (
@@ -23,9 +22,9 @@ export default function DownloadArea() {
               title="botscan NEO"
               excerpt="3D Fullbody Scanner"
               cta={
-                <Link href="/products/botscan-neo">
-                  <Button variant="secondary">Download Data Sheet</Button>
-                </Link>
+                <Button variant="secondary" href="/products/botscan-neo">
+                  Download Data Sheet
+                </Button>
               }
               featuredImage="/img/products/1.png"
             />
@@ -35,9 +34,9 @@ export default function DownloadArea() {
               title="3D Object"
               excerpt="3D Item Scanner"
               cta={
-                <Link href="/products/3d-object">
-                  <Button variant="secondary">Download Data Sheet</Button>
-                </Link>
+                <Button variant="secondary" href="/products/3d-object">
+                  Download Data Sheet
+                </Button>
               }
               featuredImage="/img/products/2.png"
             />
@@ -47,9 +46,9 @@ export default function DownloadArea() {
               title="3D Studio"
               excerpt="3D Item Scanner"
               cta={
-                <Link href="https://botscan.io">
-                  <Button variant="secondary">Download Data Sheet</Button>
-                </Link>
+                <Button variant="secondary" href="/products/3d-studio">
+                  Download Data Sheet
+                </Button>
               }
               featuredImage="/img/products/3.png"
             />

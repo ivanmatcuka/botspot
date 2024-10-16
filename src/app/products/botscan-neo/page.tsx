@@ -12,17 +12,25 @@ import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'BOTSCAN NEO – botspot',
+};
 
 export default function BorscanNeo() {
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/products/botscan-neo/banner.png" />
-
+      <MediaBlock assetUrl="/img/products/botscan-neo/banner.png" banner />
       <PageContainer banner>
         <SecondaryBlock
           subline="Our Smart 3D Full Body Scanner for High Volume 3D Model Production"
           headline="botscan NEO"
-          primaryCta={<Button variant="primary">Download Data Sheet</Button>}
+          primaryCta={
+            <Button variant="primary" href="/download-area">
+              Download Data Sheet
+            </Button>
+          }
           secondaryCta={<Button variant="secondary">Request a Demo</Button>}
         />
       </PageContainer>
@@ -95,7 +103,11 @@ export default function BorscanNeo() {
         <SecondaryBlock
           subline="Berlin based artist Martin Werthmann designed the set for the German opera “The Dead City”."
           headline="Designing Scenic Spaces"
-          primaryCta={<Button variant="primary">Read Full Story</Button>}
+          primaryCta={
+            <Button variant="primary" href="/blog">
+              Read Full Story
+            </Button>
+          }
         />
       </GalleryTile>
 

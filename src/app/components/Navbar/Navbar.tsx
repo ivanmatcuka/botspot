@@ -29,7 +29,7 @@ import {
 } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { ExpandMore } from '@mui/icons-material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -88,10 +88,11 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
     (item: MenuItem) => {
       if (!item.children) {
         return (
-          <ListItem key={item.label}>
+          <ListItem key={item.label} className="rounded-none">
             <ListItemButton
               onClick={item.onClick ?? (() => push(item.href ?? ''))}
               disableRipple
+              className="rounded-none"
             >
               {item.label}
             </ListItemButton>
@@ -102,7 +103,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
       return (
         <Accordion key={item.label}>
           <AccordionSummary
-            expandIcon={<ExpandMore />}
+            expandIcon={<ExpandMoreIcon />}
             onClick={item.onClick ?? (() => push(item.href ?? ''))}
           >
             {item.label}
