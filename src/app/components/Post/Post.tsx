@@ -16,7 +16,7 @@ export const Post: FC<PostProps> = ({ title, cta, excerpt, featuredImage }) => (
     alignItems="flex-end"
   >
     <Box
-      className="bg-common-black bg-opacity-80 break-all w-full text-center"
+      className="bg-common-black bg-opacity-80 w-full text-center"
       display="flex"
       flexDirection="column"
       alignItems="center"

@@ -46,7 +46,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
 
   const form = (
     <form onSubmit={handleSubmit(() => {})}>
-      <Box p={5}>
+      <Box p={{ xs: 3, md: 5 }} py={{ xs: 2 }}>
         <Typography variant="h2" mb={2} className="text-center md:text-left">
           Thank you for your interest and curiosity in
         </Typography>
@@ -113,6 +113,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
             required
             register={register}
             error={errors.message}
+            type="textarea"
           />
           <Button variant="primary" type="submit">
             Submit

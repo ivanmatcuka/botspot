@@ -1,14 +1,15 @@
-import { MainBlock } from './components/MainBlock/MainBlock';
-import { Button } from './components/Button/Button';
-import { SecondaryBlock } from './components/SecondaryBlock/SecondaryBlock';
-import { Tile } from './components/Tile/Tile';
-import { FeedbackForm } from './components/FeedbackForm/FeedbackForm';
-import { Banner } from './components/Banner/Banner';
 import { ScrollableBlock } from './ScrollableBlock';
-import { PageContainer } from './components/PageContainer/PageContainer';
+import { PartnerLogo } from './PartnerLogo';
+
+import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { Tile } from '@/app/components/Tile/Tile';
+import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { Banner } from '@/app/components/Banner/Banner';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { Button } from '@/app/components/Button/Button';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 
 import { Box, Typography } from '@mui/material';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -41,83 +42,17 @@ export default function Home() {
         className="no-scrollbar h-[80px]"
         maxWidth="xl"
       >
-        <Image
-          width={168}
-          height={80}
-          src="/img/partners/canon.png"
-          alt=""
-          className="object-contain flex-shrink-0"
-        />
-        <Image
-          width={168}
-          height={80}
-          src="/img/partners/umg.png"
-          alt=""
-          className="object-contain flex-shrink-0"
-        />
-        <Image
-          width={168}
-          height={80}
-          src="/img/partners/illies.png"
-          alt=""
-          className="object-contain flex-shrink-0"
-        />
-        <Image
-          width={168}
-          height={80}
-          src="/img/partners/iluikii.png"
-          alt=""
-          className="object-contain flex-shrink-0"
-        />
-        <Image
-          width={168}
-          height={80}
-          src="/img/partners/max-plank.png"
-          alt=""
-          className="object-contain flex-shrink-0"
-        />
-        <Image
-          width={168}
-          height={80}
-          src="/img/partners/theater.png"
-          alt=""
-          className="object-contain flex-shrink-0"
-        />
-        <Image
-          width={168}
-          height={80}
-          src="/img/partners/invrsion.png"
-          alt=""
-          className="object-contain flex-shrink-0"
-        />
-        <Image
-          width={168}
-          height={80}
-          src="/img/partners/vyking.png"
-          alt=""
-          className="object-contain flex-shrink-0"
-        />
-        <Image
-          width={168}
-          height={80}
-          src="/img/partners/vrinsight.png"
-          alt=""
-          className="object-contain flex-shrink-0"
-        />
-        <Image
-          width={168}
-          height={80}
-          src="/img/partners/thyng.png"
-          alt=""
-          className="object-contain flex-shrink-0"
-        />
-        <Image
-          width={168}
-          height={80}
-          src="/img/partners/acod.png"
-          alt=""
-          className="object-contain flex-shrink-0"
-        />
+        <PartnerLogo name="canon" />
+        <PartnerLogo name="umg" />
+        <PartnerLogo name="illies" />
+        <PartnerLogo name="iluikii" />
+        <PartnerLogo name="max-plank" />
+        <PartnerLogo name="theater" />
+        <PartnerLogo name="invrsion" />
+        <PartnerLogo name="vyking" />
+        <PartnerLogo name="vrinsight" />
+        <PartnerLogo name="thyng" />
+        <PartnerLogo name="acod" />
       </Box>
 
       <ScrollableBlock assetUrl="BotscanNEO_Landing00090">
@@ -130,7 +65,9 @@ export default function Home() {
             </Link>
           }
           secondaryCta={
-            <Button variant="secondary">Download Data Sheet</Button>
+            <Link href="/download-area">
+              <Button variant="secondary">Download Data Sheet</Button>
+            </Link>
           }
         />
       </ScrollableBlock>
@@ -176,7 +113,7 @@ export default function Home() {
         flexDirection="column"
         py={{ xs: 4, md: 10 }}
       >
-        <PageContainer>
+        <PageContainer mb={{ xs: 3, md: 6 }}>
           <MainBlock
             subline="How we can help"
             headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."

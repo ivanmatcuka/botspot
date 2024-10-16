@@ -22,10 +22,9 @@ import {
 } from 'react-hook-form';
 import { ErrorOutline } from '@mui/icons-material';
 
-
 export const Input = (
   props: Pick<UseControllerProps<any>, 'name' | 'rules'> &
-    Pick<InputProps, 'fullWidth' | 'required' | 'value'> & {
+    Pick<InputProps, 'fullWidth' | 'required' | 'value' | 'type'> & {
       register: UseFormRegister<any>;
       error: any;
       label?: string;
@@ -54,6 +53,7 @@ export const Input = (
       fullWidth
       value={props.value}
       InputProps={{ className: 'bg-white' }}
+      type={props.type}
       {...props.register(props.name, props.rules)}
     />
     {props.error && (

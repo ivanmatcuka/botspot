@@ -32,6 +32,7 @@ export const Banner: FC<BannerProps> = ({
       left={0}
       maxWidth="xl"
       mx="auto"
+      px={3}
     >
       <Grid container alignItems="end" justifyContent="end" height="100%">
         <Grid
@@ -63,8 +64,12 @@ export const Banner: FC<BannerProps> = ({
               justifyContent={{ xs: 'center', md: 'left' }}
               alignItems="center"
             >
-              <Grid item>{primaryCta}</Grid>
-              <Grid item>{secondaryCta}</Grid>
+              <Grid item xs={12} md="auto">
+                {primaryCta}
+              </Grid>
+              <Grid item xs={12} md="auto">
+                {secondaryCta}
+              </Grid>
             </Grid>
           </Box>
         </Grid>
