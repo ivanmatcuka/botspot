@@ -105,7 +105,7 @@ export default async function Product({
       </PageContainer>
 
       {lists.map((item: ReactElement, index: number) => (
-        <Tile headline={tileHeadlines[index].props.children} key={item.key}>
+        <Tile headline={tileHeadlines[index]?.props?.children} key={item.key}>
           <UnorderedList>
             {item.props?.children
               ?.filter((item: unknown) => isValidElement(item))
@@ -134,7 +134,7 @@ export default async function Product({
           }
           headline={relatedPost.title.rendered}
           primaryCta={
-            <Button variant="primary" href="/blog">
+            <Button variant="primary" href={`/blog/${relatedPost.id}`}>
               Read Full Story
             </Button>
           }

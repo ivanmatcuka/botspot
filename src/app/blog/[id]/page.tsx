@@ -13,7 +13,7 @@ import {
   Typography,
 } from '@mui/material';
 
-const StyledContainer = styled(Container)(({ theme }) => ({
+const ThemedContainer = styled(Container)(({ theme }) => ({
   h2: {
     ...theme.typography.h3,
     marginBottom: theme.spacing(3),
@@ -41,26 +41,32 @@ export default function Blog({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     if (!params.id) return;
+
     setLoading(true);
     getPost(+params.id)
       .then((data) => setPost(data))
       .finally(() => setLoading(false));
   }, [params.id]);
 
-  if (loading) return <Skeleton variant="rounded" height={360} />;
-  if (!post?.content) return null;
-
   return (
-    <StyledContainer maxWidth="xl">
+    <ThemedContainer maxWidth="xl">
       <Grid container xs={12} md={10} mx="auto">
         <Grid item xs={12} my={{ xs: 8, md: 15 }}>
-          <Typography variant="h2" component="h1" mb={{ xs: 3, md: 4 }}>
-            {post.title.rendered}
-          </Typography>
-          <Typography>{post.excerpt.protected}</Typography>
-          <Box dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+          {loading || !post ? (
+            <Skeleton variant="rounded" height="100vh" width="100%" />
+          ) : (
+            <>
+              <Typography variant="h2" component="h1" mb={{ xs: 3, md: 4 }}>
+                {post.title.rendered}
+              </Typography>
+              <Typography>{post.excerpt.protected}</Typography>
+              <Box
+                dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+              />
+            </>
+          )}
         </Grid>
       </Grid>
-    </StyledContainer>
+    </ThemedContainer>
   );
 }

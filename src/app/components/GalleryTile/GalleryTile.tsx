@@ -21,6 +21,7 @@ export const GalleryTile: FC<PropsWithChildren<GalleryTileProps>> = ({
           height={304}
           alt={alt ?? ''}
           quality={100}
+          className="rounded-xl"
         />
       </Grid>
       <Grid xs={0} md={1} />
