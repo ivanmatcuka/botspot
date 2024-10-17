@@ -1,0 +1,147 @@
+import { Button } from '@/app/components/Button/Button';
+import { Iframe } from '@/app/components/3dIframe/3dIframe';
+import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { Gallery } from '@/app/components/Gallery/Gallery';
+import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { Tile } from '@/app/components/Tile/Tile';
+import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
+import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
+import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { getPostBySlug } from '@/services/blogService';
+
+import parse from 'html-react-parser';
+import { Box } from '@mui/material';
+import { Metadata } from 'next';
+import { isValidElement, ReactElement } from 'react';
+import { WP_REST_API_Attachment } from 'wp-types';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const post = await getPostBySlug(params.slug);
+
+  const { picture, closeup }: any = post.acf;
+  const featuredImage =
+    (post._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
+      ?.source_url ?? '/3d_object.png';
+
+  return {
+    title: `${post.title.rendered} – botspot`,
+    openGraph: {
+      images: [featuredImage, picture, closeup],
+    },
+  };
+}
+export default async function Product({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await getPostBySlug(params.slug);
+
+  const {
+    picture,
+    closeup,
+    'first-animation': firstAnimation,
+    'second-animation': secondAnimation,
+
+    'first-headline': firstHeadline,
+    'first-subline': firstSubline,
+    'second-headline': secondHeadline,
+    'second-subline': secondSubline,
+
+    'post-id': postId,
+  }: any = post.acf;
+
+  const relatedPost = await getPostBySlug(postId);
+
+  const tileHeadlines = (parse(post.content.rendered) as ReactElement[]).filter(
+    (element) => element.type === 'h4',
+  );
+
+  const lists = (parse(post.content.rendered) as ReactElement[]).filter(
+    (element) => element.type === 'ul',
+  );
+
+  const featuredImage =
+    (post._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
+      ?.source_url ?? '/3d_object.png';
+
+  const relatedImage =
+    (relatedPost._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
+      ?.source_url ?? '/3d_object.png';
+
+  return (
+    <main className="">
+      <MediaBlock assetUrl={featuredImage} banner />
+      <PageContainer banner>
+        <SecondaryBlock
+          subline={
+            <span dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+          }
+          headline={post.title.rendered}
+          primaryCta={
+            <Button variant="primary" href="/download-area">
+              Download Data Sheet
+            </Button>
+          }
+          secondaryCta={<Button variant="secondary">Request a Demo</Button>}
+        />
+      </PageContainer>
+
+      <MediaBlock assetUrl={picture} objectFit="contain" />
+      <PageContainer mt={{ xs: 10, md: 15 }}>
+        <MainBlock headline={firstHeadline} subline={firstSubline} />
+      </PageContainer>
+
+      <MediaBlock assetUrl={closeup} fullHeight objectFit="cover" />
+      <PageContainer mt={{ xs: 10, md: 15 }}>
+        <MainBlock headline={secondHeadline} subline={secondSubline} />
+      </PageContainer>
+
+      {lists.map((item: ReactElement, index: number) => (
+        <Tile headline={tileHeadlines[index].props.children} key={item.key}>
+          <UnorderedList>
+            {item.props?.children
+              ?.filter((item: unknown) => isValidElement(item))
+              .map((item: ReactElement) => (
+                <UnorderedListItem key={item.key}>
+                  {item.props.children}
+                </UnorderedListItem>
+              ))}
+          </UnorderedList>
+        </Tile>
+      ))}
+
+      <Box mb={{ xs: 5, md: 10 }}>
+        <Gallery
+          firstChild={<Iframe src={firstAnimation} />}
+          secondChild={<Iframe src={secondAnimation} />}
+        />
+      </Box>
+
+      <GalleryTile imgUrl={relatedImage}>
+        <SecondaryBlock
+          subline={
+            <span
+              dangerouslySetInnerHTML={{ __html: relatedPost.excerpt.rendered }}
+            />
+          }
+          headline={relatedPost.title.rendered}
+          primaryCta={
+            <Button variant="primary" href="/blog">
+              Read Full Story
+            </Button>
+          }
+        />
+      </GalleryTile>
+
+      <FeedbackForm />
+    </main>
+  );
+}

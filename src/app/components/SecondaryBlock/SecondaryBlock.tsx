@@ -1,14 +1,9 @@
-import {
-  MediaBlock,
-  MediaBlockProps,
-} from '@/app/components/MediaBlock/MediaBlock';
-
 import { Box, Grid, Typography } from '@mui/material';
 import { FC, ReactNode } from 'react';
 
 type SecondaryBlockProps = {
-  headline?: string;
-  subline?: string;
+  headline?: ReactNode;
+  subline?: ReactNode;
   primaryCta?: ReactNode;
   secondaryCta?: ReactNode;
 };

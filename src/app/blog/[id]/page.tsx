@@ -47,7 +47,7 @@ export default function Blog({ params }: { params: { id: string } }) {
       .finally(() => setLoading(false));
   }, [params.id]);
 
-  if (loading) <Skeleton variant="rounded" height={360} />;
+  if (loading) return <Skeleton variant="rounded" height={360} />;
   if (!post?.content) return null;
 
   return (

@@ -4,6 +4,8 @@ import { Navbar } from './components/Navbar/Navbar';
 import './globals.scss';
 import ThemeRegistry from './theme/ThemeRegistry';
 
+import { getProducts } from '@/services/blogService';
+
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { Inter } from 'next/font/google';
@@ -30,11 +32,13 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const products = await getProducts();
+
   return (
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
@@ -46,9 +50,10 @@ export default function RootLayout({
                   label: 'Products',
                   href: '/products',
                   children: [
-                    { label: 'botscan NEO', href: '/products/botscan-neo' },
-                    { label: '3D Object', href: '/products/3d-object' },
-                    { label: '3D Studio', href: '/products/3d-studio' },
+                    ...products.data.map((product) => ({
+                      label: product.title.rendered,
+                      href: `/products/${product.slug}`,
+                    })),
                   ],
                 },
                 { label: '3D Scan Service', href: '/service' },

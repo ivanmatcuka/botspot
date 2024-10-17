@@ -1,5 +1,14 @@
 import type { WP_REST_API_Categories, WP_REST_API_Posts } from 'wp-types';
 
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
+const requestInit: RequestInit = {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};
+
 export const getPosts = async (
   page: number = 1,
   perPage: number = 12,
@@ -9,13 +18,8 @@ export const getPosts = async (
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}posts?per_page=${perPage}&page=${page}&categories=${category.id}&_embed`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
+    `${baseUrl}posts?per_page=${perPage}&page=${page}&categories=${category.id}&_embed`,
+    requestInit,
   );
 
   const data = await response.json();
@@ -27,13 +31,8 @@ export const getPost = async (
   id: number,
 ): Promise<WP_REST_API_Posts[number]> => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}posts?include=${id}&_embed`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
+    `${baseUrl}posts?include=${id}&_embed`,
+    requestInit,
   );
 
   const data = await response.json();
@@ -44,13 +43,8 @@ export const getPostBySlug = async (
   slug: string,
 ): Promise<WP_REST_API_Posts[number]> => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}posts?slug=${slug}&_embed`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
+    `${baseUrl}posts?slug=${slug}&_embed&acf_format=standard `,
+    requestInit,
   );
 
   const data = await response.json();
@@ -66,13 +60,26 @@ export const getPeople = async (): Promise<{
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}posts?&categories=${category.id}&_embed`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
+    `${baseUrl}posts?&categories=${category.id}&_embed`,
+    requestInit,
+  );
+
+  const data = await response.json();
+
+  return { data, count: Number(response.headers.get('X-WP-Total')) };
+};
+
+export const getProducts = async (): Promise<{
+  data: WP_REST_API_Posts;
+  count: number;
+}> => {
+  const category = await getCategory('products');
+
+  if (!category) return { data: [], count: 0 };
+
+  const response = await fetch(
+    `${baseUrl}posts?&categories=${category.id}&_embed`,
+    requestInit,
   );
 
   const data = await response.json();
@@ -89,13 +96,8 @@ export const getJobs = async (): Promise<{
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}posts?&categories=${category.id}&_embed`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
+    `${baseUrl}posts?&categories=${category.id}&_embed`,
+    requestInit,
   );
 
   const data = await response.json();
@@ -106,13 +108,8 @@ export const getCategory = async (
   slug: string,
 ): Promise<WP_REST_API_Categories[number]> => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}categories?slug=${slug}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
+    `${baseUrl}categories?slug=${slug}`,
+    requestInit,
   );
 
   const data = (await response.json()) as WP_REST_API_Categories;
@@ -120,15 +117,7 @@ export const getCategory = async (
 };
 
 export const getMedia = async (id?: number): Promise<any> => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}media/${id ?? ''}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
-  );
+  const response = await fetch(`${baseUrl}media/${id ?? ''}`, requestInit);
   const data = await response.json();
   return data;
 };
