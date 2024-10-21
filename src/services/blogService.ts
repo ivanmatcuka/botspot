@@ -1,5 +1,11 @@
 import type { WP_REST_API_Categories, WP_REST_API_Posts } from 'wp-types';
 
+export type ImageGallery = {
+  photo_gallery: {
+    animation: { full_image_url: string }[];
+  };
+};
+
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const requestInit: RequestInit = {
@@ -43,7 +49,7 @@ export const getPostBySlug = async (
   slug: string,
 ): Promise<WP_REST_API_Posts[number]> => {
   const response = await fetch(
-    `${baseUrl}posts?slug=${slug}&_embed&acf_format=standard `,
+    `${baseUrl}posts?slug=${slug}&_embed&acf_format=standard`,
     requestInit,
   );
 
@@ -77,7 +83,7 @@ export const getProducts = async (): Promise<{
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
-    `${baseUrl}posts?&categories=${category.id}&_embed`,
+    `${baseUrl}posts?&categories=${category.id}&_embed&acf_format=standard`,
     requestInit,
   );
 

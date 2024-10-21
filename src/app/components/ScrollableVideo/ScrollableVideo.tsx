@@ -4,12 +4,10 @@
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { FC, useEffect, useMemo, useRef, useState } from 'react';
 
-const FRAMES = 150;
-
 type ScrollableVideoProps = {
-  fileName: string;
+  imagesUrls?: string[];
 };
-export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
+export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [images, setImages] = useState<HTMLImageElement[]>([]);
@@ -32,10 +30,8 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
 
       const imagePromises = [];
 
-      for (var i = 0; i < FRAMES; i++) {
-        const imagePromise = loadImage(
-          `/videos/${fileName}/${fileName}${i.toString().padStart(3, '0')}.jpg`,
-        );
+      for (let imageUrl of imagesUrls ?? []) {
+        const imagePromise = loadImage(imageUrl);
         imagePromises.push(imagePromise);
       }
 
@@ -44,7 +40,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
     };
 
     prepareImages();
-  }, [fileName]);
+  }, [imagesUrls]);
 
   const isCollapsed = useMemo(
     () => !isReady || (!matches && hasScrolled),
@@ -67,7 +63,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
       const frameIndex = Math.floor(progress * (images.length - 1));
 
       if (
-        frameIndex === FRAMES - 1 &&
+        frameIndex === (imagesUrls?.length ?? 0) - 1 &&
         containerRect.top < -window.innerHeight * 3
       ) {
         setHasScrolled(true);
@@ -80,7 +76,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
     window.addEventListener('scroll', onScroll);
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, [images, hasScrolled, isCollapsed]);
+  }, [images, hasScrolled, isCollapsed, imagesUrls]);
 
   return (
     <Box height={isCollapsed ? '100vh' : '300vh'}>
@@ -91,7 +87,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
           )}
           <img
             alt=""
-            src={`/videos/${fileName}/${fileName}${frame.toString().padStart(3, '0')}.jpg`}
+            src={imagesUrls?.[frame]}
             className="w-full h-full object-cover"
           />
         </div>

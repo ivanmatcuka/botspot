@@ -42,7 +42,7 @@ export default async function Product({
 }: {
   params: { slug: string };
 }) {
-  const post = await getPostBySlug(params.slug);
+  const product = await getPostBySlug(params.slug);
 
   const {
     picture,
@@ -56,20 +56,20 @@ export default async function Product({
     'second-subline': secondSubline,
 
     'post-id': postId,
-  }: any = post.acf;
+  }: any = product.acf;
 
   const relatedPost = await getPostBySlug(postId);
 
-  const tileHeadlines = (parse(post.content.rendered) as ReactElement[]).filter(
-    (element) => element.type === 'h4',
-  );
+  const tileHeadlines = (
+    parse(product.content.rendered) as ReactElement[]
+  ).filter((element) => element.type === 'h4');
 
-  const lists = (parse(post.content.rendered) as ReactElement[]).filter(
+  const lists = (parse(product.content.rendered) as ReactElement[]).filter(
     (element) => element.type === 'ul',
   );
 
   const featuredImage =
-    (post._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
+    (product._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
       ?.source_url ?? '/3d_object.png';
 
   const relatedImage =
@@ -82,9 +82,11 @@ export default async function Product({
       <PageContainer banner>
         <SecondaryBlock
           subline={
-            <span dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+            <span
+              dangerouslySetInnerHTML={{ __html: product.excerpt.rendered }}
+            />
           }
-          headline={post.title.rendered}
+          headline={product.title.rendered}
           primaryCta={
             <Button variant="primary" href="/download-area">
               Download Data Sheet

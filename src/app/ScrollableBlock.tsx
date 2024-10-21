@@ -1,19 +1,19 @@
-import { MediaBlock } from './components/MediaBlock/MediaBlock';
 import { PageContainer } from './components/PageContainer/PageContainer';
+import { ScrollableVideo } from './components/ScrollableVideo/ScrollableVideo';
 
 import { Box, Typography } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
 
 type ScrollableBlockProps = {
-  assetUrl: string;
+  imagesUrls?: string[];
 };
 export const ScrollableBlock: FC<PropsWithChildren<ScrollableBlockProps>> = ({
-  assetUrl,
+  imagesUrls,
   children,
 }) => {
   return (
     <>
-      <MediaBlock assetUrl={assetUrl} autoplay scrollable fullHeight />
+      <ScrollableVideo imagesUrls={imagesUrls} />
       <Box>
         <PageContainer>{children}</PageContainer>
       </Box>

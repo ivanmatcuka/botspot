@@ -8,6 +8,7 @@ import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
+import { getProducts } from '@/services/blogService';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
@@ -16,7 +17,9 @@ export const metadata: Metadata = {
   title: '3D Scanners – botspot',
 };
 
-export default function Products() {
+export default async function Products() {
+  const products = await getProducts();
+
   return (
     <main className="">
       <Banner
@@ -73,59 +76,42 @@ export default function Products() {
         </Tile>
       </Box>
 
-      <MediaBlock assetUrl="/img/products/1.png" objectFit="contain" />
-      <PageContainer mt={{ xs: 10, md: 15 }}>
-        <SecondaryBlock
-          headline="botscan NEO"
-          subline="Smart 3D fullbody scanner for high volume 3D model production"
-          primaryCta={
-            <Button variant="primary" href="/products/botscan-neo">
-              Explore Neo
-            </Button>
-          }
-          secondaryCta={
-            <Button variant="secondary" href="/download-area">
-              Download Data Sheets
-            </Button>
-          }
-        />
-      </PageContainer>
+      {products.data.map((product) => {
+        const { picture }: any = product.acf;
 
-      <MediaBlock assetUrl="/img/products/2.png" objectFit="contain" />
-      <PageContainer mt={{ xs: 10, md: 15 }}>
-        <SecondaryBlock
-          headline="3D Studio"
-          subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
-          primaryCta={
-            <Button variant="primary" href="/products/3d-studio">
-              Explore 3D Studio
-            </Button>
-          }
-          secondaryCta={
-            <Button variant="secondary" href="/download-area">
-              Download Data Sheets
-            </Button>
-          }
-        />
-      </PageContainer>
+        return (
+          <>
+            <MediaBlock
+              key={product.id}
+              assetUrl={picture}
+              objectFit="contain"
+            />
 
-      <MediaBlock assetUrl="/img/products/3.png" objectFit="contain" />
-      <PageContainer mt={{ xs: 10, md: 15 }}>
-        <SecondaryBlock
-          headline="3D Object"
-          subline="Fully automated 3D object scanner for precise photogrammetry"
-          primaryCta={
-            <Button variant="primary" href="/products/3d-object">
-              Explore 3D Object
-            </Button>
-          }
-          secondaryCta={
-            <Button variant="secondary" href="/download-area">
-              Download Data Sheets
-            </Button>
-          }
-        />
-      </PageContainer>
+            <PageContainer mt={{ xs: 10, md: 15 }}>
+              <SecondaryBlock
+                subline={
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: product.excerpt.rendered,
+                    }}
+                  />
+                }
+                headline={product.title.rendered}
+                primaryCta={
+                  <Button variant="primary" href={`/products/${product.slug}`}>
+                    Explore {product.title.rendered}
+                  </Button>
+                }
+                secondaryCta={
+                  <Button variant="secondary" href="/download-area">
+                    Download Data Sheet
+                  </Button>
+                }
+              />
+            </PageContainer>
+          </>
+        );
+      })}
 
       <GalleryTile imgUrl="/img/products/4.png">
         <SecondaryBlock

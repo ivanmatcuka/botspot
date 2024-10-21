@@ -1,6 +1,7 @@
 import { ScrollableBlock } from './ScrollableBlock';
 import { PartnerLogo } from './PartnerLogo';
 
+import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
@@ -8,10 +9,14 @@ import { Banner } from '@/app/components/Banner/Banner';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { Button } from '@/app/components/Button/Button';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { getProducts, ImageGallery } from '@/services/blogService';
 
 import { Box, Typography } from '@mui/material';
+import { WP_REST_API_Attachment } from 'wp-types';
 
-export default function Home() {
+export default async function Home() {
+  const products = await getProducts();
+
   return (
     <main className="">
       <Banner
@@ -54,56 +59,52 @@ export default function Home() {
         <PartnerLogo name="acod" />
       </Box>
 
-      <ScrollableBlock assetUrl="BotscanNEO_Landing00090">
-        <SecondaryBlock
-          headline="botscan NEO"
-          subline="Smart 3D fullbody scanner for high volume 3D model production"
-          primaryCta={
-            <Button variant="primary" href="/products/botscan-neo">
-              Explore Neo
-            </Button>
-          }
-          secondaryCta={
-            <Button variant="secondary" href="/download-area">
-              Download Data Sheet
-            </Button>
-          }
-        />
-      </ScrollableBlock>
+      {products.data.map((product) => {
+        if (!product.acf) return null;
 
-      <ScrollableBlock assetUrl="Object_Studio_Landing00090">
-        <SecondaryBlock
-          headline="Object Studio"
-          subline="Highly flexible and adaptable 3D object scanner for precise photogrammetry"
-          primaryCta={
-            <Button variant="primary" href="/products/3d-studio">
-              Object Studio
-            </Button>
-          }
-          secondaryCta={
-            <Button variant="secondary" href="/download-area">
-              Download Data Sheet
-            </Button>
-          }
-        />
-      </ScrollableBlock>
+        const imagesUrls = (product.acf as ImageGallery).photo_gallery.animation
+          .flat()
+          .map((url) => url.full_image_url);
 
-      <ScrollableBlock assetUrl="ObjectScanner_Landing00090">
-        <SecondaryBlock
-          headline="3D Object"
-          subline="Fully automated 3D object scanner for precise photogrammetry"
-          primaryCta={
-            <Button variant="primary" href="/products/3d-object">
-              Explore 3D Object
-            </Button>
-          }
-          secondaryCta={
-            <Button variant="secondary" href="/download-area">
-              Download Data Sheet
-            </Button>
-          }
-        />
-      </ScrollableBlock>
+        const featuredImage =
+          (
+            product._embedded?.[
+              'wp:featuredmedia'
+            ]?.[0] as WP_REST_API_Attachment
+          )?.source_url ?? '/3d_object.png';
+
+        const contentBlock = (
+          <SecondaryBlock
+            subline={
+              <span
+                dangerouslySetInnerHTML={{ __html: product.excerpt.rendered }}
+              />
+            }
+            headline={product.title.rendered}
+            primaryCta={
+              <Button variant="primary" href={`/products/${product.slug}`}>
+                Explore {product.title.rendered}
+              </Button>
+            }
+            secondaryCta={
+              <Button variant="secondary" href="/download-area">
+                Download Data Sheet
+              </Button>
+            }
+          />
+        );
+
+        return imagesUrls.length ? (
+          <ScrollableBlock key={product.id} imagesUrls={imagesUrls.reverse()}>
+            {contentBlock}
+          </ScrollableBlock>
+        ) : (
+          <>
+            <MediaBlock key={product.id} assetUrl={featuredImage} />
+            <PageContainer banner>{contentBlock}</PageContainer>
+          </>
+        );
+      })}
 
       <Box
         width="100%"

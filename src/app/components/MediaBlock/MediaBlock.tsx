@@ -9,7 +9,6 @@ import { Box } from '@mui/material';
 export type MediaBlockProps = {
   assetUrl: string;
   autoplay?: boolean;
-  scrollable?: boolean;
   fullHeight?: boolean;
   objectFit?: 'contain' | 'cover';
   banner?: boolean;
@@ -17,16 +16,11 @@ export type MediaBlockProps = {
 export const MediaBlock: FC<MediaBlockProps> = ({
   assetUrl,
   autoplay = true,
-  scrollable = false,
   fullHeight = false,
   objectFit = 'cover',
   banner = false,
 }) => {
   const className = `w-full h-full md:min-h-[768px] lg:min-h-[800px] ${objectFit === 'cover' ? 'object-cover' : 'object-contain'} ${banner ? 'xs:min-h-[392px]' : 'xs:min-h-auto'}`;
-
-  if (scrollable) {
-    return <ScrollableVideo fileName={assetUrl} />;
-  }
 
   const height = fullHeight
     ? '100vh'
