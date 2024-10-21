@@ -14,7 +14,6 @@ export const getPosts = async (
   perPage: number = 12,
 ): Promise<{ data: WP_REST_API_Posts; count: number }> => {
   const category = await getCategory('3d-academy');
-
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
@@ -23,8 +22,9 @@ export const getPosts = async (
   );
 
   const data = await response.json();
+  const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
 
-  return { data, count: Number(response.headers.get('X-WP-Total')) };
+  return { data, count };
 };
 
 export const getPost = async (
@@ -56,7 +56,6 @@ export const getPeople = async (): Promise<{
   count: number;
 }> => {
   const category = await getCategory('people');
-
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
@@ -65,8 +64,9 @@ export const getPeople = async (): Promise<{
   );
 
   const data = await response.json();
+  const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
 
-  return { data, count: Number(response.headers.get('X-WP-Total')) };
+  return { data, count };
 };
 
 export const getProducts = async (): Promise<{
@@ -74,7 +74,6 @@ export const getProducts = async (): Promise<{
   count: number;
 }> => {
   const category = await getCategory('products');
-
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
@@ -83,8 +82,9 @@ export const getProducts = async (): Promise<{
   );
 
   const data = await response.json();
+  const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
 
-  return { data, count: Number(response.headers.get('X-WP-Total')) };
+  return { data, count };
 };
 
 export const getJobs = async (): Promise<{
@@ -92,7 +92,6 @@ export const getJobs = async (): Promise<{
   count: number;
 }> => {
   const category = await getCategory('jobs');
-
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
@@ -101,7 +100,9 @@ export const getJobs = async (): Promise<{
   );
 
   const data = await response.json();
-  return { data, count: Number(response.headers.get('X-WP-Total')) };
+  const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
+
+  return { data, count };
 };
 
 export const getCategory = async (
@@ -114,10 +115,4 @@ export const getCategory = async (
 
   const data = (await response.json()) as WP_REST_API_Categories;
   return data[0];
-};
-
-export const getMedia = async (id?: number): Promise<any> => {
-  const response = await fetch(`${baseUrl}media/${id ?? ''}`, requestInit);
-  const data = await response.json();
-  return data;
 };

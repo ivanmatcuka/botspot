@@ -2,8 +2,8 @@
 
 import { ScrollableVideo } from '@/app/components/ScrollableVideo/ScrollableVideo';
 
-import { FC } from 'react';
 import Image from 'next/image';
+import { FC } from 'react';
 import { Box } from '@mui/material';
 
 export type MediaBlockProps = {
@@ -28,22 +28,18 @@ export const MediaBlock: FC<MediaBlockProps> = ({
     return <ScrollableVideo fileName={assetUrl} />;
   }
 
+  const height = fullHeight
+    ? '100vh'
+    : { xs: banner ? 392 : 'auto', md: 768, lg: 800 };
+
   return assetUrl.split('.').pop() === 'mp4' ? (
-    <Box
-      height={
-        fullHeight ? '100vh' : { xs: banner ? 392 : 'auto', md: 768, lg: 800 }
-      }
-    >
+    <Box height={height}>
       <video className={className} autoPlay={autoplay} muted loop>
         <source type="video/mp4" src={assetUrl} />
       </video>
     </Box>
   ) : (
-    <Box
-      height={
-        fullHeight ? '100vh' : { xs: banner ? 392 : 'auto', md: 768, lg: 800 }
-      }
-    >
+    <Box height={height}>
       <Image
         width={1920}
         height={1080}

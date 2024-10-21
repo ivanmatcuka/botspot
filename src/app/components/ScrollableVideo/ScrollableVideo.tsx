@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import { Box } from '@mui/material';
-import { FC, useEffect, useRef, useState } from 'react';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { FC, useEffect, useMemo, useRef, useState } from 'react';
 
 const FRAMES = 150;
 
@@ -16,6 +16,9 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
   const [frame, setFrame] = useState(0);
   const [isReady, setIsready] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+
+  const { breakpoints } = useTheme();
+  const matches = useMediaQuery(breakpoints.down('xl'));
 
   useEffect(() => {
     const prepareImages = async () => {
@@ -43,9 +46,14 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
     prepareImages();
   }, [fileName]);
 
+  const isCollapsed = useMemo(
+    () => !isReady || (!matches && hasScrolled),
+    [isReady, hasScrolled, matches],
+  );
+
   useEffect(() => {
     const onScroll = () => {
-      if (hasScrolled) return;
+      if (isCollapsed) return;
 
       const containerRect = containerRef.current?.getBoundingClientRect();
       if (!containerRect || !containerRef.current) return;
@@ -72,10 +80,10 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ fileName }) => {
     window.addEventListener('scroll', onScroll);
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, [images, hasScrolled]);
+  }, [images, hasScrolled, isCollapsed]);
 
   return (
-    <Box height={isReady && !hasScrolled ? '300vh' : '100vh'}>
+    <Box height={isCollapsed ? '100vh' : '300vh'}>
       <div className="h-full relative" ref={containerRef}>
         <div className="w-full h-[100vh] xs:min-h-[1024px] md:min-h-[768px] lg:min-h-[800px] sticky top-0">
           {!isReady && (
