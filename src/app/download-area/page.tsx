@@ -25,7 +25,7 @@ export default async function DownloadArea() {
       <PageContainer mb={8}>
         <Grid container spacing={{ xs: 2, md: 3, lg: 5 }}>
           {products.map((product, index) => {
-            const { datasheet }: any = product.acf;
+            const { datasheet, picture }: any = product.acf;
 
             return (
               <Grid item xs={12} md={6} lg={4} key={index}>
@@ -37,7 +37,7 @@ export default async function DownloadArea() {
                       Download Data Sheet
                     </Button>
                   }
-                  featuredImage="/img/products/1.png"
+                  featuredImage={picture}
                   objectFit="contain"
                 />
               </Grid>
