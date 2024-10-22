@@ -37,7 +37,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const products = await getProducts();
+  const { data: products } = await getProducts();
+
+  const productsLinks = products.map((product) => ({
+    label: product.title.rendered,
+    href: `/products/${product.slug}`,
+  }));
 
   return (
     <html lang="en">
@@ -49,12 +54,8 @@ export default async function RootLayout({
                 {
                   label: 'Products',
                   href: '/products',
-                  children: [
-                    ...products.data.map((product) => ({
-                      label: product.title.rendered,
-                      href: `/products/${product.slug}`,
-                    })),
-                  ],
+                  ...((productsLinks.length && { children: productsLinks }) ??
+                    {}),
                 },
                 { label: '3D Scan Service', href: '/service' },
                 {
