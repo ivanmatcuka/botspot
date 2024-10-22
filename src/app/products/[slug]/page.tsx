@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import { Button } from '@/app/components/Button/Button';
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
