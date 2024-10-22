@@ -3,7 +3,7 @@
 import { Pagination } from '@/app/components/Pagination/Pagination';
 import { Button } from '@/app/components/Button/Button';
 import { Post } from '@/app/components/Post/Post';
-import { getPosts } from '@/services/blogService';
+import { getPosts } from '@/services/mainService';
 
 import { FC, useEffect, useState } from 'react';
 import { WP_REST_API_Attachment, WP_REST_API_Posts } from 'wp-types';

@@ -10,7 +10,7 @@ import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
 import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
 import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
-import { getProductBySlug } from '@/services/blogService';
+import { getProductBySlug } from '@/services/mainService';
 
 import parse from 'html-react-parser';
 import { Box } from '@mui/material';

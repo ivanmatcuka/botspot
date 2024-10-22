@@ -1,6 +1,6 @@
 'use client';
 
-import { getPost } from '@/services/blogService';
+import { getPost } from '@/services/mainService';
 
 import { useEffect, useState } from 'react';
 import { WP_REST_API_Posts } from 'wp-types';

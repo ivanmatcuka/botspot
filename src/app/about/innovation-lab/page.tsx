@@ -2,7 +2,7 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
 import { Tile } from '@/app/components/Tile/Tile';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { getPostBySlug } from '@/services/blogService';
+import { getPostBySlug } from '@/services/mainService';
 import { Post } from '@/app/components/Post/Post';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';

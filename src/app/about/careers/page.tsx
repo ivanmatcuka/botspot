@@ -1,7 +1,7 @@
 import { Jobs } from './Jobs';
 
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { getJobs } from '@/services/blogService';
+import { getJobs } from '@/services/mainService';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';

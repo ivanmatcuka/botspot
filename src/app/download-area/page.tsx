@@ -2,7 +2,7 @@ import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
 import { Post } from '@/app/components/Post/Post';
-import { getProducts } from '@/services/blogService';
+import { getProducts } from '@/services/mainService';
 
 import { Grid } from '@mui/material';
 import { Metadata } from 'next';

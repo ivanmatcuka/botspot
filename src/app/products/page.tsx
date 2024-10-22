@@ -7,7 +7,7 @@ import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
-import { getProducts } from '@/services/blogService';
+import { getProducts } from '@/services/mainService';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';

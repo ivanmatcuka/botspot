@@ -1,8 +1,4 @@
-import type {
-  WP_REST_API_Attachment,
-  WP_REST_API_Categories,
-  WP_REST_API_Posts,
-} from 'wp-types';
+import type { WP_REST_API_Categories, WP_REST_API_Posts } from 'wp-types';
 
 export type ImageGallery = {
   photo_gallery: {

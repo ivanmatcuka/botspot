@@ -7,7 +7,7 @@ import { Button } from '@/app/components/Button/Button';
 import { Tile } from '@/app/components/Tile/Tile';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
-import { getPeople } from '@/services/blogService';
+import { getPeople } from '@/services/mainService';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';

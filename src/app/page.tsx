@@ -9,7 +9,7 @@ import { Banner } from '@/app/components/Banner/Banner';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { Button } from '@/app/components/Button/Button';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { getProducts, ImageGallery } from '@/services/blogService';
+import { getProducts, ImageGallery } from '@/services/mainService';
 
 import { Box, Typography } from '@mui/material';
 import { WP_REST_API_Attachment } from 'wp-types';

@@ -4,7 +4,7 @@ import { Navbar } from './components/Navbar/Navbar';
 import './globals.scss';
 import ThemeRegistry from './theme/ThemeRegistry';
 
-import { getProducts } from '@/services/blogService';
+import { getProducts } from '@/services/mainService';
 
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
