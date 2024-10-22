@@ -45,7 +45,7 @@ const IconLink: FC<IconLinkProps> = ({ href, src, alt }) => (
 );
 
 export const Footer = async () => {
-  const products = await getProducts();
+  const { data: products } = await getProducts();
 
   return (
     <>
@@ -86,7 +86,7 @@ export const Footer = async () => {
             >
               <Text href="/products">3D Scanner</Text>
               <br />
-              {products.data.map((product, index) => (
+              {products.map((product, index) => (
                 <Text key={index} href={`/products/${product.slug}`}>
                   {product.title.rendered}
                 </Text>

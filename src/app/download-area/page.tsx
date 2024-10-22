@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function DownloadArea() {
-  const products = await getProducts();
+  const { data: products } = await getProducts();
 
   return (
     <main className="m-auto">
@@ -24,7 +24,7 @@ export default async function DownloadArea() {
       </PageContainer>
       <PageContainer mb={8}>
         <Grid container spacing={{ xs: 2, md: 3, lg: 5 }}>
-          {products.data.map((product, index) => {
+          {products.map((product, index) => {
             const { datasheet }: any = product.acf;
 
             return (

@@ -15,7 +15,7 @@ import { Box, Typography } from '@mui/material';
 import { WP_REST_API_Attachment } from 'wp-types';
 
 export default async function Home() {
-  const products = await getProducts();
+  const { data: products } = await getProducts();
 
   return (
     <main className="">
@@ -59,7 +59,7 @@ export default async function Home() {
         <PartnerLogo name="acod" />
       </Box>
 
-      {products.data.map((product) => {
+      {products.map((product) => {
         if (!product.acf) return null;
 
         const imagesUrls = (product.acf as ImageGallery).photo_gallery.animation

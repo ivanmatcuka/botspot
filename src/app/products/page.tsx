@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Products() {
-  const products = await getProducts();
+  const { data: products } = await getProducts();
 
   return (
     <main className="">
@@ -75,7 +75,7 @@ export default async function Products() {
         </Tile>
       </Box>
 
-      {products.data.map((product, index) => {
+      {products.map((product, index) => {
         const { picture }: any = product.acf;
 
         return (

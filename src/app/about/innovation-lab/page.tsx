@@ -12,7 +12,7 @@ import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import { WP_REST_API_Attachment } from 'wp-types';
 
-const POST_SLUG = 'scanning-horses-photogrammetry-brings-tv-series-to-life';
+const POST_SLUG = 'scanning-horses';
 
 export const metadata: Metadata = {
   title: 'INNOVATION LAB – botspot',
