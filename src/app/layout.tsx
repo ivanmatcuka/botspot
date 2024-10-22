@@ -64,7 +64,6 @@ export default async function RootLayout({
                   children: [
                     { label: 'Commercial', href: '/areas/commercial' },
                     { label: 'Industrial', href: '/areas/industrial' },
-                    { label: 'Health Care', href: '/areas/healthcare' },
                     {
                       label: 'Custom Solutions',
                       href: '/areas/custom-solutions',

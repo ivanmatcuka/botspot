@@ -75,11 +75,11 @@ export default async function Products() {
         </Tile>
       </Box>
 
-      {products.data.map((product) => {
+      {products.data.map((product, index) => {
         const { picture }: any = product.acf;
 
         return (
-          <>
+          <div key={index}>
             <MediaBlock
               key={product.id}
               assetUrl={picture}
@@ -108,7 +108,7 @@ export default async function Products() {
                 }
               />
             </PageContainer>
-          </>
+          </div>
         );
       })}
 

@@ -60,19 +60,6 @@ export default function Areas() {
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          subline="Health Care"
-          headline="Content has yet to be added. Content has yet to be added. Content has yet to be added."
-          cta={
-            <Button variant="primary" href="/areas/healthcare">
-              See Health Care Applications
-            </Button>
-          }
-          subAssetUrl="/img/areas/3.png"
-        />
-      </PageContainer>
-
-      <PageContainer mt={{ xs: 10, md: 15 }}>
-        <MainBlock
           subline="Custom Solutions"
           headline="Content has yet to be added. Content has yet to be added. Content has yet to be added."
           cta={
