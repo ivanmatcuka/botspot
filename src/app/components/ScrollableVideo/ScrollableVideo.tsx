@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import { Box, useMediaQuery, useTheme } from '@mui/material';
-import { FC, useEffect, useMemo, useRef, useState } from 'react';
+import { Box } from '@mui/material';
+import { FC, useEffect, useRef, useState } from 'react';
 
 type ScrollableVideoProps = {
   imagesUrls?: string[];
@@ -13,10 +13,6 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [frame, setFrame] = useState(0);
   const [isReady, setIsready] = useState(false);
-  const [hasScrolled, setHasScrolled] = useState(false);
-
-  const { breakpoints } = useTheme();
-  const matches = useMediaQuery(breakpoints.down('xl'));
 
   useEffect(() => {
     const prepareImages = async () => {
@@ -44,14 +40,9 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
     prepareImages();
   }, [imagesUrls]);
 
-  const isCollapsed = useMemo(
-    () => !isReady || (!matches && hasScrolled),
-    [isReady, hasScrolled, matches],
-  );
-
   useEffect(() => {
     const onScroll = () => {
-      if (isCollapsed) return;
+      if (!isReady) return;
 
       const containerRect = containerRef.current?.getBoundingClientRect();
       if (!containerRect || !containerRef.current) return;
@@ -64,13 +55,6 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
 
       const frameIndex = Math.floor(progress * (images.length - 1));
 
-      if (
-        frameIndex === (imagesUrls?.length ?? 0) - 1 &&
-        containerRect.top < -window.innerHeight * 3
-      ) {
-        setHasScrolled(true);
-      }
-
       if (!images[frameIndex]) return;
       setFrame(frameIndex);
     };
@@ -78,10 +62,10 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
     window.addEventListener('scroll', onScroll);
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, [images, hasScrolled, isCollapsed, imagesUrls]);
+  }, [images, imagesUrls]);
 
   return (
-    <Box height={isCollapsed ? '100vh' : '300vh'}>
+    <Box height={isReady ? '300vh' : '100vh'}>
       <div className="h-full relative" ref={containerRef}>
         <div className="w-full h-[100vh] xs:min-h-[1024px] md:min-h-[768px] lg:min-h-[800px] sticky top-0">
           {!isReady && (
