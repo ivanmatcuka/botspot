@@ -31,53 +31,61 @@ export const getPosts = async (
     requestInit,
   );
 
-  const data = await response.json();
-  const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
-
-  return { data, count };
+  try {
+    const data = await response.json();
+    const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
+    return { data, count };
+  } catch {
+    return { data: [], count: 0 };
+  }
 };
 
 export const getPost = async (
   id: number,
-): Promise<WP_REST_API_Posts[number]> => {
+): Promise<WP_REST_API_Posts[number] | null> => {
   const response = await fetch(
     `${baseUrl}posts?include=${id}&_embed`,
     requestInit,
   );
 
-  const data = await response.json();
-  return data[0];
+  try {
+    const data = await response.json();
+    return data[0];
+  } catch (error) {
+    return null;
+  }
 };
 
 export const getPostBySlug = async (
   slug: string,
-): Promise<WP_REST_API_Posts[number]> => {
+): Promise<WP_REST_API_Posts[number] | null> => {
   const response = await fetch(
     `${baseUrl}posts?slug=${slug}&_embed&acf_format=standard`,
     requestInit,
   );
 
-  const data = await response.json();
-  return data[0];
+  try {
+    const data = await response.json();
+    return data[0];
+  } catch (error) {
+    return null;
+  }
 };
 
 export const getProductBySlug = async (
   slug: string,
-): Promise<WP_REST_API_Posts[number]> => {
+): Promise<WP_REST_API_Posts[number] | null> => {
   const response = await fetch(
     `${baseUrl}product?slug=${slug}&_embed&acf_format=standard`,
     requestInit,
   );
 
-  const data = await response.json();
-  return data[0];
-};
-
-export const getMedia = async (id: number): Promise<WP_REST_API_Attachment> => {
-  const response = await fetch(`${baseUrl}media/${id}`, requestInit);
-
-  const data = await response.json();
-  return data;
+  try {
+    const data = await response.json();
+    return data[0];
+  } catch (error) {
+    return null;
+  }
 };
 
 export const getPeople = async (): Promise<{
@@ -92,10 +100,13 @@ export const getPeople = async (): Promise<{
     requestInit,
   );
 
-  const data = await response.json();
-  const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
-
-  return { data, count };
+  try {
+    const data = await response.json();
+    const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
+    return { data, count };
+  } catch {
+    return { data: [], count: 0 };
+  }
 };
 
 export const getProducts = async (): Promise<{
@@ -107,10 +118,13 @@ export const getProducts = async (): Promise<{
     requestInit,
   );
 
-  const data = await response.json();
-  const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
-
-  return { data, count };
+  try {
+    const data = await response.json();
+    const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
+    return { data, count };
+  } catch {
+    return { data: [], count: 0 };
+  }
 };
 
 export const getJobs = async (): Promise<{
@@ -125,20 +139,27 @@ export const getJobs = async (): Promise<{
     requestInit,
   );
 
-  const data = await response.json();
-  const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
-
-  return { data, count };
+  try {
+    const data = await response.json();
+    const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
+    return { data, count };
+  } catch {
+    return { data: [], count: 0 };
+  }
 };
 
 export const getCategory = async (
   slug: string,
-): Promise<WP_REST_API_Categories[number]> => {
+): Promise<WP_REST_API_Categories[number] | null> => {
   const response = await fetch(
     `${baseUrl}categories?slug=${slug}`,
     requestInit,
   );
 
-  const data = (await response.json()) as WP_REST_API_Categories;
-  return data[0];
+  try {
+    const data = (await response.json()) as WP_REST_API_Categories;
+    return data[0];
+  } catch (error) {
+    return null;
+  }
 };

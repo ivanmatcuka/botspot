@@ -10,17 +10,14 @@ import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
 import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
 import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
-import {
-  getMedia,
-  getPostBySlug,
-  getProductBySlug,
-} from '@/services/blogService';
+import { getProductBySlug } from '@/services/blogService';
 
 import parse from 'html-react-parser';
 import { Box } from '@mui/material';
 import { Metadata } from 'next';
 import { isValidElement, ReactElement } from 'react';
 import { WP_REST_API_Attachment } from 'wp-types';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params,
@@ -28,6 +25,7 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const product = await getProductBySlug(params.slug);
+  if (!product) return {};
 
   const { picture, closeup }: any = product.acf;
   const featuredImage =
@@ -48,9 +46,12 @@ export default async function Product({
 }) {
   const product = await getProductBySlug(params.slug);
 
+  if (!product) notFound();
+
   const {
     picture,
     closeup,
+    banner,
     'first-animation': firstAnimation,
     'second-animation': secondAnimation,
 
@@ -70,15 +71,13 @@ export default async function Product({
     (element) => element.type === 'ul',
   );
 
-  const featuredImage = await getMedia(product.featured_media ?? 0);
-
   const relatedImage =
     (post?._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
       ?.source_url ?? '/3d_object.png';
 
   return (
     <main className="">
-      <MediaBlock assetUrl={featuredImage.source_url} banner />
+      {banner && <MediaBlock assetUrl={banner} banner />}
       <PageContainer banner>
         <SecondaryBlock
           subline={
