@@ -95,7 +95,7 @@ export default async function Home() {
         );
 
         return imagesUrls.length ? (
-          <ScrollableBlock key={product.id} imagesUrls={imagesUrls.reverse()}>
+          <ScrollableBlock key={product.id} imagesUrls={imagesUrls}>
             {contentBlock}
           </ScrollableBlock>
         ) : (

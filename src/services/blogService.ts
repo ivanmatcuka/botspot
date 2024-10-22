@@ -1,4 +1,8 @@
-import type { WP_REST_API_Categories, WP_REST_API_Posts } from 'wp-types';
+import type {
+  WP_REST_API_Attachment,
+  WP_REST_API_Categories,
+  WP_REST_API_Posts,
+} from 'wp-types';
 
 export type ImageGallery = {
   photo_gallery: {
@@ -57,6 +61,25 @@ export const getPostBySlug = async (
   return data[0];
 };
 
+export const getProductBySlug = async (
+  slug: string,
+): Promise<WP_REST_API_Posts[number]> => {
+  const response = await fetch(
+    `${baseUrl}product?slug=${slug}&_embed&acf_format=standard`,
+    requestInit,
+  );
+
+  const data = await response.json();
+  return data[0];
+};
+
+export const getMedia = async (id: number): Promise<WP_REST_API_Attachment> => {
+  const response = await fetch(`${baseUrl}media/${id}`, requestInit);
+
+  const data = await response.json();
+  return data;
+};
+
 export const getPeople = async (): Promise<{
   data: WP_REST_API_Posts;
   count: number;
@@ -79,11 +102,8 @@ export const getProducts = async (): Promise<{
   data: WP_REST_API_Posts;
   count: number;
 }> => {
-  const category = await getCategory('products');
-  if (!category) return { data: [], count: 0 };
-
   const response = await fetch(
-    `${baseUrl}posts?&categories=${category.id}&_embed&acf_format=standard`,
+    `${baseUrl}product?&&_embed&acf_format=standard`,
     requestInit,
   );
 

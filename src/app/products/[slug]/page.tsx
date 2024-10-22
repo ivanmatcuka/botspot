@@ -10,7 +10,11 @@ import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
 import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
 import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
-import { getPostBySlug } from '@/services/blogService';
+import {
+  getMedia,
+  getPostBySlug,
+  getProductBySlug,
+} from '@/services/blogService';
 
 import parse from 'html-react-parser';
 import { Box } from '@mui/material';
@@ -23,15 +27,15 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+  const product = await getProductBySlug(params.slug);
 
-  const { picture, closeup }: any = post.acf;
+  const { picture, closeup }: any = product.acf;
   const featuredImage =
-    (post._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
+    (product._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
       ?.source_url ?? '/3d_object.png';
 
   return {
-    title: `${post.title.rendered} – botspot`,
+    title: `${product.title.rendered} – botspot`,
     openGraph: {
       images: [featuredImage, picture, closeup],
     },
@@ -42,7 +46,7 @@ export default async function Product({
 }: {
   params: { slug: string };
 }) {
-  const product = await getPostBySlug(params.slug);
+  const product = await getProductBySlug(params.slug);
 
   const {
     picture,
@@ -55,10 +59,8 @@ export default async function Product({
     'second-headline': secondHeadline,
     'second-subline': secondSubline,
 
-    'post-id': postId,
+    post,
   }: any = product.acf;
-
-  const relatedPost = await getPostBySlug(postId);
 
   const tileHeadlines = (
     parse(product.content.rendered) as ReactElement[]
@@ -68,17 +70,15 @@ export default async function Product({
     (element) => element.type === 'ul',
   );
 
-  const featuredImage =
-    (product._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
-      ?.source_url ?? '/3d_object.png';
+  const featuredImage = await getMedia(product.featured_media ?? 0);
 
   const relatedImage =
-    (relatedPost._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
+    (post?._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
       ?.source_url ?? '/3d_object.png';
 
   return (
     <main className="">
-      <MediaBlock assetUrl={featuredImage} banner />
+      <MediaBlock assetUrl={featuredImage.source_url} banner />
       <PageContainer banner>
         <SecondaryBlock
           subline={
@@ -127,21 +127,21 @@ export default async function Product({
         />
       </Box>
 
-      <GalleryTile imgUrl={relatedImage}>
-        <SecondaryBlock
-          subline={
-            <span
-              dangerouslySetInnerHTML={{ __html: relatedPost.excerpt.rendered }}
-            />
-          }
-          headline={relatedPost.title.rendered}
-          primaryCta={
-            <Button variant="primary" href={`/blog/${relatedPost.id}`}>
-              Read Full Story
-            </Button>
-          }
-        />
-      </GalleryTile>
+      {post && (
+        <GalleryTile imgUrl={relatedImage}>
+          <SecondaryBlock
+            subline={
+              <span dangerouslySetInnerHTML={{ __html: post.post_excerpt }} />
+            }
+            headline={post.post_title}
+            primaryCta={
+              <Button variant="primary" href={`/blog/${post.ID}`}>
+                Read Full Story
+              </Button>
+            }
+          />
+        </GalleryTile>
+      )}
 
       <FeedbackForm />
     </main>
