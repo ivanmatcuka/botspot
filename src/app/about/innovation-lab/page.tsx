@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 export default async function InnovationLab() {
-  const data = await getPostBySlug(POST_SLUG);
+  const post = await getPostBySlug(POST_SLUG);
 
   return (
     <main className="">
@@ -82,24 +82,26 @@ export default async function InnovationLab() {
             }
           />
         </PageContainer>
-        <PageContainer mb={0}>
-          <Post
-            title={data.title.rendered}
-            excerpt={data.excerpt.rendered}
-            cta={
-              <Button variant="secondary" href={`/blog/${data.id}`}>
-                Read Full Story
-              </Button>
-            }
-            featuredImage={
-              (
-                data._embedded?.[
-                  'wp:featuredmedia'
-                ]?.[0] as WP_REST_API_Attachment
-              )?.source_url
-            }
-          />
-        </PageContainer>
+        {post && (
+          <PageContainer mb={0}>
+            <Post
+              title={post.title.rendered}
+              excerpt={post.excerpt.rendered}
+              cta={
+                <Button variant="secondary" href={`/blog/${post.id}`}>
+                  Read Full Story
+                </Button>
+              }
+              featuredImage={
+                (
+                  post._embedded?.[
+                    'wp:featuredmedia'
+                  ]?.[0] as WP_REST_API_Attachment
+                )?.source_url
+              }
+            />
+          </PageContainer>
+        )}
       </Box>
 
       <FeedbackForm />
