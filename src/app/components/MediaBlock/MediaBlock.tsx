@@ -7,7 +7,7 @@ import { FC } from 'react';
 import { Box } from '@mui/material';
 
 export type MediaBlockProps = {
-  assetUrl: string;
+  assetUrl?: string;
   autoplay?: boolean;
   fullHeight?: boolean;
   objectFit?: 'contain' | 'cover';
@@ -20,6 +20,7 @@ export const MediaBlock: FC<MediaBlockProps> = ({
   objectFit = 'cover',
   banner = false,
 }) => {
+  if (!assetUrl) return null;
   const className = `w-full h-full md:min-h-[768px] lg:min-h-[800px] ${objectFit === 'cover' ? 'object-cover' : 'object-contain'} ${banner ? 'xs:min-h-[392px]' : 'xs:min-h-auto'}`;
 
   const height = fullHeight
