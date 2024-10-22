@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 type PostProps = {
   title: string;
-  excerpt?: ReactNode;
+  excerpt?: string;
   cta?: ReactNode;
   featuredImage?: string;
   objectFit?: 'cover' | 'contain';
@@ -30,8 +30,19 @@ export const Post: FC<PostProps> = ({
       p={2}
       gap={1}
     >
-      <Typography variant="h4">{title}</Typography>
-      {excerpt}
+      <Typography variant="h4" className="line-clamp-1">
+        {title}
+      </Typography>
+      {excerpt && (
+        <Typography
+          variant="body1"
+          mb={1}
+          className="line-clamp-3"
+          dangerouslySetInnerHTML={{
+            __html: excerpt,
+          }}
+        />
+      )}
       {cta}
     </Box>
     {featuredImage && (

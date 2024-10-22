@@ -62,16 +62,17 @@ export default async function Home() {
       {products.map((product) => {
         if (!product.acf) return null;
 
-        const imagesUrls = (product.acf as ImageGallery).photo_gallery.animation
-          .flat()
-          .map((url) => url.full_image_url);
+        const imagesUrls =
+          (product.acf as ImageGallery).photo_gallery?.animation
+            .flat()
+            .map((url) => url.full_image_url) ?? [];
 
         const featuredImage =
           (
             product._embedded?.[
               'wp:featuredmedia'
             ]?.[0] as WP_REST_API_Attachment
-          )?.source_url ?? '/3d_object.png';
+          )?.source_url ?? '/img/banners/innovation-lab.png';
 
         const contentBlock = (
           <SecondaryBlock

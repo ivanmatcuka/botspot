@@ -30,7 +30,9 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
 
       const imagePromises = [];
 
-      for (let imageUrl of imagesUrls ?? []) {
+      for (let imageUrl of [...(imagesUrls ?? [])].sort((a, b) => {
+        return a.localeCompare(b);
+      })) {
         const imagePromise = loadImage(imageUrl);
         imagePromises.push(imagePromise);
       }
@@ -87,7 +89,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
           )}
           <img
             alt=""
-            src={imagesUrls?.[frame]}
+            src={images?.[frame]?.src}
             className="w-full h-full object-cover"
           />
         </div>

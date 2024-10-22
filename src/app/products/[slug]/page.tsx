@@ -30,7 +30,7 @@ export async function generateMetadata({
   const { picture, closeup }: any = product.acf;
   const featuredImage =
     (product._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
-      ?.source_url ?? '/3d_object.png';
+      ?.source_url ?? '/img/banners/innovation-lab.png';
 
   return {
     title: `${product.title.rendered} – botspot`,
@@ -73,7 +73,7 @@ export default async function Product({
 
   const relatedImage =
     (post?._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
-      ?.source_url ?? '/3d_object.png';
+      ?.source_url ?? '/img/banners/innovation-lab.png';
 
   return (
     <main className="">

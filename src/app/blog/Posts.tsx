@@ -53,7 +53,7 @@ export const Posts: FC<PostProps> = ({
                   post._embedded?.[
                     'wp:featuredmedia'
                   ]?.[0] as WP_REST_API_Attachment
-                )?.source_url ?? '/3d_object.png';
+                )?.source_url ?? '/img/banners/innovation-lab.png';
 
               return (
                 <Grid

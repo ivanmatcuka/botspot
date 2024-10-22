@@ -31,13 +31,7 @@ export default async function DownloadArea() {
               <Grid item xs={12} md={6} lg={4} key={index}>
                 <Post
                   title={product.title.rendered}
-                  excerpt={
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: product.excerpt.rendered,
-                      }}
-                    />
-                  }
+                  excerpt={product.excerpt.rendered}
                   cta={
                     <Button variant="secondary" href={datasheet}>
                       Download Data Sheet
