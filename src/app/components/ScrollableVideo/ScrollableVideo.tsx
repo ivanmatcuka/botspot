@@ -62,7 +62,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
     window.addEventListener('scroll', onScroll);
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, [images, imagesUrls]);
+  }, [images, imagesUrls, isReady]);
 
   return (
     <Box height={isReady ? '300vh' : '100vh'}>
