@@ -37,7 +37,7 @@ const ThemedContainer = styled(Container)(({ theme }) => ({
 
 export default function Blog({ params }: { params: { id: string } }) {
   const [loading, setLoading] = useState(true);
-  const [post, setPost] = useState<WP_REST_API_Posts[number] | undefined>();
+  const [post, setPost] = useState<WP_REST_API_Posts[number] | null>();
 
   useEffect(() => {
     if (!params.id) return;
