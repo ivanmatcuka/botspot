@@ -19,7 +19,10 @@ export const Job: FC<JobProps> = ({ id, title, excerpt }) => (
       justifyContent="space-between"
       rowGap={{ xs: 2, md: 0 }}
     >
-      <Typography dangerouslySetInnerHTML={{ __html: excerpt }} />
+      <Typography
+        dangerouslySetInnerHTML={{ __html: excerpt }}
+        component="div"
+      />
       <Button variant="primary" href={`/blog/${id}`}>
         <ArrowForwardIos />
       </Button>

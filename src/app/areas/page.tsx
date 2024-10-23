@@ -19,7 +19,7 @@ export default function Areas() {
           assetUrl: '/img/banners/areas.png',
         }}
         headline="AREAS OF USE"
-        subline="Potential Areas of Use are as versatile as our 3D Scanners. We have delivered commercial, industrial and custom solutions in order to exceed our clients’  needs."
+        subline="Potential areas of use are as versatile as our 3D Scanners. We have delivered commercial, industrial and custom solutions in order to exceed our clients’  needs."
         primaryCta={
           <Button variant="primary" href="/areas/commercial">
             Commercial Applications

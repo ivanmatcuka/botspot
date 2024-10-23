@@ -20,7 +20,7 @@ export default function Commercial() {
       <MediaBlock assetUrl="/img/areas/commercial/banner.png" banner />
       <PageContainer banner>
         <SecondaryBlock
-          subline="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
+          sublineHtml="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
           headline="Commercial Areas of Use"
         />
       </PageContainer>
@@ -32,7 +32,7 @@ export default function Commercial() {
         />
       </PageContainer>
 
-      <Tile headline="Marketing Ready 3D Models">
+      <Tile headline="Marketing-Ready 3D Models">
         <Typography variant="body1">
           Use our efficient scanning solutions for creating high volume
           marketing-ready 3D models, which in many cases do not require any
@@ -44,7 +44,7 @@ export default function Commercial() {
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Product visualization is an essential part of sales promotion in digital retail – 3D models open up completely new possibilities for product display."
-          subline="E Commerce"
+          subline="E-commerce"
         />
       </PageContainer>
 
@@ -134,7 +134,7 @@ export default function Commercial() {
 
       <GalleryTile imgUrl="/img/areas/commercial/5.png">
         <SecondaryBlock
-          subline="Versatile and powerful, our 3D Object is ideal for commercial applications."
+          sublineHtml="Versatile and powerful, our 3D Object is ideal for commercial applications."
           headline="We recommend our 3D Object Scanner"
           primaryCta={
             <Button variant="primary" href="/products/3d-object">

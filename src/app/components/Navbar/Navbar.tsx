@@ -77,8 +77,13 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   const renderMenu = useCallback((item: MenuItem) => {
     if (!item.children) {
       return (
-        <Button key={item.label} variant="menuItem" disabled={item.disabled}>
-          {item.href ? <Link href={item.href}>{item.label}</Link> : item.label}
+        <Button
+          key={item.label}
+          variant="menuItem"
+          disabled={item.disabled}
+          href={item.href ?? '/'}
+        >
+          {item.label}
         </Button>
       );
     }
@@ -99,12 +104,8 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
     if (!item.children) {
       return (
         <ListItem key={item.label}>
-          <ListItemButton disableRipple>
-            {item.href ? (
-              <Link href={item.href}>{item.label}</Link>
-            ) : (
-              item.label
-            )}
+          <ListItemButton disableRipple href={item.href ?? '/'}>
+            {item.label}
           </ListItemButton>
         </ListItem>
       );

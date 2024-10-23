@@ -30,7 +30,7 @@ export const Post: FC<PostProps> = ({
       p={2}
       gap={1}
     >
-      <Typography variant="h4" className="line-clamp-1">
+      <Typography variant="h4" className="line-clamp-2">
         {title}
       </Typography>
       {excerpt && (
@@ -38,9 +38,8 @@ export const Post: FC<PostProps> = ({
           variant="body1"
           mb={1}
           className="line-clamp-3"
-          dangerouslySetInnerHTML={{
-            __html: excerpt,
-          }}
+          component="div"
+          dangerouslySetInnerHTML={{ __html: excerpt }}
         />
       )}
       {cta}

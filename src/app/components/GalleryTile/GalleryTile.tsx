@@ -5,13 +5,15 @@ import Image from 'next/image';
 type GalleryTileProps = {
   imgUrl: string;
   alt?: string;
+  bgColor?: string;
 };
 export const GalleryTile: FC<PropsWithChildren<GalleryTileProps>> = ({
   imgUrl,
   children,
   alt,
+  bgColor = 'grey.100',
 }) => (
-  <Box bgcolor="grey.100" py={{ xs: 5, md: 10 }}>
+  <Box bgcolor={bgColor} py={{ xs: 5, md: 10 }}>
     <Grid container alignItems="center" mx="auto" maxWidth="xl" px={3}>
       <Grid xs={0} md={1} />
       <Grid item xs={12} md={5}>

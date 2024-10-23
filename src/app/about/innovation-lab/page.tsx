@@ -26,9 +26,13 @@ export default async function InnovationLab() {
       <MediaBlock assetUrl="/img/banners/innovation-lab.png" banner />
       <PageContainer banner>
         <SecondaryBlock
-          subline="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
+          sublineHtml="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
           headline="Innovation Lab"
-          primaryCta={<Button variant="primary">Contact Innovation Lab</Button>}
+          primaryCta={
+            <Button variant="primary" href="/contact-us">
+              Contact Innovation Lab
+            </Button>
+          }
           secondaryCta={
             <Button variant="secondary" href="/blog">
               Visit Blog
@@ -72,8 +76,10 @@ export default async function InnovationLab() {
       <Box bgcolor="grey.100" py={{ xs: 5, md: 10 }} overflow="auto">
         <PageContainer mb={5} mt={0}>
           <MainBlock
-            headline="We’re on a mission to build a world-class 3D manufacturing company."
-            subline="Our Innovation Lab"
+            headline={
+              'On our constant quest to stay up to date, our 3D Academy allows for exclusive insights.'
+            }
+            subline="Recent Developments"
             mt={{}}
             cta={
               <Button variant="primary" href="/blog">

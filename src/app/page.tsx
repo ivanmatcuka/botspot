@@ -23,11 +23,11 @@ export default async function Home() {
         mediaBlockOptions={{
           assetUrl: '/videos/landing-page.mp4',
         }}
-        headline="THE WORLD’S MOST VERSATILE 3D SCANNERS."
-        subline="With over 10 years of experience in Photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
+        headline="THE WORLD’S MOST VERSATILE 3D SCANNERS"
+        subline="With over 10 years of experience in photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
         primaryCta={
           <Button variant="primary" href="/products/botscan-neo">
-            Explore Neo
+            Explore NEO
           </Button>
         }
         secondaryCta={
@@ -76,11 +76,7 @@ export default async function Home() {
 
         const contentBlock = (
           <SecondaryBlock
-            subline={
-              <span
-                dangerouslySetInnerHTML={{ __html: product.excerpt.rendered }}
-              />
-            }
+            sublineHtml={product.excerpt.rendered}
             headline={product.title.rendered}
             primaryCta={
               <Button variant="primary" href={`/products/${product.slug}`}>

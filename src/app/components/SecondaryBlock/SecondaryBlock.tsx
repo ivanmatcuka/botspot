@@ -3,22 +3,26 @@ import { FC, ReactNode } from 'react';
 
 type SecondaryBlockProps = {
   headline?: ReactNode;
-  subline?: ReactNode;
+  sublineHtml?: ReactNode;
   primaryCta?: ReactNode;
   secondaryCta?: ReactNode;
 };
 export const SecondaryBlock: FC<SecondaryBlockProps> = ({
   headline,
-  subline,
+  sublineHtml,
   primaryCta,
   secondaryCta,
 }) => (
   <Box>
     <Box textAlign={{ xs: 'center', md: 'left' }}>
       <Typography variant="h2">{headline}</Typography>
-      <Typography variant="body1" mb={{ xs: 3, sm: 2 }} mt={{ xs: 1, sm: 0.5 }}>
-        {subline}
-      </Typography>
+      <Typography
+        variant="body1"
+        mb={{ xs: 3, sm: 2 }}
+        mt={{ xs: 1, sm: 0.5 }}
+        component="div"
+        dangerouslySetInnerHTML={{ __html: sublineHtml ?? '' }}
+      />
       {(primaryCta || secondaryCta) && (
         <Box display="flex">
           <Grid

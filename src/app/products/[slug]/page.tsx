@@ -1,5 +1,3 @@
-export const revalidate = 0;
-
 import { Button } from '@/app/components/Button/Button';
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
 import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
@@ -82,11 +80,7 @@ export default async function Product({
       {banner && <MediaBlock assetUrl={banner} banner />}
       <PageContainer banner>
         <SecondaryBlock
-          subline={
-            <span
-              dangerouslySetInnerHTML={{ __html: product.excerpt.rendered }}
-            />
-          }
+          sublineHtml={product.excerpt.rendered}
           headline={product.title.rendered}
           primaryCta={
             <Button variant="primary" href="/download-area">
@@ -131,9 +125,7 @@ export default async function Product({
       {post && (
         <GalleryTile imgUrl={relatedImage}>
           <SecondaryBlock
-            subline={
-              <span dangerouslySetInnerHTML={{ __html: post.post_excerpt }} />
-            }
+            sublineHtml={post.post_excerpt}
             headline={post.post_title}
             primaryCta={
               <Button variant="primary" href={`/blog/${post.ID}`}>

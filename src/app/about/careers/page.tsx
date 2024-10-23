@@ -22,7 +22,7 @@ export default async function Careers() {
 
       <PageContainer banner>
         <SecondaryBlock
-          subline="We are always on the lookout for young talents as well as seasoned professionals."
+          sublineHtml="We are always on the lookout for young talents as well as seasoned professionals."
           headline="Careers"
         />
       </PageContainer>
@@ -39,7 +39,7 @@ export default async function Careers() {
       <Box bgcolor="grey.100" py={10} overflow="auto" mt={{ xs: 5, md: 10 }}>
         <PageContainer mt={0} mb={0}>
           <SecondaryBlock
-            subline="Just send us an email at career@botspot.de to see if we can find the right fit."
+            sublineHtml="Just send us an email at career@botspot.de to see if we can find the right fit."
             headline="Can’t find a suitable position for you?"
           />
         </PageContainer>

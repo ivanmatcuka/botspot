@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import { Button } from './components/Button/Button';
 import { Footer } from './components/Footer/Footer';
 import { Navbar } from './components/Navbar/Navbar';

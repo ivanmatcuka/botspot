@@ -39,7 +39,7 @@ type IconLinkProps = {
   alt: string;
 };
 const IconLink: FC<IconLinkProps> = ({ href, src, alt }) => (
-  <Link href={href} className="hover:underline">
+  <Link href={href} className="hover:underline" target="_blank">
     <Image width={32} height={32} src={src} alt={alt} />
   </Link>
 );

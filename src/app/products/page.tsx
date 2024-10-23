@@ -47,7 +47,7 @@ export default async function Products() {
       </PageContainer>
 
       <Box mb={{ xs: 10, md: 15 }}>
-        <Tile headline="3D Full Body Scans">
+        <Tile headline="3D Full-Body Scans">
           <Typography variant="body1">
             With 3D full-body scans, the best results are achieved when all
             images are generated simultaneously, since even involuntary micro
@@ -88,13 +88,7 @@ export default async function Products() {
 
             <PageContainer mt={{ xs: 10, md: 15 }}>
               <SecondaryBlock
-                subline={
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: product.excerpt.rendered,
-                    }}
-                  />
-                }
+                sublineHtml={product.excerpt.rendered}
                 headline={product.title.rendered}
                 primaryCta={
                   <Button variant="primary" href={`/products/${product.slug}`}>
@@ -114,7 +108,7 @@ export default async function Products() {
 
       <GalleryTile imgUrl="/img/products/4.png">
         <SecondaryBlock
-          subline="Discover our Areas of Use with a diverse range of applications and industries."
+          sublineHtml="Discover our areas of use with a diverse range of applications and industries."
           headline="Our Scanners in Action"
           primaryCta={
             <Button variant="primary" href="/areas">

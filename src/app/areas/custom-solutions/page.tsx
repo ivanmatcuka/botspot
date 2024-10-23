@@ -21,7 +21,7 @@ export default function CustomSolutions() {
       <MediaBlock assetUrl="/img/areas/custom-solution/banner.png" banner />
       <PageContainer banner>
         <SecondaryBlock
-          subline="Create bespoke solutions with our 3D scanners, offering accurate, customized models to fit your unique specifications."
+          sublineHtml="Create bespoke solutions with our 3D scanners, offering accurate, customized models to fit your unique specifications."
           headline="Custom Solutions"
         />
       </PageContainer>
@@ -79,7 +79,7 @@ export default function CustomSolutions() {
 
       <GalleryTile imgUrl="/img/areas/custom-solution/3.png">
         <SecondaryBlock
-          subline="Our Innovation Lab handles Custom Solutions and bridges the gap between research and industrial production."
+          sublineHtml="Our Innovation Lab handles Custom Solutions and bridges the gap between research and industrial production."
           headline="Innovation Lab"
           primaryCta={
             <Button variant="primary" href="/innovation-lab">
