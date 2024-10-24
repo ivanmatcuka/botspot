@@ -65,6 +65,30 @@ const theme = createTheme({
         },
       },
     },
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          alignItems: 'center',
+          borderRadius: '16px',
+          padding: '64px 16px',
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          borderColor: '#AEAEAE',
+        },
+      },
+    },
+    MuiDialogTitle: {
+      styleOverrides: {
+        root: {
+          width: '100%',
+          maxWidth: 648,
+        },
+      },
+    },
     MuiAccordionSummary: {
       styleOverrides: {
         root: {

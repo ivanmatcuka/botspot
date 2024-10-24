@@ -5,6 +5,7 @@ import { Footer } from './components/Footer/Footer';
 import { Navbar } from './components/Navbar/Navbar';
 import './globals.scss';
 import ThemeRegistry from './theme/ThemeRegistry';
+import { ConsentProvider } from './ConsentProvider';
 
 import { getProducts } from '@/services/mainService';
 
@@ -51,45 +52,50 @@ export default async function RootLayout({
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <AppRouterCacheProvider>
           <ThemeRegistry>
-            <Navbar
-              navItems={[
-                {
-                  label: 'Products',
-                  href: '/products',
-                  ...((productsLinks.length && { children: productsLinks }) ??
-                    {}),
-                },
-                { label: '3D Scan Service', href: '/service' },
-                {
-                  label: 'Areas of use',
-                  href: '/areas',
-                  children: [
-                    { label: 'Commercial', href: '/areas/commercial' },
-                    { label: 'Industrial', href: '/areas/industrial' },
-                    {
-                      label: 'Custom Solutions',
-                      href: '/areas/custom-solutions',
-                    },
-                  ],
-                },
-                { label: 'Learn About 3D Scanning', href: '/learn' },
-                {
-                  label: 'About Us',
-                  href: '/about',
-                  children: [
-                    { label: 'Innovation Lab', href: '/about/innovation-lab' },
-                    { label: 'Careers', href: '/about/careers' },
-                  ],
-                },
-              ]}
-              cta={
-                <Button variant="secondary" href="/contact-us">
-                  Contact Us
-                </Button>
-              }
-            />
-            <Box className="flex-1 flex flex-col">{children}</Box>
-            <Footer />
+            <ConsentProvider>
+              <Navbar
+                navItems={[
+                  {
+                    label: 'Products',
+                    href: '/products',
+                    ...((productsLinks.length && { children: productsLinks }) ??
+                      {}),
+                  },
+                  { label: '3D Scan Service', href: '/service' },
+                  {
+                    label: 'Areas of use',
+                    href: '/areas',
+                    children: [
+                      { label: 'Commercial', href: '/areas/commercial' },
+                      { label: 'Industrial', href: '/areas/industrial' },
+                      {
+                        label: 'Custom Solutions',
+                        href: '/areas/custom-solutions',
+                      },
+                    ],
+                  },
+                  { label: 'Learn About 3D Scanning', href: '/learn' },
+                  {
+                    label: 'About Us',
+                    href: '/about',
+                    children: [
+                      {
+                        label: 'Innovation Lab',
+                        href: '/about/innovation-lab',
+                      },
+                      { label: 'Careers', href: '/about/careers' },
+                    ],
+                  },
+                ]}
+                cta={
+                  <Button variant="secondary" href="/contact-us">
+                    Contact Us
+                  </Button>
+                }
+              />
+              <Box className="flex-1 flex flex-col">{children}</Box>
+              <Footer />
+            </ConsentProvider>
           </ThemeRegistry>
         </AppRouterCacheProvider>
       </body>

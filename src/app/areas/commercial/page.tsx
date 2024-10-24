@@ -20,7 +20,7 @@ export default function Commercial() {
       <MediaBlock assetUrl="/img/areas/commercial/banner.png" banner />
       <PageContainer banner>
         <SecondaryBlock
-          sublineHtml="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
+          sublineElement="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
           headline="Commercial Areas of Use"
         />
       </PageContainer>
@@ -134,7 +134,7 @@ export default function Commercial() {
 
       <GalleryTile imgUrl="/img/areas/commercial/5.png">
         <SecondaryBlock
-          sublineHtml="Versatile and powerful, our 3D Object is ideal for commercial applications."
+          sublineElement="Versatile and powerful, our 3D Object is ideal for commercial applications."
           headline="We recommend our 3D Object Scanner"
           primaryCta={
             <Button variant="primary" href="/products/3d-object">

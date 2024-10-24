@@ -88,7 +88,7 @@ export default async function Products() {
 
             <PageContainer mt={{ xs: 10, md: 15 }}>
               <SecondaryBlock
-                sublineHtml={product.excerpt.rendered}
+                sublineElement={product.excerpt.rendered}
                 headline={product.title.rendered}
                 primaryCta={
                   <Button variant="primary" href={`/products/${product.slug}`}>
@@ -108,7 +108,7 @@ export default async function Products() {
 
       <GalleryTile imgUrl="/img/products/4.png">
         <SecondaryBlock
-          sublineHtml="Discover our areas of use with a diverse range of applications and industries."
+          sublineElement="Discover our areas of use with a diverse range of applications and industries."
           headline="Our Scanners in Action"
           primaryCta={
             <Button variant="primary" href="/areas">

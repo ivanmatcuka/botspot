@@ -46,7 +46,7 @@ export default async function Product({
 }) {
   const product = await getProductBySlug(params.slug);
 
-  if (!product) notFound();
+  if (!product) return notFound();
 
   const {
     picture,
@@ -80,7 +80,7 @@ export default async function Product({
       {banner && <MediaBlock assetUrl={banner} banner />}
       <PageContainer banner>
         <SecondaryBlock
-          sublineHtml={product.excerpt.rendered}
+          sublineElement={product.excerpt.rendered}
           headline={product.title.rendered}
           primaryCta={
             <Button variant="primary" href="/download-area">
@@ -125,7 +125,7 @@ export default async function Product({
       {post && (
         <GalleryTile imgUrl={relatedImage}>
           <SecondaryBlock
-            sublineHtml={post.post_excerpt}
+            sublineElement={post.post_excerpt}
             headline={post.post_title}
             primaryCta={
               <Button variant="primary" href={`/blog/${post.ID}`}>

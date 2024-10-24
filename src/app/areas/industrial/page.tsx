@@ -20,7 +20,7 @@ export default function Industrial() {
       <MediaBlock assetUrl="/img/areas/industrial/banner.png" banner />
       <PageContainer banner>
         <SecondaryBlock
-          sublineHtml="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
+          sublineElement="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
           headline="Industrial Areas of Use"
         />
       </PageContainer>
@@ -89,7 +89,7 @@ export default function Industrial() {
 
       <GalleryTile imgUrl="/img/areas/industrial/4.png">
         <SecondaryBlock
-          sublineHtml="Durable and fast, our 3D Studio is ideal for industrial applications."
+          sublineElement="Durable and fast, our 3D Studio is ideal for industrial applications."
           headline="We recommend our 3D Studio Scanner"
           primaryCta={
             <Button variant="primary" href="/products/3d-studio">

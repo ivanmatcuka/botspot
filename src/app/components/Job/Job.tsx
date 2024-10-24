@@ -23,7 +23,7 @@ export const Job: FC<JobProps> = ({ id, title, excerpt }) => (
         dangerouslySetInnerHTML={{ __html: excerpt }}
         component="div"
       />
-      <Button variant="primary" href={`/blog/${id}`}>
+      <Button variant="primary" href={`/about/careers/${id}`}>
         <ArrowForwardIos />
       </Button>
     </Box>

@@ -26,7 +26,7 @@ export default async function InnovationLab() {
       <MediaBlock assetUrl="/img/banners/innovation-lab.png" banner />
       <PageContainer banner>
         <SecondaryBlock
-          sublineHtml="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
+          sublineElement="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
           headline="Innovation Lab"
           primaryCta={
             <Button variant="primary" href="/contact-us">

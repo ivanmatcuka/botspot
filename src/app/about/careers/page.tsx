@@ -1,4 +1,5 @@
 import { Jobs } from './Jobs';
+import { ExtraFooter } from './ExtraFooter';
 
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { getJobs } from '@/services/mainService';
@@ -6,7 +7,6 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
-import { Box } from '@mui/material';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default async function Careers() {
 
       <PageContainer banner>
         <SecondaryBlock
-          sublineHtml="We are always on the lookout for young talents as well as seasoned professionals."
+          sublineElement="We are always on the lookout for young talents as well as seasoned professionals."
           headline="Careers"
         />
       </PageContainer>
@@ -36,14 +36,7 @@ export default async function Careers() {
 
       <Jobs data={data} />
 
-      <Box bgcolor="grey.100" py={10} overflow="auto" mt={{ xs: 5, md: 10 }}>
-        <PageContainer mt={0} mb={0}>
-          <SecondaryBlock
-            sublineHtml="Just send us an email at career@botspot.de to see if we can find the right fit."
-            headline="Can’t find a suitable position for you?"
-          />
-        </PageContainer>
-      </Box>
+      <ExtraFooter />
     </main>
   );
 }

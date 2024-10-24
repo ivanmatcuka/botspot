@@ -23,6 +23,7 @@
     "@wordpress/block-library": "^9.10.0",
     "@wordpress/block-serialization-default-parser": "^5.10.0",
     "@wordpress/format-library": "^5.10.0",
+    "cookies-next": "^4.3.0",
     "html-react-parser": "^5.1.18",
     "material-ui-popup-state": "^5.3.1",
     "next": "^14.2.15",

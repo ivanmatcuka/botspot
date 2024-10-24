@@ -76,7 +76,7 @@ export default async function Home() {
 
         const contentBlock = (
           <SecondaryBlock
-            sublineHtml={product.excerpt.rendered}
+            sublineElement={product.excerpt.rendered}
             headline={product.title.rendered}
             primaryCta={
               <Button variant="primary" href={`/products/${product.slug}`}>

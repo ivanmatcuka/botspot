@@ -100,7 +100,7 @@ export default function Service() {
 
       <GalleryTile bgColor="white" imgUrl="/img/service/1.png">
         <SecondaryBlock
-          sublineHtml="Corporate event, fair show or convention coming up? Guarantee an unforgettable experience with full-body scanning. We deliver and set up the scanner, ensuring a seamless and impressive experience."
+          sublineElement="Corporate event, fair show or convention coming up? Guarantee an unforgettable experience with full-body scanning. We deliver and set up the scanner, ensuring a seamless and impressive experience."
           headline="Event Hire"
           primaryCta={<Button variant="primary">Request Event Hire</Button>}
         />
@@ -108,7 +108,7 @@ export default function Service() {
 
       <GalleryTile imgUrl="/img/service/2.png">
         <SecondaryBlock
-          sublineHtml="Have a large or unusual item that needs scanning? Our Innovation Lab specializes in handling special requests, even for the most challenging projects."
+          sublineElement="Have a large or unusual item that needs scanning? Our Innovation Lab specializes in handling special requests, even for the most challenging projects."
           headline="Special Requests"
           primaryCta={
             <Button variant="primary" href="/about/innovation-lab">
