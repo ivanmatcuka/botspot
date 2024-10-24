@@ -1,7 +1,5 @@
 'use client';
 
-import { ScrollableVideo } from '@/app/components/ScrollableVideo/ScrollableVideo';
-
 import Image from 'next/image';
 import { FC } from 'react';
 import { Box } from '@mui/material';

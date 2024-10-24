@@ -27,7 +27,6 @@ export async function generateMetadata({
   const product = await getProductBySlug(params.slug);
   if (!product) return {};
 
-  const { picture, closeup }: any = product.acf;
   const featuredImage =
     (product._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
       ?.source_url ?? '/img/banners/innovation-lab.png';
@@ -35,7 +34,7 @@ export async function generateMetadata({
   return {
     title: `${product.title.rendered} – botspot`,
     openGraph: {
-      images: [featuredImage, picture, closeup],
+      images: [featuredImage],
     },
   };
 }

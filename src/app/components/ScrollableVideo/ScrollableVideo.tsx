@@ -37,7 +37,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
       setIsready(true);
     };
 
-    prepareImages();
+    prepareImages().finally(() => console.log('done'));
   }, [imagesUrls]);
 
   useEffect(() => {

@@ -1,7 +1,6 @@
 'use client';
 
 import { Container, styled } from '@mui/material';
-import { list } from 'postcss';
 
 export const ThemedContainer = styled(Container)(({ theme }) => ({
   h2: {

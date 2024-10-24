@@ -1,9 +1,27 @@
 import type { WP_REST_API_Categories, WP_REST_API_Posts } from 'wp-types';
 
-export type ImageGallery = {
+export type CustomFields = {
+  picture: string;
+  closeup: string;
+  banner: string;
+
+  'first-animation': string;
+  'second-animation': string;
+
+  'first-headline': string;
+  'first-subline': string;
+  'second-headline': string;
+  'second-subline': string;
+
+  post: any;
+
   photo_gallery: {
     animation: { full_image_url: string }[];
   };
+};
+
+export type CustomPost = WP_REST_API_Posts[number] & {
+  acf?: Partial<CustomFields>;
 };
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -18,7 +36,7 @@ const requestInit: RequestInit = {
 export const getPosts = async (
   page: number = 1,
   perPage: number = 12,
-): Promise<{ data: WP_REST_API_Posts; count: number }> => {
+): Promise<{ data: CustomPost[]; count: number }> => {
   const category = await getCategory('3d-academy');
   if (!category) return { data: [], count: 0 };
 
@@ -36,9 +54,7 @@ export const getPosts = async (
   }
 };
 
-export const getPost = async (
-  id: number,
-): Promise<WP_REST_API_Posts[number] | null> => {
+export const getPost = async (id: number): Promise<CustomPost | null> => {
   const response = await fetch(
     `${baseUrl}posts?include=${id}&_embed`,
     requestInit,
@@ -54,7 +70,7 @@ export const getPost = async (
 
 export const getPostBySlug = async (
   slug: string,
-): Promise<WP_REST_API_Posts[number] | null> => {
+): Promise<CustomPost | null> => {
   const response = await fetch(
     `${baseUrl}posts?slug=${slug}&_embed&acf_format=standard`,
     requestInit,
@@ -70,7 +86,7 @@ export const getPostBySlug = async (
 
 export const getProductBySlug = async (
   slug: string,
-): Promise<WP_REST_API_Posts[number] | null> => {
+): Promise<CustomPost | null> => {
   const response = await fetch(
     `${baseUrl}product?slug=${slug}&_embed&acf_format=standard`,
     requestInit,
@@ -85,7 +101,7 @@ export const getProductBySlug = async (
 };
 
 export const getPeople = async (): Promise<{
-  data: WP_REST_API_Posts;
+  data: CustomPost[];
   count: number;
 }> => {
   const category = await getCategory('people');
@@ -106,7 +122,7 @@ export const getPeople = async (): Promise<{
 };
 
 export const getProducts = async (): Promise<{
-  data: WP_REST_API_Posts;
+  data: CustomPost[];
   count: number;
 }> => {
   const response = await fetch(
@@ -124,7 +140,7 @@ export const getProducts = async (): Promise<{
 };
 
 export const getJobs = async (): Promise<{
-  data: WP_REST_API_Posts;
+  data: CustomPost[];
   count: number;
 }> => {
   const category = await getCategory('jobs');

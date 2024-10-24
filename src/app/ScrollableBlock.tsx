@@ -1,7 +1,7 @@
 import { PageContainer } from './components/PageContainer/PageContainer';
 import { ScrollableVideo } from './components/ScrollableVideo/ScrollableVideo';
 
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
 
 type ScrollableBlockProps = {

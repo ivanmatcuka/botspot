@@ -38,7 +38,7 @@ export const Pagination: FC<PaginationProps> = ({
             typeof type,
             {
               buttonText: string;
-              onClick?: ReactEventHandler<Element>;
+              onClick?: ReactEventHandler;
             }
           > = {
             'end-ellipsis': {

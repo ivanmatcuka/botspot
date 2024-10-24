@@ -1,7 +1,5 @@
 import { Tile } from './Tile';
 
-import { Button } from '../Button/Button';
-
 import { Typography } from '@mui/material';
 
 import type { Meta, StoryObj } from '@storybook/react';

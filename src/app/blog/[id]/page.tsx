@@ -1,9 +1,7 @@
 import { getPost } from '@/services/mainService';
 import { ThemedContainer } from '@/app/ThemedContainer';
 
-import { useEffect, useState } from 'react';
-import { WP_REST_API_Posts } from 'wp-types';
-import { Box, Grid, Skeleton, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 

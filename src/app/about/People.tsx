@@ -2,7 +2,7 @@ import { Post } from '@/app/components/Post/Post';
 
 import { FC } from 'react';
 import { WP_REST_API_Attachment, WP_REST_API_Posts } from 'wp-types';
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 
 type PeopleProps = {
   data: WP_REST_API_Posts;
