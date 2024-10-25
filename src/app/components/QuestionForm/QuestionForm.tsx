@@ -2,8 +2,9 @@
 
 import { Input } from '@/app/components/Form/Form';
 import { Button } from '@/app/components/Button/Button';
+import { sendEmail } from '@/app/actions';
 
-import { FC } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Box, Container, Grid, Paper, Typography } from '@mui/material';
 
@@ -12,7 +13,24 @@ export const QuestionForm: FC = () => {
     handleSubmit,
     register,
     formState: { errors },
+    reset,
   } = useForm();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = useCallback(
+    (message: string) => {
+      setIsLoading(true);
+      sendEmail(
+        process.env.NEXT_PUBLIC_EMAIL_FROM ?? '',
+        `Question`,
+        message,
+      ).finally(() => {
+        setIsLoading(false);
+        reset();
+      });
+    },
+    [reset],
+  );
   return (
     <Container maxWidth="xl">
       <Grid
@@ -29,7 +47,7 @@ export const QuestionForm: FC = () => {
             elevation={1}
             className="border-2 border-divider !bg-primary-main"
           >
-            <form onSubmit={handleSubmit(() => {})}>
+            <form onSubmit={handleSubmit(() => onSubmit)}>
               <Box p={{ xs: 3, md: 5 }} py={{ xs: 2 }}>
                 <Typography variant="h2" mb={2} color="white">
                   Do you have a question?
@@ -77,7 +95,7 @@ export const QuestionForm: FC = () => {
                     type="textarea"
                     rows={3}
                   />
-                  <Button variant="primary" type="submit">
+                  <Button variant="primary" type="submit" disabled={isLoading}>
                     Submit
                   </Button>
                 </Box>

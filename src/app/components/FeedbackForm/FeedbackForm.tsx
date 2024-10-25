@@ -4,8 +4,9 @@ import { Input } from '@/app/components/Form/Form';
 import { Button } from '@/app/components/Button/Button';
 import { Menu } from '@/app/components/Menu/Menu';
 import { getProducts } from '@/services/mainService';
+import { sendEmail } from '@/app/actions';
 
-import { FC, useEffect, useMemo, useState } from 'react';
+import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {
   Box,
@@ -29,14 +30,31 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
     register,
     formState: { errors },
     setValue,
+    reset,
   } = useForm();
 
   const [topic, setTopic] = useState('botspot');
   const [topics, setTopics] = useState<typeof TOPICS>(TOPICS);
+  const [isLoading, setIsLoading] = useState(false);
 
   const generateMessage = (topic: (typeof TOPICS)[number]) => {
     return `Hello. I would like to receive some information about ${topic}. Thank you.`;
   };
+
+  const onSubmit = useCallback(
+    (topic: string, message: string) => {
+      setIsLoading(true);
+      sendEmail(
+        process.env.NEXT_PUBLIC_EMAIL_FROM ?? '',
+        `Feedback form submission for ${topic}`,
+        message,
+      ).finally(() => {
+        setIsLoading(false);
+        reset();
+      });
+    },
+    [reset],
+  );
 
   useEffect(() => {
     getProducts().then(({ data }) =>
@@ -46,7 +64,9 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
 
   const form = useMemo(
     () => (
-      <form onSubmit={handleSubmit(() => {})}>
+      <form
+        onSubmit={handleSubmit(() => onSubmit(topic, generateMessage(topic)))}
+      >
         <Box
           p={frameless ? 0 : { xs: 3, md: 5 }}
           py={frameless ? 0 : { xs: 2 }}
@@ -125,14 +145,24 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
               type="textarea"
               rows={3}
             />
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" disabled={isLoading}>
               Submit
             </Button>
           </Box>
         </Box>
       </form>
     ),
-    [frameless, errors, register, setValue, handleSubmit, topic, topics],
+    [
+      frameless,
+      errors,
+      register,
+      setValue,
+      handleSubmit,
+      topic,
+      isLoading,
+      topics,
+      onSubmit,
+    ],
   );
 
   if (frameless) return form;
