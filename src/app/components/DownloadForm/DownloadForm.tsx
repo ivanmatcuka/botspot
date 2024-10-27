@@ -41,7 +41,7 @@ export const DownloadForm: FC<DownloadFormProps> = ({
       onSubmit={handleSubmit(() => onSubmit?.(topic, generateMessage(topic)))}
     >
       <Box p={0}>
-        <Typography variant="h2" mb={2} className="text-center md:text-left">
+        <Typography className="text-center md:text-left" mb={2} variant="h2">
           You are about to download the datasheet of
         </Typography>
 
@@ -50,8 +50,8 @@ export const DownloadForm: FC<DownloadFormProps> = ({
             <FormGroup sx={{ px: 2, py: 1 }}>
               {productNames.map((currTopic, index) => (
                 <FormControlLabel
-                  key={index}
                   control={<Checkbox checked={topic === currTopic} />}
+                  key={index}
                   label={currTopic}
                   onChange={() => {
                     setValue('message', generateMessage(currTopic));
@@ -63,32 +63,34 @@ export const DownloadForm: FC<DownloadFormProps> = ({
           </Menu>
         </Box>
 
-        <Typography variant="body1" my={3} className="text-center md:text-left">
+        <Typography className="text-center md:text-left" my={3} variant="body1">
           After filling out the details, we will take you to our exclusive
           download area.
         </Typography>
 
         <Grid
-          container
-          spacing={3}
           justifyContent={{ xs: 'center', md: 'left' }}
+          spacing={3}
+          container
         >
-          <Grid item xs={12} md={6}>
+          <Grid md={6} xs={12} item>
             <Input
+              error={errors.name}
+              key="name"
               label="Name"
               name="name"
-              key="name"
+              register={register}
               rules={{ required: 'Name is required' }}
               required
-              register={register}
-              error={errors.name}
             />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid md={6} xs={12} item>
             <Input
+              error={errors.email}
+              key="email"
               label="Email"
               name="email"
-              key="email"
+              register={register}
               rules={{
                 required: 'Email is required',
                 pattern: {
@@ -97,12 +99,10 @@ export const DownloadForm: FC<DownloadFormProps> = ({
                 },
               }}
               required
-              register={register}
-              error={errors.email}
             />
           </Grid>
-          <Grid item xs={12}>
-            <Button variant="primary" type="submit">
+          <Grid xs={12} item>
+            <Button type="submit" variant="primary">
               Submit
             </Button>
           </Grid>

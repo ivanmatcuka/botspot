@@ -34,41 +34,44 @@ export const QuestionForm: FC = () => {
   return (
     <Container maxWidth="xl">
       <Grid
-        container
-        pt={{ xs: 5, md: 10 }}
-        mb={{ xs: 10, md: 15 }}
-        mx="auto"
-        xs={12}
-        md={10}
         direction="column"
+        mb={{ xs: 10, md: 15 }}
+        md={10}
+        mx="auto"
+        pt={{ xs: 5, md: 10 }}
+        xs={12}
+        container
       >
         <Grid item>
           <Paper
-            elevation={1}
             className="border-2 border-divider !bg-primary-main"
+            elevation={1}
           >
             <form onSubmit={handleSubmit(() => onSubmit)}>
               <Box p={{ xs: 3, md: 5 }} py={{ xs: 2 }}>
-                <Typography variant="h2" mb={2} color="white">
+                <Typography color="white" mb={2} variant="h2">
                   Do you have a question?
                 </Typography>
 
-                <Typography variant="body1" my={3} color="white">
+                <Typography color="white" my={3} variant="body1">
                   Is there anything you ever wondererd regarding 3D Scanning?
                   Just let us know below!
                 </Typography>
 
                 <Box
+                  color="white"
                   display="flex"
                   flexWrap="wrap"
                   gap={3}
                   rowGap={2}
-                  color="white"
                 >
                   <Input
+                    color="white"
+                    error={errors.email}
+                    key="email"
                     label="Email"
                     name="email"
-                    key="email"
+                    register={register}
                     rules={{
                       required: 'Email is required',
                       pattern: {
@@ -76,26 +79,23 @@ export const QuestionForm: FC = () => {
                         message: 'Invalid email',
                       },
                     }}
-                    required
-                    register={register}
-                    error={errors.email}
                     fullWidth
-                    color="white"
+                    required
                   />
                   <Input
+                    color="white"
+                    error={errors.question}
+                    key="question"
                     label="Question"
                     name="question"
-                    key="question"
-                    rules={{ required: 'Question is required' }}
-                    required
                     register={register}
-                    error={errors.question}
-                    fullWidth
-                    color="white"
-                    type="textarea"
                     rows={3}
+                    rules={{ required: 'Question is required' }}
+                    type="textarea"
+                    fullWidth
+                    required
                   />
-                  <Button variant="primary" type="submit" disabled={isLoading}>
+                  <Button disabled={isLoading} type="submit" variant="primary">
                     Submit
                   </Button>
                 </Box>

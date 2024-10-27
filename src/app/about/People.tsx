@@ -8,18 +8,18 @@ type PeopleProps = {
   data: WP_REST_API_Posts;
 };
 export const People: FC<PeopleProps> = ({ data }) => (
-  <Grid container spacing={{ xs: 2, md: 3, lg: 5 }} xs={12}>
+  <Grid spacing={{ xs: 2, md: 3, lg: 5 }} xs={12} container>
     {data.map((post) => {
       const featuredImage =
         (post._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
           ?.source_url ?? '/img/banners/innovation-lab.png';
 
       return (
-        <Grid item xs={12} md={6} lg={4} key={post.id}>
+        <Grid key={post.id} lg={4} md={6} xs={12} item>
           <Post
-            title={post.title.rendered}
             excerpt={post.excerpt.rendered}
             featuredImage={featuredImage}
+            title={post.title.rendered}
           />
         </Grid>
       );

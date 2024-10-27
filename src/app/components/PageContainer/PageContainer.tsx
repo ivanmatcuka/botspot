@@ -11,21 +11,21 @@ export const PageContainer: FC<PropsWithChildren<PageContainerProps>> = ({
 }) => (
   <Container maxWidth="xl">
     <Grid
-      container
-      mx="auto"
-      mt={{ xs: 2, md: 3 }}
       mb={{ xs: 10, md: 20 }}
+      mt={{ xs: 2, md: 3 }}
+      mx="auto"
       xs={10}
+      container
       {...margins}
     >
       <Grid
-        item
-        xs={12}
-        textAlign={{ xs: 'center', md: 'left' }}
-        mx={banner ? undefined : 'auto'}
         md={banner ? 7 : undefined}
-        xl={banner ? 6 : undefined}
         ml={banner ? 'auto' : undefined}
+        mx={banner ? undefined : 'auto'}
+        textAlign={{ xs: 'center', md: 'left' }}
+        xl={banner ? 6 : undefined}
+        xs={12}
+        item
       >
         {children}
       </Grid>

@@ -1,12 +1,12 @@
 export const Iframe = ({ src }: { src: string }) => (
   <iframe
     allow="autoplay; fullscreen; xr-spatial-tracking"
-    xr-spatial-tracking="true"
-    execution-while-out-of-viewport="true"
     execution-while-not-rendered="true"
-    web-share="true"
-    width="100%"
+    execution-while-out-of-viewport="true"
     height="100%"
     src={src}
+    web-share="true"
+    width="100%"
+    xr-spatial-tracking="true"
   />
 );

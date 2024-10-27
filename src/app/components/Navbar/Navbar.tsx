@@ -78,10 +78,10 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
     if (!item.children) {
       return (
         <Button
-          key={item.label}
-          variant="menuItem"
           disabled={item.disabled}
           href={item.href ?? '/'}
+          key={item.label}
+          variant="menuItem"
         >
           {item.label}
         </Button>
@@ -89,7 +89,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
     }
 
     return (
-      <Menu label={item.label} key={item.label} href={item.href}>
+      <Menu href={item.href} key={item.label} label={item.label}>
         {item.children.map((child) => renderMenu(child))}
       </Menu>
     );
@@ -104,7 +104,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
     if (!item.children) {
       return (
         <ListItem key={item.label}>
-          <ListItemButton disableRipple href={item.href ?? '/'}>
+          <ListItemButton href={item.href ?? '/'} disableRipple>
             {item.label}
           </ListItemButton>
         </ListItem>
@@ -112,7 +112,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
     }
 
     return (
-      <ControlledAccordion key={item.label} item={item}>
+      <ControlledAccordion item={item} key={item.label}>
         {item.children.map((child) => renderDrawer(child))}
       </ControlledAccordion>
     );
@@ -133,24 +133,24 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
 
   return (
     <MuiAppBar
-      position={position}
       className="border-b border-gray-200 z-[1201]"
       color="transparent"
       elevation={24}
+      position={position}
       sx={{ backgroundColor: 'white' }}
     >
       <Toolbar disableGutters>
         <Container maxWidth="xl">
-          <Grid container xs={12} mx="auto">
+          <Grid mx="auto" xs={12} container>
             <Grid
-              item
-              display="flex"
               alignItems="center"
-              justifyContent="flex-start"
+              display="flex"
               flex={1}
+              justifyContent="flex-start"
+              item
             >
               <Link href="/">
-                <Image width={150} height={46} src="/logo.svg" alt="logo" />
+                <Image alt="logo" height={46} src="/logo.svg" width={150} />
               </Link>
               {matches ? (
                 <>
@@ -162,24 +162,24 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
               ) : (
                 <Box display="flex" justifyContent="flex-end">
                   <MuiIconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
                     aria-label="menu"
-                    onClick={() => setIsOpen(!isOpen)}
                     className="block xl:none"
+                    color="inherit"
+                    edge="start"
+                    size="large"
+                    onClick={() => setIsOpen(!isOpen)}
                   >
                     {isOpen ? <CloseIcon /> : <MenuIcon />}
                   </MuiIconButton>
                   <Drawer
                     anchor="top"
                     open={isOpen}
-                    onClose={() => setIsOpen(false)}
                     PaperProps={{ sx: { top: 64 } }}
                     slotProps={{
                       root: { style: { top: 64 } },
                       backdrop: { sx: { top: 64 } },
                     }}
+                    onClose={() => setIsOpen(false)}
                   >
                     <List>{drawer}</List>
                   </Drawer>

@@ -22,27 +22,27 @@ export default async function Products() {
   return (
     <main className="">
       <Banner
+        headline="PRODUCTS"
         mediaBlockOptions={{
           assetUrl: '/img/banners/products.png',
         }}
-        headline="PRODUCTS"
-        subline="Generate photorealistic 3D models with unmatched quality and breathtaking textures in almost no time. "
         primaryCta={
-          <Button variant="primary" href="/download-area">
+          <Button href="/download-area" variant="primary">
             Download Data Sheets
           </Button>
         }
         secondaryCta={
-          <Button variant="secondary" href="/areas">
+          <Button href="/areas" variant="secondary">
             See Areas of Use
           </Button>
         }
+        subline="Generate photorealistic 3D models with unmatched quality and breathtaking textures in almost no time. "
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          subline="Effortless Workflow"
           headline="3D Scanners made by botspot are easy to use and come with a fully automated software package."
+          subline="Effortless Workflow"
         />
       </PageContainer>
 
@@ -81,25 +81,25 @@ export default async function Products() {
         return (
           <div key={index}>
             <MediaBlock
-              key={product.id}
               assetUrl={picture}
+              key={product.id}
               objectFit="contain"
             />
 
             <PageContainer mt={{ xs: 10, md: 15 }}>
               <SecondaryBlock
-                sublineElement={product.excerpt.rendered}
                 headline={product.title.rendered}
                 primaryCta={
-                  <Button variant="primary" href={`/products/${product.slug}`}>
+                  <Button href={`/products/${product.slug}`} variant="primary">
                     Explore {product.title.rendered}
                   </Button>
                 }
                 secondaryCta={
-                  <Button variant="secondary" href="/download-area">
+                  <Button href="/download-area" variant="secondary">
                     Download Data Sheet
                   </Button>
                 }
+                sublineElement={product.excerpt.rendered}
               />
             </PageContainer>
           </div>
@@ -108,13 +108,13 @@ export default async function Products() {
 
       <GalleryTile imgUrl="/img/products/4.png">
         <SecondaryBlock
-          sublineElement="Discover our areas of use with a diverse range of applications and industries."
           headline="Our Scanners in Action"
           primaryCta={
-            <Button variant="primary" href="/areas">
+            <Button href="/areas" variant="primary">
               Explore Applications
             </Button>
           }
+          sublineElement="Discover our areas of use with a diverse range of applications and industries."
         />
       </GalleryTile>
 

@@ -22,19 +22,19 @@ export default async function About() {
   return (
     <main className="">
       <Banner
+        headline="ABOUT US"
         mediaBlockOptions={{
           assetUrl: '/img/banners/about.png',
         }}
-        headline="ABOUT US"
-        subline="Whenever 3D scanning technology can shift the status quo, botspot is here for you to innovate."
         primaryCta={<Button variant="primary">Read Our Story</Button>}
         secondaryCta={<Button variant="secondary">Visit Career Page</Button>}
+        subline="Whenever 3D scanning technology can shift the status quo, botspot is here for you to innovate."
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          subline="Our Mission"
           headline="We set new standards in the 3D scanning industry."
+          subline="Our Mission"
         />
       </PageContainer>
 
@@ -58,10 +58,10 @@ export default async function About() {
         </Typography>
       </Tile>
 
-      <PageContainer mt={{ xs: 10, md: 15 }} mb={8}>
+      <PageContainer mb={8} mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          subline="Our Team"
           headline="With commitment and tenacity, we make the impossible possible."
+          subline="Our Team"
           botomless
         />
       </PageContainer>
@@ -71,26 +71,26 @@ export default async function About() {
       </PageContainer>
 
       <Box
-        width="100%"
         bgcolor="grey.100"
         display="flex"
         flexDirection="column"
         py={{ xs: 5, md: 10 }}
+        width="100%"
       >
-        <PageContainer my={0} mb={0}>
+        <PageContainer mb={0} my={0}>
           <MainBlock
-            subline="Your Opportunity"
-            headline="Want to be part of our team?"
             cta={<Button variant="primary">Check Our Openings</Button>}
+            headline="Want to be part of our team?"
+            subline="Your Opportunity"
           />
         </PageContainer>
       </Box>
 
       <PageContainer mt={{ xs: 5, md: 10 }}>
         <MainBlock
-          subline="Our Story"
-          headline="Delivering excellence for over ten years."
           cta={<Button variant="primary">Read Full Story...</Button>}
+          headline="Delivering excellence for over ten years."
+          subline="Our Story"
         />
       </PageContainer>
 

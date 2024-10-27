@@ -27,17 +27,17 @@ export default async function Job({ params }: { params: { id: string } }) {
   return (
     <main className="flex flex-col flex-1">
       <ThemedContainer maxWidth="xl">
-        <Grid container xs={12} md={10} mx="auto">
-          <Grid item xs={12} my={{ xs: 8, md: 15 }}>
+        <Grid md={10} mx="auto" xs={12} container>
+          <Grid my={{ xs: 8, md: 15 }} xs={12} item>
             <>
-              <Typography variant="body1" component="span">
+              <Typography component="span" variant="body1">
                 Open Positions
               </Typography>
               <Typography
-                variant="h2"
                 component="h1"
-                mt={2}
                 mb={{ xs: 3, md: 4 }}
+                mt={2}
+                variant="h2"
               >
                 {job.title.rendered}
               </Typography>

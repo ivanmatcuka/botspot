@@ -13,17 +13,17 @@ type JobProps = {
 export const Job: FC<JobProps> = ({ id, title, excerpt }) => (
   <Tile headline={title}>
     <Box
+      alignItems="center"
       display="flex"
       flexDirection={{ xs: 'column', md: 'row' }}
-      alignItems="center"
       justifyContent="space-between"
       rowGap={{ xs: 2, md: 0 }}
     >
       <Typography
-        dangerouslySetInnerHTML={{ __html: excerpt }}
         component="div"
+        dangerouslySetInnerHTML={{ __html: excerpt }}
       />
-      <Button variant="primary" href={`/about/careers/${id}`}>
+      <Button href={`/about/careers/${id}`} variant="primary">
         <ArrowForwardIos />
       </Button>
     </Box>

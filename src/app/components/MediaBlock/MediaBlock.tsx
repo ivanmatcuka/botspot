@@ -27,19 +27,19 @@ export const MediaBlock: FC<MediaBlockProps> = ({
 
   return assetUrl.split('.').pop() === 'mp4' ? (
     <Box height={height}>
-      <video className={className} autoPlay={autoplay} muted loop>
-        <source type="video/mp4" src={assetUrl} />
+      <video autoPlay={autoplay} className={className} loop muted>
+        <source src={assetUrl} type="video/mp4" />
       </video>
     </Box>
   ) : (
     <Box height={height}>
       <Image
-        width={1920}
-        height={1080}
-        src={assetUrl}
         alt=""
         className={className}
+        height={1080}
         quality={100}
+        src={assetUrl}
+        width={1920}
       />
     </Box>
   );

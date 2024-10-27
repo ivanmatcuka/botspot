@@ -20,31 +20,31 @@ export default async function Home() {
   return (
     <main className="">
       <Banner
+        headline="THE WORLD’S MOST VERSATILE 3D SCANNERS"
         mediaBlockOptions={{
           assetUrl: '/videos/landing-page.mp4',
         }}
-        headline="THE WORLD’S MOST VERSATILE 3D SCANNERS"
-        subline="With over 10 years of experience in photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
         primaryCta={
-          <Button variant="primary" href="/products/botscan-neo">
+          <Button href="/products/botscan-neo" variant="primary">
             Explore NEO
           </Button>
         }
         secondaryCta={
-          <Button variant="secondary" href="/download-area">
+          <Button href="/download-area" variant="secondary">
             Download Data Sheet
           </Button>
         }
+        subline="With over 10 years of experience in photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
       />
 
       <Box
-        my={{ xs: 8, md: 10 }}
-        px={{ xs: 4, md: 8 }}
-        display="flex"
-        mx="auto"
-        overflow="scroll"
         className="no-scrollbar h-[80px]"
+        display="flex"
         maxWidth="xl"
+        mx="auto"
+        my={{ xs: 8, md: 10 }}
+        overflow="scroll"
+        px={{ xs: 4, md: 8 }}
       >
         <PartnerLogo name="canon" />
         <PartnerLogo name="umg" />
@@ -76,49 +76,49 @@ export default async function Home() {
 
         const contentBlock = (
           <SecondaryBlock
-            sublineElement={product.excerpt.rendered}
             headline={product.title.rendered}
             primaryCta={
-              <Button variant="primary" href={`/products/${product.slug}`}>
+              <Button href={`/products/${product.slug}`} variant="primary">
                 Explore {product.title.rendered}
               </Button>
             }
             secondaryCta={
-              <Button variant="secondary" href="/download-area">
+              <Button href="/download-area" variant="secondary">
                 Download Data Sheet
               </Button>
             }
+            sublineElement={product.excerpt.rendered}
           />
         );
 
         return imagesUrls.length ? (
-          <ScrollableBlock key={product.id} imagesUrls={imagesUrls}>
+          <ScrollableBlock imagesUrls={imagesUrls} key={product.id}>
             {contentBlock}
           </ScrollableBlock>
         ) : (
           <>
-            <MediaBlock key={product.id} assetUrl={featuredImage} />
+            <MediaBlock assetUrl={featuredImage} key={product.id} />
             <PageContainer banner>{contentBlock}</PageContainer>
           </>
         );
       })}
 
       <Box
-        width="100%"
         bgcolor="grey.100"
         display="flex"
         flexDirection="column"
         py={{ xs: 4, md: 10 }}
+        width="100%"
       >
         <PageContainer mb={{ xs: 3, md: 6 }}>
           <MainBlock
-            subline="How we can help"
-            headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
             cta={
-              <Button variant="primary" href="/service">
+              <Button href="/service" variant="primary">
                 Explore Our Services
               </Button>
             }
+            headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
+            subline="How we can help"
           />
         </PageContainer>
         <Tile headline="How We Can Help">

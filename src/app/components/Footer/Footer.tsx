@@ -20,14 +20,14 @@ const Text = ({
 
   if (href) {
     link = (
-      <Link href={href} className="hover:underline">
+      <Link className="hover:underline" href={href}>
         {children}
       </Link>
     );
   }
 
   return (
-    <Typography variant="body2" color="white" {...props}>
+    <Typography color="white" variant="body2" {...props}>
       {link ?? children}
     </Typography>
   );
@@ -39,8 +39,8 @@ type IconLinkProps = {
   alt: string;
 };
 const IconLink: FC<IconLinkProps> = ({ href, src, alt }) => (
-  <Link href={href} className="hover:underline" target="_blank">
-    <Image width={32} height={32} src={src} alt={alt} />
+  <Link className="hover:underline" href={href} target="_blank">
+    <Image alt={alt} height={32} src={src} width={32} />
   </Link>
 );
 
@@ -51,9 +51,9 @@ export const Footer = async () => {
     <>
       <footer className="bg-info-main">
         <Container maxWidth="xl">
-          <Grid container py={8} xs={12} md={10} mx="auto">
-            <Grid item flexBasis={{ xs: '100%', md: '40%' }}>
-              <Image width={184} height={74} src="/logo_white.svg" alt="logo" />
+          <Grid md={10} mx="auto" py={8} xs={12} container>
+            <Grid flexBasis={{ xs: '100%', md: '40%' }} item>
+              <Image alt="logo" height={74} src="/logo_white.svg" width={184} />
               <Text>botspot 3D Scan GmbH</Text>
               <Text>Bruno-Bürgel-Weg 134-144</Text>
               <Text>12439 Berlin</Text>
@@ -61,41 +61,41 @@ export const Footer = async () => {
               <Text href="tel:+49 30 985 40 400">+49 30 985 40 400</Text>
               <br />
               <Text href="mailto:mail@botspot.de">mail@botspot.de</Text>
-              <Box mt={3} display={{ xs: 'none', md: 'flex' }} gap={3}>
+              <Box display={{ xs: 'none', md: 'flex' }} gap={3} mt={3}>
                 <IconLink
+                  alt="instagram"
                   href="https://instagram.com/botspot3d/"
                   src="/link_ig.svg"
-                  alt="instagram"
                 />
                 <IconLink
+                  alt="x"
                   href="https://x.com/botspot3d"
                   src="/link_x.svg"
-                  alt="x"
                 />
                 <IconLink
+                  alt="linkedin"
                   href="https://linkedin.com/company/botspot-3d-scan/"
                   src="/link_linkedin.svg"
-                  alt="linkedin"
                 />
               </Box>
             </Grid>
             <Grid
-              item
               flexBasis={{ xs: '100%', md: '20%' }}
               mt={{ xs: 5, md: 9.25 }}
+              item
             >
               <Text href="/products">3D Scanner</Text>
               <br />
               {products.map((product, index) => (
-                <Text key={index} href={`/products/${product.slug}`}>
+                <Text href={`/products/${product.slug}`} key={index}>
                   {product.title.rendered}
                 </Text>
               ))}
             </Grid>
             <Grid
-              item
               flexBasis={{ xs: '100%', md: '20%' }}
               mt={{ xs: 5, md: 9.25 }}
+              item
             >
               <Text>Resources</Text>
               <br />
@@ -104,9 +104,9 @@ export const Footer = async () => {
               <Text href="/learn">What is 3D Scanning?</Text>
             </Grid>
             <Grid
-              item
               flexBasis={{ xs: '100%', md: '20%' }}
               mt={{ xs: 5, md: 9.25 }}
+              item
             >
               <Text>Company</Text>
               <br />
@@ -115,42 +115,42 @@ export const Footer = async () => {
               <Text href="/about/careers">Careers</Text>
             </Grid>
             <Box
-              mt={3}
-              gap={3}
               display={{ xs: 'flex', md: 'none' }}
+              gap={3}
               justifyContent="center"
+              mt={3}
               mx="auto"
             >
               <IconLink
+                alt="instagram"
                 href="https://instagram.com/botspot3d/"
                 src="/link_ig.svg"
-                alt="instagram"
               />
               <IconLink
+                alt="x"
                 href="https://x.com/botspot3d"
                 src="/link_x.svg"
-                alt="x"
               />
               <IconLink
+                alt="linkedin"
                 href="https://linkedin.com/company/botspot-3d-scan/"
                 src="/link_linkedin.svg"
-                alt="linkedin"
               />
             </Box>
           </Grid>
         </Container>
       </footer>
       <footer className="bg-common-black">
-        <Grid container py={3} maxWidth="xl" mx="auto">
+        <Grid maxWidth="xl" mx="auto" py={3} container>
           <Grid
-            flexBasis="100%"
+            alignItems={{ xs: 'center', md: 'flex-end' }}
             display="flex"
+            flexBasis="100%"
+            flexDirection={{ xs: 'column', md: 'row' }}
             gap={3}
-            xs={12}
             md={10}
             mx="auto"
-            flexDirection={{ xs: 'column', md: 'row' }}
-            alignItems={{ xs: 'center', md: 'flex-end' }}
+            xs={12}
             item
           >
             <Text mr={{ xs: 0, md: 'auto' }}>

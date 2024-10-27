@@ -14,26 +14,26 @@ export const ConsentProvider: FC<PropsWithChildren> = ({ children }) => {
     <>
       <Dialog
         open={isOpen}
-        onClose={() => setIsOpen(false)}
         title="We value your privacy."
+        onClose={() => setIsOpen(false)}
       >
         <Box
-          width="100%"
-          maxWidth={600}
-          mx="auto"
+          columnGap={3}
           display="flex"
           flexDirection={{ xs: 'column', md: 'row' }}
           flexWrap="wrap"
-          columnGap={3}
-          rowGap={3}
           justifyContent={{ xs: 'center', md: 'flex-end' }}
+          maxWidth={600}
+          mx="auto"
+          rowGap={3}
+          width="100%"
         >
-          <Typography variant="body1" component="p" mt={3}>
+          <Typography component="p" mt={3} variant="body1">
             We use cookies on this website to enhance your user experience. By
             clicking “I agree”, you are giving your consent for us to set
             cookies.
           </Typography>
-          <Typography variant="body1" component="p" mb={3}>
+          <Typography component="p" mb={3} variant="body1">
             We use cookies on this website to enhance your user experience. By
             clicking “I agree”, you are giving your consent for us to set
             cookies.

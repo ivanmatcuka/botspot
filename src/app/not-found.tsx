@@ -5,23 +5,23 @@ import { Box, Typography } from '@mui/material';
 export default function NotFound() {
   return (
     <Box
-      mx="auto"
       display="flex"
       flex={1}
       flexDirection="column"
-      justifyContent="center"
-      textAlign="center"
-      maxWidth="xl"
       height="100%"
+      justifyContent="center"
+      maxWidth="xl"
+      mx="auto"
+      textAlign="center"
     >
-      <Typography variant="h1" fontWeight={600}>
+      <Typography fontWeight={600} variant="h1">
         404
       </Typography>
-      <Typography variant="body1" mt={3} mb={8}>
+      <Typography mb={8} mt={3} variant="body1">
         Page not Found
       </Typography>
 
-      <Button variant="primary" href="/">
+      <Button href="/" variant="primary">
         Go Home
       </Button>
     </Box>

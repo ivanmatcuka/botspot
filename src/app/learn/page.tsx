@@ -18,27 +18,27 @@ export default function Learn() {
   return (
     <main className="">
       <Banner
+        headline="LEARN ABOUT 3D SCANNING"
         mediaBlockOptions={{
           assetUrl: '/img/banners/learn.png',
         }}
-        headline="LEARN ABOUT 3D SCANNING"
-        subline="Discover the fundamentals of 3D scanning and explore how this cutting-edge technology is transforming industries, from design to manufacturing."
         primaryCta={
-          <Button variant="primary" href="/blog">
+          <Button href="/blog" variant="primary">
             Check Our Blog
           </Button>
         }
         secondaryCta={
-          <Button variant="secondary" href="/contact-us">
+          <Button href="/contact-us" variant="secondary">
             Ask Us Α Question
           </Button>
         }
+        subline="Discover the fundamentals of 3D scanning and explore how this cutting-edge technology is transforming industries, from design to manufacturing."
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          subline="What Is 3D Scanning?"
           headline="3D photogrammetry scanning creates a 3D model by combining many photos taken from different angles of an object or scene."
+          subline="What Is 3D Scanning?"
         />
       </PageContainer>
 
@@ -67,23 +67,23 @@ export default function Learn() {
 
       <Box maxWidth="xl" mx="auto">
         <Image
-          src="/img/learn/1.png"
           alt=""
-          width={1010}
           height={440}
-          style={{ width: '100%' }}
           quality={100}
+          src="/img/learn/1.png"
+          style={{ width: '100%' }}
+          width={1010}
         />
       </Box>
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          subline="Questions & Articles"
-          headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
           cta={
-            <Button variant="secondary" href="/blog">
+            <Button href="/blog" variant="secondary">
               Visit Blog
             </Button>
           }
+          headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
+          subline="Questions & Articles"
         />
       </PageContainer>
 

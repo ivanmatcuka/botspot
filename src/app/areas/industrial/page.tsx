@@ -20,8 +20,8 @@ export default function Industrial() {
       <MediaBlock assetUrl="/img/areas/industrial/banner.png" banner />
       <PageContainer banner>
         <SecondaryBlock
-          sublineElement="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
           headline="Industrial Areas of Use"
+          sublineElement="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
         />
       </PageContainer>
 
@@ -53,12 +53,12 @@ export default function Industrial() {
           <Iframe src="https://sketchfab.com/models/d839701297f54d978ffb39a4566c0cdf/embed?autospin=1&autostart=1&ui_animations=0&ui_infos=0&ui_stop=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&dnt=1" />
         </Box>
 
-        <Typography variant="body1" my={2}>
+        <Typography my={2} variant="body1">
           “botspot works with a lot of effort to find the best solution for the
           customer – with success. We are very satisfied and recommend botspot
           with a clear conscience!”
         </Typography>
-        <Button variant="primary" href="/blog">
+        <Button href="/blog" variant="primary">
           Read Article
         </Button>
       </Tile>
@@ -66,7 +66,7 @@ export default function Industrial() {
         <Box height={360}>
           <Iframe src="https://sketchfab.com/models/21ff92563c824f01a2166f22448f2940/embed?camera=0&ui_animations=0&ui_infos=0&ui_stop=1&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&dnt=1" />
         </Box>
-        <Typography variant="body1" mt={2}>
+        <Typography mt={2} variant="body1">
           Where older components are no longer manufactured and no CAD data of
           the object is available, 3D scanning is the method of choice to
           digitize the objects. Subsequently, a perfect copy of the original
@@ -78,7 +78,7 @@ export default function Industrial() {
         <Box height={360}>
           <Iframe src="https://sketchfab.com/models/83cbb24b8aca4dd1882df4a3dc9c6e65/embed?camera=0&ui_animations=0&ui_infos=0&ui_stop=1&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&dnt=1" />
         </Box>
-        <Typography variant="body1" mt={2}>
+        <Typography mt={2} variant="body1">
           A special focus of our current development work is on automotive
           applications, especially for the quality control and the inspection of
           smallest damages and corrosion defects with highest possible speed. In
@@ -89,13 +89,13 @@ export default function Industrial() {
 
       <GalleryTile imgUrl="/img/areas/industrial/4.png">
         <SecondaryBlock
-          sublineElement="Durable and fast, our 3D Studio is ideal for industrial applications."
           headline="We recommend our 3D Studio Scanner"
           primaryCta={
-            <Button variant="primary" href="/products/3d-studio">
+            <Button href="/products/3d-studio" variant="primary">
               Explore 3D Object Scanner
             </Button>
           }
+          sublineElement="Durable and fast, our 3D Studio is ideal for industrial applications."
         />
       </GalleryTile>
     </main>

@@ -16,13 +16,13 @@ export const Dialog: FC<PropsWithChildren<DialogProps>> = ({
   open,
 }) => {
   return (
-    <MuiDialog open={open} fullWidth maxWidth="md">
+    <MuiDialog maxWidth="md" open={open} fullWidth>
       {title && (
         <>
-          <MuiDialogTitle variant="h3" className="md:hidden" component="h2">
+          <MuiDialogTitle className="md:hidden" component="h2" variant="h3">
             {title}
           </MuiDialogTitle>
-          <MuiDialogTitle variant="h2" className="hidden md:block">
+          <MuiDialogTitle className="hidden md:block" variant="h2">
             {title}
           </MuiDialogTitle>
         </>

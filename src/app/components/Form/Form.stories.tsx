@@ -40,22 +40,24 @@ const FormWithHooks: FC = () => {
   } = useForm();
 
   return (
-    <Paper elevation={1} className="border-2 border-divider">
+    <Paper className="border-2 border-divider" elevation={1}>
       <form onSubmit={handleSubmit(() => {})}>
-        <Grid display="flex" flexWrap="wrap" gap={3} container p={5}>
+        <Grid display="flex" flexWrap="wrap" gap={3} p={5} container>
           <Input
+            error={errors.name}
+            key="name"
             label="Name"
             name="name"
-            key="name"
+            register={register}
             rules={{ required: 'Name is required' }}
             required
-            register={register}
-            error={errors.name}
           />
           <Input
+            error={errors.email}
+            key="email"
             label="Email"
             name="email"
-            key="email"
+            register={register}
             rules={{
               required: 'Email is required',
               pattern: {
@@ -64,20 +66,18 @@ const FormWithHooks: FC = () => {
               },
             }}
             required
-            register={register}
-            error={errors.email}
           />
           <Input
+            error={errors.message}
+            key="message"
             label="Message"
             name="message"
-            key="message"
+            register={register}
             rules={{ required: 'Message is required' }}
             fullWidth
             required
-            register={register}
-            error={errors.message}
           />
-          <Button variant="primary" type="submit">
+          <Button type="submit" variant="primary">
             Submit
           </Button>
         </Grid>

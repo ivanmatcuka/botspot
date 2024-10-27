@@ -22,8 +22,8 @@ export default async function Careers() {
 
       <PageContainer banner>
         <SecondaryBlock
-          sublineElement="We are always on the lookout for young talents as well as seasoned professionals."
           headline="Careers"
+          sublineElement="We are always on the lookout for young talents as well as seasoned professionals."
         />
       </PageContainer>
 

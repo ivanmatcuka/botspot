@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Blog() {
   return (
     <main className="">
-      <PageContainer mt={{ xs: 10, md: 15 }} mb={8}>
+      <PageContainer mb={8} mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline={
             'Our "3D Academy" offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology.'

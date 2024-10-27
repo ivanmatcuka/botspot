@@ -13,13 +13,13 @@ export default function ContactUs() {
       <Box
         className="flex flex-1 items-center"
         maxWidth="xl"
-        mt={6}
         mb={8}
+        mt={6}
         mx="auto"
         px={3}
       >
-        <Grid container xs={12}>
-          <Grid item xs={12} md={10} mx="auto">
+        <Grid xs={12} container>
+          <Grid md={10} mx="auto" xs={12} item>
             <FeedbackForm frameless />
           </Grid>
         </Grid>

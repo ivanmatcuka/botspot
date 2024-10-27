@@ -21,22 +21,22 @@ export default function Service() {
   return (
     <main className="">
       <Banner
+        headline="3D SCAN SERVICE"
         mediaBlockOptions={{
           assetUrl: '/img/banners/services.png',
         }}
-        headline="3D SCAN SERVICE"
-        subline="Our 3D scan services cater to individuals and businesses seeking  high-quality scans without the upfront costs and technical requirements  of owning a scanner."
         primaryCta={<Button variant="primary">Try Before You Buy</Button>}
         secondaryCta={
           <Button variant="secondary">In-House Scan Service</Button>
         }
+        subline="Our 3D scan services cater to individuals and businesses seeking  high-quality scans without the upfront costs and technical requirements  of owning a scanner."
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          subline="Try Before You Buy"
-          headline="Experience the quality of our scanning technology before committing to a purchase."
           cta={<Button variant="primary">Request Try Before You Buy</Button>}
+          headline="Experience the quality of our scanning technology before committing to a purchase."
+          subline="Try Before You Buy"
         />
       </PageContainer>
 
@@ -72,9 +72,9 @@ export default function Service() {
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          subline="In-House Scan Service"
-          headline="We convert physical objects into precise digital models, ideal for design, quality control, and VR."
           cta={<Button variant="primary">Request In-House Scan Service</Button>}
+          headline="We convert physical objects into precise digital models, ideal for design, quality control, and VR."
+          subline="In-House Scan Service"
         />
       </PageContainer>
 
@@ -100,21 +100,21 @@ export default function Service() {
 
       <GalleryTile bgColor="white" imgUrl="/img/service/1.png">
         <SecondaryBlock
-          sublineElement="Corporate event, fair show or convention coming up? Guarantee an unforgettable experience with full-body scanning. We deliver and set up the scanner, ensuring a seamless and impressive experience."
           headline="Event Hire"
           primaryCta={<Button variant="primary">Request Event Hire</Button>}
+          sublineElement="Corporate event, fair show or convention coming up? Guarantee an unforgettable experience with full-body scanning. We deliver and set up the scanner, ensuring a seamless and impressive experience."
         />
       </GalleryTile>
 
       <GalleryTile imgUrl="/img/service/2.png">
         <SecondaryBlock
-          sublineElement="Have a large or unusual item that needs scanning? Our Innovation Lab specializes in handling special requests, even for the most challenging projects."
           headline="Special Requests"
           primaryCta={
-            <Button variant="primary" href="/about/innovation-lab">
+            <Button href="/about/innovation-lab" variant="primary">
               Explore Innovation Lab
             </Button>
           }
+          sublineElement="Have a large or unusual item that needs scanning? Our Innovation Lab specializes in handling special requests, even for the most challenging projects."
         />
       </GalleryTile>
 

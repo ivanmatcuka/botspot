@@ -15,25 +15,25 @@ export default function TermsAndConditions() {
         px={3}
         textAlign={{ xs: 'center', md: 'left' }}
       >
-        <Typography variant="h2" mb={10} lineHeight={1.2} component="h1">
+        <Typography component="h1" lineHeight={1.2} mb={10} variant="h2">
           Terms and conditions
         </Typography>
         <Typography
-          variant="h3"
+          component="h2"
           fontWeight={300}
           lineHeight={1.2}
-          component="h2"
+          variant="h3"
         >
           General Terms and Conditions of Sale for Use Vis-a-Vis Entrepreneurs
         </Typography>
-        <Typography variant="h4" lineHeight={1.2} component="p" my={6}>
+        <Typography component="p" lineHeight={1.2} my={6} variant="h4">
           1. Scope, General Terms and Conditions of the Buyer or a Third Party
         </Typography>
         <Typography
-          variant="body1"
-          lineHeight={1.4}
           component="p"
           fontWeight={300}
+          lineHeight={1.4}
+          variant="body1"
         >
           (1) All deliveries, services and offers (including the delivery of
           goods, rights and licenses or the production of tangible or intangible
@@ -47,10 +47,10 @@ export default function TermsAndConditions() {
           Buyer, even if they are not separately agreed upon again.
         </Typography>
         <Typography
-          variant="body1"
-          lineHeight={1.4}
           component="p"
           fontWeight={300}
+          lineHeight={1.4}
+          variant="body1"
         >
           (2) Deviating, conflicting or supplementary terms and conditions of
           the Buyer or third parties shall not apply, even if the Seller does

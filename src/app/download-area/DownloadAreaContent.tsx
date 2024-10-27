@@ -30,29 +30,29 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
 
   return isSubmitted ? (
     <>
-      <PageContainer mt={8} mb={6}>
+      <PageContainer mb={6} mt={8}>
         <MainBlock
           headline="Exclusively access all relevant data about our 3D Scanners below."
           subline="Download Area"
         />
       </PageContainer>
       <PageContainer mb={8}>
-        <Grid container spacing={{ xs: 2, md: 3, lg: 5 }}>
+        <Grid spacing={{ xs: 2, md: 3, lg: 5 }} container>
           {products.map((product, index) => {
             const { datasheet, picture }: any = product.acf;
 
             return (
-              <Grid item xs={12} md={6} lg={4} key={index}>
+              <Grid key={index} lg={4} md={6} xs={12} item>
                 <Post
-                  title={product.title.rendered}
-                  excerpt={product.excerpt.rendered}
                   cta={
-                    <Button variant="secondary" href={datasheet}>
+                    <Button href={datasheet} variant="secondary">
                       Download Data Sheet
                     </Button>
                   }
+                  excerpt={product.excerpt.rendered}
                   featuredImage={picture}
                   objectFit="contain"
+                  title={product.title.rendered}
                 />
               </Grid>
             );

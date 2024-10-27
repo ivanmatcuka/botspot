@@ -26,18 +26,18 @@ export default async function InnovationLab() {
       <MediaBlock assetUrl="/img/banners/innovation-lab.png" banner />
       <PageContainer banner>
         <SecondaryBlock
-          sublineElement="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
           headline="Innovation Lab"
           primaryCta={
-            <Button variant="primary" href="/contact-us">
+            <Button href="/contact-us" variant="primary">
               Contact Innovation Lab
             </Button>
           }
           secondaryCta={
-            <Button variant="secondary" href="/blog">
+            <Button href="/blog" variant="secondary">
               Visit Blog
             </Button>
           }
+          sublineElement="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
         />
       </PageContainer>
 
@@ -73,31 +73,30 @@ export default async function InnovationLab() {
         </Typography>
       </Tile>
 
-      <Box bgcolor="grey.100" py={{ xs: 5, md: 10 }} overflow="auto">
+      <Box bgcolor="grey.100" overflow="auto" py={{ xs: 5, md: 10 }}>
         <PageContainer mb={5} mt={0}>
           <MainBlock
-            headline={
-              'On our constant quest to stay up to date, our 3D Academy allows for exclusive insights.'
-            }
-            subline="Recent Developments"
-            mt={{}}
             cta={
-              <Button variant="primary" href="/blog">
+              <Button href="/blog" variant="primary">
                 Visit Blog
               </Button>
             }
+            headline={
+              'On our constant quest to stay up to date, our 3D Academy allows for exclusive insights.'
+            }
+            mt={{}}
+            subline="Recent Developments"
           />
         </PageContainer>
         {post && (
           <PageContainer mb={0}>
             <Post
-              title={post.title.rendered}
-              excerpt={post.excerpt.rendered}
               cta={
-                <Button variant="secondary" href={`/blog/${post.id}`}>
+                <Button href={`/blog/${post.id}`} variant="secondary">
                   Read Full Story
                 </Button>
               }
+              excerpt={post.excerpt.rendered}
               featuredImage={
                 (
                   post._embedded?.[
@@ -105,6 +104,7 @@ export default async function InnovationLab() {
                   ]?.[0] as WP_REST_API_Attachment
                 )?.source_url
               }
+              title={post.title.rendered}
             />
           </PageContainer>
         )}

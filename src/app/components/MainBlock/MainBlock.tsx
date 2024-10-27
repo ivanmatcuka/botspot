@@ -17,21 +17,21 @@ export const MainBlock: FC<MainBlockProps> = ({
   subAssetUrl,
 }) => (
   <Box textAlign={{ xs: 'center', md: 'left' }}>
-    <Typography variant="body1" mb={2}>
+    <Typography mb={2} variant="body1">
       {subline}
     </Typography>
-    <Typography variant="h2" mb={cta ? 4 : 0}>
+    <Typography mb={cta ? 4 : 0} variant="h2">
       {headline}
     </Typography>
     {cta}
     {subAssetUrl && (
       <Image
-        src={subAssetUrl}
-        width={800}
-        height={800}
         alt=""
         className="object-cover w-full h-auto pt-[48px] min-h-[240px]"
+        height={800}
         quality={100}
+        src={subAssetUrl}
+        width={800}
       />
     )}
   </Box>

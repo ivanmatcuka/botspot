@@ -10,9 +10,9 @@ export const UnorderedListItem: FC<PropsWithChildren> = ({ children }) => (
     <ListItemText>
       <Typography
         display="flex"
-        variant="body1"
         lineHeight={2}
         textAlign={{ xs: 'center', md: 'left' }}
+        variant="body1"
       >
         • {children}
       </Typography>

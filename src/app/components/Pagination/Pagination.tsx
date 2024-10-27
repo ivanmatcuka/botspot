@@ -26,13 +26,9 @@ export const Pagination: FC<PaginationProps> = ({
   return (
     <Box>
       <MuiPagination
-        count={count}
-        variant="outlined"
-        shape="rounded"
-        siblingCount={matches ? 0 : 1}
         boundaryCount={matches ? 0 : 1}
-        onChange={(_, page) => setPage(page)}
         color="primary"
+        count={count}
         renderItem={({ onClick, page, type, selected, disabled }) => {
           const contentType: Record<
             typeof type,
@@ -71,7 +67,7 @@ export const Pagination: FC<PaginationProps> = ({
 
           if (type !== 'page') {
             return (
-              <Button variant="secondary" onClick={onClick} disabled={disabled}>
+              <Button disabled={disabled} variant="secondary" onClick={onClick}>
                 {contentType[type].buttonText}
               </Button>
             );
@@ -79,14 +75,18 @@ export const Pagination: FC<PaginationProps> = ({
 
           return (
             <Button
+              disabled={disabled}
               variant={selected ? 'primary' : 'secondary'}
               onClick={onClick}
-              disabled={disabled}
             >
               {page}
             </Button>
           );
         }}
+        shape="rounded"
+        siblingCount={matches ? 0 : 1}
+        variant="outlined"
+        onChange={(_, page) => setPage(page)}
       />
     </Box>
   );

@@ -37,14 +37,14 @@ export const Posts: FC<PostProps> = ({
   }, [page, perPage]);
 
   return (
-    <Box maxWidth="xl" className="w-full flex justify-center" mx="auto">
-      <Grid container spacing={{ xs: 2, md: 3, lg: 5 }} xs={10}>
+    <Box className="w-full flex justify-center" maxWidth="xl" mx="auto">
+      <Grid spacing={{ xs: 2, md: 3, lg: 5 }} xs={10} container>
         {loading
           ? Array(6)
               .fill(null)
               .map((_, index) => (
-                <Grid item xs={12} md={6} lg={4} key={index}>
-                  <Skeleton variant="rounded" height={360} />
+                <Grid key={index} lg={4} md={6} xs={12} item>
+                  <Skeleton height={360} variant="rounded" />
                 </Grid>
               ))
           : posts.map((post) => {
@@ -57,14 +57,13 @@ export const Posts: FC<PostProps> = ({
 
               return (
                 <Grid
-                  item
-                  xs={12}
-                  md={list ? 12 : 6}
-                  lg={list ? 12 : 4}
                   key={post.id}
+                  lg={list ? 12 : 4}
+                  md={list ? 12 : 6}
+                  xs={12}
+                  item
                 >
                   <Post
-                    title={post.title.rendered}
                     cta={
                       <Button
                         variant="secondary"
@@ -75,16 +74,17 @@ export const Posts: FC<PostProps> = ({
                     }
                     excerpt={post.excerpt.rendered}
                     featuredImage={featuredImage}
+                    title={post.title.rendered}
                   />
                 </Grid>
               );
             })}
         {!hidePagination && (
-          <Grid xs={12} mx="auto" item>
+          <Grid mx="auto" xs={12} item>
             <Pagination
               count={Math.ceil(count / perPage)}
-              setPage={setPage}
               perPage={perPage}
+              setPage={setPage}
             />
           </Grid>
         )}

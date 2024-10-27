@@ -14,23 +14,23 @@ export const GalleryTile: FC<PropsWithChildren<GalleryTileProps>> = ({
   bgColor = 'grey.100',
 }) => (
   <Box bgcolor={bgColor} py={{ xs: 5, md: 10 }}>
-    <Grid container alignItems="center" mx="auto" maxWidth="xl" px={3}>
-      <Grid xs={0} md={1} />
-      <Grid item xs={12} md={5}>
+    <Grid alignItems="center" maxWidth="xl" mx="auto" px={3} container>
+      <Grid md={1} xs={0} />
+      <Grid md={5} xs={12} item>
         <Image
+          alt={alt ?? ''}
+          className="rounded-xl"
+          height={304}
+          quality={100}
           src={imgUrl}
           width={493}
-          height={304}
-          alt={alt ?? ''}
-          quality={100}
-          className="rounded-xl"
         />
       </Grid>
-      <Grid xs={0} md={1} />
-      <Grid item xs={12} md={4} mt={{ xs: 2, md: 0 }}>
+      <Grid md={1} xs={0} />
+      <Grid md={4} mt={{ xs: 2, md: 0 }} xs={12} item>
         {children}
       </Grid>
-      <Grid xs={0} md={1} />
+      <Grid md={1} xs={0} />
     </Grid>
   </Box>
 );

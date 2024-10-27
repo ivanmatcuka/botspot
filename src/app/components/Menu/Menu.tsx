@@ -40,12 +40,12 @@ export const Menu: FC<PropsWithChildren<MenuProps>> = ({
   return (
     <>
       <Button
-        id={`basic-button-${label}`}
         aria-controls={open ? `basic-menu-${label}` : undefined}
-        aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
-        variant={variant}
+        aria-haspopup="true"
         endIcon={open ? <ExpandLess /> : <ExpandMore />}
+        id={`basic-button-${label}`}
+        variant={variant}
         {...bindHover(popupState)}
         onClick={() => href && push(href)}
       >

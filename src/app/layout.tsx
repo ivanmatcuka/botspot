@@ -54,6 +54,11 @@ export default async function RootLayout({
           <ThemeRegistry>
             <ConsentProvider>
               <Navbar
+                cta={
+                  <Button href="/contact-us" variant="secondary">
+                    Contact Us
+                  </Button>
+                }
                 navItems={[
                   {
                     label: 'Products',
@@ -87,11 +92,6 @@ export default async function RootLayout({
                     ],
                   },
                 ]}
-                cta={
-                  <Button variant="secondary" href="/contact-us">
-                    Contact Us
-                  </Button>
-                }
               />
               <Box className="flex-1 flex flex-col">{children}</Box>
               <Footer />

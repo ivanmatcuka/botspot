@@ -9,13 +9,13 @@ type JobsProps = {
 };
 export const Jobs: FC<JobsProps> = ({ data }) => (
   <Box maxWidth="xl" mx="auto">
-    <Grid container spacing={{ xs: 2, md: 3, lg: 5 }}>
+    <Grid spacing={{ xs: 2, md: 3, lg: 5 }} container>
       {data.map((post) => (
-        <Grid item xs={12} key={post.id}>
+        <Grid key={post.id} xs={12} item>
           <Job
+            excerpt={post.excerpt.rendered}
             id={post.id}
             title={post.title.rendered}
-            excerpt={post.excerpt.rendered}
           />
         </Grid>
       ))}

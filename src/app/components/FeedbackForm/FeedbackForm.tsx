@@ -71,7 +71,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
           p={frameless ? 0 : { xs: 3, md: 5 }}
           py={frameless ? 0 : { xs: 2 }}
         >
-          <Typography variant="h2" mb={2} className="text-center md:text-left">
+          <Typography className="text-center md:text-left" mb={2} variant="h2">
             Thank you for your interest and curiosity in
           </Typography>
 
@@ -80,8 +80,8 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
               <FormGroup sx={{ px: 2, py: 1 }}>
                 {topics.map((currTopic, index) => (
                   <FormControlLabel
-                    key={index}
                     control={<Checkbox checked={topic === currTopic} />}
+                    key={index}
                     label={currTopic}
                     onChange={() => {
                       setValue('message', generateMessage(currTopic));
@@ -94,9 +94,9 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
           </Box>
 
           <Typography
-            variant="body1"
-            my={3}
             className="text-center md:text-left"
+            my={3}
+            variant="body1"
           >
             Just fill out the form below and we will be in touch with you
             shortly.
@@ -106,22 +106,24 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
             display="flex"
             flexWrap="wrap"
             gap={3}
-            rowGap={2}
             justifyContent={{ xs: 'center', md: 'left' }}
+            rowGap={2}
           >
             <Input
+              error={errors.name}
+              key="name"
               label="Name"
               name="name"
-              key="name"
+              register={register}
               rules={{ required: 'Name is required' }}
               required
-              register={register}
-              error={errors.name}
             />
             <Input
+              error={errors.email}
+              key="email"
               label="Email"
               name="email"
-              key="email"
+              register={register}
               rules={{
                 required: 'Email is required',
                 pattern: {
@@ -130,22 +132,20 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
                 },
               }}
               required
-              register={register}
-              error={errors.email}
             />
             <Input
+              error={errors.message}
+              key="message"
               label="Message"
               name="message"
-              key="message"
+              register={register}
+              rows={3}
               rules={{ required: 'Message is required' }}
+              type="textarea"
               fullWidth
               required
-              register={register}
-              error={errors.message}
-              type="textarea"
-              rows={3}
             />
-            <Button variant="primary" type="submit" disabled={isLoading}>
+            <Button disabled={isLoading} type="submit" variant="primary">
               Submit
             </Button>
           </Box>
@@ -170,16 +170,16 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
   return (
     <Container maxWidth="xl">
       <Grid
-        container
-        pt={{ xs: 5, md: 10 }}
-        mb={{ xs: 10, md: 15 }}
-        mx="auto"
-        xs={12}
-        md={10}
         direction="column"
+        mb={{ xs: 10, md: 15 }}
+        md={10}
+        mx="auto"
+        pt={{ xs: 5, md: 10 }}
+        xs={12}
+        container
       >
         <Grid item>
-          <Paper elevation={1} className="border-2 border-divider">
+          <Paper className="border-2 border-divider" elevation={1}>
             {form}
           </Paper>
         </Grid>

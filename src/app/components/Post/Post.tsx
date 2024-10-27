@@ -18,40 +18,40 @@ export const Post: FC<PostProps> = ({
   objectFit = 'cover',
 }) => (
   <Box
+    alignItems="flex-end"
     className="relative rounded-lg text-white overflow-hidden h-full min-h-[360px]"
     display="flex"
-    alignItems="flex-end"
   >
     <Box
+      alignItems="center"
       className="bg-common-black bg-opacity-80 w-full text-center z-10"
       display="flex"
       flexDirection="column"
-      alignItems="center"
-      p={2}
       gap={1}
+      p={2}
     >
-      <Typography variant="h4" className="line-clamp-2">
+      <Typography className="line-clamp-2" variant="h4">
         {title}
       </Typography>
       {excerpt && (
         <Typography
-          variant="body1"
-          mb={1}
           className="line-clamp-3"
           component="div"
           dangerouslySetInnerHTML={{ __html: excerpt }}
+          mb={1}
+          variant="body1"
         />
       )}
       {cta}
     </Box>
     {featuredImage && (
       <Image
-        height={360}
-        width={310}
         alt=""
-        src={featuredImage}
         className={`w-full h-full absolute inset-0 ${objectFit === 'cover' ? 'object-cover' : 'object-contain'} object-top`}
+        height={360}
         quality={100}
+        src={featuredImage}
+        width={310}
       />
     )}
   </Box>

@@ -20,60 +20,60 @@ export const Banner: FC<BannerProps> = ({
   secondaryCta,
   mediaBlockOptions,
 }) => (
-  <Box position="relative" minHeight={{ xs: '100vh', md: 768, lg: 800 }}>
+  <Box minHeight={{ xs: '100vh', md: 768, lg: 800 }} position="relative">
     {mediaBlockOptions && <MediaBlock {...mediaBlockOptions} fullHeight />}
 
     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
     <Box
-      position="absolute"
-      top={0}
-      right={0}
       bottom={0}
       left={0}
       maxWidth="xl"
       mx="auto"
+      position="absolute"
       px={3}
+      right={0}
+      top={0}
     >
-      <Grid container alignItems="end" justifyContent="end" height="100%">
+      <Grid alignItems="end" height="100%" justifyContent="end" container>
         <Grid
-          item
-          xs={12}
-          md={6}
-          mb={{ xs: 'auto', md: 15, lg: 29 }}
-          mt={{ xs: 'auto', md: 0 }}
           display="flex"
           flexDirection="column"
           justifyContent="center"
+          mb={{ xs: 'auto', md: 15, lg: 29 }}
+          md={6}
+          mt={{ xs: 'auto', md: 0 }}
           textAlign={{ xs: 'center', md: 'left' }}
+          xs={12}
+          item
         >
-          <Typography variant="h1" fontWeight="medium" color="white">
+          <Typography color="white" fontWeight="medium" variant="h1">
             {headline}
           </Typography>
           <Typography
-            variant="body1"
+            color="white"
             mb={{ xs: 3, md: 2 }}
             mt={{ xs: 1, md: 0.5 }}
-            color="white"
+            variant="body1"
           >
             {subline}
           </Typography>
           <Box display="flex" mt={{ xs: 3, md: 8 }}>
             <Grid
-              container
-              spacing={2}
-              justifyContent={{ xs: 'center', md: 'left' }}
               alignItems="center"
+              justifyContent={{ xs: 'center', md: 'left' }}
+              spacing={2}
+              container
             >
-              <Grid item xs={12} md="auto">
+              <Grid md="auto" xs={12} item>
                 {primaryCta}
               </Grid>
-              <Grid item xs={12} md="auto">
+              <Grid md="auto" xs={12} item>
                 {secondaryCta}
               </Grid>
             </Grid>
           </Box>
         </Grid>
-        <Grid xs={0} md={1} />
+        <Grid md={1} xs={0} />
       </Grid>
     </Box>
   </Box>

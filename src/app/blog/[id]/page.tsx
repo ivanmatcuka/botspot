@@ -24,10 +24,10 @@ export default async function Post({ params }: { params: { id: string } }) {
 
   return (
     <ThemedContainer maxWidth="xl">
-      <Grid container xs={12} md={10} mx="auto">
-        <Grid item xs={12} my={{ xs: 8, md: 15 }}>
+      <Grid md={10} mx="auto" xs={12} container>
+        <Grid my={{ xs: 8, md: 15 }} xs={12} item>
           <>
-            <Typography variant="h2" component="h1" mb={{ xs: 3, md: 4 }}>
+            <Typography component="h1" mb={{ xs: 3, md: 4 }} variant="h2">
               {post.title.rendered}
             </Typography>
             <Typography>{post.excerpt.protected}</Typography>

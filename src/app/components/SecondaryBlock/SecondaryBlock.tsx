@@ -20,19 +20,19 @@ export const SecondaryBlock: FC<SecondaryBlockProps> = ({
         sublineElement
       ) : (
         <Typography
-          variant="body1"
-          mb={{ xs: 3, sm: 2 }}
-          mt={{ xs: 1, sm: 0.5 }}
           component="div"
           dangerouslySetInnerHTML={{ __html: sublineElement ?? '' }}
+          mb={{ xs: 3, sm: 2 }}
+          mt={{ xs: 1, sm: 0.5 }}
+          variant="body1"
         />
       )}
       {(primaryCta || secondaryCta) && (
         <Box display="flex">
           <Grid
-            container
-            spacing={2}
             justifyContent={{ xs: 'center', md: 'left' }}
+            spacing={2}
+            container
           >
             {primaryCta && <Grid item>{primaryCta}</Grid>}
             {secondaryCta && <Grid item>{secondaryCta}</Grid>}

@@ -79,14 +79,14 @@ export default async function Product({
       {banner && <MediaBlock assetUrl={banner} banner />}
       <PageContainer banner>
         <SecondaryBlock
-          sublineElement={product.excerpt.rendered}
           headline={product.title.rendered}
           primaryCta={
-            <Button variant="primary" href="/download-area">
+            <Button href="/download-area" variant="primary">
               Download Data Sheet
             </Button>
           }
           secondaryCta={<Button variant="secondary">Request a Demo</Button>}
+          sublineElement={product.excerpt.rendered}
         />
       </PageContainer>
 
@@ -95,7 +95,7 @@ export default async function Product({
         <MainBlock headline={firstHeadline} subline={firstSubline} />
       </PageContainer>
 
-      <MediaBlock assetUrl={closeup} fullHeight objectFit="cover" />
+      <MediaBlock assetUrl={closeup} objectFit="cover" fullHeight />
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock headline={secondHeadline} subline={secondSubline} />
       </PageContainer>
@@ -124,13 +124,13 @@ export default async function Product({
       {post && (
         <GalleryTile imgUrl={relatedImage}>
           <SecondaryBlock
-            sublineElement={post.post_excerpt}
             headline={post.post_title}
             primaryCta={
-              <Button variant="primary" href={`/blog/${post.ID}`}>
+              <Button href={`/blog/${post.ID}`} variant="primary">
                 Read Full Story
               </Button>
             }
+            sublineElement={post.post_excerpt}
           />
         </GalleryTile>
       )}
