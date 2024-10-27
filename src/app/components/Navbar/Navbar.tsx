@@ -146,7 +146,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
               item
               display="flex"
               alignItems="center"
-              justifyContent="space-between"
+              justifyContent="flex-start"
               flex={1}
             >
               <Link href="/">
@@ -154,7 +154,9 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
               </Link>
               {matches ? (
                 <>
-                  <Box display="flex">{menu}</Box>
+                  <Box display="flex" flex={1}>
+                    {menu}
+                  </Box>
                   {cta}
                 </>
               ) : (
