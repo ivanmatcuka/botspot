@@ -9,11 +9,23 @@ const meta = {
   component: SecondaryBlock,
   parameters: {
     layout: 'centered',
+    conrols: {
+      exclude: ['primaryCta', 'secondaryCta'],
+    },
   },
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    headline: { control: 'text' },
+    sublineElement: { control: 'text' },
+    primaryCta: {
+      control: 'object',
+      fields: {
+        props: {
+          children: { control: 'text' },
+        },
+      },
+    },
   },
   args: {},
 } satisfies Meta<typeof SecondaryBlock>;

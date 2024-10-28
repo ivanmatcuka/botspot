@@ -45,7 +45,7 @@ export const DownloadForm: FC<DownloadFormProps> = ({
           You are about to download the datasheet of
         </Typography>
 
-        <Box className="text-center md:text-left">
+        <Box>
           <Menu label={topic} variant="topic">
             <FormGroup sx={{ px: 2, py: 1 }}>
               {productNames.map((currTopic, index) => (
@@ -73,7 +73,7 @@ export const DownloadForm: FC<DownloadFormProps> = ({
           spacing={3}
           container
         >
-          <Grid md={6} xs={12} item>
+          <Grid md={6} textAlign="left" xs={12} item>
             <Input
               error={errors.name}
               key="name"
@@ -84,7 +84,7 @@ export const DownloadForm: FC<DownloadFormProps> = ({
               required
             />
           </Grid>
-          <Grid md={6} xs={12} item>
+          <Grid md={6} textAlign="left" xs={12} item>
             <Input
               error={errors.email}
               key="email"

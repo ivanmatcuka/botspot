@@ -63,6 +63,7 @@ export const QuestionForm: FC = () => {
                   display="flex"
                   flexWrap="wrap"
                   gap={3}
+                  justifyContent={{ xs: 'center', md: 'left' }}
                   rowGap={2}
                 >
                   <Input
