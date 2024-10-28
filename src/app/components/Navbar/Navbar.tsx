@@ -160,7 +160,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
                   {cta}
                 </>
               ) : (
-                <Box display="flex" justifyContent="flex-end">
+                <Box display="flex" flex={1} justifyContent="flex-end">
                   <MuiIconButton
                     aria-label="menu"
                     className="block xl:none"
