@@ -27,7 +27,7 @@ export const MediaBlock: FC<MediaBlockProps> = ({
 
   return assetUrl.split('.').pop() === 'mp4' ? (
     <Box height={height}>
-      <video autoPlay={autoplay} className={className} loop muted>
+      <video autoPlay={autoplay} className={className} loop muted playsInline>
         <source src={assetUrl} type="video/mp4" />
       </video>
     </Box>
