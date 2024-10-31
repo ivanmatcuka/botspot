@@ -1,6 +1,6 @@
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
-import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';

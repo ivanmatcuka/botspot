@@ -1,5 +1,6 @@
-import { PageContainer } from './components/PageContainer/PageContainer';
-import { ScrollableVideo } from './components/ScrollableVideo/ScrollableVideo';
+import { ScrollableVideo } from './ScrollableVideo';
+
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';

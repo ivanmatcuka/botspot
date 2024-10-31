@@ -4,7 +4,7 @@ import { PageContainer } from '../components/PageContainer/PageContainer';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
 import { Tile } from '@/app/components/Tile/Tile';
-import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Gallery } from '@/app/components/Gallery/Gallery';

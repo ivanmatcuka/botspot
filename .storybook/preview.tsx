@@ -5,6 +5,8 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 
 import { theme } from '../src/app/theme';
 
+import '../src/app/globals.scss';
+
 export const decorators = [
   withThemeFromJSXProvider({
     themes: {

@@ -2,7 +2,7 @@ import { PageContainer } from '../components/PageContainer/PageContainer';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
-import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
 
 import { Metadata } from 'next';

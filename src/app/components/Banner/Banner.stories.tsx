@@ -28,7 +28,7 @@ export const BasicBanner: Story = {
     primaryCta: <Button variant="primary">Explore Neo</Button>,
     secondaryCta: <Button variant="secondary">Download Data Sheet</Button>,
     mediaBlockOptions: {
-      assetUrl: '/placeholder.png',
+      assetUrl: '/img/banners/about.png',
     },
   },
 };

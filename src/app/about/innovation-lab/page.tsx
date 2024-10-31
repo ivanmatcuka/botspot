@@ -4,7 +4,7 @@ import { Tile } from '@/app/components/Tile/Tile';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { getPostBySlug } from '@/services/mainService';
 import { Post } from '@/app/components/Post/Post';
-import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 

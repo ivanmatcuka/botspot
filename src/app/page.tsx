@@ -1,10 +1,10 @@
-import { ScrollableBlock } from './ScrollableBlock';
-import { PartnerLogo } from './PartnerLogo';
+import { ScrollableBlock } from './components/ScrollableBlock';
+import { PartnerLogo } from './components/PartnerLogo';
 
 import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
-import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { Button } from '@/app/components/Button/Button';

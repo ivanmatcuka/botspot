@@ -1,6 +1,6 @@
 import { Button } from '@/app/components/Button/Button';
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
-import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
+import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { Gallery } from '@/app/components/Gallery/Gallery';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';

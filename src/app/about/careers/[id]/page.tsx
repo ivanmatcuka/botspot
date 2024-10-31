@@ -1,7 +1,7 @@
 import { ExtraFooter } from '../ExtraFooter';
 
 import { getPost } from '@/services/mainService';
-import { ThemedContainer } from '@/app/ThemedContainer';
+import { ThemedContainer } from '@/app/components/ThemedContainer';
 
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';

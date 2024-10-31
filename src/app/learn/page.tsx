@@ -2,7 +2,7 @@ import { MainBlock } from '../components/MainBlock/MainBlock';
 import { Button } from '../components/Button/Button';
 import { Tile } from '../components/Tile/Tile';
 import { Banner } from '../components/Banner/Banner';
-import { QuestionForm } from '../components/QuestionForm/QuestionForm';
+import { QuestionForm } from '../components/QuestionForm';
 import { Posts } from '../blog/Posts';
 import { PageContainer } from '../components/PageContainer/PageContainer';
 

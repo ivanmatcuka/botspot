@@ -1,6 +1,6 @@
 'use client';
 
-import { DownloadForm } from '../components/DownloadForm/DownloadForm';
+import { DownloadForm } from '../components/DownloadForm';
 import { sendEmail } from '../actions';
 
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
