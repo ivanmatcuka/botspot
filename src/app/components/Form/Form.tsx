@@ -1,10 +1,9 @@
 'use client';
 
-import { Button } from '../Button/Button';
-
-import React, { FC, PropsWithChildren, ReactNode } from 'react';
+import { ErrorOutline } from '@mui/icons-material';
 import {
   Box,
+  Container,
   Grid,
   InputLabel,
   InputProps,
@@ -12,13 +11,12 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { FC, PropsWithChildren } from 'react';
 import {
-  useForm,
-  UseControllerProps,
   SubmitHandler,
+  UseControllerProps,
   UseFormRegister,
 } from 'react-hook-form';
-import { ErrorOutline } from '@mui/icons-material';
 
 export const Input = (
   props: Pick<UseControllerProps<any>, 'name' | 'rules'> &
@@ -68,26 +66,40 @@ export const Input = (
 
 type FormProps = {
   onSubmit: SubmitHandler<any>;
-  slot?: ReactNode;
+  frameless?: boolean;
+  secondary?: boolean;
 };
+
 export const Form: FC<PropsWithChildren<FormProps>> = ({
   children,
-  slot,
   onSubmit,
+  frameless = false,
+  secondary = false,
 }) => {
-  const { handleSubmit } = useForm();
+  const form = <form onSubmit={onSubmit}>{children}</form>;
+
+  if (frameless) return form;
 
   return (
-    <Paper className="border-2 border-divider" elevation={1}>
-      {slot}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Grid display="flex" flexWrap="wrap" gap={3} p={5} container>
-          {children}
-          <Button type="submit" variant="primary">
-            Submit
-          </Button>
+    <Container maxWidth="xl">
+      <Grid
+        direction="column"
+        mb={{ xs: 10, md: 15 }}
+        md={10}
+        mx="auto"
+        pt={{ xs: 5, md: 10 }}
+        xs={12}
+        container
+      >
+        <Grid item>
+          <Paper
+            className={`${secondary && '!bg-primary-main'} border-2 border-divider`}
+            elevation={1}
+          >
+            {form}
+          </Paper>
         </Grid>
-      </form>
-    </Paper>
+      </Grid>
+    </Container>
   );
 };

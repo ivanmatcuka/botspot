@@ -12,6 +12,8 @@ import { CustomPost } from '@/services/mainService';
 import { Grid } from '@mui/material';
 import { FC, useState } from 'react';
 
+const EMAIL_SUBJECT = 'New download form submission for';
+
 type DownloadAreaContentProps = {
   products: CustomPost[];
 };
@@ -23,7 +25,7 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
   const onSubmit = (topic: string, message: string) => {
     sendEmail(
       process.env.NEXT_PUBLIC_EMAIL_FROM ?? '',
-      `New download form submission for ${topic}`,
+      `${EMAIL_SUBJECT} ${topic}`,
       message,
     ).then(() => setIsSubmitted(true));
   };
