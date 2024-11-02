@@ -2,11 +2,11 @@ import { People } from './People';
 
 import { PageContainer } from '../components/PageContainer/PageContainer';
 
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { Button } from '@/app/components/Button/Button';
-import { Tile } from '@/app/components/Tile/Tile';
-import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
+import { Button } from '@/app/components/Button/Button';
+import { FeedbackForm } from '@/app/components/FeedbackForm';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { Tile } from '@/app/components/Tile/Tile';
 import { getPeople } from '@/services/mainService';
 
 import { Box, Typography } from '@mui/material';
@@ -28,7 +28,7 @@ export default async function About() {
         }}
         primaryCta={<Button variant="primary">Read Our Story</Button>}
         secondaryCta={<Button variant="secondary">Visit Career Page</Button>}
-        subline="Whenever 3D scanning technology can shift the status quo, botspot is here for you to innovate."
+        sublineElement="Whenever 3D scanning technology can shift the status quo, botspot is here for you to innovate."
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>

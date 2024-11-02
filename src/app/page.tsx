@@ -1,15 +1,15 @@
-import { ScrollableBlock } from './components/ScrollableBlock';
 import { PartnerLogo } from './components/PartnerLogo';
+import { ScrollableBlock } from './components/ScrollableBlock';
 
+import { Banner } from '@/app/components/Banner/Banner';
+import { Button } from '@/app/components/Button/Button';
+import { FeedbackForm } from '@/app/components/FeedbackForm';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
-import { FeedbackForm } from '@/app/components/FeedbackForm';
-import { Banner } from '@/app/components/Banner/Banner';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
-import { Button } from '@/app/components/Button/Button';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { getProducts, CustomFields } from '@/services/mainService';
+import { CustomFields, getProducts } from '@/services/mainService';
 
 import { Box, Typography } from '@mui/material';
 import { WP_REST_API_Attachment } from 'wp-types';
@@ -34,7 +34,7 @@ export default async function Home() {
             Download Data Sheet
           </Button>
         }
-        subline="With over 10 years of experience in photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
+        sublineElement="With over 10 years of experience in photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
       />
 
       <Box

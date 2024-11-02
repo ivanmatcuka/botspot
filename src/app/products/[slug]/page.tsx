@@ -1,23 +1,24 @@
-import { Button } from '@/app/components/Button/Button';
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
+import { Banner } from '@/app/components/Banner/Banner';
+import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { Gallery } from '@/app/components/Gallery/Gallery';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
 import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
-import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { getProductBySlug } from '@/services/mainService';
 
-import parse from 'html-react-parser';
 import { Box } from '@mui/material';
+import parse from 'html-react-parser';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { isValidElement, ReactElement } from 'react';
 import { WP_REST_API_Attachment } from 'wp-types';
-import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params,
@@ -76,10 +77,10 @@ export default async function Product({
 
   return (
     <main className="">
-      {banner && <MediaBlock assetUrl={banner} banner />}
-      <PageContainer banner>
-        <SecondaryBlock
+      {banner && (
+        <Banner
           headline={product.title.rendered}
+          mediaBlockOptions={{ assetUrl: banner }}
           primaryCta={
             <Button href="/download-area" variant="primary">
               Download Data Sheet
@@ -88,14 +89,18 @@ export default async function Product({
           secondaryCta={<Button variant="secondary">Request a Demo</Button>}
           sublineElement={product.excerpt.rendered}
         />
+      )}
+
+      <PageContainer mt={{ xs: 5, md: 10 }}>
+        <MediaBlock assetUrl={picture} objectFit="cover" />
       </PageContainer>
 
-      <MediaBlock assetUrl={picture} objectFit="contain" />
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ xs: 5, md: 10 }}>
         <MainBlock headline={firstHeadline} subline={firstSubline} />
       </PageContainer>
 
       <MediaBlock assetUrl={closeup} objectFit="cover" fullHeight />
+
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock headline={secondHeadline} subline={secondSubline} />
       </PageContainer>

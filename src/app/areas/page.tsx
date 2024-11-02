@@ -1,9 +1,9 @@
 import { PageContainer } from '../components/PageContainer/PageContainer';
 
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
-import { Banner } from '@/app/components/Banner/Banner';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 
 import { Metadata } from 'next';
 
@@ -29,7 +29,7 @@ export default function Areas() {
             Custom Solutions
           </Button>
         }
-        subline="Potential areas of use are as versatile as our 3D Scanners. We have delivered commercial, industrial and custom solutions in order to exceed our clients’  needs."
+        sublineElement="Potential areas of use are as versatile as our 3D Scanners. We have delivered commercial, industrial and custom solutions in order to exceed our clients’  needs."
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
