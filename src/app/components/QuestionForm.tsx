@@ -3,6 +3,7 @@
 import { sendEmail } from '@/app/actions';
 import { Button } from '@/app/components/Button/Button';
 import { Form, Input } from '@/app/components/Form/Form';
+import { useSnackbar } from '@/app/components/Snackbar/Snackbar';
 
 import { Box, Typography } from '@mui/material';
 import { FC, useCallback, useMemo, useState } from 'react';
@@ -21,6 +22,8 @@ export const QuestionForm: FC = () => {
   const email = watch('email');
   const question = watch('question');
 
+  const { showSnackbar } = useSnackbar();
+
   const messageHtml = useMemo(() => {
     return `Email: ${email}<br/>
             Message: ${question}<br/>`;
@@ -28,15 +31,14 @@ export const QuestionForm: FC = () => {
 
   const onSubmit = useCallback(() => {
     setIsLoading(true);
-    sendEmail(
-      process.env.NEXT_PUBLIC_EMAIL_FROM ?? '',
-      `Question`,
-      messageHtml,
-    ).finally(() => {
-      setIsLoading(false);
-      reset();
-    });
-  }, [messageHtml, reset]);
+    sendEmail(process.env.NEXT_PUBLIC_EMAIL_FROM ?? '', `Question`, messageHtml)
+      .then(() => showSnackbar('Thank you for your feedback!', 'success', 3000))
+      .catch(() => showSnackbar('Something went wrong!', 'error', 3000))
+      .finally(() => {
+        setIsLoading(false);
+        reset();
+      });
+  }, [messageHtml, showSnackbar, reset]);
 
   return (
     <Form secondary onSubmit={handleSubmit(onSubmit)}>

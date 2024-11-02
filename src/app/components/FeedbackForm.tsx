@@ -4,6 +4,7 @@ import { sendEmail } from '@/app/actions';
 import { Button } from '@/app/components/Button/Button';
 import { Form, Input } from '@/app/components/Form/Form';
 import { Menu } from '@/app/components/Menu/Menu';
+import { useSnackbar } from '@/app/components/Snackbar/Snackbar';
 import { getProducts } from '@/services/mainService';
 
 import {
@@ -39,6 +40,8 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
   const email = watch('email');
   const message = watch('message');
 
+  const { showSnackbar } = useSnackbar();
+
   const messageHtml = useMemo(() => {
     return `Name: ${name}<br/>
             Email: ${email}<br/>
@@ -51,11 +54,14 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
       process.env.NEXT_PUBLIC_EMAIL_FROM ?? '',
       `Feedback form: ${topic}`,
       messageHtml,
-    ).finally(() => {
-      setIsLoading(false);
-      reset();
-    });
-  }, [topic, messageHtml, reset]);
+    )
+      .then(() => showSnackbar('Thank you for your feedback!', 'success', 3000))
+      .catch(() => showSnackbar('Something went wrong!', 'error', 3000))
+      .finally(() => {
+        setIsLoading(false);
+        reset();
+      });
+  }, [topic, messageHtml, showSnackbar, reset]);
 
   const changeTopic = useCallback(
     (topic: string) => () => {
