@@ -4,18 +4,18 @@ import {
 } from '@/app/components/MediaBlock/MediaBlock';
 
 import { Box, Grid, Typography } from '@mui/material';
-import { FC, ReactNode } from 'react';
+import { FC, isValidElement, ReactNode } from 'react';
 
 type BannerProps = {
   headline: string;
-  subline: string;
+  sublineElement: ReactNode;
   primaryCta: ReactNode;
   secondaryCta: ReactNode;
   mediaBlockOptions?: Omit<MediaBlockProps, 'fullHeight'>;
 };
 export const Banner: FC<BannerProps> = ({
   headline,
-  subline,
+  sublineElement,
   primaryCta,
   secondaryCta,
   mediaBlockOptions,
@@ -49,14 +49,19 @@ export const Banner: FC<BannerProps> = ({
           <Typography color="white" fontWeight="medium" variant="h1">
             {headline}
           </Typography>
-          <Typography
-            color="white"
-            mb={{ xs: 3, md: 2 }}
-            mt={{ xs: 1, md: 0.5 }}
-            variant="body1"
-          >
-            {subline}
-          </Typography>
+
+          {isValidElement(sublineElement) ? (
+            sublineElement
+          ) : (
+            <Typography
+              color="white"
+              component="div"
+              dangerouslySetInnerHTML={{ __html: sublineElement ?? '' }}
+              mb={{ xs: 3, sm: 2 }}
+              mt={{ xs: 1, sm: 0.5 }}
+              variant="body1"
+            />
+          )}
           <Box display="flex" mt={{ xs: 3, md: 8 }}>
             <Grid
               alignItems="center"

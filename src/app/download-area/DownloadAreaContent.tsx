@@ -1,16 +1,19 @@
 'use client';
 
-import { DownloadForm } from '../components/DownloadForm/DownloadForm';
 import { sendEmail } from '../actions';
+import { DownloadForm } from '../components/DownloadForm';
+import { useSnackbar } from '../components/Snackbar/Snackbar';
 
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { Post } from '@/app/components/Post/Post';
 import { CustomPost } from '@/services/mainService';
 
 import { Grid } from '@mui/material';
 import { FC, useState } from 'react';
+
+const EMAIL_SUBJECT = 'New download form submission for';
 
 type DownloadAreaContentProps = {
   products: CustomPost[];
@@ -20,12 +23,19 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
 }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const { showSnackbar } = useSnackbar();
+
   const onSubmit = (topic: string, message: string) => {
     sendEmail(
       process.env.NEXT_PUBLIC_EMAIL_FROM ?? '',
-      `New download form submission for ${topic}`,
+      `${EMAIL_SUBJECT} ${topic}`,
       message,
-    ).then(() => setIsSubmitted(true));
+    )
+      .then(() => {
+        showSnackbar('Thank you for your feedback!', 'success', 3000);
+        setIsSubmitted(true);
+      })
+      .catch(() => showSnackbar('Something went wrong!', 'error', 3000));
   };
 
   return isSubmitted ? (

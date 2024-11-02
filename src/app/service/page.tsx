@@ -1,14 +1,14 @@
 import { Iframe } from '../components/3dIframe/3dIframe';
 import { PageContainer } from '../components/PageContainer/PageContainer';
 
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { Button } from '@/app/components/Button/Button';
-import { Tile } from '@/app/components/Tile/Tile';
-import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
 import { Banner } from '@/app/components/Banner/Banner';
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { Button } from '@/app/components/Button/Button';
+import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { Gallery } from '@/app/components/Gallery/Gallery';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { Tile } from '@/app/components/Tile/Tile';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
@@ -29,7 +29,7 @@ export default function Service() {
         secondaryCta={
           <Button variant="secondary">In-House Scan Service</Button>
         }
-        subline="Our 3D scan services cater to individuals and businesses seeking  high-quality scans without the upfront costs and technical requirements  of owning a scanner."
+        sublineElement="Our 3D scan services cater to individuals and businesses seeking  high-quality scans without the upfront costs and technical requirements  of owning a scanner."
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>

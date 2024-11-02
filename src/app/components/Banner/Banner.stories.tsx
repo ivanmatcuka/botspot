@@ -24,11 +24,12 @@ type Story = StoryObj<typeof meta>;
 export const BasicBanner: Story = {
   args: {
     headline: 'botscan NEO',
-    subline: 'Smart 3D fullbody scanner for high volume 3D model production',
+    sublineElement:
+      'Smart 3D fullbody scanner for high volume 3D model production',
     primaryCta: <Button variant="primary">Explore Neo</Button>,
     secondaryCta: <Button variant="secondary">Download Data Sheet</Button>,
     mediaBlockOptions: {
-      assetUrl: '/placeholder.png',
+      assetUrl: '/img/banners/about.png',
     },
   },
 };

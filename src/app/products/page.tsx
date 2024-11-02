@@ -1,12 +1,12 @@
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
-import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
-import { FeedbackForm } from '@/app/components/FeedbackForm/FeedbackForm';
-import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { Tile } from '@/app/components/Tile/Tile';
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
+import { FeedbackForm } from '@/app/components/FeedbackForm';
+import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { Tile } from '@/app/components/Tile/Tile';
 import { getProducts } from '@/services/mainService';
 
 import { Box, Typography } from '@mui/material';
@@ -24,7 +24,7 @@ export default async function Products() {
       <Banner
         headline="PRODUCTS"
         mediaBlockOptions={{
-          assetUrl: '/img/banners/products.png',
+          assetUrl: '/img/banners/products.jpg',
         }}
         primaryCta={
           <Button href="/download-area" variant="primary">
@@ -36,7 +36,7 @@ export default async function Products() {
             See Areas of Use
           </Button>
         }
-        subline="Generate photorealistic 3D models with unmatched quality and breathtaking textures in almost no time. "
+        sublineElement="Generate photorealistic 3D models with unmatched quality and breathtaking textures in almost no time. "
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>

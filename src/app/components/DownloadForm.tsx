@@ -1,12 +1,9 @@
 'use client';
 
-import { Input } from '@/app/components/Form/Form';
 import { Button } from '@/app/components/Button/Button';
+import { Input } from '@/app/components/Form/Form';
 import { Menu } from '@/app/components/Menu/Menu';
-import { sendEmail } from '@/app/actions';
 
-import { FC, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import {
   Box,
   Checkbox,
@@ -15,6 +12,8 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
+import { FC, useCallback, useMemo, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 type DownloadFormProps = {
   productNames: string[];
@@ -24,22 +23,36 @@ export const DownloadForm: FC<DownloadFormProps> = ({
   productNames,
   onSubmit,
 }) => {
+  const [topic, setTopic] = useState(productNames[0]);
+
   const {
     handleSubmit,
     register,
     formState: { errors },
     setValue,
+    watch,
   } = useForm();
-  const [topic, setTopic] = useState(productNames[0]);
+  const name = watch('name');
+  const email = watch('email');
 
-  const generateMessage = (topic: string) => {
-    return `Hello. I would like to receive some information about ${topic}. Thank you.`;
-  };
+  const messageHtml = useMemo(() => {
+    return `${generateMessage(topic)}<br/>
+            Name: ${name}<br/>
+            Email: ${email}<br/>`;
+  }, [topic, name, email]);
+
+  const changeTopic = useCallback(
+    (topic: string) => () => {
+      setValue('message', generateMessage(topic));
+      setTopic(topic);
+    },
+    [setValue],
+  );
+
+  const generateMessage = (topic: string) => `Datasheet for ${topic}.`;
 
   return (
-    <form
-      onSubmit={handleSubmit(() => onSubmit?.(topic, generateMessage(topic)))}
-    >
+    <form onSubmit={handleSubmit(() => onSubmit?.(topic, messageHtml))}>
       <Box p={0}>
         <Typography className="text-center md:text-left" mb={2} variant="h2">
           You are about to download the datasheet of
@@ -53,10 +66,7 @@ export const DownloadForm: FC<DownloadFormProps> = ({
                   control={<Checkbox checked={topic === currTopic} />}
                   key={index}
                   label={currTopic}
-                  onChange={() => {
-                    setValue('message', generateMessage(currTopic));
-                    setTopic(currTopic);
-                  }}
+                  onChange={changeTopic(currTopic)}
                 />
               ))}
             </FormGroup>

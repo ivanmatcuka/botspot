@@ -1,6 +1,6 @@
 import { Posts } from './Posts';
 
-import { QuestionForm } from '@/app/components/QuestionForm/QuestionForm';
+import { QuestionForm } from '@/app/components/QuestionForm';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 

@@ -1,14 +1,14 @@
-import { MainBlock } from '../components/MainBlock/MainBlock';
-import { Button } from '../components/Button/Button';
-import { Tile } from '../components/Tile/Tile';
-import { Banner } from '../components/Banner/Banner';
-import { QuestionForm } from '../components/QuestionForm/QuestionForm';
 import { Posts } from '../blog/Posts';
+import { Banner } from '../components/Banner/Banner';
+import { Button } from '../components/Button/Button';
+import { MainBlock } from '../components/MainBlock/MainBlock';
 import { PageContainer } from '../components/PageContainer/PageContainer';
+import { QuestionForm } from '../components/QuestionForm';
+import { Tile } from '../components/Tile/Tile';
 
-import Image from 'next/image';
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'LEARN ABOUT 3D SCANNING – botspot',
@@ -32,7 +32,7 @@ export default function Learn() {
             Ask Us Α Question
           </Button>
         }
-        subline="Discover the fundamentals of 3D scanning and explore how this cutting-edge technology is transforming industries, from design to manufacturing."
+        sublineElement="Discover the fundamentals of 3D scanning and explore how this cutting-edge technology is transforming industries, from design to manufacturing."
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
@@ -65,16 +65,16 @@ export default function Learn() {
         </Typography>
       </Tile>
 
-      <Box maxWidth="xl" mx="auto">
+      <PageContainer>
         <Image
           alt=""
+          className="w-full"
           height={440}
           quality={100}
           src="/img/learn/1.png"
-          style={{ width: '100%' }}
           width={1010}
         />
-      </Box>
+      </PageContainer>
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           cta={
