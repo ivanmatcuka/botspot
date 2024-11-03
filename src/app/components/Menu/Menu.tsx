@@ -2,20 +2,29 @@
 
 import { Button, ButtonProps } from '@/app/components/Button/Button';
 
-import {
-  MenuItem as MuiMenuItem,
-  MenuItemProps as MuiMenuItemProps,
-  useTheme,
-} from '@mui/material';
-import { FC, PropsWithChildren } from 'react';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import {
-  usePopupState,
-  bindMenu,
+  Menu as MuiMenu,
+  MenuItem as MuiMenuItem,
+  MenuItemProps as MuiMenuItemProps,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+import {
   bindHover,
+  bindMenu,
+  usePopupState,
 } from 'material-ui-popup-state/hooks';
 import HoverMenu from 'material-ui-popup-state/HoverMenu';
 import { useRouter } from 'next/navigation';
+import {
+  FC,
+  MouseEvent,
+  PropsWithChildren,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react';
 
 export const MenuItem: FC<PropsWithChildren<MuiMenuItemProps>> = ({
   ...props
@@ -32,10 +41,39 @@ export const Menu: FC<PropsWithChildren<MenuProps>> = ({
   href,
   children,
 }) => {
-  const { shadows } = useTheme();
-  const popupState = usePopupState({ variant: 'popper', popupId: 'demoMenu' });
-  const open = popupState.isOpen;
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const { push } = useRouter();
+
+  const { shadows, breakpoints } = useTheme();
+  const matches = useMediaQuery(breakpoints.down('xl'));
+
+  const Component = matches ? MuiMenu : HoverMenu;
+  const popupState = usePopupState({ variant: 'popper', popupId: 'demoMenu' });
+  const open = matches ? Boolean(anchorEl) : popupState.isOpen;
+
+  const handleClick = useCallback(
+    (event: MouseEvent<HTMLElement>) => {
+      setAnchorEl(event.currentTarget);
+      href && push(href);
+    },
+    [href, push],
+  );
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const componentProps = useMemo(
+    () =>
+      matches
+        ? {
+            open,
+            anchorEl,
+            onClose: handleClose,
+          }
+        : bindMenu(popupState),
+    [matches, popupState, open, anchorEl],
+  );
 
   return (
     <>
@@ -46,12 +84,12 @@ export const Menu: FC<PropsWithChildren<MenuProps>> = ({
         endIcon={open ? <ExpandLess /> : <ExpandMore />}
         id={`basic-button-${label}`}
         variant={variant}
+        onClick={handleClick}
         {...bindHover(popupState)}
-        onClick={() => href && push(href)}
       >
         {label}
       </Button>
-      <HoverMenu
+      <Component
         MenuListProps={{
           'aria-labelledby': `basic-button-${label}`,
         }}
@@ -61,10 +99,10 @@ export const Menu: FC<PropsWithChildren<MenuProps>> = ({
             className: 'border-2 border-divider',
           },
         }}
-        {...bindMenu(popupState)}
+        {...componentProps}
       >
         {children}
-      </HoverMenu>
+      </Component>
     </>
   );
 };
