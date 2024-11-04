@@ -113,20 +113,19 @@ export const getComponents = (theme: Theme) => ({
         '&:disabled': {
           border: 'none',
           backgroundColor: palette.grey[100],
-
           color: palette.common.black,
         },
       },
       root: {
         padding: theme.spacing(1.5, 2.5),
         border: 'solid',
-        borderWidth: 2,
+        borderWidth: '0.1em',
         fontWeight: 'normal',
 
         '&:disabled': {
-          borderColor: palette.grey[200],
-          borderWidth: 'inherit',
+          borderColor: palette.common.white,
           color: palette.common.white,
+          backgroundColor: palette.grey[200],
         },
       },
     },

@@ -33,16 +33,12 @@ const SecondaryButton = styled(({ ...props }: MuiButtonProps) => (
   },
 }));
 
-const OutlineButton = styled(({ ...props }: MuiButtonProps) => (
-  <MuiButton color="primary" variant="outlined" {...props} />
-))(({ theme }) => ({
-  backgroundColor: theme.palette.common.white,
+const OutlineButton = styled(SecondaryButton)(({ theme }) => ({
+  '&:disabled': {
+    backgroundColor: theme.palette.common.white,
+    borderColor: theme.palette.grey[100],
 
-  '&:hover': {
-    backgroundColor: theme.palette.primary.main,
-    borderColor: theme.palette.common.white,
-
-    color: theme.palette.common.white,
+    color: theme.palette.grey[200],
   },
 }));
 
