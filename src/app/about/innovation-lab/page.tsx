@@ -6,8 +6,8 @@ import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { Post } from '@/app/components/Post/Post';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
+import { getPostBySlug } from '@/app/service';
 import { getFeaturedImageUrl } from '@/app/utils';
-import { getPostBySlug } from '@/services/mainService';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';

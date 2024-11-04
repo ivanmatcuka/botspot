@@ -4,7 +4,6 @@ import { fn } from '@storybook/test';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-
 const meta = {
   title: 'Example/Button',
   component: Button,
@@ -12,9 +11,10 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    variant: {
+      options: ['primary', 'secondary', 'outline'],
+    }
   },
   args: { onClick: fn(), disabled: false },
 } satisfies Meta<typeof Button>;
@@ -36,9 +36,10 @@ export const Secondary: Story = {
   },
 };
 
-export const Menu: Story = {
+export const DisabledButton: Story = {
   args: {
-    variant: 'menu',
-    children: 'Menu Button',
+    variant: 'primary',
+    disabled: true,
+    children: 'Disabled Button',
   },
 };

@@ -7,8 +7,8 @@ import { Button } from '@/app/components/Button/Button';
 import { Footer } from '@/app/components/Footer/Footer';
 import { Navbar } from '@/app/components/Navbar/Navbar';
 import { SnackbarProvider } from '@/app/components/Snackbar/Snackbar';
+import { getProducts } from '@/app/service';
 import ThemeRegistry from '@/app/theme/ThemeRegistry';
-import { getProducts } from '@/services/mainService';
 
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';

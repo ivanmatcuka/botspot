@@ -3,8 +3,8 @@
 import { Button } from '@/app/components/Button/Button';
 import { Pagination } from '@/app/components/Pagination/Pagination';
 import { Post } from '@/app/components/Post/Post';
+import { getPosts } from '@/app/service';
 import { getFeaturedImageUrl } from '@/app/utils';
-import { getPosts } from '@/services/mainService';
 
 import { Grid, Skeleton } from '@mui/material';
 import { useRouter } from 'next/navigation';

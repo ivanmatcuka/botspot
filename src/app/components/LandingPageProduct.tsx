@@ -3,8 +3,8 @@ import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { ScrollableBlock } from '@/app/components/ScrollableBlock';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { CustomFields } from '@/app/service';
 import { getFeaturedImageUrl } from '@/app/utils';
-import { CustomFields } from '@/services/mainService';
 
 import { FC } from 'react';
 import { WP_REST_API_Post } from 'wp-types';

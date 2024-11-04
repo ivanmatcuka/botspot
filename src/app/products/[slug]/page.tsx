@@ -11,8 +11,8 @@ import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
 import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
+import { getProductBySlug } from '@/app/service';
 import { getFeaturedImageUrl } from '@/app/utils';
-import { getProductBySlug } from '@/services/mainService';
 
 import { Box } from '@mui/material';
 import parse from 'html-react-parser';

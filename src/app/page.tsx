@@ -6,7 +6,7 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { PartnerLogo } from '@/app/components/PartnerLogo';
 import { Tile } from '@/app/components/Tile/Tile';
-import { getProducts } from '@/services/mainService';
+import { getProducts } from '@/app/service';
 
 import { Box, Typography } from '@mui/material';
 

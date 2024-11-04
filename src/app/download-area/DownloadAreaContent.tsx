@@ -7,7 +7,7 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { Post } from '@/app/components/Post/Post';
 import { useSnackbar } from '@/app/components/Snackbar/Snackbar';
-import { CustomPost } from '@/services/mainService';
+import { CustomPost } from '@/app/service';
 
 import { Grid } from '@mui/material';
 import { FC, useState } from 'react';

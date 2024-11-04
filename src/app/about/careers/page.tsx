@@ -5,7 +5,7 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { getJobs } from '@/services/mainService';
+import { getJobs } from '@/app/service';
 
 import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';

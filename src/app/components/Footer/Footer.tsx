@@ -1,4 +1,4 @@
-import { getProducts } from '@/services/mainService';
+import { getProducts } from '@/app/service';
 
 import {
   Box,
