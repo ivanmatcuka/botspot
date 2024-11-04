@@ -1,12 +1,12 @@
 export const revalidate = 0;
 
-import { Button } from './components/Button/Button';
-import { Footer } from './components/Footer/Footer';
-import { Navbar } from './components/Navbar/Navbar';
 import { ConsentProvider } from './ConsentProvider';
 import './globals.scss';
 import ThemeRegistry from './theme/ThemeRegistry';
 
+import { Button } from '@/app/components/Button/Button';
+import { Footer } from '@/app/components/Footer/Footer';
+import { Navbar } from '@/app/components/Navbar/Navbar';
 import { SnackbarProvider } from '@/app/components/Snackbar/Snackbar';
 import { getProducts } from '@/services/mainService';
 
@@ -65,10 +65,7 @@ export default async function RootLayout({
                     {
                       label: 'Products',
                       href: '/products',
-                      ...((productsLinks.length && {
-                        children: productsLinks,
-                      }) ??
-                        {}),
+                      ...(productsLinks.length && { children: productsLinks }),
                     },
                     { label: '3D Scan Service', href: '/service' },
                     {
