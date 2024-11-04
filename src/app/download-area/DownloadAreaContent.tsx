@@ -1,13 +1,12 @@
 'use client';
 
-import { sendEmail } from '../actions';
-import { DownloadForm } from '../components/DownloadForm';
-import { useSnackbar } from '../components/Snackbar/Snackbar';
-
+import { sendEmail } from '@/app/actions';
 import { Button } from '@/app/components/Button/Button';
+import { DownloadForm } from '@/app/components/DownloadForm';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { Post } from '@/app/components/Post/Post';
+import { useSnackbar } from '@/app/components/Snackbar/Snackbar';
 import { CustomPost } from '@/services/mainService';
 
 import { Grid } from '@mui/material';

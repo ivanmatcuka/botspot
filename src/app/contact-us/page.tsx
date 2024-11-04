@@ -1,7 +1,7 @@
 import { FeedbackForm } from '@/app/components/FeedbackForm';
 
-import { Metadata } from 'next';
 import { Box, Grid } from '@mui/material';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'CONTACT US – botspot',

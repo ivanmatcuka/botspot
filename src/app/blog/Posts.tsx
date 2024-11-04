@@ -1,15 +1,14 @@
 'use client';
 
-import { getFeaturedImageUrl } from '../utils';
-
 import { Button } from '@/app/components/Button/Button';
 import { Pagination } from '@/app/components/Pagination/Pagination';
 import { Post } from '@/app/components/Post/Post';
+import { getFeaturedImageUrl } from '@/app/utils';
 import { getPosts } from '@/services/mainService';
 
-import { Box, Grid, Skeleton } from '@mui/material';
+import { Grid, Skeleton } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 import { WP_REST_API_Posts } from 'wp-types';
 
 type PostProps = {
@@ -38,50 +37,52 @@ export const Posts: FC<PostProps> = ({
       .finally(() => setLoading(false));
   }, [page, perPage]);
 
+  const skeleton = useMemo(() => {
+    return Array(6)
+      .fill(null)
+      .map((_, index) => (
+        <Grid key={index} lg={4} md={6} xs={12} item>
+          <Skeleton height={360} variant="rounded" />
+        </Grid>
+      ));
+  }, []);
+
   return (
-    <Box className="w-full flex justify-center" maxWidth="xl" mx="auto">
-      <Grid spacing={{ xs: 2, md: 3, lg: 5 }} xs={10} container>
-        {loading
-          ? Array(6)
-              .fill(null)
-              .map((_, index) => (
-                <Grid key={index} lg={4} md={6} xs={12} item>
-                  <Skeleton height={360} variant="rounded" />
-                </Grid>
-              ))
-          : posts.map((post) => (
-              <Grid
-                key={post.id}
-                lg={list ? 12 : 4}
-                md={list ? 12 : 6}
-                xs={12}
-                item
-              >
-                <Post
-                  cta={
-                    <Button
-                      variant="secondary"
-                      onClick={() => push(`/blog/${post.id}`)}
-                    >
-                      Read Full Story
-                    </Button>
-                  }
-                  excerpt={post.excerpt.rendered}
-                  featuredImage={getFeaturedImageUrl(post)}
-                  title={post.title.rendered}
-                />
-              </Grid>
-            ))}
-        {!hidePagination && (
-          <Grid mx="auto" xs={12} item>
-            <Pagination
-              count={Math.ceil(count / perPage)}
-              perPage={perPage}
-              setPage={setPage}
-            />
-          </Grid>
-        )}
-      </Grid>
-    </Box>
+    <>
+      {loading
+        ? skeleton
+        : posts.map((post) => (
+            <Grid
+              key={post.id}
+              lg={list ? 12 : 4}
+              md={list ? 12 : 6}
+              xs={12}
+              item
+            >
+              <Post
+                cta={
+                  <Button
+                    variant="secondary"
+                    onClick={() => push(`/blog/${post.id}`)}
+                  >
+                    Read Full Story
+                  </Button>
+                }
+                excerpt={post.excerpt.rendered}
+                featuredImage={getFeaturedImageUrl(post)}
+                title={post.title.rendered}
+              />
+            </Grid>
+          ))}
+      {!hidePagination && (
+        <Grid mx="auto" xs={12} item>
+          <Pagination
+            count={Math.ceil(count / perPage)}
+            perPage={perPage}
+            setPage={setPage}
+          />
+        </Grid>
+      )}
+    </>
   );
 };

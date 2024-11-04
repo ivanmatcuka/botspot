@@ -11,6 +11,7 @@ import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
 import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
+import { getFeaturedImageUrl } from '@/app/utils';
 import { getProductBySlug } from '@/services/mainService';
 
 import { Box } from '@mui/material';
@@ -28,14 +29,10 @@ export async function generateMetadata({
   const product = await getProductBySlug(params.slug);
   if (!product) return {};
 
-  const featuredImage =
-    (product._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
-      ?.source_url ?? '/img/banners/innovation-lab.png';
-
   return {
     title: `${product.title.rendered} – botspot`,
     openGraph: {
-      images: [featuredImage],
+      images: [getFeaturedImageUrl(product)],
     },
   };
 }

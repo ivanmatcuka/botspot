@@ -1,12 +1,11 @@
-import { Iframe } from '../components/3dIframe/3dIframe';
-import { PageContainer } from '../components/PageContainer/PageContainer';
-
+import { Iframe } from '@/app/components/3dIframe/3dIframe';
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { Gallery } from '@/app/components/Gallery/Gallery';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 

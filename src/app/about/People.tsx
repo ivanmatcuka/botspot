@@ -1,6 +1,5 @@
-import { getFeaturedImageUrl } from '../utils';
-
 import { Post } from '@/app/components/Post/Post';
+import { getFeaturedImageUrl } from '@/app/utils';
 
 import { Grid } from '@mui/material';
 import { FC } from 'react';
