@@ -3,23 +3,29 @@
 import { Button } from '@/app/components/Button/Button';
 import { Menu } from '@/app/components/Menu/Menu';
 
+import CloseIcon from '@mui/icons-material/Close';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
-  Box,
-  IconButton as MuiIconButton,
-  AppBar as MuiAppBar,
-  Toolbar,
-  useTheme,
-  useMediaQuery,
-  Drawer,
-  ListItem,
-  List,
   Accordion,
-  AccordionSummary,
-  ListItemButton,
-  Grid,
-  Container,
   AccordionProps,
+  AccordionSummary,
+  Box,
+  Container,
+  Drawer,
+  Grid,
+  List,
+  ListItem,
+  ListItemButton,
+  AppBar as MuiAppBar,
+  IconButton as MuiIconButton,
+  Toolbar,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
+import useDetectScroll from '@smakss/react-scroll-direction';
+import Image from 'next/image';
+import Link from 'next/link';
 import {
   FC,
   ReactNode,
@@ -28,12 +34,6 @@ import {
   useMemo,
   useState,
 } from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Image from 'next/image';
-import Link from 'next/link';
-import useDetectScroll from '@smakss/react-scroll-direction';
 
 const ControlledAccordion: FC<AccordionProps & { item: MenuItem }> = ({
   item,
@@ -160,7 +160,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
                   {cta}
                 </>
               ) : (
-                <Box display="flex" justifyContent="flex-end">
+                <Box display="flex" flex={1} justifyContent="flex-end">
                   <MuiIconButton
                     aria-label="menu"
                     className="block xl:none"
