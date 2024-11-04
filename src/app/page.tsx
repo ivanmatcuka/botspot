@@ -1,18 +1,14 @@
-import { PartnerLogo } from './components/PartnerLogo';
-import { ScrollableBlock } from './components/ScrollableBlock';
-
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
+import { LandingPageProduct } from '@/app/components/LandingPageProduct';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer/PageContainer';
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { PartnerLogo } from '@/app/components/PartnerLogo';
 import { Tile } from '@/app/components/Tile/Tile';
-import { CustomFields, getProducts } from '@/services/mainService';
+import { getProducts } from '@/services/mainService';
 
 import { Box, Typography } from '@mui/material';
-import { WP_REST_API_Attachment } from 'wp-types';
 
 export default async function Home() {
   const { data: products } = await getProducts();
@@ -59,49 +55,9 @@ export default async function Home() {
         <PartnerLogo name="acod" />
       </Box>
 
-      {products.map((product) => {
-        if (!product.acf) return null;
-
-        const imagesUrls =
-          (product.acf as CustomFields).photo_gallery?.animation
-            .flat()
-            .map((url) => url.full_image_url) ?? [];
-
-        const featuredImage =
-          (
-            product._embedded?.[
-              'wp:featuredmedia'
-            ]?.[0] as WP_REST_API_Attachment
-          )?.source_url ?? '/img/banners/innovation-lab.png';
-
-        const contentBlock = (
-          <SecondaryBlock
-            headline={product.title.rendered}
-            primaryCta={
-              <Button href={`/products/${product.slug}`} variant="primary">
-                Explore {product.title.rendered}
-              </Button>
-            }
-            secondaryCta={
-              <Button href="/download-area" variant="secondary">
-                Download Data Sheet
-              </Button>
-            }
-            sublineElement={product.excerpt.rendered}
-          />
-        );
-
-        return imagesUrls.length ? (
-          <ScrollableBlock imagesUrls={imagesUrls} key={product.id}>
-            {contentBlock}
-          </ScrollableBlock>
-        ) : (
-          <>
-            <MediaBlock assetUrl={featuredImage} key={product.id} />
-            <PageContainer banner>{contentBlock}</PageContainer>
-          </>
-        );
-      })}
+      {products.map((product) => (
+        <LandingPageProduct key={product.id} product={product} />
+      ))}
 
       <Box
         bgcolor="grey.100"

@@ -1,4 +1,4 @@
-import { Button } from './components/Button/Button';
+import { Button } from '@/app/components/Button/Button';
 
 import { Box, Typography } from '@mui/material';
 
@@ -12,6 +12,7 @@ export default function NotFound() {
       justifyContent="center"
       maxWidth="xl"
       mx="auto"
+      my={20}
       textAlign="center"
     >
       <Typography fontWeight={600} variant="h1">

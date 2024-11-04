@@ -75,7 +75,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   const { scrollDir } = useDetectScroll();
 
   const renderMenu = useCallback((item: MenuItem) => {
-    if (!item.children) {
+    if (!item.children?.length) {
       return (
         <Button
           disabled={item.disabled}
@@ -101,7 +101,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   );
 
   const renderDrawer = useCallback((item: MenuItem) => {
-    if (!item.children) {
+    if (!item.children?.length) {
       return (
         <ListItem key={item.label}>
           <ListItemButton href={item.href ?? '/'} disableRipple>

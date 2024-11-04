@@ -2,12 +2,12 @@ export const revalidate = 0;
 
 import { ConsentProvider } from './ConsentProvider';
 import './globals.scss';
-import ThemeRegistry from './theme/ThemeRegistry';
 
 import { Button } from '@/app/components/Button/Button';
 import { Footer } from '@/app/components/Footer/Footer';
 import { Navbar } from '@/app/components/Navbar/Navbar';
 import { SnackbarProvider } from '@/app/components/Snackbar/Snackbar';
+import ThemeRegistry from '@/app/theme/ThemeRegistry';
 import { getProducts } from '@/services/mainService';
 
 import { Box } from '@mui/material';
@@ -48,6 +48,39 @@ export default async function RootLayout({
     href: `/products/${product.slug}`,
   }));
 
+  const navbarItems = [
+    {
+      label: 'Products',
+      href: '/products',
+      children: productsLinks,
+    },
+    { label: '3D Scan Service', href: '/service' },
+    {
+      label: 'Areas of use',
+      href: '/areas',
+      children: [
+        { label: 'Commercial', href: '/areas/commercial' },
+        { label: 'Industrial', href: '/areas/industrial' },
+        {
+          label: 'Custom Solutions',
+          href: '/areas/custom-solutions',
+        },
+      ],
+    },
+    { label: 'Learn About 3D Scanning', href: '/learn' },
+    {
+      label: 'About Us',
+      href: '/about',
+      children: [
+        {
+          label: 'Innovation Lab',
+          href: '/about/innovation-lab',
+        },
+        { label: 'Careers', href: '/about/careers' },
+      ],
+    },
+  ];
+
   return (
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
@@ -61,38 +94,7 @@ export default async function RootLayout({
                       Contact Us
                     </Button>
                   }
-                  navItems={[
-                    {
-                      label: 'Products',
-                      href: '/products',
-                      ...(productsLinks.length && { children: productsLinks }),
-                    },
-                    { label: '3D Scan Service', href: '/service' },
-                    {
-                      label: 'Areas of use',
-                      href: '/areas',
-                      children: [
-                        { label: 'Commercial', href: '/areas/commercial' },
-                        { label: 'Industrial', href: '/areas/industrial' },
-                        {
-                          label: 'Custom Solutions',
-                          href: '/areas/custom-solutions',
-                        },
-                      ],
-                    },
-                    { label: 'Learn About 3D Scanning', href: '/learn' },
-                    {
-                      label: 'About Us',
-                      href: '/about',
-                      children: [
-                        {
-                          label: 'Innovation Lab',
-                          href: '/about/innovation-lab',
-                        },
-                        { label: 'Careers', href: '/about/careers' },
-                      ],
-                    },
-                  ]}
+                  navItems={navbarItems}
                 />
                 <Box className="flex-1 flex flex-col">{children}</Box>
                 <Footer />

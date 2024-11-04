@@ -1,5 +1,3 @@
-'use client';
-
 import { palette } from './palette';
 
 import { Theme } from '@mui/material';
