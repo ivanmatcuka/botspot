@@ -1,21 +1,19 @@
 'use client';
 
-import { Button, ButtonProps } from '@/app/components/Button/Button';
+import { CustomHoverMenu } from './HoverMenu';
+import { MobileMenu } from './MobileMenu';
+
+import { ButtonProps } from '@/app/components/Button/Button';
 
 import {
   MenuItem as MuiMenuItem,
   MenuItemProps as MuiMenuItemProps,
+  useMediaQuery,
   useTheme,
 } from '@mui/material';
-import { FC, PropsWithChildren } from 'react';
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
-import {
-  usePopupState,
-  bindMenu,
-  bindHover,
-} from 'material-ui-popup-state/hooks';
-import HoverMenu from 'material-ui-popup-state/HoverMenu';
+import { usePopupState } from 'material-ui-popup-state/hooks';
 import { useRouter } from 'next/navigation';
+import { FC, PropsWithChildren, useCallback } from 'react';
 
 export const MenuItem: FC<PropsWithChildren<MuiMenuItemProps>> = ({
   ...props
@@ -32,39 +30,33 @@ export const Menu: FC<PropsWithChildren<MenuProps>> = ({
   href,
   children,
 }) => {
-  const { shadows } = useTheme();
-  const popupState = usePopupState({ variant: 'popper', popupId: 'demoMenu' });
-  const open = popupState.isOpen;
   const { push } = useRouter();
+
+  const { breakpoints } = useTheme();
+  const matches = useMediaQuery(breakpoints.down('xl'));
+
+  const popupState = usePopupState({ variant: 'popper', popupId: 'demoMenu' });
+
+  const handleClick = useCallback(() => {
+    href && push(href);
+  }, [href, push]);
 
   return (
     <>
-      <Button
-        aria-controls={open ? `basic-menu-${label}` : undefined}
-        aria-expanded={open ? 'true' : undefined}
-        aria-haspopup="true"
-        endIcon={open ? <ExpandLess /> : <ExpandMore />}
-        id={`basic-button-${label}`}
-        variant={variant}
-        {...bindHover(popupState)}
-        onClick={() => href && push(href)}
-      >
-        {label}
-      </Button>
-      <HoverMenu
-        MenuListProps={{
-          'aria-labelledby': `basic-button-${label}`,
-        }}
-        slotProps={{
-          paper: {
-            sx: { boxShadow: shadows[1] },
-            className: 'border-2 border-divider',
-          },
-        }}
-        {...bindMenu(popupState)}
-      >
-        {children}
-      </HoverMenu>
+      {matches ? (
+        <MobileMenu label={label} variant={variant} onClick={handleClick}>
+          {children}
+        </MobileMenu>
+      ) : (
+        <CustomHoverMenu
+          label={label}
+          popupState={popupState}
+          variant={variant}
+          onClick={handleClick}
+        >
+          {children}
+        </CustomHoverMenu>
+      )}
     </>
   );
 };
