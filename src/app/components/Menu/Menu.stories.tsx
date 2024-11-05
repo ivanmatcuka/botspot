@@ -5,16 +5,12 @@ import { Button } from '../Button/Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Example/Menu',
+  title: 'botspot/Menu',
   component: Menu,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    // backgroundColor: { control: 'color' },
-  },
+  argTypes: {},
   args: { children: '' },
 } satisfies Meta<typeof Menu>;
 

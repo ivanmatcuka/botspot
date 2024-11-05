@@ -1,9 +1,9 @@
-import { Tile } from '../Tile/Tile';
-import { Button } from '../Button/Button';
+import { Button } from './Button/Button';
+import { Tile } from './Tile/Tile';
 
-import { FC } from 'react';
-import { Box, Typography } from '@mui/material';
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
+import { Box, Typography } from '@mui/material';
+import { FC } from 'react';
 
 type JobProps = {
   id: number;

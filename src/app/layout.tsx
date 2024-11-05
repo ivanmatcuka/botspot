@@ -97,7 +97,7 @@ export default async function RootLayout({
                   navItems={navbarItems}
                 />
                 <Box className="flex-1 flex flex-col">{children}</Box>
-                <Footer />
+                <Footer products={products} />
               </ConsentProvider>
             </SnackbarProvider>
           </ThemeRegistry>

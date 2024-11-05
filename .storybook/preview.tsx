@@ -1,7 +1,9 @@
-import type { Preview } from '@storybook/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { withThemeFromJSXProvider } from '@storybook/addon-themes';
-import { withThemeByClassName } from '@storybook/addon-themes';
+import {
+  withThemeByClassName,
+  withThemeFromJSXProvider,
+} from '@storybook/addon-themes';
+import type { Preview } from '@storybook/react';
 
 import { theme } from '../src/app/theme';
 
@@ -34,6 +36,9 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
+    },
+    nextjs: {
+      appDirectory: true,
     },
   },
 };

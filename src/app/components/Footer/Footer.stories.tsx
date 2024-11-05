@@ -2,18 +2,13 @@ import { Footer } from './Footer';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-
 const meta = {
-  title: 'Example/Footer',
+  title: 'botspot/Footer',
   component: Footer,
   parameters: {
     layout: 'fullscreen',
   },
-  tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    // backgroundColor: { control: 'color' },
-  },
+  argTypes: {},
   args: {},
 } satisfies Meta<typeof Footer>;
 
@@ -21,5 +16,5 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const BasicFooter: Story = {
-  args: {},
+  args: { products: [] },
 };
