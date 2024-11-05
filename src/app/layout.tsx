@@ -6,7 +6,7 @@ import './globals.scss';
 import { Button } from '@/app/components/Button/Button';
 import { Footer } from '@/app/components/Footer/Footer';
 import { Navbar } from '@/app/components/Navbar/Navbar';
-import { SnackbarProvider } from '@/app/components/Snackbar/Snackbar';
+import { SnackbarProvider } from '@/app/components/Snackbar';
 import { getProducts } from '@/app/service';
 import ThemeRegistry from '@/app/theme/ThemeRegistry';
 

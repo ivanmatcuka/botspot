@@ -1,16 +1,15 @@
 import { Button } from '@/app/components/Button/Button';
-import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { MediaBlock } from '@/app/components/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer';
 import { ScrollableBlock } from '@/app/components/ScrollableBlock';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { CustomFields } from '@/app/service';
+import { CustomFields, CustomPost } from '@/app/service';
 import { getFeaturedImageUrl } from '@/app/utils';
 
 import { FC } from 'react';
-import { WP_REST_API_Post } from 'wp-types';
 
 type LandingPageProductProps = {
-  product: WP_REST_API_Post;
+  product: CustomPost;
 };
 export const LandingPageProduct: FC<LandingPageProductProps> = ({
   product,

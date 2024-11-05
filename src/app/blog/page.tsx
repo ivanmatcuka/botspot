@@ -1,7 +1,7 @@
 import { Posts } from './Posts';
 
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { PageContainer } from '@/app/components/PageContainer';
 import { QuestionForm } from '@/app/components/QuestionForm';
 
 import { Box, Grid } from '@mui/material';

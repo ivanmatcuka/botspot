@@ -1,15 +1,14 @@
 'use client';
 
 import { Button } from '@/app/components/Button/Button';
-import { Pagination } from '@/app/components/Pagination/Pagination';
-import { Post } from '@/app/components/Post/Post';
-import { getPosts } from '@/app/service';
+import { Pagination } from '@/app/components/Pagination';
+import { Post } from '@/app/components/Post';
+import { CustomPost, getPosts } from '@/app/service';
 import { getFeaturedImageUrl } from '@/app/utils';
 
 import { Grid, Skeleton } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { FC, useEffect, useMemo, useState } from 'react';
-import { WP_REST_API_Posts } from 'wp-types';
 
 type PostProps = {
   perPage?: number;
@@ -24,7 +23,7 @@ export const Posts: FC<PostProps> = ({
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
-  const [posts, setPosts] = useState<WP_REST_API_Posts>([]);
+  const [posts, setPosts] = useState<CustomPost[]>([]);
   const { push } = useRouter();
 
   useEffect(() => {

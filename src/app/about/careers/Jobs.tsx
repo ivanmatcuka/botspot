@@ -1,11 +1,11 @@
 import { Job } from '@/app/components/Job/Job';
+import { CustomPost } from '@/app/service';
 
 import { Grid } from '@mui/material';
 import { FC } from 'react';
-import { WP_REST_API_Posts } from 'wp-types';
 
 type JobsProps = {
-  data: WP_REST_API_Posts;
+  data: CustomPost[];
 };
 export const Jobs: FC<JobsProps> = ({ data }) =>
   data.map((post) => (

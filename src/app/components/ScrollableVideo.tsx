@@ -26,9 +26,9 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
 
       const imagePromises = [];
 
-      for (let imageUrl of [...(imagesUrls ?? [])].sort((a, b) => {
-        return a.localeCompare(b);
-      })) {
+      for (const imageUrl of [...(imagesUrls ?? [])].sort((a, b) =>
+        a.localeCompare(b),
+      )) {
         const imagePromise = loadImage(imageUrl);
         imagePromises.push(imagePromise);
       }

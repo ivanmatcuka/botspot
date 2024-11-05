@@ -3,7 +3,7 @@ import { Posts } from '../blog/Posts';
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { PageContainer } from '@/app/components/PageContainer';
 import { QuestionForm } from '@/app/components/QuestionForm';
 import { Tile } from '@/app/components/Tile/Tile';
 

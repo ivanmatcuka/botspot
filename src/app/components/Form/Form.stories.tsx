@@ -2,9 +2,9 @@ import { Form, Input } from './Form';
 
 import { Button } from '../Button/Button';
 
-import { FormProvider, useForm } from 'react-hook-form';
 import { Grid, Paper } from '@mui/material';
 import { FC } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -41,7 +41,7 @@ const FormWithHooks: FC = () => {
 
   return (
     <Paper className="border-2 border-divider" elevation={1}>
-      <form onSubmit={handleSubmit(() => {})}>
+      <form onSubmit={handleSubmit(() => ({}))}>
         <Grid display="flex" flexWrap="wrap" gap={3} p={5} container>
           <Input
             error={errors.name}

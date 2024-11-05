@@ -49,6 +49,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/wordpress__block-library": "^2.6.3",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
     "eslint-config-prettier": "^9.1.0",

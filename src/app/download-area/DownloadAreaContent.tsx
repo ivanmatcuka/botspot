@@ -4,10 +4,10 @@ import { sendEmail } from '@/app/actions';
 import { Button } from '@/app/components/Button/Button';
 import { DownloadForm } from '@/app/components/DownloadForm';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
-import { Post } from '@/app/components/Post/Post';
-import { useSnackbar } from '@/app/components/Snackbar/Snackbar';
-import { CustomPost } from '@/app/service';
+import { PageContainer } from '@/app/components/PageContainer';
+import { Post } from '@/app/components/Post';
+import { useSnackbar } from '@/app/components/Snackbar';
+import { CustomFields, CustomPost } from '@/app/service';
 
 import { Grid } from '@mui/material';
 import { FC, useState } from 'react';
@@ -48,7 +48,8 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
       <PageContainer mb={8}>
         <Grid spacing={{ xs: 2, md: 3, lg: 5 }} container>
           {products.map((product, index) => {
-            const { datasheet, picture }: any = product.acf;
+            const { datasheet, picture }: Partial<CustomFields> =
+              product.acf ?? {};
 
             return (
               <Grid key={index} lg={4} md={6} xs={12} item>

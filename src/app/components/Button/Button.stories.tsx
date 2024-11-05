@@ -3,28 +3,21 @@ import { IconLink } from '../IconLink';
 import { Button, ButtonProps } from '@/app/components/Button/Button';
 
 import { Box, Grid, Typography } from '@mui/material';
-import { fn } from '@storybook/test';
 import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
   title: 'botspot/Buttons',
-  component: Button,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      options: ['primary', 'secondary', 'outline'],
-    },
-  },
-  args: { onClick: fn(), disabled: false },
+  argTypes: {},
+  args: {},
 } satisfies Meta<typeof Button>;
 
 export default meta;
-type Story = StoryObj<any>;
+type Story = StoryObj<typeof Button>;
 
 export const Buttons: Story = {
   args: {},
