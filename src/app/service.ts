@@ -1,10 +1,15 @@
-import type { WP_REST_API_Categories, WP_REST_API_Posts } from 'wp-types';
+import type { WP_REST_API_Categories, WP_REST_API_Post } from 'wp-types';
+
+export type CustomPost = WP_REST_API_Post & {
+  acf?: Partial<CustomFields>;
+};
 
 export type CustomFields = {
   picture: string;
   closeup: string;
   banner: string;
-
+  datasheet: string;
+  
   'first-animation': string;
   'second-animation': string;
 
@@ -13,15 +18,14 @@ export type CustomFields = {
   'second-headline': string;
   'second-subline': string;
 
-  post: any;
+  post: CustomPost & {
+    post_title: string;
+    post_excerpt: string;
+  };
 
   photo_gallery: {
     animation: { full_image_url: string }[];
   };
-};
-
-export type CustomPost = WP_REST_API_Posts[number] & {
-  acf?: Partial<CustomFields>;
 };
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -34,8 +38,8 @@ const requestInit: RequestInit = {
 };
 
 export const getPosts = async (
-  page: number = 1,
-  perPage: number = 12,
+  page = 1,
+  perPage = 12,
 ): Promise<{ data: CustomPost[]; count: number }> => {
   const category = await getCategory('3d-academy');
   if (!category) return { data: [], count: 0 };

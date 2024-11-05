@@ -5,20 +5,20 @@ import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { Gallery } from '@/app/components/Gallery/Gallery';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { MediaBlock } from '@/app/components/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
-import { UnorderedList } from '@/app/components/UnorderedList/UnorderedList';
-import { UnorderedListItem } from '@/app/components/UnorderedListItem/UnorderedListItem';
-import { getProductBySlug } from '@/services/mainService';
+import { UnorderedList } from '@/app/components/UnorderedList';
+import { UnorderedListItem } from '@/app/components/UnorderedListItem';
+import { CustomFields, getProductBySlug } from '@/app/service';
+import { getFeaturedImageUrl } from '@/app/utils';
 
 import { Box } from '@mui/material';
 import parse from 'html-react-parser';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { isValidElement, ReactElement } from 'react';
-import { WP_REST_API_Attachment } from 'wp-types';
 
 export async function generateMetadata({
   params,
@@ -28,14 +28,10 @@ export async function generateMetadata({
   const product = await getProductBySlug(params.slug);
   if (!product) return {};
 
-  const featuredImage =
-    (product._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
-      ?.source_url ?? '/img/banners/innovation-lab.png';
-
   return {
     title: `${product.title.rendered} – botspot`,
     openGraph: {
-      images: [featuredImage],
+      images: [getFeaturedImageUrl(product)],
     },
   };
 }
@@ -45,7 +41,6 @@ export default async function Product({
   params: { slug: string };
 }) {
   const product = await getProductBySlug(params.slug);
-
   if (!product) return notFound();
 
   const {
@@ -61,7 +56,7 @@ export default async function Product({
     'second-subline': secondSubline,
 
     post,
-  }: any = product.acf;
+  }: Partial<CustomFields> = product.acf ?? {};
 
   const tileHeadlines = (
     parse(product.content.rendered) as ReactElement[]
@@ -71,9 +66,7 @@ export default async function Product({
     (element) => element.type === 'ul',
   );
 
-  const relatedImage =
-    (post?._embedded?.['wp:featuredmedia']?.[0] as WP_REST_API_Attachment)
-      ?.source_url ?? '/img/banners/innovation-lab.png';
+  const relatedImage = getFeaturedImageUrl(post);
 
   return (
     <main className="">
@@ -121,8 +114,8 @@ export default async function Product({
 
       <Box mb={{ xs: 5, md: 10 }}>
         <Gallery
-          firstChild={<Iframe src={firstAnimation} />}
-          secondChild={<Iframe src={secondAnimation} />}
+          firstChild={<Iframe src={firstAnimation ?? ''} />}
+          secondChild={<Iframe src={secondAnimation ?? ''} />}
         />
       </Box>
 

@@ -3,8 +3,8 @@
 import { MenuItem } from '@/app/components/Menu/Menu';
 
 import {
-  ButtonProps as MuiButtonProps,
   Button as MuiButton,
+  ButtonProps as MuiButtonProps,
   styled,
 } from '@mui/material';
 import { FC } from 'react';
@@ -28,9 +28,17 @@ const SecondaryButton = styled(({ ...props }: MuiButtonProps) => (
   '&:hover': {
     backgroundColor: theme.palette.primary.main,
     borderColor: theme.palette.common.white,
-    borderWidth: 2,
 
     color: theme.palette.common.white,
+  },
+}));
+
+const OutlineButton = styled(SecondaryButton)(({ theme }) => ({
+  '&:disabled': {
+    backgroundColor: theme.palette.common.white,
+    borderColor: theme.palette.grey[100],
+
+    color: theme.palette.grey[200],
   },
 }));
 
@@ -56,7 +64,7 @@ const MenuItemButton = styled(({ ...props }: MuiButtonProps) => (
 }));
 
 export type ButtonProps = {
-  variant: 'primary' | 'secondary' | 'menu' | 'menuItem' | 'topic';
+  variant: 'primary' | 'secondary' | 'outline' | 'menu' | 'menuItem' | 'topic';
 } & Pick<
   MuiButtonProps,
   | 'id'
@@ -76,6 +84,8 @@ export const Button: FC<ButtonProps> = ({ variant, ...props }) => {
       return <PrimaryButton {...props} />;
     case 'secondary':
       return <SecondaryButton {...props} />;
+    case 'outline':
+      return <OutlineButton {...props} />;
     case 'menu':
       return <MenuButton {...props} />;
     case 'menuItem':

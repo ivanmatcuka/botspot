@@ -3,11 +3,11 @@ import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { MediaBlock } from '@/app/components/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
-import { getProducts } from '@/services/mainService';
+import { CustomFields, getProducts } from '@/app/service';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
@@ -76,7 +76,7 @@ export default async function Products() {
       </Box>
 
       {products.map((product, index) => {
-        const { picture }: any = product.acf;
+        const { picture }: Partial<CustomFields> = product.acf ?? {};
 
         return (
           <div key={index}>

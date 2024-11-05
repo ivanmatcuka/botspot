@@ -1,13 +1,12 @@
 import { People } from './People';
 
-import { PageContainer } from '../components/PageContainer/PageContainer';
-
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { PageContainer } from '@/app/components/PageContainer';
 import { Tile } from '@/app/components/Tile/Tile';
-import { getPeople } from '@/services/mainService';
+import { getPeople } from '@/app/service';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';

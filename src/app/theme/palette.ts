@@ -1,9 +1,6 @@
-'use client';
-
 export const palette = {
   action: {
     disabledBackground: '#AEAEAE',
-    // disabledOpacity: 1,
   },
   primary: {
     main: '#4119BC',

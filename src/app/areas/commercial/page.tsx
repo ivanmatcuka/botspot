@@ -1,14 +1,14 @@
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
+import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { MediaBlock } from '@/app/components/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
-import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
-import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
-import Image from 'next/image';
 import { Typography } from '@mui/material';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Commercial Areas of Use – botspot',
@@ -48,9 +48,9 @@ export default function Commercial() {
         />
       </PageContainer>
 
-      <Tile headline="Inuikii">
+      <Tile headline="INUIKII">
         <Image
-          alt="Inuikii"
+          alt="INUIKII"
           height={400}
           quality={100}
           src="/img/areas/commercial/1.png"
@@ -134,13 +134,13 @@ export default function Commercial() {
 
       <GalleryTile imgUrl="/img/areas/commercial/5.png">
         <SecondaryBlock
-          headline="We recommend our 3D Object Scanner"
+          headline="We recommend our 3D Studio Scanner"
           primaryCta={
-            <Button href="/products/3d-object" variant="primary">
-              Explore 3D Object Scanner
+            <Button href="/products/3d-studio" variant="primary">
+              Explore 3D Studio Scanner
             </Button>
           }
-          sublineElement="Versatile and powerful, our 3D Object is ideal for commercial applications."
+          sublineElement="Versatile and powerful, our 3D Studio is ideal for commercial applications."
         />
       </GalleryTile>
     </main>

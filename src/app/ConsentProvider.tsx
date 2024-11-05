@@ -1,7 +1,7 @@
 'use client';
 
-import { Dialog } from './components/Dialog/Dialog';
-import { Button } from './components/Button/Button';
+import { Button } from '@/app/components/Button/Button';
+import { Dialog } from '@/app/components/Dialog';
 
 import { Box, Typography } from '@mui/material';
 import { getCookie, setCookie } from 'cookies-next';

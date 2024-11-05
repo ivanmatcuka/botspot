@@ -5,16 +5,12 @@ import { Button } from '../Button/Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Example/Navbar',
+  title: 'botspot/Navigation',
   component: Navbar,
   parameters: {
     layout: 'fullscreen',
   },
-  tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    // backgroundColor: { control: 'color' },
-  },
+  argTypes: {},
 } satisfies Meta<typeof Navbar>;
 
 export default meta;

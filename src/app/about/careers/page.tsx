@@ -1,12 +1,13 @@
-import { Jobs } from './Jobs';
 import { ExtraFooter } from './ExtraFooter';
+import { Jobs } from './Jobs';
 
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { getJobs } from '@/services/mainService';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { MediaBlock } from '@/app/components/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer';
+import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { getJobs } from '@/app/service';
 
+import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -34,7 +35,15 @@ export default async function Careers() {
         />
       </PageContainer>
 
-      <Jobs data={data} />
+      <Box maxWidth="xl" mx="auto">
+        <Grid
+          mb={{ xs: 5, md: 10 }}
+          spacing={{ xs: 2, md: 3, lg: 5 }}
+          container
+        >
+          <Jobs data={data} />
+        </Grid>
+      </Box>
 
       <ExtraFooter />
     </main>

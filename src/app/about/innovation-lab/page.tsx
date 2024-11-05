@@ -1,16 +1,16 @@
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { Button } from '@/app/components/Button/Button';
-import { Tile } from '@/app/components/Tile/Tile';
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { getPostBySlug } from '@/services/mainService';
-import { Post } from '@/app/components/Post/Post';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
-import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { MediaBlock } from '@/app/components/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer';
+import { Post } from '@/app/components/Post';
+import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { Tile } from '@/app/components/Tile/Tile';
+import { getPostBySlug } from '@/app/service';
+import { getFeaturedImageUrl } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
-import { WP_REST_API_Attachment } from 'wp-types';
 
 const POST_SLUG = 'scanning-horses';
 
@@ -97,13 +97,7 @@ export default async function InnovationLab() {
                 </Button>
               }
               excerpt={post.excerpt.rendered}
-              featuredImage={
-                (
-                  post._embedded?.[
-                    'wp:featuredmedia'
-                  ]?.[0] as WP_REST_API_Attachment
-                )?.source_url
-              }
+              featuredImage={getFeaturedImageUrl(post)}
               title={post.title.rendered}
             />
           </PageContainer>

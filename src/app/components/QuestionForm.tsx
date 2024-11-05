@@ -3,7 +3,7 @@
 import { sendEmail } from '@/app/actions';
 import { Button } from '@/app/components/Button/Button';
 import { Form, Input } from '@/app/components/Form/Form';
-import { useSnackbar } from '@/app/components/Snackbar/Snackbar';
+import { useSnackbar } from '@/app/components/Snackbar';
 
 import { Box, Typography } from '@mui/material';
 import { FC, useCallback, useMemo, useState } from 'react';

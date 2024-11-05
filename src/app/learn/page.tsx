@@ -1,12 +1,13 @@
 import { Posts } from '../blog/Posts';
-import { Banner } from '../components/Banner/Banner';
-import { Button } from '../components/Button/Button';
-import { MainBlock } from '../components/MainBlock/MainBlock';
-import { PageContainer } from '../components/PageContainer/PageContainer';
-import { QuestionForm } from '../components/QuestionForm';
-import { Tile } from '../components/Tile/Tile';
 
-import { Typography } from '@mui/material';
+import { Banner } from '@/app/components/Banner/Banner';
+import { Button } from '@/app/components/Button/Button';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { PageContainer } from '@/app/components/PageContainer';
+import { QuestionForm } from '@/app/components/QuestionForm';
+import { Tile } from '@/app/components/Tile/Tile';
+
+import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import Image from 'next/image';
 
@@ -87,7 +88,11 @@ export default function Learn() {
         />
       </PageContainer>
 
-      <Posts perPage={6} hidePagination />
+      <Box className="w-full flex justify-center" maxWidth="xl" mx="auto">
+        <Grid spacing={{ xs: 2, md: 3, lg: 5 }} xs={10} container>
+          <Posts perPage={6} hidePagination />
+        </Grid>
+      </Box>
 
       <QuestionForm />
     </main>

@@ -35,6 +35,8 @@ export const DownloadForm: FC<DownloadFormProps> = ({
   const name = watch('name');
   const email = watch('email');
 
+  const generateMessage = (topic: string) => `Datasheet for ${topic}.`;
+
   const messageHtml = useMemo(() => {
     return `${generateMessage(topic)}<br/>
             Name: ${name}<br/>
@@ -48,8 +50,6 @@ export const DownloadForm: FC<DownloadFormProps> = ({
     },
     [setValue],
   );
-
-  const generateMessage = (topic: string) => `Datasheet for ${topic}.`;
 
   return (
     <form onSubmit={handleSubmit(() => onSubmit?.(topic, messageHtml))}>

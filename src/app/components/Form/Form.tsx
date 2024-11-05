@@ -6,58 +6,70 @@ import {
   Container,
   Grid,
   InputLabel,
-  InputProps,
+  InputProps as MuiInputProps,
   Paper,
   TextField,
   Typography,
 } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
 import {
+  FieldValues,
   SubmitHandler,
   UseControllerProps,
   UseFormRegister,
 } from 'react-hook-form';
 
-export const Input = (
-  props: Pick<UseControllerProps<any>, 'name' | 'rules'> &
-    Pick<InputProps, 'fullWidth' | 'required' | 'value' | 'type' | 'rows'> & {
-      register: UseFormRegister<any>;
-      error: any;
-      label?: string;
-      color?: 'primary' | 'white';
-    },
-) => (
+type InputProps = Pick<UseControllerProps, 'name' | 'rules'> &
+  Pick<MuiInputProps, 'fullWidth' | 'required' | 'value' | 'type' | 'rows'> & {
+    error: FieldValues;
+    label?: string;
+    color?: 'primary' | 'white';
+    register: UseFormRegister<FieldValues>;
+  };
+export const Input: FC<InputProps> = ({
+  fullWidth,
+  label,
+  error,
+  color,
+  required,
+  rows,
+  type,
+  value,
+  name,
+  rules,
+  register,
+}) => (
   <Grid
     className="!text-white"
-    flex={props.fullWidth ? '0 0 100%' : 'auto'}
+    flex={fullWidth ? '0 0 100%' : 'auto'}
     flexGrow={1}
     item
   >
-    {props.label && (
+    {label && (
       <Box mb={0.5}>
         <InputLabel
-          className={props.color === 'white' ? '!text-white' : ''}
-          required={props.required}
+          className={color === 'white' ? '!text-white' : ''}
+          required={required}
         >
-          <Typography variant="caption">{props.label}</Typography>
+          <Typography variant="caption">{label}</Typography>
         </InputLabel>
       </Box>
     )}
     <TextField
-      error={props.error}
+      error={Boolean(error)}
       InputProps={{ className: 'bg-white' }}
-      placeholder={props.label}
-      rows={props.rows}
-      type={props.type}
-      value={props.value}
+      placeholder={label}
+      rows={rows}
+      type={type}
+      value={value}
       fullWidth
-      {...props.register(props.name, props.rules)}
+      {...register(name, rules)}
     />
-    {props.error && (
+    {error && (
       <Box alignItems="center" display="flex" mt={0.5}>
         <ErrorOutline color="error" fontSize="small" />
         <Typography color="error" ml={0.5} variant="caption">
-          {props.error.message}
+          {error.message}
         </Typography>
       </Box>
     )}
@@ -65,7 +77,7 @@ export const Input = (
 );
 
 type FormProps = {
-  onSubmit: SubmitHandler<any>;
+  onSubmit: SubmitHandler<FieldValues>;
   frameless?: boolean;
   secondary?: boolean;
 };

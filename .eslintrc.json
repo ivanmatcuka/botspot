@@ -2,6 +2,7 @@
   "extends": [
     "next/core-web-vitals",
     "plugin:storybook/recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "rules": {
@@ -28,6 +29,7 @@
         ]
       }
     ],
+    "@typescript-eslint/no-explicit-any": "error",
     "react/jsx-sort-props": [
       2,
       {

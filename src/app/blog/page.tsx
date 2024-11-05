@@ -1,9 +1,10 @@
 import { Posts } from './Posts';
 
-import { QuestionForm } from '@/app/components/QuestionForm';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
+import { PageContainer } from '@/app/components/PageContainer';
+import { QuestionForm } from '@/app/components/QuestionForm';
 
+import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -23,7 +24,11 @@ export default function Blog() {
         />
       </PageContainer>
 
-      <Posts />
+      <Box className="w-full flex justify-center" maxWidth="xl" mx="auto">
+        <Grid spacing={{ xs: 2, md: 3, lg: 5 }} xs={10} container>
+          <Posts />
+        </Grid>
+      </Box>
 
       <QuestionForm />
     </main>

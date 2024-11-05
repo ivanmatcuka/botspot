@@ -1,4 +1,5 @@
-import { getProducts } from '@/services/mainService';
+import { IconLink } from '@/app/components/IconLink';
+import { getProducts } from '@/app/service';
 
 import {
   Box,
@@ -9,7 +10,6 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC } from 'react';
 
 const Text = ({
   children,
@@ -33,17 +33,6 @@ const Text = ({
   );
 };
 
-type IconLinkProps = {
-  href: string;
-  src: string;
-  alt: string;
-};
-const IconLink: FC<IconLinkProps> = ({ href, src, alt }) => (
-  <Link className="hover:underline" href={href} target="_blank">
-    <Image alt={alt} height={32} src={src} width={32} />
-  </Link>
-);
-
 export const Footer = async () => {
   const { data: products } = await getProducts();
 
@@ -62,20 +51,11 @@ export const Footer = async () => {
               <br />
               <Text href="mailto:mail@botspot.de">mail@botspot.de</Text>
               <Box display={{ xs: 'none', md: 'flex' }} gap={3} mt={3}>
-                <IconLink
-                  alt="instagram"
-                  href="https://instagram.com/botspot3d/"
-                  src="/link_ig.svg"
-                />
-                <IconLink
-                  alt="x"
-                  href="https://x.com/botspot3d"
-                  src="/link_x.svg"
-                />
+                <IconLink alt="ig" href="https://instagram.com/botspot3d/" />
+                <IconLink alt="x" href="https://x.com/botspot3d" />
                 <IconLink
                   alt="linkedin"
                   href="https://linkedin.com/company/botspot-3d-scan/"
-                  src="/link_linkedin.svg"
                 />
               </Box>
             </Grid>
@@ -124,17 +104,11 @@ export const Footer = async () => {
               <IconLink
                 alt="instagram"
                 href="https://instagram.com/botspot3d/"
-                src="/link_ig.svg"
               />
-              <IconLink
-                alt="x"
-                href="https://x.com/botspot3d"
-                src="/link_x.svg"
-              />
+              <IconLink alt="x" href="https://x.com/botspot3d" />
               <IconLink
                 alt="linkedin"
                 href="https://linkedin.com/company/botspot-3d-scan/"
-                src="/link_linkedin.svg"
               />
             </Box>
           </Grid>

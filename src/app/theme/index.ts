@@ -1,7 +1,5 @@
-'use client';
-
-import { palette } from './palette';
 import { getComponents } from './components';
+import { palette } from './palette';
 import { typography } from './typography';
 
 import { createTheme, Shadows } from '@mui/material/styles';

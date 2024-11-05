@@ -9,7 +9,13 @@ import {
   useState,
 } from 'react';
 
-export const SnackbarContext = createContext<any>({});
+export const SnackbarContext = createContext<{
+  showSnackbar: (
+    message: string,
+    status: 'success' | 'error',
+    duration?: number,
+  ) => void;
+}>({ showSnackbar: () => ({}) });
 
 export const SnackbarProvider: FC<PropsWithChildren> = ({ children }) => {
   const [open, setOpen] = useState(false);

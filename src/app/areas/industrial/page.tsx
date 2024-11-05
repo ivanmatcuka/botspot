@@ -1,11 +1,11 @@
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { Iframe } from '@/app/components/3dIframe/3dIframe';
 import { Button } from '@/app/components/Button/Button';
+import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
+import { MainBlock } from '@/app/components/MainBlock/MainBlock';
+import { MediaBlock } from '@/app/components/MediaBlock';
+import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
-import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
-import { Iframe } from '@/app/components/3dIframe/3dIframe';
-import { MediaBlock } from '@/app/components/MediaBlock/MediaBlock';
-import { PageContainer } from '@/app/components/PageContainer/PageContainer';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
@@ -89,13 +89,13 @@ export default function Industrial() {
 
       <GalleryTile imgUrl="/img/areas/industrial/4.png">
         <SecondaryBlock
-          headline="We recommend our 3D Studio Scanner"
+          headline="We recommend our 3D Object Scanner"
           primaryCta={
-            <Button href="/products/3d-studio" variant="primary">
+            <Button href="/products/3d-object" variant="primary">
               Explore 3D Object Scanner
             </Button>
           }
-          sublineElement="Durable and fast, our 3D Studio is ideal for industrial applications."
+          sublineElement="Durable and fast, our 3D Object is ideal for industrial applications."
         />
       </GalleryTile>
     </main>

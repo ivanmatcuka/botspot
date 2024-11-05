@@ -1,7 +1,4 @@
-import {
-  MediaBlock,
-  MediaBlockProps,
-} from '@/app/components/MediaBlock/MediaBlock';
+import { MediaBlock, MediaBlockProps } from '@/app/components/MediaBlock';
 
 import { Box, Grid, Typography } from '@mui/material';
 import { FC, isValidElement, ReactNode } from 'react';

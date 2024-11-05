@@ -1,5 +1,3 @@
-'use client';
-
 import { palette } from './palette';
 
 import { Theme } from '@mui/material';
@@ -104,14 +102,10 @@ export const getComponents = (theme: Theme) => ({
       sizeSmall: {
         padding: theme.spacing(1, 2),
       },
-      outlined: {
-        '&:disabled': {
-          backgroundColor: palette.grey[200],
-        },
-      },
       text: {
         border: 'none',
         fontWeight: 'normal',
+
         '&:hover': {
           color: palette.primary.main,
           backgroundColor: 'transparent',
@@ -119,18 +113,19 @@ export const getComponents = (theme: Theme) => ({
         '&:disabled': {
           border: 'none',
           backgroundColor: palette.grey[100],
-
           color: palette.common.black,
         },
       },
       root: {
         padding: theme.spacing(1.5, 2.5),
-        border: 'solid 2px',
+        border: 'solid',
+        borderWidth: '0.1em',
         fontWeight: 'normal',
 
         '&:disabled': {
-          borderColor: palette.grey[200],
+          borderColor: palette.common.white,
           color: palette.common.white,
+          backgroundColor: palette.grey[200],
         },
       },
     },
