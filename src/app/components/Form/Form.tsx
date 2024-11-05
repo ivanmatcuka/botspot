@@ -14,14 +14,13 @@ import {
 import { FC, PropsWithChildren } from 'react';
 import {
   FieldValues,
-  SubmitHandler,
   UseControllerProps,
   UseFormRegister,
 } from 'react-hook-form';
 
 type InputProps = Pick<UseControllerProps, 'name' | 'rules'> &
   Pick<MuiInputProps, 'fullWidth' | 'required' | 'value' | 'type' | 'rows'> & {
-    error: FieldValues;
+    error?: FieldValues;
     label?: string;
     color?: 'primary' | 'white';
     register: UseFormRegister<FieldValues>;
@@ -77,7 +76,7 @@ export const Input: FC<InputProps> = ({
 );
 
 type FormProps = {
-  onSubmit: SubmitHandler<FieldValues>;
+  onSubmit: () => void;
   frameless?: boolean;
   secondary?: boolean;
 };
