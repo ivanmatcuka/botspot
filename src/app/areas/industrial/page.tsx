@@ -89,13 +89,13 @@ export default function Industrial() {
 
       <GalleryTile imgUrl="/img/areas/industrial/4.png">
         <SecondaryBlock
-          headline="We recommend our 3D Studio Scanner"
+          headline="We recommend our 3D Object Scanner"
           primaryCta={
-            <Button href="/products/3d-studio" variant="primary">
+            <Button href="/products/3d-object" variant="primary">
               Explore 3D Object Scanner
             </Button>
           }
-          sublineElement="Durable and fast, our 3D Studio is ideal for industrial applications."
+          sublineElement="Durable and fast, our 3D Object is ideal for industrial applications."
         />
       </GalleryTile>
     </main>

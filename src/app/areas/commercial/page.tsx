@@ -48,9 +48,9 @@ export default function Commercial() {
         />
       </PageContainer>
 
-      <Tile headline="Inuikii">
+      <Tile headline="INUIKII">
         <Image
-          alt="Inuikii"
+          alt="INUIKII"
           height={400}
           quality={100}
           src="/img/areas/commercial/1.png"
@@ -134,13 +134,13 @@ export default function Commercial() {
 
       <GalleryTile imgUrl="/img/areas/commercial/5.png">
         <SecondaryBlock
-          headline="We recommend our 3D Object Scanner"
+          headline="We recommend our 3D Studio Scanner"
           primaryCta={
-            <Button href="/products/3d-object" variant="primary">
-              Explore 3D Object Scanner
+            <Button href="/products/3d-studio" variant="primary">
+              Explore 3D Studio Scanner
             </Button>
           }
-          sublineElement="Versatile and powerful, our 3D Object is ideal for commercial applications."
+          sublineElement="Versatile and powerful, our 3D Studio is ideal for commercial applications."
         />
       </GalleryTile>
     </main>
