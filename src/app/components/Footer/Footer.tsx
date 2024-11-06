@@ -67,13 +67,14 @@ export const Footer: FC<FooterProps> = ({ products }) => (
             mt={{ xs: 5, md: 9.25 }}
             item
           >
-            <Text href="/products">3D Scanner</Text>
+            <Text href="/products">3D Solutions</Text>
             <br />
             {products.map((product, index) => (
               <Text href={`/products/${product.slug}`} key={index}>
-                {product.title.rendered}
+                {product?.acf?.['full-name'] || product.title.rendered}
               </Text>
             ))}
+            <Text href="/service">Scan Service</Text>
           </Grid>
           <Grid
             flexBasis={{ xs: '100%', md: '20%' }}
@@ -82,9 +83,8 @@ export const Footer: FC<FooterProps> = ({ products }) => (
           >
             <Text>Resources</Text>
             <br />
-            <Text href="/service">3D Scan Service</Text>
-            <Text href="/areas">Areas of Use</Text>
             <Text href="/learn">What is 3D Scanning?</Text>
+            <Text href="/areas">Areas of Use</Text>
           </Grid>
           <Grid
             flexBasis={{ xs: '100%', md: '20%' }}

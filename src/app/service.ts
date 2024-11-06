@@ -17,6 +17,7 @@ export type CustomFields = {
   'first-subline': string;
   'second-headline': string;
   'second-subline': string;
+  'full-name': string;
 
   post: CustomPost & {
     post_title: string;
