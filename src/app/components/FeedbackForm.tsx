@@ -77,7 +77,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
 
   useEffect(() => {
     getProducts().then(({ data }) =>
-      setTopics([...data.map((product) => product.title.rendered, ...TOPICS)]),
+      setTopics([...data.map((product) => product.title.rendered), ...TOPICS]),
     );
   }, []);
 
