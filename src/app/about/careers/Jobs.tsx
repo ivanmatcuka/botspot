@@ -1,4 +1,4 @@
-import { Job } from '@/app/components/Job/Job';
+import { Job } from '@/app/components/Job';
 import { CustomPost } from '@/app/service';
 
 import { Grid } from '@mui/material';

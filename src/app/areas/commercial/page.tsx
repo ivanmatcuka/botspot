@@ -1,7 +1,7 @@
+import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { MediaBlock } from '@/app/components/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
 export default function Commercial() {
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/areas/commercial/banner.png" banner />
-      <PageContainer banner>
-        <SecondaryBlock
-          headline="Commercial Areas of Use"
-          sublineElement="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
-        />
-      </PageContainer>
+      <Banner
+        headline="Commercial Areas of Use"
+        mediaBlockOptions={{
+          assetUrl: '/img/areas/commercial/banner.png',
+        }}
+        sublineElement="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
+      />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock

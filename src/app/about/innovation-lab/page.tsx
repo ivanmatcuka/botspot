@@ -1,10 +1,9 @@
+import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { MediaBlock } from '@/app/components/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { Post } from '@/app/components/Post';
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { getPostBySlug } from '@/app/service';
 import { getFeaturedImageUrl } from '@/app/utils';
@@ -23,23 +22,23 @@ export default async function InnovationLab() {
 
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/banners/innovation-lab.png" banner />
-      <PageContainer banner>
-        <SecondaryBlock
-          headline="Innovation Lab"
-          primaryCta={
-            <Button href="/contact-us" variant="primary">
-              Contact Innovation Lab
-            </Button>
-          }
-          secondaryCta={
-            <Button href="/blog" variant="secondary">
-              Visit Blog
-            </Button>
-          }
-          sublineElement="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
-        />
-      </PageContainer>
+      <Banner
+        headline="Innovation Lab"
+        mediaBlockOptions={{
+          assetUrl: '/img/banners/innovation-lab.png',
+        }}
+        primaryCta={
+          <Button href="/contact-us" variant="primary">
+            Contact Innovation Lab
+          </Button>
+        }
+        secondaryCta={
+          <Button href="/blog" variant="secondary">
+            Visit Blog
+          </Button>
+        }
+        sublineElement="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
+      />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock

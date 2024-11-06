@@ -1,8 +1,8 @@
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
+import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { MediaBlock } from '@/app/components/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
 export default function CustomSolutions() {
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/areas/custom-solution/banner.png" banner />
-      <PageContainer banner>
-        <SecondaryBlock
-          headline="Custom Solutions"
-          sublineElement="Create bespoke solutions with our 3D scanners, offering accurate, customized models to fit your unique specifications."
-        />
-      </PageContainer>
+      <Banner
+        headline="Custom Solutions"
+        mediaBlockOptions={{
+          assetUrl: '/img/areas/custom-solution/banner.png',
+        }}
+        sublineElement="Create bespoke solutions with our 3D scanners, offering accurate, customized models to fit your unique specifications."
+      />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock

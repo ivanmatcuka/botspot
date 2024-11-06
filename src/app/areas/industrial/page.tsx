@@ -1,8 +1,8 @@
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
+import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { MediaBlock } from '@/app/components/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
 export default function Industrial() {
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/areas/industrial/banner.png" banner />
-      <PageContainer banner>
-        <SecondaryBlock
-          headline="Industrial Areas of Use"
-          sublineElement="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
-        />
-      </PageContainer>
+      <Banner
+        headline="Industrial Areas of Use"
+        mediaBlockOptions={{
+          assetUrl: '/img/areas/industrial/banner.png',
+        }}
+        sublineElement="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
+      />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock

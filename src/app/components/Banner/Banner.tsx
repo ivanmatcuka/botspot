@@ -6,8 +6,8 @@ import { FC, isValidElement, ReactNode } from 'react';
 type BannerProps = {
   headline: string;
   sublineElement: ReactNode;
-  primaryCta: ReactNode;
-  secondaryCta: ReactNode;
+  primaryCta?: ReactNode;
+  secondaryCta?: ReactNode;
   mediaBlockOptions?: Omit<MediaBlockProps, 'fullHeight'>;
 };
 export const Banner: FC<BannerProps> = ({

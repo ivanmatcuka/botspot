@@ -1,10 +1,9 @@
 import { ExtraFooter } from './ExtraFooter';
 import { Jobs } from './Jobs';
 
+import { Banner } from '@/app/components/Banner/Banner';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { MediaBlock } from '@/app/components/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer';
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { getJobs } from '@/app/service';
 
 import { Box, Grid } from '@mui/material';
@@ -19,16 +18,15 @@ export default async function Careers() {
 
   return (
     <main className="">
-      <MediaBlock assetUrl="/img/banners/careers.png" banner />
+      <Banner
+        headline="Careers"
+        mediaBlockOptions={{
+          assetUrl: '/img/banners/careers.png',
+        }}
+        sublineElement="We are always on the lookout for young talents as well as seasoned professionals."
+      />
 
-      <PageContainer banner>
-        <SecondaryBlock
-          headline="Careers"
-          sublineElement="We are always on the lookout for young talents as well as seasoned professionals."
-        />
-      </PageContainer>
-
-      <PageContainer>
+      <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="We strive for innovative spirit and foster our open corporate culture. Feel free to check our openings below."
           subline="Open Positions"
