@@ -17,7 +17,7 @@ import {
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const TOPICS = ['botspot', '3D Scan Service', 'Try Before You Buy', 'Other'];
+const TOPICS = ['3D Scan Service', 'Other'];
 
 type FeedbackFormProps = {
   frameless?: boolean;
@@ -32,7 +32,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
     formState: { errors },
   } = useForm();
 
-  const [topic, setTopic] = useState('botspot');
+  const [topic, setTopic] = useState(TOPICS[0]);
   const [topics, setTopics] = useState<typeof TOPICS>(TOPICS);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -77,7 +77,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
 
   useEffect(() => {
     getProducts().then(({ data }) =>
-      setTopics([...TOPICS, ...data.map((product) => product.title.rendered)]),
+      setTopics([...data.map((product) => product.title.rendered, ...TOPICS)]),
     );
   }, []);
 
