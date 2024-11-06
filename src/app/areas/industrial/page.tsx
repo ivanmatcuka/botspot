@@ -87,7 +87,7 @@ export default function Industrial() {
         </Typography>
       </Tile>
 
-      <GalleryTile imgUrl="/img/areas/industrial/4.png">
+      <GalleryTile imgUrl="/img/areas/industrial/5.png">
         <SecondaryBlock
           headline="We recommend our 3D Object Scanner"
           primaryCta={

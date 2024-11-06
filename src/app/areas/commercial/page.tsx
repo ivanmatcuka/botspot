@@ -132,7 +132,7 @@ export default function Commercial() {
         </Typography>
       </Tile>
 
-      <GalleryTile imgUrl="/img/areas/commercial/5.png">
+      <GalleryTile imgUrl="/img/areas/commercial/6.png">
         <SecondaryBlock
           headline="We recommend our 3D Studio Scanner"
           primaryCta={
