@@ -1,8 +1,8 @@
 'use client';
 
+import { Box } from '@mui/material';
 import Image from 'next/image';
 import { FC } from 'react';
-import { Box } from '@mui/material';
 
 export type MediaBlockProps = {
   assetUrl?: string;
@@ -25,7 +25,9 @@ export const MediaBlock: FC<MediaBlockProps> = ({
     ? '100vh'
     : { xs: banner ? 392 : 'auto', md: 768, lg: 800 };
 
-  return assetUrl.split('.').pop() === 'mp4' ? (
+  const isVideo = ['mp4', 'mov', 'webm'].some((ext) => assetUrl.endsWith(ext));
+
+  return isVideo ? (
     <Box height={height}>
       <video autoPlay={autoplay} className={className} loop muted playsInline>
         <source src={assetUrl} type="video/mp4" />

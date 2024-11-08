@@ -65,6 +65,7 @@ export const Footer: FC<FooterProps> = ({ products }) => (
           <Grid
             flexBasis={{ xs: '100%', md: '20%' }}
             mt={{ xs: 5, md: 9.25 }}
+            pr={2}
             item
           >
             <Text href="/products">3D Solutions</Text>

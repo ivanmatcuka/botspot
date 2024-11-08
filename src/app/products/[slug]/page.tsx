@@ -84,7 +84,7 @@ export default async function Product({
         />
       )}
 
-      <MediaBlock assetUrl={picture} objectFit="contain" />
+      <MediaBlock assetUrl={picture} objectFit="cover" banner />
 
       <PageContainer mt={{ xs: 5, md: 10 }}>
         <MainBlock headline={firstHeadline} subline={firstSubline} />

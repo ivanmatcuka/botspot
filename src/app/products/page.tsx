@@ -24,7 +24,7 @@ export default async function Products() {
       <Banner
         headline="PRODUCTS"
         mediaBlockOptions={{
-          assetUrl: '/img/banners/products.jpg',
+          assetUrl: '/img/banners/products.mov',
         }}
         primaryCta={
           <Button href="/download-area" variant="primary">
@@ -83,7 +83,8 @@ export default async function Products() {
             <MediaBlock
               assetUrl={picture}
               key={product.id}
-              objectFit="contain"
+              objectFit="cover"
+              banner
             />
 
             <PageContainer mt={{ xs: 10, md: 15 }}>
