@@ -1,4 +1,4 @@
-import type { WP_REST_API_Categories, WP_REST_API_Post } from 'wp-types';
+import type { WP_REST_API_Categories, WP_REST_API_Page, WP_REST_API_Post } from 'wp-types';
 
 export type CustomPost = WP_REST_API_Post & {
   acf?: Partial<CustomFields>;
@@ -175,6 +175,20 @@ export const getCategory = async (
 
   try {
     const data = (await response.json()) as WP_REST_API_Categories;
+    return data[0];
+  } catch (error) {
+    return null;
+  }
+};
+
+export const getPage = async (slug: string): Promise<WP_REST_API_Page | null> => {
+  const response = await fetch(
+    `${baseUrl}pages?slug=${slug}&_embed`,
+    requestInit,
+  );
+
+  try {
+    const data = await response.json();
     return data[0];
   } catch (error) {
     return null;

@@ -131,9 +131,9 @@ export const Footer: FC<FooterProps> = ({ products }) => (
           <Text mr={{ xs: 0, md: 'auto' }}>
             Copyright © 2024 botspot, All rights reserved
           </Text>
-          <Text>Privacy Policy</Text>
+          <Text href="/privacy-policy">Privacy Policy</Text>
           <Text href="/terms-and-conditions">Terms and Conditions</Text>
-          <Text>Legal Notice</Text>
+          <Text href="/legal-notice">Legal Notice</Text>
         </Grid>
       </Grid>
     </footer>
