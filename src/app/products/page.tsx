@@ -83,7 +83,7 @@ export default async function Products() {
             <MediaBlock
               assetUrl={picture}
               key={product.id}
-              objectFit="cover"
+              objectFit="contain"
               banner
             />
 

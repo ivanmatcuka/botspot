@@ -19,11 +19,11 @@ export const MediaBlock: FC<MediaBlockProps> = ({
   banner = false,
 }) => {
   if (!assetUrl) return null;
-  const className = `w-full h-full md:min-h-[768px] lg:min-h-[800px] ${objectFit === 'cover' ? 'object-cover' : 'object-contain'} ${banner ? 'xs:min-h-[392px]' : 'xs:min-h-auto'}`;
+  const className = `w-full h-full md:min-h-[768px] lg:min-h-[800px] ${objectFit === 'cover' ? 'object-cover' : 'object-contain'} ${banner ? 'xs:min-h-[420px]' : 'xs:min-h-auto'}`;
 
   const height = fullHeight
     ? '100vh'
-    : { xs: banner ? 392 : 'auto', md: 768, lg: 800 };
+    : { xs: banner ? 420 : 'auto', md: 768, lg: 800 };
 
   const isVideo = ['mp4', 'mov', 'webm'].some((ext) => assetUrl.endsWith(ext));
 
