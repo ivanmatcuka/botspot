@@ -33,28 +33,31 @@ export default function Service() {
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          cta={<Button variant="primary">Request Try Before You Buy</Button>}
-          headline="Experience the quality of our scanning technology before committing to a purchase."
-          subline="Try Before You Buy"
+          cta={<Button variant="primary">Request In-House Scan Service</Button>}
+          headline="Pay us a visit or send us your items and receive high-quality 3D models."
+          subline="In-House Scan Service"
         />
       </PageContainer>
 
-      <Tile headline="Send Us Objects">
+      <Tile headline="Full-Body Scanning">
         <Typography variant="body1">
-          Send us your items, we&apos;ll scan them and send you the
-          marketing-ready 3D models.
+          Come and experience being scanned in our in-house botscan NEO. Let our
+          experts guide you through each step to ensure top-quality digital
+          assets tailored to your needs.
         </Typography>
       </Tile>
-      <Tile headline="Use For Project">
+      <Tile headline="Object Scanning">
         <Typography variant="body1">
-          Invest further by renting one or more scanners to run at your
-          location, which can be operated by anyone.
+          Send us or bring your objects to our office. Our team carefully
+          handles each object, ensuring high-quality digital models that meet
+          the exact needs of your project.
         </Typography>
       </Tile>
-      <Tile headline="Buy At Discount">
+      <Tile headline="Receive Your Models">
         <Typography variant="body1">
-          If you decide to purchase the scanner, buy our 3D scanners for a
-          discount on the money you already invested.
+          Watch the 3D model being created in real time to quality check them
+          yourself. Receive the raw models on the spot or, if post-processing is
+          required, in a few days.
         </Typography>
       </Tile>
 
@@ -71,29 +74,30 @@ export default function Service() {
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          cta={<Button variant="primary">Request In-House Scan Service</Button>}
-          headline="We convert physical objects into precise digital models, ideal for design, quality control, and VR."
-          subline="In-House Scan Service"
+          cta={<Button variant="primary">Tell Us About Your Project</Button>}
+          headline="Flexible services designed to enhance your projects and drive successful outcomes."
+          subline="Dynamic Collaboration Services"
         />
       </PageContainer>
 
-      <Tile headline="Deliver Physical Content">
+      <Tile headline="Consultation Services">
         <Typography variant="body1">
-          Simply bring your subject or object to our office or send it, and let
-          us handle the rest.
+          Receive expert guidance to optimize your 3D scanning projects , from
+          initial planning to implementation.
         </Typography>
       </Tile>
-      <Tile headline="Let Us Develop">
+      <Tile headline="Short-Term Rental">
         <Typography variant="body1">
-          Recieve the raw 3D model on the spot or, if post-processing is
-          required, within a few days.
+          Ideal for events or specific time periods, our short-term rentals
+          provide the necessary equipment and a technical support team to take
+          care of the scanning for you.
         </Typography>
       </Tile>
-      <Tile headline="3D Print Object">
+      <Tile headline="Long-Term Rental">
         <Typography variant="body1">
-          If you’d like to 3D print your new model, we have a network of
-          specialized 3D printing partners to make the process as smooth as
-          possible.
+          Engage in ongoing collaboration with our long-term rental services,
+          offering continuous access to equipment and remote support, ensuring
+          sustained project success.
         </Typography>
       </Tile>
 

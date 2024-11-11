@@ -36,41 +36,39 @@ export default async function Products() {
             See Areas of Use
           </Button>
         }
-        sublineElement="Generate photorealistic 3D models with unmatched quality and breathtaking textures in almost no time. "
+        sublineElement="Generate photorealistic 3D models with our industry-leading scanners, designed for precision, high-resolution detail, and reliable performance across any project."
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="3D Scanners made by botspot are easy to use and come with a fully automated software package."
-          subline="Effortless Workflow"
+          subline="Virtual Precision"
         />
       </PageContainer>
 
       <Box mb={{ xs: 10, md: 15 }}>
-        <Tile headline="3D Full-Body Scans">
+        <Tile headline="Full-Body Scanning">
           <Typography variant="body1">
-            With 3D full-body scans, the best results are achieved when all
-            images are generated simultaneously, since even involuntary micro
-            movements such as blinking, breathing, or maintaining balance can
-            distort the scanning result. Our 3D full-body scanners are therefore
-            equipped with a variety of cameras that capture a person from all
-            possible perspectives.
+            Capture complete, high-resolution 3D scans with our 3D Full-Body
+            Scanner, designed to provide lifelike detail from head to toe.
+            Perfect for applications in VR, AR, movies and gaming, our scanner
+            delivers professional-grade results with ease.
           </Typography>
         </Tile>
-        <Tile headline="3D Object Scans">
+        <Tile headline="Object Scanning">
           <Typography variant="body1">
-            3D object scanners require significantly fewer cameras than 3D
-            full-body scanners as the scan object does not move. The object is
-            placed on a turntable and images can be taken successively. We offer
-            both classic 3D scanners with monochrome turntables and
-            high-performance scanners with fully transparent turntables.
+            Achieve precise, detailed 3D scans of objects both large and small
+            with our object scanners. Ideal for product design, quality control,
+            and digital archiving, these scanners capture every surface and
+            geometry with unmatched accuracy.
           </Typography>
         </Tile>
-        <Tile headline="Fully Automated Software Package">
+        <Tile headline="Software Package">
           <Typography variant="body1">
-            botspot scanners come with a fully automated software package in
-            order to scale up 3D asset production and bring down the cost per
-            model.
+            Our scanners are automated with our Automation Suite software
+            package, tailored to optimize workflow. Allowing full control of
+            cameras, lighting and turntable, our software ensures seamless
+            integration with your 3D scanning projects.
           </Typography>
         </Tile>
       </Box>

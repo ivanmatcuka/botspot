@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <main className="">
       <Banner
-        headline="THE WORLD’S MOST VERSATILE 3D SCANNERS"
+        headline="THE WORLD’S BEST FOR EXCEPTIONAL SCANNING SOLUTIONS"
         mediaBlockOptions={{
           assetUrl: '/videos/landing-page.mp4',
         }}
@@ -74,22 +74,21 @@ export default async function Home() {
               </Button>
             }
             headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
-            subline="How we can help"
+            subline="How We Can Help"
           />
         </PageContainer>
-        <Tile headline="How We Can Help">
+        <Tile headline="In-House Scanning">
           <Typography variant="body1">
-            Each business is different. So let&apos;s find out what you need.
-            Our experts will guide and support you on the way to the fitting
-            solution – be it 3D scan services, custom solutions or tailoring
-            your individual workflow.
+            Visit our office for an in-person scan, or send your items to us,
+            and our skilled team will capture and deliver detailed 3D models
+            tailored to your requirements.
           </Typography>
         </Tile>
-        <Tile headline="Buy At Discount">
+        <Tile headline="Collaboration Services">
           <Typography variant="body1">
-            No risk – just fun: If you decide to purchase one of our 3D
-            scanners, you will get a discount on the money you already invested
-            in scan services, proof of concepts or scanner rentals.
+            Comprehensive support to enhance your projects, including expert
+            consulting and flexible short-term or long-term rental solutions
+            based on your needs.
           </Typography>
         </Tile>
       </Box>
