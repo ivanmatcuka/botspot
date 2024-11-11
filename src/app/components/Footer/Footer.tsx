@@ -105,7 +105,7 @@ export const Footer: FC<FooterProps> = ({ products }) => (
             mt={3}
             mx="auto"
           >
-            <IconLink alt="instagram" href="https://instagram.com/botspot3d/" />
+            <IconLink alt="ig" href="https://instagram.com/botspot3d/" />
             <IconLink alt="x" href="https://x.com/botspot3d" />
             <IconLink
               alt="linkedin"
