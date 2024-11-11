@@ -82,7 +82,14 @@ export default async function Products() {
           <div key={index}>
             <MediaBlock
               assetUrl={picture}
-              key={product.id}
+              containerClassName="block md:hidden"
+              objectFit="cover"
+              banner
+            />
+
+            <MediaBlock
+              assetUrl={picture}
+              containerClassName="hidden md:block"
               objectFit="contain"
               banner
             />

@@ -10,6 +10,7 @@ export type MediaBlockProps = {
   fullHeight?: boolean;
   objectFit?: 'contain' | 'cover';
   banner?: boolean;
+  containerClassName?: string;
 };
 export const MediaBlock: FC<MediaBlockProps> = ({
   assetUrl,
@@ -17,9 +18,10 @@ export const MediaBlock: FC<MediaBlockProps> = ({
   fullHeight = false,
   objectFit = 'cover',
   banner = false,
+  containerClassName,
 }) => {
   if (!assetUrl) return null;
-  const className = `w-full h-full md:min-h-[768px] lg:min-h-[800px] ${objectFit === 'cover' ? 'object-cover' : 'object-contain'} ${banner ? 'xs:min-h-[420px]' : 'xs:min-h-auto'}`;
+  const classes = `w-full h-full md:min-h-[768px] lg:min-h-[800px] ${objectFit === 'cover' ? 'object-cover' : 'object-contain'} ${banner ? 'xs:min-h-[420px]' : 'xs:min-h-auto'}`;
 
   const height = fullHeight
     ? '100vh'
@@ -28,16 +30,16 @@ export const MediaBlock: FC<MediaBlockProps> = ({
   const isVideo = ['mp4', 'mov', 'webm'].some((ext) => assetUrl.endsWith(ext));
 
   return isVideo ? (
-    <Box height={height}>
-      <video autoPlay={autoplay} className={className} loop muted playsInline>
+    <Box className={containerClassName} height={height}>
+      <video autoPlay={autoplay} className={classes} loop muted playsInline>
         <source src={assetUrl} type="video/mp4" />
       </video>
     </Box>
   ) : (
-    <Box height={height}>
+    <Box className={containerClassName} height={height}>
       <Image
         alt=""
-        className={className}
+        className={classes}
         height={1080}
         quality={100}
         src={assetUrl}
