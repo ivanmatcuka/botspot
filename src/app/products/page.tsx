@@ -24,7 +24,7 @@ export default async function Products() {
       <Banner
         headline="PRODUCTS"
         mediaBlockOptions={{
-          assetUrl: '/img/banners/products.mov',
+          assetUrl: '/img/banners/products.png',
         }}
         primaryCta={
           <Button href="/download-area" variant="primary">
