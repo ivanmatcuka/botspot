@@ -23,7 +23,7 @@ export const LandingPageProduct: FC<LandingPageProductProps> = ({
 
   const contentBlock = (
     <SecondaryBlock
-      headline={product.title.rendered}
+      headline={product?.acf?.['full-name'] || product.title.rendered}
       primaryCta={
         <Button href={`/products/${product.slug}`} variant="primary">
           Explore {product.title.rendered}

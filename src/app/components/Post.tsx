@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
-import { FC, ReactNode } from 'react';
 import Image from 'next/image';
+import { FC, ReactNode } from 'react';
 
 type PostProps = {
   title: string;
@@ -30,7 +30,7 @@ export const Post: FC<PostProps> = ({
       gap={1}
       p={2}
     >
-      <Typography className="line-clamp-2" variant="h4">
+      <Typography className="line-clamp-2" mb={excerpt ? 0 : 1} variant="h4">
         {title}
       </Typography>
       {excerpt && (

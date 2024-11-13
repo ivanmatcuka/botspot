@@ -34,7 +34,7 @@ export default async function InnovationLab() {
         }
         secondaryCta={
           <Button href="/blog" variant="secondary">
-            Visit Blog
+            Visit 3D Academy
           </Button>
         }
         sublineElement="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
@@ -77,7 +77,7 @@ export default async function InnovationLab() {
           <MainBlock
             cta={
               <Button href="/blog" variant="primary">
-                Visit Blog
+                Visit 3D Academy
               </Button>
             }
             headline={

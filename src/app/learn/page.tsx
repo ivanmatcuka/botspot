@@ -80,10 +80,10 @@ export default function Learn() {
         <MainBlock
           cta={
             <Button href="/blog" variant="secondary">
-              Visit Blog
+              Visit 3D Academy
             </Button>
           }
-          headline="Our blog offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
+          headline="Our 3D Academy offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
           subline="Questions & Articles"
         />
       </PageContainer>

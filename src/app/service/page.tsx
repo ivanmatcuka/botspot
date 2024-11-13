@@ -24,7 +24,7 @@ export default function Service() {
         mediaBlockOptions={{
           assetUrl: '/img/banners/services.png',
         }}
-        primaryCta={<Button variant="primary">Try Before You Buy</Button>}
+        primaryCta={<Button variant="primary">Collaboration Services</Button>}
         secondaryCta={
           <Button variant="secondary">In-House Scan Service</Button>
         }

@@ -94,7 +94,7 @@ export default async function Products() {
 
             <PageContainer mt={{ xs: 10, md: 15 }}>
               <SecondaryBlock
-                headline={product.title.rendered}
+                headline={product?.acf?.['full-name'] || product.title.rendered}
                 primaryCta={
                   <Button href={`/products/${product.slug}`} variant="primary">
                     Explore {product.title.rendered}

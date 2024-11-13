@@ -64,10 +64,9 @@ export const Posts: FC<PostProps> = ({
                     variant="secondary"
                     onClick={() => push(`/blog/${post.id}`)}
                   >
-                    Read Full Story
+                    Read Full Article
                   </Button>
                 }
-                excerpt={post.excerpt.rendered}
                 featuredImage={getFeaturedImageUrl(post)}
                 title={post.title.rendered}
               />

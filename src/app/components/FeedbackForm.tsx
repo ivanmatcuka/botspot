@@ -85,7 +85,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
     <Form frameless={frameless} onSubmit={handleSubmit(onSubmit)}>
       <Box p={frameless ? 0 : { xs: 3, md: 5 }} py={frameless ? 0 : { xs: 2 }}>
         <Typography className="text-center md:text-left" mb={2} variant="h2">
-          Thank you for your interest and curiosity in
+          Thank you for your interest in
         </Typography>
 
         <Box className="text-center md:text-left">

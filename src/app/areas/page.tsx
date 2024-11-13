@@ -64,7 +64,7 @@ export default function Areas() {
               See Custom Solutions
             </Button>
           }
-          headline="Content has yet to be added. Content has yet to be added. Content has yet to be added."
+          headline="Create bespoke solutions with our 3D scanners, offering accurate, customized models to fit your unique specifications."
           subAssetUrl="/img/areas/4.png"
           subline="Custom Solutions"
         />
