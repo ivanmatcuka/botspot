@@ -25,7 +25,11 @@ export default async function About() {
         mediaBlockOptions={{
           assetUrl: '/img/banners/about.png',
         }}
-        primaryCta={<Button variant="primary">Read Our Story</Button>}
+        primaryCta={
+          <Button href="#our-story" variant="primary">
+            Read Our Story
+          </Button>
+        }
         secondaryCta={<Button variant="secondary">Visit Career Page</Button>}
         sublineElement="Whenever 3D scanning technology can shift the status quo, botspot is here for you to innovate."
       />
@@ -85,9 +89,8 @@ export default async function About() {
         </PageContainer>
       </Box>
 
-      <PageContainer mt={{ xs: 5, md: 10 }}>
+      <PageContainer id="our-story" mt={{ xs: 5, md: 10 }}>
         <MainBlock
-          cta={<Button variant="primary">Read Full Story...</Button>}
           headline="Delivering excellence for over ten years."
           subline="Our Story"
         />
@@ -95,13 +98,22 @@ export default async function About() {
 
       <Tile headline="How it all began">
         <Typography variant="body1">
-          New York, 2010. Thomas Strenger, a German engineer and TV producer,
-          together with a friend is preparing a report on the first store in the
-          US that concentrates completely on 3D printing. They are fascinated by
-          the new technology and decide spontaneously: this is what we need to
-          export to Berlin! After thorough preparation, the first shop for 3D
-          printers, filaments and more opens its doors in the trendy
-          neighborhood of Kreuzberg’s Moritzplatz.
+          In 2010, inspired by a 3D printing shop in New York, German engineer
+          Thomas Strenger set out to bring this revolutionary technology to
+          Berlin. Starting with Germany’s first 3D printing shop in Moritzplatz,
+          Kreuzberg, the team quickly identified a missing piece: a precise,
+          color-true 3D scanner. Driven by their background in television, they
+          turned to photogrammetry, debuting their first full-body scanner,
+          BOTSCAN 01, that same year. Thus the predecessor of our NEO was born!
+          As interest grew—from personal 3D prints to high-quality digital
+          avatars—the team shifted focus to advancing their scanning technology.
+          They secured patents, developed medical and industrial applications,
+          and earned the trust of international brands in fashion, sports, and
+          automotive sectors. Their scanners soon became the standard for speed,
+          precision, and scalability, making 3D digitization more accessible to
+          a growing global market. Today, botspot is based in Berlin’s tech hub,
+          Adlershof, committed to creating innovative scanning solutions, .
+          Photogrammetry remains their foundation—while the sky’s the limit.
         </Typography>
       </Tile>
 

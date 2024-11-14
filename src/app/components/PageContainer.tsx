@@ -3,7 +3,7 @@ import { FC, PropsWithChildren } from 'react';
 
 type PageContainerProps = {
   banner?: boolean;
-} & Pick<GridProps, 'mb' | 'mt' | 'mx' | 'my' | 'm'>;
+} & Pick<GridProps, 'mb' | 'mt' | 'mx' | 'my' | 'm' | 'id'>;
 export const PageContainer: FC<PropsWithChildren<PageContainerProps>> = ({
   banner = false,
   children,
