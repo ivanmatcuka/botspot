@@ -47,6 +47,8 @@ export default async function Product({
     picture,
     closeup,
     banner,
+    'demo-video': demoVideo,
+
     'first-animation': firstAnimation,
     'second-animation': secondAnimation,
 
@@ -121,6 +123,12 @@ export default async function Product({
           </UnorderedList>
         </Tile>
       ))}
+
+      {demoVideo && (
+        <PageContainer>
+          <video className="w-full h-full" src={demoVideo} controls />
+        </PageContainer>
+      )}
 
       <Box mb={{ xs: 5, md: 10 }}>
         <Gallery

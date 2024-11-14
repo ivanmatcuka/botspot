@@ -5,10 +5,13 @@ export type CustomPost = WP_REST_API_Post & {
 };
 
 export type CustomFields = {
+  'full-name': string;
+
   picture: string;
   closeup: string;
   banner: string;
   datasheet: string;
+  'demo-video': string;
   
   'first-animation': string;
   'second-animation': string;
@@ -17,7 +20,6 @@ export type CustomFields = {
   'first-subline': string;
   'second-headline': string;
   'second-subline': string;
-  'full-name': string;
 
   post: CustomPost & {
     post_title: string;
