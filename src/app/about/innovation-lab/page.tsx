@@ -55,20 +55,19 @@ export default async function InnovationLab() {
           establishing universal standards in this field.
         </Typography>
       </Tile>
-      <Tile headline="Marketing Ready 3D Models">
+      <Tile headline="Custom Solutions & Special Requests">
         <Typography variant="body1">
-          Use our efficient scanning solutions for creating high volume
-          marketing-ready 3D models, which in many cases do not require any
-          post-processing. Our detailed 3D scans provide the perfect basis for
-          any commercial application.
+          Our custom solutions are designed to meet your unique needs. We work
+          closely with you to create tailored strategies, delivering
+          personalized and effective results.
         </Typography>
       </Tile>
-      <Tile headline="Marketing Ready 3D Models">
+      <Tile headline="3D Scans of Reflective Surfaces">
         <Typography variant="body1">
-          Use our efficient scanning solutions for creating high volume
-          marketing-ready 3D models, which in many cases do not require any
-          post-processing. Our detailed 3D scans provide the perfect basis for
-          any commercial application.
+          Glossy and transparent surfaces tend to create issues, resulting in
+          defective 3D models. Our Innovation Lab has developed methods to
+          create highly precise 3D models of objects from glass and other
+          challenging materials, mainly employing photogrammetry.
         </Typography>
       </Tile>
 
