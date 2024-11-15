@@ -30,7 +30,11 @@ export default async function About() {
             Read Our Story
           </Button>
         }
-        secondaryCta={<Button variant="secondary">Visit Career Page</Button>}
+        secondaryCta={
+          <Button href="/career" variant="secondary">
+            Visit Career Page
+          </Button>
+        }
         sublineElement="Whenever 3D scanning technology can shift the status quo, botspot is here for you to innovate."
       />
 
