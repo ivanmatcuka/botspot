@@ -88,7 +88,7 @@ export default async function About() {
           <MainBlock
             cta={
               <Button href="/about/careers" variant="primary">
-                Check Our Openings
+                Explore Careers
               </Button>
             }
             headline="Want to be part of our team?"
