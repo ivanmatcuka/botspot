@@ -125,12 +125,12 @@ export default async function Product({
       ))}
 
       {demoVideo && (
-        <PageContainer>
+        <Box maxWidth="xl" mx="auto">
           <video className="w-full h-full" src={demoVideo} controls />
-        </PageContainer>
+        </Box>
       )}
 
-      <Box mb={{ xs: 5, md: 10 }}>
+      <Box my={{ xs: 5, md: 10 }}>
         <Gallery
           firstChild={<Iframe src={firstAnimation ?? ''} />}
           secondChild={<Iframe src={secondAnimation ?? ''} />}
