@@ -31,7 +31,7 @@ export default async function About() {
           </Button>
         }
         secondaryCta={
-          <Button href="/career" variant="secondary">
+          <Button href="/about/careers" variant="secondary">
             Visit Career Page
           </Button>
         }
@@ -86,7 +86,11 @@ export default async function About() {
       >
         <PageContainer mb={0} my={0}>
           <MainBlock
-            cta={<Button variant="primary">Check Our Openings</Button>}
+            cta={
+              <Button href="/about/careers" variant="primary">
+                Check Our Openings
+              </Button>
+            }
             headline="Want to be part of our team?"
             subline="Your Opportunity"
           />
