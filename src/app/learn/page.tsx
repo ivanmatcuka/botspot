@@ -69,7 +69,7 @@ export default function Learn() {
       <PageContainer>
         <Image
           alt=""
-          className="w-full"
+          className="w-full rounded-xl"
           height={440}
           quality={100}
           src="/img/learn/1.png"
