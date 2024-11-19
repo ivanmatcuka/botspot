@@ -65,6 +65,7 @@ const MenuItemButton = styled(({ ...props }: MuiButtonProps) => (
 
 export type ButtonProps = {
   variant: 'primary' | 'secondary' | 'outline' | 'menu' | 'menuItem' | 'topic';
+  target?: string;
 } & Pick<
   MuiButtonProps,
   | 'id'

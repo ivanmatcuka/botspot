@@ -45,7 +45,13 @@ export const Footer: FC<FooterProps> = ({ products }) => (
       <Container maxWidth="xl">
         <Grid md={10} mx="auto" py={8} xs={12} container>
           <Grid flexBasis={{ xs: '100%', md: '40%' }} item>
-            <Image alt="logo" height={74} src="/logo_white.svg" width={184} />
+            <Image
+              alt="logo"
+              className="ml-[-8px]"
+              height={74}
+              src="/logo_white.svg"
+              width={184}
+            />
             <Text>botspot 3D Scan GmbH</Text>
             <Text>Bruno-Bürgel-Weg 134-144</Text>
             <Text>12439 Berlin</Text>

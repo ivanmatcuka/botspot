@@ -24,17 +24,27 @@ export default function Service() {
         mediaBlockOptions={{
           assetUrl: '/img/banners/services.png',
         }}
-        primaryCta={<Button variant="primary">Collaboration Services</Button>}
+        primaryCta={
+          <Button href="/contact-us" variant="primary">
+            Collaboration Services
+          </Button>
+        }
         secondaryCta={
-          <Button variant="secondary">In-House Scan Service</Button>
+          <Button href="/contact-us" variant="secondary">
+            In-House Scan Service
+          </Button>
         }
         sublineElement="Our 3D scan services cater to individuals and businesses seeking  high-quality scans without the upfront costs and technical requirements  of owning a scanner."
       />
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          cta={<Button variant="primary">Request In-House Scan Service</Button>}
-          headline="Pay us a visit or send us your items and receive high-quality 3D models."
+          cta={
+            <Button href="/contact-us" variant="primary">
+              Request In-House Scan Service
+            </Button>
+          }
+          headline="Visit us or send us your items and receive high-quality 3D models."
           subline="In-House Scan Service"
         />
       </PageContainer>
@@ -74,7 +84,11 @@ export default function Service() {
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          cta={<Button variant="primary">Tell Us About Your Project</Button>}
+          cta={
+            <Button href="/contact-us" variant="primary">
+              Tell Us About Your Project
+            </Button>
+          }
           headline="Flexible services designed to enhance your projects and drive successful outcomes."
           subline="Dynamic Collaboration Services"
         />
@@ -104,7 +118,11 @@ export default function Service() {
       <GalleryTile bgColor="white" imgUrl="/img/service/1.png">
         <SecondaryBlock
           headline="Event Hire"
-          primaryCta={<Button variant="primary">Request Event Hire</Button>}
+          primaryCta={
+            <Button href="/contact-us" variant="primary">
+              Request Event Hire
+            </Button>
+          }
           sublineElement="Corporate event, fair show or convention coming up? Guarantee an unforgettable experience with full-body scanning. We deliver and set up the scanner, ensuring a seamless and impressive experience."
         />
       </GalleryTile>

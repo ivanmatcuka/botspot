@@ -81,7 +81,7 @@ export default function CustomSolutions() {
         <SecondaryBlock
           headline="Innovation Lab"
           primaryCta={
-            <Button href="/innovation-lab" variant="primary">
+            <Button href="/about/innovation-lab" variant="primary">
               Visit Innovation Lab
             </Button>
           }

@@ -2,7 +2,6 @@ import { People } from './People';
 
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
-import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { Tile } from '@/app/components/Tile/Tile';
@@ -113,19 +112,24 @@ export default async function About() {
           color-true 3D scanner. Driven by their background in television, they
           turned to photogrammetry, debuting their first full-body scanner,
           BOTSCAN 01, that same year. Thus the predecessor of our NEO was born!
+        </Typography>
+        <br />
+        <Typography variant="body1">
           As interest grew—from personal 3D prints to high-quality digital
           avatars—the team shifted focus to advancing their scanning technology.
           They secured patents, developed medical and industrial applications,
           and earned the trust of international brands in fashion, sports, and
           automotive sectors. Their scanners soon became the standard for speed,
           precision, and scalability, making 3D digitization more accessible to
-          a growing global market. Today, botspot is based in Berlin’s tech hub,
-          Adlershof, committed to creating innovative scanning solutions, .
-          Photogrammetry remains their foundation—while the sky’s the limit.
+          a growing global market.
+        </Typography>
+        <br />
+        <Typography variant="body1">
+          Today, botspot is based in Berlin’s tech hub, Adlershof, committed to
+          creating innovative scanning solutions. Photogrammetry remains their
+          foundation—while the sky’s the limit.
         </Typography>
       </Tile>
-
-      <FeedbackForm />
     </main>
   );
 }
