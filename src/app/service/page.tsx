@@ -74,10 +74,10 @@ export default function Service() {
       <Box mb={{ xs: 5, md: 10 }}>
         <Gallery
           firstChild={
-            <Iframe src="https://sketchfab.com/models/87f87f23481f4ed7bd73b2155c1332b4/embed?autostart=1&camera=0&ui_animations=0&ui_infos=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_annotations=0&dnt=1" />
+            <Iframe src="https://sketchfab.com/models/74a79ea84e674a878c5ade45838e457a/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
           }
           secondChild={
-            <Iframe src="https://sketchfab.com/models/74a79ea84e674a878c5ade45838e457a/embed?autostart=1&camera=0&ui_animations=0&ui_infos=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_annotations=0&dnt=1" />
+            <Iframe src="https://sketchfab.com/models/87f87f23481f4ed7bd73b2155c1332b4/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
           }
         />
       </Box>

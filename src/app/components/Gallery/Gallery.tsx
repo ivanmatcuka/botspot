@@ -4,8 +4,13 @@ import { FC, ReactNode } from 'react';
 type GalleryProps = {
   firstChild?: ReactNode;
   secondChild?: ReactNode;
+  transparent?: boolean;
 };
-export const Gallery: FC<GalleryProps> = ({ firstChild, secondChild }) => (
+export const Gallery: FC<GalleryProps> = ({
+  firstChild,
+  secondChild,
+  transparent = true,
+}) => (
   <Grid
     columnGap={{ xs: 0, md: 2 }}
     justifyContent="center"
@@ -16,7 +21,7 @@ export const Gallery: FC<GalleryProps> = ({ firstChild, secondChild }) => (
     container
   >
     <Grid
-      bgcolor="grey.100"
+      bgcolor={transparent ? 'transparent' : 'grey.100'}
       borderRadius={1}
       height={{ xs: 320, md: 420 }}
       md={5}
@@ -27,7 +32,7 @@ export const Gallery: FC<GalleryProps> = ({ firstChild, secondChild }) => (
       {firstChild}
     </Grid>
     <Grid
-      bgcolor="grey.100"
+      bgcolor={transparent ? 'transparent' : 'grey.100'}
       borderRadius={1}
       height={{ xs: 320, md: 420 }}
       md={5}

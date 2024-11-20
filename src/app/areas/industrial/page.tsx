@@ -50,7 +50,7 @@ export default function Industrial() {
 
       <Tile headline="7-Lights">
         <Box height={360}>
-          <Iframe src="https://sketchfab.com/models/d839701297f54d978ffb39a4566c0cdf/embed?autospin=1&autostart=1&ui_animations=0&ui_infos=0&ui_stop=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&dnt=1" />
+          <Iframe src="https://sketchfab.com/models/d839701297f54d978ffb39a4566c0cdf/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
         </Box>
 
         <Typography my={2} variant="body1">
@@ -64,7 +64,7 @@ export default function Industrial() {
       </Tile>
       <Tile headline="Reverse Engineering">
         <Box height={360}>
-          <Iframe src="https://sketchfab.com/models/21ff92563c824f01a2166f22448f2940/embed?camera=0&ui_animations=0&ui_infos=0&ui_stop=1&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&dnt=1" />
+          <Iframe src="https://sketchfab.com/models/21ff92563c824f01a2166f22448f2940/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
         </Box>
         <Typography mt={2} variant="body1">
           Where older components are no longer manufactured and no CAD data of
@@ -76,7 +76,7 @@ export default function Industrial() {
 
       <Tile headline="Documentation of Defects on Car Bodies">
         <Box height={360}>
-          <Iframe src="https://sketchfab.com/models/83cbb24b8aca4dd1882df4a3dc9c6e65/embed?camera=0&ui_animations=0&ui_infos=0&ui_stop=1&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&dnt=1" />
+          <Iframe src="https://sketchfab.com/models/83cbb24b8aca4dd1882df4a3dc9c6e65/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
         </Box>
         <Typography mt={2} variant="body1">
           A special focus of our current development work is on automotive

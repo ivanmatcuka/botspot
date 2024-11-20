@@ -9,7 +9,6 @@ import { Tile } from '@/app/components/Tile/Tile';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Custom Solutions – botspot',
@@ -49,7 +48,7 @@ export default function CustomSolutions() {
 
       <Tile headline="Scanning Animals for International Series">
         <Box height={360}>
-          <Iframe src="https://sketchfab.com/models/7d89f65475664a0eabc39e3e7790cddf/embed?autostart=1&camera=0&ui_animations=0&ui_infos=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_annotations=0&dnt=1" />
+          <Iframe src="https://sketchfab.com/models/7d89f65475664a0eabc39e3e7790cddf/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
         </Box>
         <Typography my={2} variant="body1">
           Approached by the new historical epic series “Those About to Die”,
@@ -60,14 +59,9 @@ export default function CustomSolutions() {
         </Button>
       </Tile>
       <Tile headline="Large Objects">
-        <Image
-          alt="Large Objects"
-          height={400}
-          quality={100}
-          src="/img/areas/custom-solution/2.png"
-          style={{ width: '100%' }}
-          width={700}
-        />
+        <Box height={360}>
+          <Iframe src="https://sketchfab.com/models/26a4f03049d34c8f9e055c29a0ea7365/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
+        </Box>
         <Typography mt={2} variant="body1">
           Have a large or unusual item that needs scanning? We’ve got you
           covered. Our expert team specializes in handling special requests,
