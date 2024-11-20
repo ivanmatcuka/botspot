@@ -104,7 +104,11 @@ export default function Commercial() {
           we digitized numerous shoes which were integrated into the app and are
           now available for a digital try-on.
         </Typography>
-        <Button href="https://www.vyking.io/" target="_blank" variant="primary">
+        <Button
+          href="https://www.vyking.io/shoes"
+          target="_blank"
+          variant="primary"
+        >
           Test Virtual Try-On
         </Button>
       </Tile>

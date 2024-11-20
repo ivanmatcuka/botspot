@@ -124,7 +124,7 @@ export default async function About() {
           a growing global market.
         </Typography>
         <br />
-        <Typography variant="body1">
+        <Typography mb={{ xs: 5, md: 10 }} variant="body1">
           Today, botspot is based in Berlin’s tech hub, Adlershof, committed to
           creating innovative scanning solutions. Photogrammetry remains their
           foundation—while the sky’s the limit.
