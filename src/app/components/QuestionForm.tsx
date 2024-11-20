@@ -48,8 +48,7 @@ export const QuestionForm: FC = () => {
         </Typography>
 
         <Typography color="white" my={3} variant="body1">
-          Is there anything you ever wondererd regarding 3D Scanning? Just let
-          us know below!
+          Curious about how 3D scanning works? Ask us below!
         </Typography>
 
         <Box

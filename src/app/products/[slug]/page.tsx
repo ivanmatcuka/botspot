@@ -47,6 +47,9 @@ export default async function Product({
     picture,
     closeup,
     banner,
+
+    // 'demo-headline': demoHeadline,
+    // 'demo-subline': demoSubline,
     'demo-video': demoVideo,
 
     'first-animation': firstAnimation,
@@ -129,9 +132,10 @@ export default async function Product({
       ))}
 
       {demoVideo && (
-        <Box maxWidth="xl" mx="auto">
+        <PageContainer mt={{ xs: 5, md: 10 }}>
+          {/* <MainBlock headline={demoHeadline} subline={demoSubline} /> */}
           <video className="w-full h-full" src={demoVideo} controls />
-        </Box>
+        </PageContainer>
       )}
 
       <Box my={{ xs: 5, md: 10 }}>
