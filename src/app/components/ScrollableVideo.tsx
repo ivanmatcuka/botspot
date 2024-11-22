@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import { Box } from '@mui/material';
+import { Box, Skeleton } from '@mui/material';
 import { FC, useEffect, useRef, useState } from 'react';
 
 type ScrollableVideoProps = {
@@ -68,14 +68,15 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
     <Box height={isReady ? '300vh' : '100vh'}>
       <div className="h-full relative" ref={containerRef}>
         <div className="w-full h-[100vh] xs:min-h-[1024px] md:min-h-[768px] lg:min-h-[800px] sticky top-0">
-          {!isReady && (
-            <div className="w-full h-full backdrop-blur-sm bg-white/30 absolute inset-0" />
+          {!isReady ? (
+            <Skeleton height="100%" variant="rectangular" />
+          ) : (
+            <img
+              alt=""
+              className="w-full h-full object-cover"
+              src={images?.[frame]?.src}
+            />
           )}
-          <img
-            alt=""
-            className="w-full h-full object-cover"
-            src={images?.[frame]?.src}
-          />
         </div>
       </div>
     </Box>

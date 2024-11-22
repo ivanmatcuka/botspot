@@ -1,5 +1,7 @@
 'use client';
 
+import { SkeletonVideo } from './SkeletonVideo';
+
 import { Box } from '@mui/material';
 import Image from 'next/image';
 import { FC } from 'react';
@@ -31,9 +33,14 @@ export const MediaBlock: FC<MediaBlockProps> = ({
 
   return isVideo ? (
     <Box className={containerClassName} height={height}>
-      <video autoPlay={autoplay} className={classes} loop muted playsInline>
-        <source src={assetUrl} type="video/mp4" />
-      </video>
+      <SkeletonVideo
+        autoPlay={autoplay}
+        className={classes}
+        videoSrc={assetUrl}
+        loop
+        muted
+        playsInline
+      />
     </Box>
   ) : (
     <Box className={containerClassName} height={height}>

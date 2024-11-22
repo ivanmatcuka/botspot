@@ -1,4 +1,4 @@
-import { DemoVideo } from './DemoVideo';
+import { SkeletonVideo } from '../../components/SkeletonVideo';
 
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
 import { Banner } from '@/app/components/Banner/Banner';
@@ -162,7 +162,7 @@ export default async function Product({
 
       {demoVideo && (
         <PageContainer>
-          <DemoVideo videoSrc={demoVideo} />
+          <SkeletonVideo videoSrc={demoVideo} />
         </PageContainer>
       )}
 
