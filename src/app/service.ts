@@ -6,6 +6,7 @@ export type CustomPost = WP_REST_API_Post & {
 
 export type CustomFields = {
   'full-name': string;
+  'short-name': string;
 
   picture: string;
   closeup: string;

@@ -97,7 +97,8 @@ export default async function Products() {
                 headline={product?.acf?.['full-name'] || product.title.rendered}
                 primaryCta={
                   <Button href={`/products/${product.slug}`} variant="primary">
-                    Explore {product.title.rendered}
+                    Explore{' '}
+                    {product?.acf?.['short-name'] || product.title.rendered}
                   </Button>
                 }
                 secondaryCta={
