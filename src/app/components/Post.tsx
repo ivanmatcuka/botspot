@@ -48,10 +48,10 @@ export const Post: FC<PostProps> = ({
       <Image
         alt=""
         className={`w-full h-full absolute inset-0 ${objectFit === 'cover' ? 'object-cover' : 'object-contain'} object-top`}
-        height={360}
+        height={1000}
         quality={100}
         src={featuredImage}
-        width={310}
+        width={1000}
       />
     )}
   </Box>
