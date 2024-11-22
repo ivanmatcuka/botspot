@@ -27,7 +27,7 @@ const SecondaryButton = styled(({ ...props }: MuiButtonProps) => (
 
   '&:hover': {
     backgroundColor: theme.palette.primary.main,
-    borderColor: theme.palette.common.white,
+    borderColor: theme.palette.primary.main,
 
     color: theme.palette.common.white,
   },
