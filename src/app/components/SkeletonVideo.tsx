@@ -24,10 +24,7 @@ export const SkeletonVideo: FC<SkeletonVideoProps> = ({
         className={`w-full h-full relative ${className}`}
         src={videoSrc}
         controls
-        onLoadedData={() => {
-          console.log('can play');
-          setIsLoaded(true);
-        }}
+        onLoadedData={() => setIsLoaded(true)}
         {...props}
       />
     </div>
