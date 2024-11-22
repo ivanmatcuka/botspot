@@ -13,11 +13,14 @@ export const ThemedContainer = styled(Container)(({ theme }) => ({
   h2: {
     ...theme.typography.h2,
   },
-  h4: {
+  h3: {
     ...theme.typography.h3,
   },
+  h4: {
+    ...theme.typography.h4,
+  },
   h5: {
-    ...theme.typography.h5,
+    ...theme.typography.h4,
   },
   p: {
     ...theme.typography.body1,

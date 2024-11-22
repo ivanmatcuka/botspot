@@ -10,10 +10,16 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { MediaBlock } from '@/app/components/MediaBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
+import { ThemedContainer } from '@/app/components/ThemedContainer';
 import { Tile } from '@/app/components/Tile/Tile';
 import { UnorderedList } from '@/app/components/UnorderedList';
 import { UnorderedListItem } from '@/app/components/UnorderedListItem';
-import { CustomFields, getProductBySlug } from '@/app/service';
+import {
+  CustomFields,
+  CustomPost,
+  getPostBySlug,
+  getProductBySlug,
+} from '@/app/service';
 import { getFeaturedImageUrl } from '@/app/utils';
 
 import { Box } from '@mui/material';
@@ -62,26 +68,26 @@ export default async function Product({
     'second-headline': secondHeadline,
     'second-subline': secondSubline,
 
-    post,
+    post: acfPost,
   }: Partial<CustomFields> = product.acf ?? {};
+
+  const post: CustomPost | null = acfPost?.post_name
+    ? await getPostBySlug(acfPost.post_name)
+    : null;
 
   const tileHeadlines = (
     parse(product.content.rendered) as ReactElement[]
   ).filter((element) => element.type === 'h4');
 
-  // console.log(product.content);
-
-  // console.log(
-  //   (parse(product.content.rendered) as ReactElement[]).filter((element) =>
-  //     Array.isArray(element.props?.children),
-  //   ),
-  // );
+  const groups = (parse(product.content.rendered) as ReactElement[])
+    .find((element) => element.props?.className?.includes('wp-block-group'))
+    ?.props.children?.filter((item: unknown) => isValidElement(item));
 
   const lists = (parse(product.content.rendered) as ReactElement[]).filter(
     (element) => element.type === 'ul',
   );
 
-  const relatedImage = getFeaturedImageUrl(post);
+  const relatedImage = getFeaturedImageUrl(post ?? undefined);
 
   return (
     <main className="">
@@ -140,17 +146,6 @@ export default async function Product({
           </UnorderedList>
         </Tile>
       ))}
-      {/* 
-      <ThemedContainer
-        dangerouslySetInnerHTML={{ __html: product.content.rendered }}
-      /> */}
-
-      {demoVideo && (
-        <PageContainer mt={{ xs: 5, md: 10 }}>
-          {/* <MainBlock headline={demoHeadline} subline={demoSubline} /> */}
-          <DemoVideo videoSrc={demoVideo} />
-        </PageContainer>
-      )}
 
       <Box my={{ xs: 5, md: 10 }}>
         <Gallery
@@ -159,16 +154,31 @@ export default async function Product({
         />
       </Box>
 
+      {groups?.length && (
+        <PageContainer my={{ xs: 5, md: 10 }}>
+          <ThemedContainer className="!p-0" maxWidth="xl">
+            {groups}
+          </ThemedContainer>
+        </PageContainer>
+      )}
+
+      {demoVideo && (
+        <PageContainer>
+          {/* <MainBlock headline={demoHeadline} subline={demoSubline} /> */}
+          <DemoVideo videoSrc={demoVideo} />
+        </PageContainer>
+      )}
+
       {post && (
         <GalleryTile imgUrl={relatedImage}>
           <SecondaryBlock
-            headline={post.post_title}
+            headline={post.title.rendered}
             primaryCta={
-              <Button href={`/blog/${post.ID}`} variant="primary">
+              <Button href={`/blog/${post.id}`} variant="primary">
                 Read Full Story
               </Button>
             }
-            sublineElement={post.post_excerpt}
+            sublineElement={post.excerpt.rendered}
           />
         </GalleryTile>
       )}

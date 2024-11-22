@@ -27,6 +27,7 @@ export type CustomFields = {
   post: CustomPost & {
     post_title: string;
     post_excerpt: string;
+    post_name:string;
   };
 
   photo_gallery: {
