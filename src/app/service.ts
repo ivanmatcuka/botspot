@@ -51,7 +51,7 @@ export const getPosts = async (
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
-    `${baseUrl}posts?per_page=${perPage}&page=${page}&categories=${category.id}&_embed`,
+    `${baseUrl}posts?&orderby=modified&per_page=${perPage}&page=${page}&categories=${category.id}&_embed`,
     requestInit,
   );
 

@@ -1,3 +1,5 @@
+import { DemoVideo } from './DemoVideo';
+
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
@@ -67,6 +69,14 @@ export default async function Product({
     parse(product.content.rendered) as ReactElement[]
   ).filter((element) => element.type === 'h4');
 
+  // console.log(product.content);
+
+  // console.log(
+  //   (parse(product.content.rendered) as ReactElement[]).filter((element) =>
+  //     Array.isArray(element.props?.children),
+  //   ),
+  // );
+
   const lists = (parse(product.content.rendered) as ReactElement[]).filter(
     (element) => element.type === 'ul',
   );
@@ -130,11 +140,15 @@ export default async function Product({
           </UnorderedList>
         </Tile>
       ))}
+      {/* 
+      <ThemedContainer
+        dangerouslySetInnerHTML={{ __html: product.content.rendered }}
+      /> */}
 
       {demoVideo && (
         <PageContainer mt={{ xs: 5, md: 10 }}>
           {/* <MainBlock headline={demoHeadline} subline={demoSubline} /> */}
-          <video className="w-full h-full" src={demoVideo} controls />
+          <DemoVideo videoSrc={demoVideo} />
         </PageContainer>
       )}
 

@@ -31,6 +31,7 @@ export const Posts: FC<PostProps> = ({
     getPosts(page, perPage)
       .then(({ data, count }) => {
         setPosts(data);
+        console.log(data);
         setCount(count);
       })
       .finally(() => setLoading(false));
@@ -74,11 +75,7 @@ export const Posts: FC<PostProps> = ({
           ))}
       {!hidePagination && (
         <Grid mx="auto" xs={12} item>
-          <Pagination
-            count={Math.ceil(count / perPage)}
-            perPage={perPage}
-            setPage={setPage}
-          />
+          <Pagination count={count} perPage={perPage} setPage={setPage} />
         </Grid>
       )}
     </>

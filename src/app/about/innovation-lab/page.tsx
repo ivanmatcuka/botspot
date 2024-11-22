@@ -94,7 +94,6 @@ export default async function InnovationLab() {
                   Read Full Story
                 </Button>
               }
-              excerpt={post.excerpt.rendered}
               featuredImage={getFeaturedImageUrl(post)}
               title={post.title.rendered}
             />
