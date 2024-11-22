@@ -12,8 +12,6 @@ export type CustomFields = {
   banner: string;
   datasheet: string;
 
-  'demo-headline': string;
-  'demo-subline': string;
   'demo-video': string;
   
   'first-animation': string;

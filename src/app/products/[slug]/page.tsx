@@ -56,8 +56,6 @@ export default async function Product({
     closeup,
     banner,
 
-    // 'demo-headline': demoHeadline,
-    // 'demo-subline': demoSubline,
     'demo-video': demoVideo,
 
     'first-animation': firstAnimation,
@@ -164,7 +162,6 @@ export default async function Product({
 
       {demoVideo && (
         <PageContainer>
-          {/* <MainBlock headline={demoHeadline} subline={demoSubline} /> */}
           <DemoVideo videoSrc={demoVideo} />
         </PageContainer>
       )}
