@@ -1,6 +1,5 @@
 'use client';
 
-import { Skeleton } from '@mui/material';
 import { FC, MediaHTMLAttributes, useState } from 'react';
 
 type SkeletonVideoProps = {
@@ -13,18 +12,20 @@ export const SkeletonVideo: FC<SkeletonVideoProps> = ({
 }: SkeletonVideoProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
+  console.log(isLoaded);
+
   return (
     <div className={`relative ${className}`}>
-      <Skeleton
+      {/* <Skeleton
         className={`rounded-xl absolute inset-0 ${isLoaded && '!hidden'} z-10`}
         height={'100%'}
         variant="rectangular"
-      />
+      /> */}
       <video
         className={`w-full h-full relative ${className}`}
         src={videoSrc}
         controls
-        onLoadedData={() => setIsLoaded(true)}
+        onCanPlayThrough={() => setIsLoaded(true)}
         {...props}
       />
     </div>
