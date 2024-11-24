@@ -143,6 +143,11 @@ export const getProducts = async (): Promise<{
   try {
     const data = await response.json();
     const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
+
+    if (data.data.status === 404) {
+      return { data: [], count: 0 };
+    }
+
     return { data, count };
   } catch {
     return { data: [], count: 0 };
