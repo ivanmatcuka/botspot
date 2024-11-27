@@ -77,9 +77,9 @@ export default async function Product({
     parse(product.content.rendered) as ReactElement[]
   ).filter((element) => element.type === 'h4');
 
-  const groups = (parse(product.content.rendered) as ReactElement[])
-    .find((element) => element.props?.className?.includes('wp-block-group'))
-    ?.props.children?.filter((item: unknown) => isValidElement(item));
+  const groups = (parse(product.content.rendered) as ReactElement[]).find(
+    (element) => element.props?.className?.includes('wp-block-group'),
+  );
 
   const lists = (parse(product.content.rendered) as ReactElement[]).filter(
     (element) => element.type === 'ul',
@@ -152,10 +152,10 @@ export default async function Product({
         />
       </Box>
 
-      {groups?.length && (
+      {groups?.props?.children && (
         <PageContainer my={{ xs: 5, md: 10 }}>
           <ThemedContainer className="!p-0" maxWidth="xl">
-            {groups}
+            {groups.props.children}
           </ThemedContainer>
         </PageContainer>
       )}
