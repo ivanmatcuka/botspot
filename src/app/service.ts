@@ -136,7 +136,7 @@ export const getProducts = async (): Promise<{
   count: number;
 }> => {
   const response = await fetch(
-    `${baseUrl}product?&&_embed&acf_format=standard`,
+    `${baseUrl}product?&acf_format=standard`,
     requestInit,
   );
 
@@ -144,7 +144,7 @@ export const getProducts = async (): Promise<{
     const data = await response.json();
     const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
 
-    if (data.data.status === 404) {
+    if (data?.data?.status === 404) {
       return { data: [], count: 0 };
     }
 
