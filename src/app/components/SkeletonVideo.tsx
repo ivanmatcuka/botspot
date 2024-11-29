@@ -13,16 +13,16 @@ export const SkeletonVideo: FC<SkeletonVideoProps> = ({
 }: SkeletonVideoProps) => {
   return (
     <div className={`relative ${className}`}>
+      <Skeleton
+        className={`absolute inset-0`}
+        height={'100%'}
+        variant="rectangular"
+      />
       <video
         className={`w-full h-full relative ${className}`}
         src={videoSrc}
         controls
         {...props}
-      />
-      <Skeleton
-        className={`absolute inset-0`}
-        height={'100%'}
-        variant="rectangular"
       />
     </div>
   );

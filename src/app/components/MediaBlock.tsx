@@ -36,6 +36,7 @@ export const MediaBlock: FC<MediaBlockProps> = ({
       <SkeletonVideo
         autoPlay={autoplay}
         className={classes}
+        controls={false}
         videoSrc={assetUrl}
         loop
         muted
