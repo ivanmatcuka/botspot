@@ -44,7 +44,7 @@ export default function Industrial() {
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Streamline industrial processes with our 3D scanners for accurate measurements and improved precision."
-          subline="Industrial Areas of Use"
+          subline="Quality Control & Reverse Engineering"
         />
       </PageContainer>
 

@@ -96,7 +96,7 @@ export default function Service() {
 
       <Tile headline="Consultation Services">
         <Typography variant="body1">
-          Receive expert guidance to optimize your 3D scanning projects , from
+          Receive expert guidance to optimize your 3D scanning projects, from
           initial planning to implementation.
         </Typography>
       </Tile>
