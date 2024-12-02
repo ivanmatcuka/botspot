@@ -180,7 +180,7 @@ export default async function Product({
         </GalleryTile>
       )}
 
-      <FeedbackForm />
+      <FeedbackForm defaultTopic={product.title.rendered} />
     </main>
   );
 }

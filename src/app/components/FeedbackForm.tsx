@@ -17,12 +17,18 @@ import {
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const TOPICS = ['3D Scan Service', 'Other', 'Innovation Lab'];
+const TOPICS = ['3D Scan Service', 'Other', 'Innovation Lab'] as const;
+
+type Topic = (typeof TOPICS)[number] | string;
 
 type FeedbackFormProps = {
   frameless?: boolean;
+  defaultTopic?: Topic;
 };
-export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
+export const FeedbackForm: FC<FeedbackFormProps> = ({
+  frameless = false,
+  defaultTopic,
+}) => {
   const {
     handleSubmit,
     register,
@@ -32,8 +38,11 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
     formState: { errors },
   } = useForm();
 
-  const [topic, setTopic] = useState(TOPICS[0]);
-  const [topics, setTopics] = useState<typeof TOPICS>(TOPICS);
+  const [topic, setTopic] = useState<Topic>(
+    TOPICS.find((t) => t === defaultTopic) ?? TOPICS[0],
+  );
+  // Cloning is only done because of TypeScript issues
+  const [topics, setTopics] = useState<Topic[]>([...TOPICS]);
   const [isLoading, setIsLoading] = useState(false);
 
   const name = watch('name');
@@ -64,22 +73,31 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({ frameless = false }) => {
   }, [topic, messageHtml, showSnackbar, reset]);
 
   const changeTopic = useCallback(
-    (topic: string) => () => {
+    (topic: Topic) => () => {
       setValue('message', generateMessage(topic));
       setTopic(topic);
     },
     [setValue],
   );
 
-  const generateMessage = (topic: (typeof TOPICS)[number]) => {
+  const generateMessage = (topic: Topic) => {
     return `Hello. I would like to receive some information about ${topic}. Thank you.`;
   };
 
   useEffect(() => {
-    getProducts().then(({ data }) =>
-      setTopics([...data.map((product) => product.title.rendered), ...TOPICS]),
-    );
-  }, []);
+    getProducts().then(({ data }) => {
+      const newTopics = [
+        ...data.map((product) => product.title.rendered),
+        ...TOPICS,
+      ];
+      setTopics(newTopics);
+
+      if (!defaultTopic) return;
+      setTopic(
+        newTopics.find((currTopic) => currTopic === defaultTopic) ?? TOPICS[0],
+      );
+    });
+  }, [defaultTopic]);
 
   return (
     <Form frameless={frameless} onSubmit={handleSubmit(onSubmit)}>

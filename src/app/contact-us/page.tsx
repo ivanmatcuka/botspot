@@ -20,7 +20,7 @@ export default function ContactUs() {
       >
         <Grid xs={12} container>
           <Grid md={10} mx="auto" xs={12} item>
-            <FeedbackForm frameless />
+            <FeedbackForm defaultTopic="Other" frameless />
           </Grid>
         </Grid>
       </Box>

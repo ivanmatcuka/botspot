@@ -92,7 +92,7 @@ export default async function Home() {
           </Typography>
         </Tile>
       </Box>
-      <FeedbackForm />
+      <FeedbackForm defaultTopic="Other" />
     </main>
   );
 }
