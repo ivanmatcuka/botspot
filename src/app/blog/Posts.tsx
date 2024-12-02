@@ -31,21 +31,20 @@ export const Posts: FC<PostProps> = ({
     getPosts(page, perPage)
       .then(({ data, count }) => {
         setPosts(data);
-        console.log(data);
         setCount(count);
       })
       .finally(() => setLoading(false));
   }, [page, perPage]);
 
   const skeleton = useMemo(() => {
-    return Array(6)
+    return Array(perPage)
       .fill(null)
       .map((_, index) => (
         <Grid key={index} lg={4} md={6} xs={12} item>
           <Skeleton height={360} variant="rounded" />
         </Grid>
       ));
-  }, []);
+  }, [perPage]);
 
   return (
     <>

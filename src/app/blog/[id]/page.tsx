@@ -1,3 +1,5 @@
+import { Posts } from '../Posts';
+
 import { ThemedContainer } from '@/app/components/ThemedContainer';
 import { getPost } from '@/app/service';
 
@@ -32,6 +34,20 @@ export default async function Post({ params }: { params: { id: string } }) {
             </Typography>
             <Typography>{post.excerpt.protected}</Typography>
             <Box dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+            <Box pt={{ xs: 10, md: 15 }}>
+              <hr />
+              <Typography
+                component="h2"
+                mb={{ xs: 3, md: 6 }}
+                mt={{ xs: 3, md: 10 }}
+                variant="h2"
+              >
+                Related Articles:
+              </Typography>
+              <Grid spacing={{ xs: 2, md: 3, lg: 5 }} container>
+                <Posts perPage={3} hidePagination />
+              </Grid>
+            </Box>
           </>
         </Grid>
       </Grid>
