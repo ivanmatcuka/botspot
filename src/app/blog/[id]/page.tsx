@@ -1,10 +1,12 @@
 import { Posts } from '../Posts';
 
+import { Button } from '@/app/components/Button/Button';
 import { ThemedContainer } from '@/app/components/ThemedContainer';
 import { getPost } from '@/app/service';
 
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
@@ -34,6 +36,53 @@ export default async function Post({ params }: { params: { id: string } }) {
             </Typography>
             <Typography>{post.excerpt.protected}</Typography>
             <Box dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+            <Box className="flex gap-2 flex-col md:flex-row">
+              <Button
+                href="https://instagram.com/botspot3d/"
+                startIcon={
+                  <Image
+                    alt="linkedin"
+                    height={32}
+                    src="/white_link_ig.svg"
+                    width={32}
+                  />
+                }
+                target="_blank"
+                variant="outline"
+              >
+                Share on Instagram
+              </Button>
+              <Button
+                href="https://x.com/botspot3d"
+                startIcon={
+                  <Image
+                    alt="linkedin"
+                    height={32}
+                    src="/white_link_x.svg"
+                    width={32}
+                  />
+                }
+                target="_blank"
+                variant="outline"
+              >
+                Share on X
+              </Button>
+              <Button
+                href="https://linkedin.com/company/botspot-3d-scan/"
+                startIcon={
+                  <Image
+                    alt="linkedin"
+                    height={32}
+                    src="/white_link_linkedin.svg"
+                    width={32}
+                  />
+                }
+                target="_blank"
+                variant="outline"
+              >
+                Share on LinkedIn
+              </Button>
+            </Box>
             <Box pt={{ xs: 10, md: 15 }}>
               <hr />
               <Typography
