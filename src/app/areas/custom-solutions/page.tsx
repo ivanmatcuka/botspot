@@ -41,8 +41,8 @@ export default function CustomSolutions() {
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
-          headline="Streamline industrial processes with our 3D scanners for accurate measurements and improved precision."
-          subline="Industrial Areas of Use"
+          headline="Achieve tailored results with our 3D scanning solutions, delivering precise and custom-fit models for your specific needs."
+          subline="Custom Solutions"
         />
       </PageContainer>
 

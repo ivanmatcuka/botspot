@@ -25,7 +25,7 @@ export default function Learn() {
         }}
         primaryCta={
           <Button href="/blog" variant="primary">
-            Check Our Blog
+            Visit 3D Academy
           </Button>
         }
         secondaryCta={
