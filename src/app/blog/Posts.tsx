@@ -7,7 +7,6 @@ import { CustomPost, getPosts } from '@/app/service';
 import { getFeaturedImageUrl } from '@/app/utils';
 
 import { Grid, Skeleton } from '@mui/material';
-import { useRouter } from 'next/navigation';
 import { FC, useEffect, useMemo, useState } from 'react';
 
 type PostProps = {
@@ -24,7 +23,6 @@ export const Posts: FC<PostProps> = ({
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
   const [posts, setPosts] = useState<CustomPost[]>([]);
-  const { push } = useRouter();
 
   useEffect(() => {
     setLoading(true);
@@ -61,8 +59,9 @@ export const Posts: FC<PostProps> = ({
               <Post
                 cta={
                   <Button
+                    href={`/blog/${post.id}`}
+                    target="_blank"
                     variant="secondary"
-                    onClick={() => push(`/blog/${post.id}`)}
                   >
                     Read Full Article
                   </Button>
