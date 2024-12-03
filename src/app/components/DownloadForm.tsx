@@ -17,13 +17,15 @@ import { useForm } from 'react-hook-form';
 
 type DownloadFormProps = {
   productNames: string[];
+  defaultProductName?: string;
   onSubmit?: (topic: string, message: string) => void;
 };
 export const DownloadForm: FC<DownloadFormProps> = ({
   productNames,
+  defaultProductName,
   onSubmit,
 }) => {
-  const [topic, setTopic] = useState(productNames[0]);
+  const [topic, setTopic] = useState(defaultProductName || productNames[0]);
 
   const {
     handleSubmit,

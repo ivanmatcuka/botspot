@@ -94,7 +94,7 @@ export default async function Product({
           headline={product.title.rendered}
           mediaBlockOptions={{ assetUrl: banner }}
           primaryCta={
-            <Button href="/download-area" variant="primary">
+            <Button href={`/download-area/${product.slug}`} variant="primary">
               Download Data Sheet
             </Button>
           }
