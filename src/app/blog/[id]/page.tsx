@@ -4,10 +4,12 @@ import { Button } from '@/app/components/Button/Button';
 import { ThemedContainer } from '@/app/components/ThemedContainer';
 import { getPost } from '@/app/service';
 
+import { Facebook, LinkedIn, Twitter } from '@mui/icons-material';
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 export async function generateMetadata({
   params,
@@ -38,45 +40,24 @@ export default async function Post({ params }: { params: { id: string } }) {
             <Box dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
             <Box className="flex gap-2 flex-col md:flex-row items-center">
               <Button
-                href="https://instagram.com/botspot3d/"
-                startIcon={
-                  <Image
-                    alt="linkedin"
-                    height={32}
-                    src="/white_link_ig.svg"
-                    width={32}
-                  />
-                }
+                href={`https://www.facebook.com/sharer/sharer.php?u=${baseUrl}blog/${params.id}`}
+                startIcon={<Facebook color="inherit" fontSize="small" />}
                 target="_blank"
                 variant="outline"
               >
-                Share on Instagram
+                Share on Facebook
               </Button>
               <Button
-                href="https://x.com/botspot3d"
-                startIcon={
-                  <Image
-                    alt="linkedin"
-                    height={32}
-                    src="/white_link_x.svg"
-                    width={32}
-                  />
-                }
+                href={`https://twitter.com/share?url=${baseUrl}blog/${params.id}`}
+                startIcon={<Twitter color="inherit" fontSize="small" />}
                 target="_blank"
                 variant="outline"
               >
-                Share on X
+                Share on Twitter
               </Button>
               <Button
-                href="https://linkedin.com/company/botspot-3d-scan/"
-                startIcon={
-                  <Image
-                    alt="linkedin"
-                    height={32}
-                    src="/white_link_linkedin.svg"
-                    width={32}
-                  />
-                }
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${baseUrl}blog/${params.id}`}
+                startIcon={<LinkedIn color="inherit" fontSize="small" />}
                 target="_blank"
                 variant="outline"
               >
