@@ -36,7 +36,7 @@ export default async function Post({ params }: { params: { id: string } }) {
             </Typography>
             <Typography>{post.excerpt.protected}</Typography>
             <Box dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
-            <Box className="flex gap-2 flex-col md:flex-row">
+            <Box className="flex gap-2 flex-col md:flex-row items-center">
               <Button
                 href="https://instagram.com/botspot3d/"
                 startIcon={
