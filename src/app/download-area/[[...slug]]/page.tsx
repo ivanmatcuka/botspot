@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 export default async function DownloadArea({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string[] };
 }) {
   const { data: products } = await getProducts();
 
   return (
     <main className="m-auto">
       <DownloadAreaContent
-        defaultProductSlug={params.slug}
+        defaultProductSlug={params.slug?.[0]}
         products={products}
       />
     </main>
