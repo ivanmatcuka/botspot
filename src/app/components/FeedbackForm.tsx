@@ -17,7 +17,7 @@ import {
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const TOPICS = ['3D Scan Service', 'Other', 'Innovation Lab'] as const;
+const TOPICS = ['Other', '3D Scan Service', 'Innovation Lab', 'Demo'] as const;
 
 type Topic = (typeof TOPICS)[number] | string;
 
@@ -27,7 +27,7 @@ type FeedbackFormProps = {
 };
 export const FeedbackForm: FC<FeedbackFormProps> = ({
   frameless = false,
-  defaultTopic,
+  defaultTopic = TOPICS[0],
 }) => {
   const {
     handleSubmit,

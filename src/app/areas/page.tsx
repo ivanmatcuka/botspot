@@ -70,7 +70,7 @@ export default function Areas() {
         />
       </PageContainer>
 
-      <FeedbackForm defaultTopic="Other" />
+      <FeedbackForm />
     </main>
   );
 }

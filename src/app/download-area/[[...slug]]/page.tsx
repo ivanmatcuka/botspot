@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function DownloadArea({
   params,
 }: {
-  params: { slug: string[] };
+  params: { slug?: string[] };
 }) {
   const { data: products } = await getProducts();
 

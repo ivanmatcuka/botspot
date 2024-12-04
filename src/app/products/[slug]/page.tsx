@@ -99,7 +99,7 @@ export default async function Product({
             </Button>
           }
           secondaryCta={
-            <Button href="/contact-us" variant="secondary">
+            <Button href="/contact-us/Demo" variant="secondary">
               Request a Demo
             </Button>
           }

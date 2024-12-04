@@ -128,7 +128,7 @@ export default async function Products() {
         />
       </GalleryTile>
 
-      <FeedbackForm defaultTopic="Other" />
+      <FeedbackForm />
     </main>
   );
 }
