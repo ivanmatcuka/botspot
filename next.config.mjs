@@ -9,12 +9,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'botspot.de',
-        port: '',
-      },
-      {
-        protocol: 'https',
-        hostname: 'botspot-dev-bhcb51buyb.live-website.com',
+        hostname: 'botspot.live-website.com',
         port: '',
       },
     ],
