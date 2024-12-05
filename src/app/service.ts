@@ -1,4 +1,8 @@
-import type { WP_REST_API_Categories, WP_REST_API_Page, WP_REST_API_Post } from 'wp-types';
+import type {
+  WP_REST_API_Categories,
+  WP_REST_API_Page,
+  WP_REST_API_Post,
+} from 'wp-types';
 
 export type CustomPost = WP_REST_API_Post & {
   acf?: Partial<CustomFields>;
@@ -14,7 +18,7 @@ export type CustomFields = {
   datasheet: string;
 
   'demo-video': string;
-  
+
   'first-animation': string;
   'second-animation': string;
 
@@ -26,7 +30,7 @@ export type CustomFields = {
   post: CustomPost & {
     post_title: string;
     post_excerpt: string;
-    post_name:string;
+    post_name: string;
   };
 
   photo_gallery: {
@@ -144,7 +148,7 @@ export const getProducts = async (): Promise<{
     const data = await response.json();
     const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
 
-    if (data?.data?.status === 404) {
+    if (data?.data?.status) {
       return { data: [], count: 0 };
     }
 
@@ -191,7 +195,9 @@ export const getCategory = async (
   }
 };
 
-export const getPage = async (slug: string): Promise<WP_REST_API_Page | null> => {
+export const getPage = async (
+  slug: string,
+): Promise<WP_REST_API_Page | null> => {
   const response = await fetch(
     `${baseUrl}pages?slug=${slug}&_embed`,
     requestInit,
