@@ -38,7 +38,10 @@ export default async function Post({ params }: { params: { id: string } }) {
             </Typography>
             <Typography>{post.excerpt.protected}</Typography>
             <Box dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
-            <Box className="flex gap-2 flex-col md:flex-row items-center">
+            <Box
+              className="flex gap-2 flex-col md:flex-row items-center"
+              mt={{ xs: 5, md: 10 }}
+            >
               <Button
                 href={`https://www.facebook.com/sharer/sharer.php?u=${baseUrl}blog/${params.id}`}
                 startIcon={<Facebook color="inherit" fontSize="small" />}
