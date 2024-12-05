@@ -14,6 +14,7 @@ import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 import type { Metadata } from 'next';
 
@@ -103,6 +104,9 @@ export default async function RootLayout({
           </ThemeRegistry>
         </AppRouterCacheProvider>
       </body>
+      {process.env.NEXT_PUBLIC_GTM_ID && (
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+      )}
     </html>
   );
 }
