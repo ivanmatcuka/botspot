@@ -16,9 +16,11 @@ const EMAIL_SUBJECT = 'New download form submission for';
 
 type DownloadAreaContentProps = {
   products: CustomPost[];
+  defaultProductSlug?: string;
 };
 export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
   products,
+  defaultProductSlug,
 }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -73,6 +75,10 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
   ) : (
     <PageContainer mt={8}>
       <DownloadForm
+        defaultProductName={
+          products.find((product) => product.slug === defaultProductSlug)?.title
+            .rendered
+        }
         productNames={products.map((product) => product.title.rendered)}
         onSubmit={onSubmit}
       />

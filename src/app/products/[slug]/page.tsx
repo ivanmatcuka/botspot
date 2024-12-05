@@ -94,12 +94,12 @@ export default async function Product({
           headline={product.title.rendered}
           mediaBlockOptions={{ assetUrl: banner }}
           primaryCta={
-            <Button href="/download-area" variant="primary">
+            <Button href={`/download-area/${product.slug}`} variant="primary">
               Download Data Sheet
             </Button>
           }
           secondaryCta={
-            <Button href="/contact-us" variant="secondary">
+            <Button href="/contact-us/Demo" variant="secondary">
               Request a Demo
             </Button>
           }
@@ -180,7 +180,7 @@ export default async function Product({
         </GalleryTile>
       )}
 
-      <FeedbackForm />
+      <FeedbackForm defaultTopic={product.title.rendered} />
     </main>
   );
 }

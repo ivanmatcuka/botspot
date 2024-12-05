@@ -44,7 +44,7 @@ export default async function RootLayout({
 }>) {
   const { data: products } = await getProducts();
 
-  const productsLinks = products.map((product) => ({
+  const productsLinks = products?.map((product) => ({
     label: product.title.rendered,
     href: `/products/${product.slug}`,
   }));

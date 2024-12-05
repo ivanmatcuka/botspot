@@ -25,13 +25,13 @@ export default async function About() {
           assetUrl: '/img/banners/about.png',
         }}
         primaryCta={
-          <Button href="#our-story" variant="primary">
-            Read Our Story
+          <Button href="/about/careers" variant="primary">
+            Explore Careers
           </Button>
         }
         secondaryCta={
-          <Button href="/about/careers" variant="secondary">
-            Visit Career Page
+          <Button href="/contact-us" variant="secondary">
+            Contact Us
           </Button>
         }
         sublineElement="Whenever 3D scanning technology can shift the status quo, botspot is here for you to innovate."

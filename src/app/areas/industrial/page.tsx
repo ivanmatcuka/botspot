@@ -10,6 +10,8 @@ import { Tile } from '@/app/components/Tile/Tile';
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
+const POST_ID = 7715;
+
 export const metadata: Metadata = {
   title: 'Industrial Areas of Use – botspot',
 };
@@ -44,7 +46,7 @@ export default function Industrial() {
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           headline="Streamline industrial processes with our 3D scanners for accurate measurements and improved precision."
-          subline="Industrial Areas of Use"
+          subline="Quality Control & Reverse Engineering"
         />
       </PageContainer>
 
@@ -58,7 +60,7 @@ export default function Industrial() {
           customer – with success. We are very satisfied and recommend botspot
           with a clear conscience!”
         </Typography>
-        <Button href="/blog" variant="primary">
+        <Button href={`/blog/${POST_ID}`} variant="primary">
           Read Article
         </Button>
       </Tile>

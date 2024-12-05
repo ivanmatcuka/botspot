@@ -1,4 +1,4 @@
-import { DownloadAreaContent } from './DownloadAreaContent';
+import { DownloadAreaContent } from '../DownloadAreaContent';
 
 import { getProducts } from '@/app/service';
 
@@ -8,12 +8,19 @@ export const metadata: Metadata = {
   title: 'DOWNLOAD AREA – botspot',
 };
 
-export default async function DownloadArea() {
+export default async function DownloadArea({
+  params,
+}: {
+  params: { slug?: string[] };
+}) {
   const { data: products } = await getProducts();
 
   return (
     <main className="m-auto">
-      <DownloadAreaContent products={products} />
+      <DownloadAreaContent
+        defaultProductSlug={params.slug?.[0]}
+        products={products}
+      />
     </main>
   );
 }

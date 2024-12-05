@@ -26,7 +26,7 @@ export default async function Home() {
           </Button>
         }
         secondaryCta={
-          <Button href="/download-area" variant="secondary">
+          <Button href="/download-area/botscan-neo" variant="secondary">
             Download Data Sheet
           </Button>
         }
@@ -34,12 +34,12 @@ export default async function Home() {
       />
 
       <Box
-        className="no-scrollbar h-[80px]"
         display="flex"
+        flexWrap="wrap"
+        justifyContent="center"
         maxWidth="xl"
         mx="auto"
         my={{ xs: 8, md: 10 }}
-        overflow="scroll"
         px={{ xs: 4, md: 8 }}
       >
         <PartnerLogo name="canon" />

@@ -34,11 +34,15 @@ const SecondaryButton = styled(({ ...props }: MuiButtonProps) => (
 }));
 
 const OutlineButton = styled(SecondaryButton)(({ theme }) => ({
-  '&:disabled': {
-    backgroundColor: theme.palette.common.white,
-    borderColor: theme.palette.grey[100],
+  borderColor: theme.palette.common.black,
 
-    color: theme.palette.grey[200],
+  color: theme.palette.common.black,
+
+  '&:hover': {
+    backgroundColor: theme.palette.common.black,
+    borderColor: theme.palette.common.black,
+
+    color: theme.palette.common.white,
   },
 }));
 
@@ -78,6 +82,7 @@ export type ButtonProps = {
   | 'onMouseOver'
   | 'className'
   | 'href'
+  | 'startIcon'
 >;
 export const Button: FC<ButtonProps> = ({ variant, ...props }) => {
   switch (variant) {

@@ -34,7 +34,7 @@ export const ThemedContainer = styled(Container)(({ theme }) => ({
     marginBottom: theme.spacing(5),
 
     borderColor: theme.palette.info.main,
-    borderWidth: 1,
+    borderTopWidth: 1,
   },
   ul: {
     listStyle: 'initial',

@@ -101,7 +101,7 @@ export default async function InnovationLab() {
         )}
       </Box>
 
-      <FeedbackForm />
+      <FeedbackForm defaultTopic="Innovation Lab" />
     </main>
   );
 }

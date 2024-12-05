@@ -102,7 +102,10 @@ export default async function Products() {
                   </Button>
                 }
                 secondaryCta={
-                  <Button href="/download-area" variant="secondary">
+                  <Button
+                    href={`/download-area/${product.slug}`}
+                    variant="secondary"
+                  >
                     Download Data Sheet
                   </Button>
                 }

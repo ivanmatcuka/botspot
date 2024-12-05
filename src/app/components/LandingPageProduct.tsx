@@ -30,7 +30,7 @@ export const LandingPageProduct: FC<LandingPageProductProps> = ({
         </Button>
       }
       secondaryCta={
-        <Button href="/download-area" variant="secondary">
+        <Button href={`/download-area/${product.slug}`} variant="secondary">
           Download Data Sheet
         </Button>
       }

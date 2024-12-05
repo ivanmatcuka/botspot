@@ -143,10 +143,10 @@ export default function Commercial() {
           headline="We recommend our 3D Studio Scanner"
           primaryCta={
             <Button href="/products/3d-studio" variant="primary">
-              Explore 3D Studio Scanner
+              Explore 3D Studio
             </Button>
           }
-          sublineElement="Versatile and powerful, our 3D Studio is ideal for commercial applications."
+          sublineElement="Versatile and powerful, our 3D Studio Scanner is ideal for commercial applications."
         />
       </GalleryTile>
     </main>

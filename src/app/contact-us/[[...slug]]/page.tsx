@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'CONTACT US – botspot',
 };
 
-export default function ContactUs() {
+export default function ContactUs({ params }: { params: { slug?: string[] } }) {
   return (
     <main className="m-auto">
       <Box
@@ -20,7 +20,7 @@ export default function ContactUs() {
       >
         <Grid xs={12} container>
           <Grid md={10} mx="auto" xs={12} item>
-            <FeedbackForm frameless />
+            <FeedbackForm defaultTopic={params.slug?.[0]} frameless />
           </Grid>
         </Grid>
       </Box>
