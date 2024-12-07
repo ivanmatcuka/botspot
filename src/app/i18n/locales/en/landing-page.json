@@ -1,0 +1,23 @@
+{
+  "banner": {
+    "headline": "THE WORLD’S BEST FOR EXCEPTIONAL SCANNING SOLUTIONS",
+    "sublineText": "With over 10 years of experience in photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability.",
+    "primaryCta": "Explore NEO",
+    "secondaryCta": "Download Data Sheet"
+  },
+  "mainBlock": {
+    "cta": "Explore Our Services",
+    "headline": "Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility.",
+    "subline": "How We Can Help"
+  },
+  "tiles": {
+    "first": {
+      "headline": "In-House Scanning",
+      "text": "Visit our office for an in-person scan, or send your items to us,\nand our skilled team will capture and deliver detailed 3D models\ntailored to your requirements."
+    },
+    "second": {
+      "headline": "Collaboration Services",
+      "text": "Comprehensive support to enhance your projects, including expert\nconsulting and flexible short-term or long-term rental solutions\nbased on your needs."
+    }
+  }
+}

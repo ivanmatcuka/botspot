@@ -1,3 +1,5 @@
+import { createTranslation } from './i18n/server';
+
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
@@ -12,25 +14,26 @@ import { Box, Typography } from '@mui/material';
 
 export default async function Home() {
   const { data: products } = await getProducts();
+  const { t } = await createTranslation('en', ['landing-page', 'common']);
 
   return (
     <main className="">
       <Banner
-        headline="THE WORLD’S BEST FOR EXCEPTIONAL SCANNING SOLUTIONS"
+        headline={t('landing-page:banner.headline')}
         mediaBlockOptions={{
           assetUrl: '/videos/landing-page.mp4',
         }}
         primaryCta={
           <Button href="/products/botscan-neo" variant="primary">
-            Explore NEO
+            {t('landing-page:banner.primaryCta')}
           </Button>
         }
         secondaryCta={
           <Button href="/download-area/botscan-neo" variant="secondary">
-            Download Data Sheet
+            {t('landing-page:banner.secondaryCta')}
           </Button>
         }
-        sublineElement="With over 10 years of experience in photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
+        sublineElement={t('landing-page:banner.sublineText')}
       />
 
       <Box
@@ -70,25 +73,21 @@ export default async function Home() {
           <MainBlock
             cta={
               <Button href="/service" variant="primary">
-                Explore Our Services
+                {t('landing-page:mainBlock.cta')}
               </Button>
             }
-            headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
-            subline="How We Can Help"
+            headline={t('landing-page:mainBlock.headline')}
+            subline={t('landing-page:mainBlock.subline')}
           />
         </PageContainer>
-        <Tile headline="In-House Scanning">
+        <Tile headline={t('landing-page:tiles.first.headline')}>
           <Typography variant="body1">
-            Visit our office for an in-person scan, or send your items to us,
-            and our skilled team will capture and deliver detailed 3D models
-            tailored to your requirements.
+            {t('landing-page:tiles.first.text')}
           </Typography>
         </Tile>
-        <Tile headline="Collaboration Services">
+        <Tile headline={t('landing-page:tiles.second.headline')}>
           <Typography variant="body1">
-            Comprehensive support to enhance your projects, including expert
-            consulting and flexible short-term or long-term rental solutions
-            based on your needs.
+            {t('landing-page:tiles.second.text')}
           </Typography>
         </Tile>
       </Box>
