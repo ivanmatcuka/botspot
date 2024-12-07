@@ -3,6 +3,7 @@ import { Posts } from '../Posts';
 import { Button } from '@/app/components/Button/Button';
 import { ThemedContainer } from '@/app/components/ThemedContainer';
 import { getPost } from '@/app/service';
+import { generateSeo } from '@/app/utils';
 
 import { Facebook, LinkedIn, Twitter } from '@mui/icons-material';
 import { Box, Grid, Typography } from '@mui/material';
@@ -19,9 +20,11 @@ export async function generateMetadata({
   const post = await getPost(+params.id);
   if (!post) return {};
 
-  return {
+  const result: Metadata = generateSeo(post) ?? {
     title: `${post.title.rendered} – botspot`,
   };
+
+  return result;
 }
 
 export default async function Post({ params }: { params: { id: string } }) {

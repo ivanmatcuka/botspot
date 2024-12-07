@@ -20,7 +20,7 @@ import {
   getPostBySlug,
   getProductBySlug,
 } from '@/app/service';
-import { getFeaturedImageUrl } from '@/app/utils';
+import { generateSeo, getFeaturedImageUrl } from '@/app/utils';
 
 import { Box } from '@mui/material';
 import parse from 'html-react-parser';
@@ -36,12 +36,11 @@ export async function generateMetadata({
   const product = await getProductBySlug(params.slug);
   if (!product) return {};
 
-  return {
-    title: `${product.title.rendered} – botspot`,
-    openGraph: {
-      images: [getFeaturedImageUrl(product)],
-    },
-  };
+  return (
+    generateSeo(product) ?? {
+      title: `${product.title.rendered} – botspot`,
+    }
+  );
 }
 export default async function Product({
   params,
