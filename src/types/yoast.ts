@@ -1,5 +1,3 @@
-import { ImageVideoMetadata } from 'open-graph';
-
 export type DeepPartial<T> = T extends object
   ? {
       [P in keyof T]?: DeepPartial<T[P]>;
@@ -27,7 +25,12 @@ export type Seo = {
   article_author: string;
   article_published_time: string;
   article_modified_time: string;
-  og_image: ImageVideoMetadata | ImageVideoMetadata[] | undefined;
+  og_image: Array<{
+    width: number;
+    height: number;
+    url: string;
+    type: string;
+  }>;
   author: string;
   twitter_card: string;
   twitter_creator: string;
