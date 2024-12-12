@@ -1,5 +1,3 @@
-import { createTranslation } from './i18n/server';
-
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
@@ -8,6 +6,7 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { PartnerLogo } from '@/app/components/PartnerLogo';
 import { Tile } from '@/app/components/Tile/Tile';
+import { createTranslation } from '@/app/i18n/server';
 import { getProducts } from '@/app/service';
 
 import { Box, Typography } from '@mui/material';

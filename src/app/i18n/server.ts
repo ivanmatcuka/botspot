@@ -19,7 +19,6 @@ const initI18next = async (lang: LocaleTypes, ns: string | string[]) => {
   return i18nInstance;
 };
 
-// It will accept the locale and namespace for i18next to know what file to load
 export async function createTranslation(
   lang: LocaleTypes,
   ns: string | string[],
@@ -27,8 +26,6 @@ export async function createTranslation(
   const i18nextInstance = await initI18next(lang, ns);
 
   return {
-    // This is the translation function we'll use in our components
-    // e.g. t('greeting')
     t: i18nextInstance.getFixedT(lang, Array.isArray(ns) ? ns[0] : ns),
   };
 }

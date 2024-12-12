@@ -5,6 +5,7 @@ import { Button } from '@/app/components/Button/Button';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { Tile } from '@/app/components/Tile/Tile';
+import { createTranslation } from '@/app/i18n/server';
 import { getPeople } from '@/app/service';
 
 import { Box, Typography } from '@mui/material';
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 
 export default async function About() {
   const { data } = await getPeople();
+  const { t } = await createTranslation('en', ['landing-page', 'common']);
 
   return (
     <main className="">
