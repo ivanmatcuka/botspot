@@ -8,13 +8,14 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: '3D SCAN SERVICE – botspot',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('service');
+}
 
 export default function Service() {
   return (

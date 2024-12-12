@@ -1,5 +1,3 @@
-import { generateSeo } from './utils';
-
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
@@ -8,25 +6,14 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { PartnerLogo } from '@/app/components/PartnerLogo';
 import { Tile } from '@/app/components/Tile/Tile';
-import { getPage, getProducts } from '@/app/service';
+import { getProducts } from '@/app/service';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPage('home');
-
-  if (!page) {
-    return {
-      title: 'botspot',
-    };
-  }
-
-  return (
-    generateSeo(page) ?? {
-      title: `${page.title.rendered} – botspot`,
-    }
-  );
+  return generatePageMetadata('home');
 }
 
 export default async function Home() {

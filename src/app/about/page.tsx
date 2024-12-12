@@ -6,13 +6,14 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { Tile } from '@/app/components/Tile/Tile';
 import { getPeople } from '@/app/service';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'ABOUT US – botspot',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('about');
+}
 
 export default async function About() {
   const { data } = await getPeople();

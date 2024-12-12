@@ -8,14 +8,14 @@ import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
 import { CustomFields, getProducts } from '@/app/service';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: '3D Scanners – botspot',
-};
-
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('products');
+}
 export default async function Products() {
   const { data: products } = await getProducts();
 

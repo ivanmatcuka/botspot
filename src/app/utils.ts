@@ -1,4 +1,4 @@
-import { CustomPost } from '@/app/service';
+import { CustomPost, getPage } from '@/app/service';
 
 import { Metadata } from 'next';
 import { Robots } from 'next/dist/lib/metadata/types/metadata-types';
@@ -53,4 +53,20 @@ export const generateSeo = (post: CustomPost) => {
       };
 
   return result;
+};
+
+export const generatePageMetadata = async (slug: string): Promise<Metadata> => {
+  const page = await getPage(slug);
+
+  if (!page) {
+    return {
+      title: 'botspot',
+    };
+  }
+
+  return (
+    generateSeo(page) ?? {
+      title: `${page.title.rendered} – botspot`,
+    }
+  );
 };

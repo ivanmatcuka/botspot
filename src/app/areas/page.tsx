@@ -3,12 +3,13 @@ import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'AREAS OF USE – botspot',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('areas');
+}
 
 export default function Areas() {
   return (
