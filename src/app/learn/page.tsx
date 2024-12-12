@@ -13,7 +13,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 
 export async function generateMetadata(): Promise<Metadata> {
-  return generatePageMetadata('areas');
+  return generatePageMetadata('learn');
 }
 
 export default function Learn() {
