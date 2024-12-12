@@ -17,7 +17,7 @@ import {
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const TOPICS = ['Other', '3D Scan Service', 'Innovation Lab', 'Demo'] as const;
+const TOPICS = ['3D Scan Service', 'Innovation Lab', 'Demo', 'Other'] as const;
 
 type Topic = (typeof TOPICS)[number] | string;
 
@@ -101,7 +101,11 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
 
   return (
     <Form frameless={frameless} onSubmit={handleSubmit(onSubmit)}>
-      <Box p={frameless ? 0 : { xs: 3, md: 5 }} py={frameless ? 0 : { xs: 2 }}>
+      <Box
+        id="feedback-form"
+        p={frameless ? 0 : { xs: 3, md: 5 }}
+        py={frameless ? 0 : { xs: 2 }}
+      >
         <Typography className="text-center md:text-left" mb={2} variant="h2">
           Thank you for your interest in
         </Typography>
