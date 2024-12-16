@@ -1,6 +1,5 @@
 export const revalidate = 0;
 
-import { ConsentProvider } from './ConsentProvider';
 import './globals.scss';
 
 import { Button } from '@/app/components/Button/Button';
@@ -12,9 +11,9 @@ import ThemeRegistry from '@/app/theme/ThemeRegistry';
 
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
-import { GoogleTagManager } from '@next/third-parties/google';
 
 import type { Metadata } from 'next';
 
@@ -88,18 +87,16 @@ export default async function RootLayout({
         <AppRouterCacheProvider>
           <ThemeRegistry>
             <SnackbarProvider>
-              <ConsentProvider>
-                <Navbar
-                  cta={
-                    <Button href="/contact-us" variant="secondary">
-                      Contact Us
-                    </Button>
-                  }
-                  navItems={navbarItems}
-                />
-                <Box className="flex-1 flex flex-col">{children}</Box>
-                <Footer products={products} />
-              </ConsentProvider>
+              <Navbar
+                cta={
+                  <Button href="/contact-us" variant="secondary">
+                    Contact Us
+                  </Button>
+                }
+                navItems={navbarItems}
+              />
+              <Box className="flex-1 flex flex-col">{children}</Box>
+              <Footer products={products} />
             </SnackbarProvider>
           </ThemeRegistry>
         </AppRouterCacheProvider>
