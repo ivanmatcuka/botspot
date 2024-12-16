@@ -125,7 +125,7 @@ export const getPeople = async (): Promise<{
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
-    `${baseUrl}posts?&categories=${category.id}&_embed`,
+    `${baseUrl}posts?&categories=${category.id}&per_page=100&_embed`,
     requestInit,
   );
 
@@ -143,7 +143,7 @@ export const getProducts = async (): Promise<{
   count: number;
 }> => {
   const response = await fetch(
-    `${baseUrl}product?&acf_format=standard`,
+    `${baseUrl}product?&per_page=100&acf_format=standard`,
     requestInit,
   );
 
@@ -169,7 +169,7 @@ export const getJobs = async (): Promise<{
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
-    `${baseUrl}posts?&categories=${category.id}&_embed`,
+    `${baseUrl}posts?&categories=${category.id}&per_page=100&_embed`,
     requestInit,
   );
 
