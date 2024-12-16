@@ -59,7 +59,7 @@ export const Posts: FC<PostProps> = ({
               <Post
                 cta={
                   <Button
-                    href={`/blog/${post.id}`}
+                    href={`/${post.slug}`}
                     target="_blank"
                     variant="secondary"
                   >
