@@ -7,8 +7,14 @@ import { PageContainer } from '@/app/components/PageContainer';
 import { PartnerLogo } from '@/app/components/PartnerLogo';
 import { Tile } from '@/app/components/Tile/Tile';
 import { getProducts } from '@/app/service';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('home');
+}
 
 export default async function Home() {
   const { data: products } = await getProducts();

@@ -1,13 +1,14 @@
 import { ThemedContainer } from '@/app/components/ThemedContainer';
 import { getPage } from '@/app/service';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: 'PRIVACY POLICY – botspot',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('privacy-policy');
+}
 
 export default async function PrivacyPolicy() {
   const page = await getPage('privacy-policy');

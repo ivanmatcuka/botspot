@@ -6,15 +6,16 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
 const POST_ID = 7715;
 
-export const metadata: Metadata = {
-  title: 'Industrial Areas of Use – botspot',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('industrial');
+}
 
 export default function Industrial() {
   return (

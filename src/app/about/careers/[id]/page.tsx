@@ -2,6 +2,7 @@ import { ExtraFooter } from '../ExtraFooter';
 
 import { ThemedContainer } from '@/app/components/ThemedContainer';
 import { getPost } from '@/app/service';
+import { generateSeo } from '@/app/utils';
 
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
@@ -15,9 +16,11 @@ export async function generateMetadata({
   const job = await getPost(+params.id);
   if (!job) return {};
 
-  return {
-    title: `${job.title.rendered} – botspot`,
-  };
+  return (
+    generateSeo(job) ?? {
+      title: `${job.title.rendered} – botspot`,
+    }
+  );
 }
 
 export default async function Job({ params }: { params: { id: string } }) {

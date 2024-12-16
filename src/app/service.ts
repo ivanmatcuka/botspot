@@ -1,3 +1,5 @@
+import { DeepPartial, Seo } from '@/types/yoast';
+
 import type {
   WP_REST_API_Categories,
   WP_REST_API_Page,
@@ -5,6 +7,7 @@ import type {
 } from 'wp-types';
 
 export type CustomPost = WP_REST_API_Post & {
+  yoast_head_json?: DeepPartial<Seo>;
   acf?: Partial<CustomFields>;
 };
 

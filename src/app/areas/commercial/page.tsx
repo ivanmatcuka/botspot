@@ -5,14 +5,15 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Typography } from '@mui/material';
 import { Metadata } from 'next';
 import Image from 'next/image';
 
-export const metadata: Metadata = {
-  title: 'Commercial Areas of Use – botspot',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('commercial');
+}
 
 export default function Commercial() {
   return (

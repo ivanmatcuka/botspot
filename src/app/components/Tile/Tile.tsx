@@ -1,6 +1,6 @@
 'use client';
 
-import { Grid, Typography, Container } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
 type TileProps = {
   headline: string;
@@ -23,7 +23,7 @@ export const Tile: FC<PropsWithChildren<TileProps>> = ({
         container
       >
         <Grid md={6} mt={0.5} pr={4} xs={12} item>
-          <Typography mb={2} variant="h4">
+          <Typography component="h3" mb={2} variant="h4">
             {headline}
           </Typography>
         </Grid>

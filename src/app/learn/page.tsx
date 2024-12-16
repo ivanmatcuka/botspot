@@ -1,5 +1,6 @@
-import { Posts } from '../blog/Posts';
+import { generatePageMetadata } from '../utils';
 
+import { Posts } from '@/app/blog/Posts';
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
@@ -11,9 +12,9 @@ import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import Image from 'next/image';
 
-export const metadata: Metadata = {
-  title: 'LEARN ABOUT 3D SCANNING – botspot',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('learn');
+}
 
 export default function Learn() {
   return (

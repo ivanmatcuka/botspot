@@ -3,13 +3,14 @@ import { Posts } from './Posts';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { QuestionForm } from '@/app/components/QuestionForm';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: '3D ACADEMY – botspot',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('3d-academy');
+}
 
 export default function Blog() {
   return (
