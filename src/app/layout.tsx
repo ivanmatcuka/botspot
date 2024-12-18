@@ -86,7 +86,6 @@ export default async function RootLayout({
     <html lang="en">
       <head>
         <Script
-          data-blockingmode="auto"
           data-cbid={process.env.NEXT_PUBLIC_DATA_CBID}
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
@@ -111,6 +110,7 @@ export default async function RootLayout({
             </SnackbarProvider>
           </ThemeRegistry>
         </AppRouterCacheProvider>
+        <Script id="gtag" src="gtag.js" type="text/javascript" />
       </body>
       {process.env.NEXT_PUBLIC_GTM_ID && (
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
