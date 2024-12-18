@@ -86,8 +86,6 @@ export default async function RootLayout({
     <html lang="en">
       <head>
         <Script
-          async={true}
-          crossOrigin="anonymous"
           data-blockingmode="auto"
           data-cbid={process.env.NEXT_PUBLIC_DATA_CBID}
           id="Cookiebot"
