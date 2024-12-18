@@ -110,7 +110,12 @@ export default async function RootLayout({
             </SnackbarProvider>
           </ThemeRegistry>
         </AppRouterCacheProvider>
-        <Script id="gtag" src="gtag.js" type="text/javascript" />
+        <Script
+          data-cookieconsent="ignore"
+          id="gtag"
+          src="/gtag.js"
+          type="text/javascript"
+        />
       </body>
       {process.env.NEXT_PUBLIC_GTM_ID && (
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
