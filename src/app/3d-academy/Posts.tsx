@@ -59,7 +59,7 @@ export const Posts: FC<PostProps> = ({
               <Post
                 cta={
                   <Button
-                    href={`/${post.slug}`}
+                    href={`/3d-academy/${post.slug}`}
                     target="_blank"
                     variant="secondary"
                   >

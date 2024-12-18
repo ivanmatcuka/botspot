@@ -170,7 +170,7 @@ export default async function Product({
           <SecondaryBlock
             headline={post.title.rendered}
             primaryCta={
-              <Button href={`/blog/${post.id}`} variant="primary">
+              <Button href={`/3d-academy/${post.slug}`} variant="primary">
                 Read Full Story
               </Button>
             }

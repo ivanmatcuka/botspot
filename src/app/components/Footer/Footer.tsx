@@ -91,7 +91,7 @@ export const Footer: FC<FooterProps> = ({ products }) => (
             <Text>Resources</Text>
             <br />
             <Text href="/learn">What is 3D Scanning?</Text>
-            <Text href="/blog">3D Academy</Text>
+            <Text href="/3d-academy">3D Academy</Text>
             <Text href="/areas">Areas of Use</Text>
           </Grid>
           <Grid

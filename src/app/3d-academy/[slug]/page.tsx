@@ -1,4 +1,4 @@
-import { Posts } from '../blog/Posts';
+import { Posts } from '../Posts';
 
 import { Button } from '@/app/components/Button/Button';
 import { ThemedContainer } from '@/app/components/ThemedContainer';

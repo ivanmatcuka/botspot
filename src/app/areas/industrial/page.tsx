@@ -11,7 +11,7 @@ import { generatePageMetadata } from '@/app/utils';
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
-const POST_ID = 7715;
+const POST_SLUG = 'digitization-of-automotive-parts-with-complex-geometry';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('industrial');
@@ -61,7 +61,7 @@ export default function Industrial() {
           customer – with success. We are very satisfied and recommend botspot
           with a clear conscience!”
         </Typography>
-        <Button href={`/blog/${POST_ID}`} variant="primary">
+        <Button href={`/3d-academy/${POST_SLUG}`} variant="primary">
           Read Article
         </Button>
       </Tile>

@@ -55,7 +55,7 @@ export default function CustomSolutions() {
           Approached by the new historical epic series “Those About to Die”,
           botspot took on the challenge of 3D scanning a horse.
         </Typography>
-        <Button href="/blog" variant="primary">
+        <Button href="/3d-academy" variant="primary">
           Read Article
         </Button>
       </Tile>
