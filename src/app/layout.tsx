@@ -92,7 +92,7 @@ export default async function RootLayout({
           data-cbid={process.env.NEXT_PUBLIC_DATA_CBID}
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
-          strategy={`beforeInteractive`}
+          strategy="beforeInteractive"
           type="text/javascript"
         />
       </head>
