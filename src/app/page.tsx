@@ -59,6 +59,7 @@ export default async function Home() {
         <PartnerLogo name="vrinsight" />
         <PartnerLogo name="thyng" />
         <PartnerLogo name="acod" />
+        <PartnerLogo name="vertex" />
       </Box>
 
       {products.map((product) => (
