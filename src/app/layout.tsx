@@ -2,6 +2,8 @@ export const revalidate = 0;
 
 import './globals.scss';
 
+import { Gtag } from './gtag';
+
 import { Button } from '@/app/components/Button/Button';
 import { Footer } from '@/app/components/Footer/Footer';
 import { Navbar } from '@/app/components/Navbar/Navbar';
@@ -13,7 +15,6 @@ import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
 import { ReactNode } from 'react';
 
 import type { Metadata } from 'next';
@@ -85,13 +86,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-          data-cbid={process.env.NEXT_PUBLIC_DATA_CBID}
-          id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          strategy="beforeInteractive"
-          type="text/javascript"
-        />
+        <Gtag />
       </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <AppRouterCacheProvider>
@@ -110,12 +105,6 @@ export default async function RootLayout({
             </SnackbarProvider>
           </ThemeRegistry>
         </AppRouterCacheProvider>
-        <Script
-          data-cookieconsent="ignore"
-          id="gtag"
-          src="/gtag.js"
-          type="text/javascript"
-        />
       </body>
       {process.env.NEXT_PUBLIC_GTM_ID && (
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
