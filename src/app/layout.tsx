@@ -96,6 +96,9 @@ export default async function RootLayout({
             gtag("set", "url_passthrough", true);
           `}
         </Script>
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        )}
         <Script
           data-blockingmode="auto"
           data-cbid={process.env.NEXT_PUBLIC_DATA_CBID}
@@ -121,9 +124,6 @@ export default async function RootLayout({
             </SnackbarProvider>
           </ThemeRegistry>
         </AppRouterCacheProvider>
-        {process.env.NEXT_PUBLIC_GTM_ID && (
-          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
-        )}
       </body>
     </html>
   );
