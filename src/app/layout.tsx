@@ -11,6 +11,7 @@ import ThemeRegistry from '@/app/theme/ThemeRegistry';
 
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { ReactNode } from 'react';
@@ -84,6 +85,17 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script data-cookieconsent="ignore" id="google-tag">
+          {`
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+              
+            gtag("set", "url_passthrough", true);
+          `}
+        </Script>
         <Script
           data-blockingmode="auto"
           data-cbid={process.env.NEXT_PUBLIC_DATA_CBID}
@@ -109,6 +121,9 @@ export default async function RootLayout({
             </SnackbarProvider>
           </ThemeRegistry>
         </AppRouterCacheProvider>
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        )}
       </body>
     </html>
   );
