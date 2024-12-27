@@ -1,3 +1,5 @@
+import { SkeletonVideo } from '../components/SkeletonVideo';
+
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
@@ -82,6 +84,48 @@ export default function Service() {
           }
         />
       </Box>
+
+      <PageContainer my={{ xs: 10, md: 15 }}>
+        <MainBlock
+          headline="We understand every project is unique. That’s why we offer flexible post-processing options, from foundational scans to premium visualizations."
+          subline="Post-Processing Tailored to Your Needs"
+        />
+      </PageContainer>
+
+      <Tile headline="Raw 3D Scans">
+        <Typography variant="body1">
+          Receive unprocessed scans directly from our scanners - capturing
+          precise geometry and texture. These serve as the perfect starting
+          point for customization, post-processing or integration into your
+          projects.
+        </Typography>
+      </Tile>
+      <PageContainer my={{ xs: 10, md: 15 }}>
+        <SkeletonVideo videoSrc="/videos/SH01_FINAL.mp4" />
+      </PageContainer>
+
+      <Tile headline="Optimization for Digital Use">
+        <Typography variant="body1">
+          For projects requiring more polish, we offer services to create
+          refined 3D models. These ready-to-use assets are perfect for
+          e-commerce, virtual showrooms or engaging 3D experiences.
+        </Typography>
+      </Tile>
+      <PageContainer my={{ xs: 10, md: 15 }}>
+        <SkeletonVideo videoSrc="/videos/SH02_FINAL.mp4" />
+      </PageContainer>
+
+      <Tile headline="Premium Product Visualizations">
+        <Typography variant="body1">
+          Elevate your 3D scans into fully rendered assets, seamlessly
+          integrated into videos and images for high-end product visualization.
+          The rendered models deliver a captivating level of realism and detail
+          for marketing and advertising.
+        </Typography>
+      </Tile>
+      <PageContainer my={{ xs: 10, md: 15 }}>
+        <SkeletonVideo videoSrc="/videos/SH03_FINAL.mp4" />
+      </PageContainer>
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
