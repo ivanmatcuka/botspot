@@ -161,7 +161,7 @@ export default async function Product({
 
       {demoVideo && (
         <PageContainer>
-          <SkeletonVideo videoSrc={demoVideo} />
+          <SkeletonVideo videoSrc={demoVideo} playsInline />
         </PageContainer>
       )}
 
