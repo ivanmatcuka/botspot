@@ -46,7 +46,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
               mt={{ xs: 5, md: 10 }}
             >
               <Button
-                href={`https://www.facebook.com/sharer/sharer.php?u=${baseUrl}3d-academy/${params.slug}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=${baseUrl}/3d-academy/${params.slug}`}
                 startIcon={<Facebook color="inherit" fontSize="small" />}
                 target="_blank"
                 variant="outline"
@@ -54,7 +54,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 Share on Facebook
               </Button>
               <Button
-                href={`https://twitter.com/share?url=${baseUrl}3d-academy/${params.slug}`}
+                href={`https://twitter.com/share?url=${baseUrl}/3d-academy/${params.slug}`}
                 startIcon={<Twitter color="inherit" fontSize="small" />}
                 target="_blank"
                 variant="outline"
@@ -62,7 +62,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 Share on Twitter
               </Button>
               <Button
-                href={`https://www.linkedin.com/shareArticle?mini=true&url=${baseUrl}3d-academy/${params.slug}`}
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${baseUrl}/3d-academy/${params.slug}`}
                 startIcon={<LinkedIn color="inherit" fontSize="small" />}
                 target="_blank"
                 variant="outline"
