@@ -47,7 +47,8 @@ function adaptRedirectsForNextJs(jsonData) {
     const { url, action_data, action_code, match_url } = redirect;
     const source = match_url.replace(/\/$/, '');
 
-    const destination = action_data.url || action_data.server || url;
+    const destination =
+      action_data.url || action_data.url_from || action_data.server || url;
 
     return {
       source,
