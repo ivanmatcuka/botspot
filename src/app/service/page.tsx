@@ -103,7 +103,7 @@ export default function Service() {
       <PageContainer my={{ xs: 10, md: 15 }}>
         <SkeletonVideo
           controls={false}
-          videoSrc="/videos/SH01_FINAL.mp4#t=0.1"
+          videoSrc="/videos/SH01_FINAL.mp4"
           autoPlay
           loop
         />
@@ -119,7 +119,7 @@ export default function Service() {
       <PageContainer my={{ xs: 10, md: 15 }}>
         <SkeletonVideo
           controls={false}
-          videoSrc="/videos/SH02_FINAL.mp4#t=0.1"
+          videoSrc="/videos/SH02_FINAL.mp4"
           autoPlay
           loop
         />
@@ -136,7 +136,7 @@ export default function Service() {
       <PageContainer my={{ xs: 10, md: 15 }}>
         <SkeletonVideo
           controls={false}
-          videoSrc="/videos/SH03_FINAL.mp4#t=0.1"
+          videoSrc="/videos/SH03_FINAL.mp4"
           autoPlay
           loop
         />

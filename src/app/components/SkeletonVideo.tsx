@@ -8,22 +8,19 @@ type SkeletonVideoProps = {
 } & MediaHTMLAttributes<HTMLVideoElement>;
 export const SkeletonVideo: FC<SkeletonVideoProps> = ({
   videoSrc,
-  className,
+  className = '',
   ...props
-}: SkeletonVideoProps) => {
-  return (
-    <div className={`relative ${className}`}>
-      <Skeleton
-        className={`absolute inset-0`}
-        height={'100%'}
-        variant="rectangular"
-      />
-      <video
-        className={`w-full h-full relative ${className}`}
-        src={videoSrc}
-        controls
-        {...props}
-      />
-    </div>
-  );
-};
+}: SkeletonVideoProps) => (
+  <div className={`relative ${className}`}>
+    <Skeleton
+      className={`absolute inset-0`}
+      height={'100%'}
+      variant="rectangular"
+    />
+    <video
+      className={`w-full h-full relative ${className}`}
+      src={videoSrc}
+      {...props}
+    />
+  </div>
+);
