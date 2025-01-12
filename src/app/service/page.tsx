@@ -101,7 +101,12 @@ export default function Service() {
         </Typography>
       </Tile>
       <PageContainer my={{ xs: 10, md: 15 }}>
-        <SkeletonVideo videoSrc="/videos/SH01_FINAL.mp4#t=0.1" />
+        <SkeletonVideo
+          controls={false}
+          videoSrc="/videos/SH01_FINAL.mp4#t=0.1"
+          autoPlay
+          loop
+        />
       </PageContainer>
 
       <Tile headline="Optimization for Digital Use">
@@ -112,7 +117,12 @@ export default function Service() {
         </Typography>
       </Tile>
       <PageContainer my={{ xs: 10, md: 15 }}>
-        <SkeletonVideo videoSrc="/videos/SH02_FINAL.mp4#t=0.1" />
+        <SkeletonVideo
+          controls={false}
+          videoSrc="/videos/SH02_FINAL.mp4#t=0.1"
+          autoPlay
+          loop
+        />
       </PageContainer>
 
       <Tile headline="Premium Product Visualizations">
@@ -124,7 +134,12 @@ export default function Service() {
         </Typography>
       </Tile>
       <PageContainer my={{ xs: 10, md: 15 }}>
-        <SkeletonVideo videoSrc="/videos/SH03_FINAL.mp4#t=0.1" />
+        <SkeletonVideo
+          controls={false}
+          videoSrc="/videos/SH03_FINAL.mp4#t=0.1"
+          autoPlay
+          loop
+        />
       </PageContainer>
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
