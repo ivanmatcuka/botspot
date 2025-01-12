@@ -8,6 +8,7 @@ import { ButtonProps } from '@/app/components/Button/Button';
 import {
   MenuItem as MuiMenuItem,
   MenuItemProps as MuiMenuItemProps,
+  styled,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
@@ -15,20 +16,30 @@ import { usePopupState } from 'material-ui-popup-state/hooks';
 import { useRouter } from 'next/navigation';
 import { FC, PropsWithChildren, useCallback } from 'react';
 
-export const MenuItem: FC<PropsWithChildren<MuiMenuItemProps>> = ({
-  ...props
-}) => <MuiMenuItem {...props} />;
+export const MenuItem: FC<PropsWithChildren<MuiMenuItemProps>> = styled(
+  MuiMenuItem,
+)(({ theme }) => ({
+  '&.active': {
+    backgroundColor: theme.palette.grey[100],
+
+    a: {
+      color: theme.palette.primary.main,
+    },
+  },
+}));
 
 type MenuProps = {
   label: string;
   variant?: ButtonProps['variant'];
   href?: string;
+  className?: string;
 };
 export const Menu: FC<PropsWithChildren<MenuProps>> = ({
   label,
   variant = 'menu',
   href,
   children,
+  className,
 }) => {
   const { push } = useRouter();
 
@@ -49,6 +60,7 @@ export const Menu: FC<PropsWithChildren<MenuProps>> = ({
         </MobileMenu>
       ) : (
         <CustomHoverMenu
+          className={className}
           label={label}
           popupState={popupState}
           variant={variant}

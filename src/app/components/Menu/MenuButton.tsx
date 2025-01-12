@@ -9,6 +9,7 @@ type MenuButtonProps = {
   label: string;
   variant: ButtonProps['variant'];
   open: boolean;
+  className?: string;
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 export const MenuButton: FC<MenuButtonProps> = ({

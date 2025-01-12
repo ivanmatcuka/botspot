@@ -26,6 +26,7 @@ import {
 import useDetectScroll from '@smakss/react-scroll-direction';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   FC,
   ReactNode,
@@ -66,6 +67,8 @@ type NavbarProps = {
   navItems: MenuItem[];
 };
 export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
+  const currentPath = usePathname();
+
   const [isOpen, setIsOpen] = useState(false);
   const [position, setPosition] = useState<'relative' | 'sticky'>('relative');
 
@@ -74,26 +77,35 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
 
   const { scrollDir } = useDetectScroll();
 
-  const renderMenu = useCallback((item: MenuItem) => {
-    if (!item.children?.length) {
-      return (
-        <Button
-          disabled={item.disabled}
-          href={item.href ?? '/'}
-          key={item.label}
-          variant="menuItem"
-        >
-          {item.label}
-        </Button>
-      );
-    }
+  const renderMenu = useCallback(
+    (item: MenuItem) => {
+      if (!item.children?.length) {
+        return (
+          <Button
+            className={currentPath === item.href ? 'active' : ''}
+            disabled={item.disabled}
+            href={item.href ?? '/'}
+            key={item.label}
+            variant="menuItem"
+          >
+            {item.label}
+          </Button>
+        );
+      }
 
-    return (
-      <Menu href={item.href} key={item.label} label={item.label}>
-        {item.children.map((child) => renderMenu(child))}
-      </Menu>
-    );
-  }, []);
+      return (
+        <Menu
+          className={currentPath === item.href ? 'active' : ''}
+          href={item.href}
+          key={item.label}
+          label={item.label}
+        >
+          {item.children.map((child) => renderMenu(child))}
+        </Menu>
+      );
+    },
+    [currentPath],
+  );
 
   const menu = useMemo(
     () => navItems.map((item) => renderMenu(item)),
