@@ -36,9 +36,12 @@ export default async function Post({ params }: { params: { slug: string } }) {
       <Grid md={10} mx="auto" xs={12} container>
         <Grid my={{ xs: 8, md: 15 }} xs={12} item>
           <>
-            <Typography component="h1" mb={{ xs: 3, md: 4 }} variant="h2">
-              {post.title.rendered}
-            </Typography>
+            <Typography
+              component="h1"
+              dangerouslySetInnerHTML={{ __html: post.title.rendered ?? '' }}
+              mb={{ xs: 3, md: 4 }}
+              variant="h2"
+            />
             <Typography>{post.excerpt.protected}</Typography>
             <Box dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
             <Box
