@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# botspot site
 
-## Getting Started
+This repository contains the source code for the botspot website, built with Next.js and TypeScript.
 
-First, run the development server:
+## Company Story
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+In 2010, inspired by a 3D printing shop in New York, German engineer Thomas Strenger set out to bring this revolutionary technology to Berlin. Starting with Germany’s first 3D printing shop in Moritzplatz, Kreuzberg, the team quickly identified a missing piece: a precise, color-true 3D scanner. Driven by their background in television, they turned to photogrammetry, debuting their first full-body scanner, BOTSCAN 01, that same year. Thus the predecessor of our NEO was born!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+As interest grew—from personal 3D prints to high-quality digital avatars—the team shifted focus to advancing their scanning technology. They secured patents, developed medical and industrial applications, and earned the trust of international brands in fashion, sports, and automotive sectors. Their scanners soon became the standard for speed, precision, and scalability, making 3D digitization more accessible to a growing global market.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Today, botspot is based in Berlin’s tech hub, Adlershof, committed to creating innovative scanning solutions. Photogrammetry remains their foundation—while the sky’s the limit.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Project Structure
 
-## Learn More
+The project follows a typical Next.js structure with some custom organization:
 
-To learn more about Next.js, take a look at the following resources:
+- `public/`: Static assets including images and videos.
+- `src/app/`: Main application code.
+  - `components/`: Reusable React components.
+  - `theme/`: MUI theme customization.
+  - `utils/`: Utility functions.
+  - `service/`: Service layer for API calls and data fetching.
+  - Various route directories (`3d-academy/`, `about/`, etc.): Each represents a route in the application.
+- `.storybook/`: Storybook configuration.
+- `acf.json`: Advanced Custom Fields configuration.
+- `next.config.js`: Next.js configuration file.
+- `package.json`: Project dependencies and scripts.
+- `tsconfig.json`: TypeScript configuration.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Ensure you have the following environment variables set:
 
-## Deploy on Vercel
+- `NEXT_PUBLIC_BASE_URL`: The base URL of your website.
+- `NEXT_PUBLIC_API_URL`: The URL for your WordPress API (WP REST API).
+- `NEXT_PUBLIC_EMAIL_FROM`: The email address used as the sender for automated emails.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `SMTP_HOST`: The hostname of your SMTP server for sending emails.
+- `SMTP_PORT`: The port number for your SMTP server.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For production deployment, set these environment variables in your hosting platform's configuration.
+
+Remember to never share sensitive information like API keys, passwords, or tokens publicly.
+
+## Contact
+
+For any inquiries, please contact me, the developer, at [ivanmatcuka@gmail.com](ivanmatcuka@gmail.com)
