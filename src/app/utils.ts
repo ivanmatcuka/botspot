@@ -35,7 +35,7 @@ export const generateSeo = (post: CustomPost) => {
         openGraph: {
           title: yoast.og_title,
           description: yoast.og_description,
-          url: process.env.NEXT_PUBLIC_BASE_URL,
+          url: yoast.og_url,
           siteName: yoast.og_site_name,
           images: yoast.og_image,
           locale: yoast.og_locale,
