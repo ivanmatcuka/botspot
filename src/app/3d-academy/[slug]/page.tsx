@@ -65,9 +65,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 Share on Twitter
               </Button>
               <Button
-                href={encodeURIComponent(
-                  `https://www.linkedin.com/sharing/share-offsite/?url=${baseUrl}/3d-academy/${params.slug}`,
-                )}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${baseUrl}/3d-academy/${params.slug}`}
                 startIcon={<LinkedIn color="inherit" fontSize="small" />}
                 target="_blank"
                 variant="outline"
