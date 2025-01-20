@@ -106,6 +106,7 @@ export default function Service() {
           videoSrc="/videos/SH01_FINAL.mp4"
           autoPlay
           loop
+          muted
         />
       </PageContainer>
 
@@ -122,6 +123,7 @@ export default function Service() {
           videoSrc="/videos/SH02_FINAL.mp4"
           autoPlay
           loop
+          muted
         />
       </PageContainer>
 
@@ -139,6 +141,7 @@ export default function Service() {
           videoSrc="/videos/SH03_FINAL.mp4"
           autoPlay
           loop
+          muted
         />
       </PageContainer>
 
