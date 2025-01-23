@@ -19,7 +19,10 @@ import {
 } from 'react-hook-form';
 
 type InputProps = Pick<UseControllerProps, 'name' | 'rules'> &
-  Pick<MuiInputProps, 'fullWidth' | 'required' | 'value' | 'type' | 'rows'> & {
+  Pick<
+    MuiInputProps,
+    'fullWidth' | 'required' | 'value' | 'type' | 'rows' | 'className'
+  > & {
     error?: FieldValues;
     label?: string;
     color?: 'primary' | 'white';

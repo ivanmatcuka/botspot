@@ -1,11 +1,12 @@
 'use client';
 
-import { sendEmail } from '@/app/actions';
+import { ContactForm7 } from './ContactForm7';
+
 import { Button } from '@/app/components/Button/Button';
-import { Form, Input } from '@/app/components/Form/Form';
+import { Form } from '@/app/components/Form/Form';
 import { Menu } from '@/app/components/Menu/Menu';
 import { useSnackbar } from '@/app/components/Snackbar';
-import { getProducts } from '@/app/service';
+import { getFormById, getProducts, submitFeedbackForm } from '@/app/service';
 
 import {
   Box,
@@ -14,10 +15,11 @@ import {
   FormGroup,
   Typography,
 } from '@mui/material';
-import { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const TOPICS = ['3D Scan Service', 'Innovation Lab', 'Demo', 'Other'] as const;
+const FORM_ID = 15420;
 
 type Topic = (typeof TOPICS)[number] | string;
 
@@ -41,40 +43,43 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
   const [topic, setTopic] = useState<Topic>(
     TOPICS.find((t) => t === defaultTopic) ?? TOPICS[0],
   );
+
+  const [form, setForm] = useState<CF7Form | null>(null);
+
   // Cloning is only done because of TypeScript issues
   const [topics, setTopics] = useState<Topic[]>([...TOPICS]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const name = watch('name');
-  const email = watch('email');
-  const message = watch('message');
+  const name = watch('your-name');
+  const email = watch('your-email');
+  const message = watch('your-message');
 
   const { showSnackbar } = useSnackbar();
 
-  const messageHtml = useMemo(() => {
-    return `Name: ${name}<br/>
-            Email: ${email}<br/>
-            Message: ${message}<br/>`;
-  }, [name, email, message]);
-
   const onSubmit = useCallback(() => {
+    if (!form?.id) return;
+
     setIsLoading(true);
-    sendEmail(
-      process.env.NEXT_PUBLIC_EMAIL_FROM ?? '',
-      `Feedback form: ${topic}`,
-      messageHtml,
-    )
+    const newFormData = new FormData();
+
+    newFormData.append('_wpcf7_unit_tag', `wpcf7-f${form.id}-o1`);
+    newFormData.append('your-name', name);
+    newFormData.append('your-email', email);
+    newFormData.append('your-subject', topic);
+    newFormData.append('your-message', message);
+
+    submitFeedbackForm(newFormData, form.id)
       .then(() => showSnackbar('Thank you for your feedback!', 'success', 3000))
       .catch(() => showSnackbar('Something went wrong!', 'error', 3000))
       .finally(() => {
         setIsLoading(false);
         reset();
       });
-  }, [topic, messageHtml, showSnackbar, reset]);
+  }, [showSnackbar, reset, form, name, email, topic, message]);
 
   const changeTopic = useCallback(
     (topic: Topic) => () => {
-      setValue('message', generateMessage(topic));
+      setValue('your-message', generateMessage(topic));
       setTopic(topic);
     },
     [setValue],
@@ -85,6 +90,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
   };
 
   useEffect(() => {
+    getFormById(FORM_ID).then((form) => setForm(form));
     getProducts().then(({ data }) => {
       const newTopics = [
         ...data.map((product) => product.title.rendered),
@@ -136,42 +142,9 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
           justifyContent={{ xs: 'center', md: 'left' }}
           rowGap={2}
         >
-          <Input
-            error={errors.name}
-            key="name"
-            label="Name"
-            name="name"
-            register={register}
-            rules={{ required: 'Name is required' }}
-            required
-          />
-          <Input
-            error={errors.email}
-            key="email"
-            label="Email"
-            name="email"
-            register={register}
-            rules={{
-              required: 'Email is required',
-              pattern: {
-                value: /\S+@\S+\.\S+/,
-                message: 'Invalid email',
-              },
-            }}
-            required
-          />
-          <Input
-            error={errors.message}
-            key="message"
-            label="Message"
-            name="message"
-            register={register}
-            rows={3}
-            rules={{ required: 'Message is required' }}
-            type="textarea"
-            fullWidth
-            required
-          />
+          {form && (
+            <ContactForm7 errors={errors} form={form} register={register} />
+          )}
           <Button disabled={isLoading} type="submit" variant="primary">
             Submit
           </Button>

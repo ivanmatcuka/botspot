@@ -1,7 +1,8 @@
 'use client';
 
+import { ContactForm7 } from './ContactForm7';
+
 import { Button } from '@/app/components/Button/Button';
-import { Input } from '@/app/components/Form/Form';
 import { Menu } from '@/app/components/Menu/Menu';
 
 import {
@@ -9,19 +10,22 @@ import {
   Checkbox,
   FormControlLabel,
   FormGroup,
-  Grid,
   Typography,
 } from '@mui/material';
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 type DownloadFormProps = {
   productNames: string[];
+  form: CF7Form | null;
+  isLoading: boolean;
   defaultProductName?: string;
-  onSubmit?: (topic: string, message: string) => void;
+  onSubmit?: (formData: FormData) => void;
 };
 export const DownloadForm: FC<DownloadFormProps> = ({
   productNames,
+  form,
+  isLoading,
   defaultProductName,
   onSubmit,
 }) => {
@@ -34,27 +38,38 @@ export const DownloadForm: FC<DownloadFormProps> = ({
     setValue,
     watch,
   } = useForm();
-  const name = watch('name');
-  const email = watch('email');
+  const name = watch('your-name');
+  const email = watch('your-email');
 
   const generateMessage = (topic: string) => `Datasheet for ${topic}.`;
 
-  const messageHtml = useMemo(() => {
-    return `${generateMessage(topic)}<br/>
-            Name: ${name}<br/>
-            Email: ${email}<br/>`;
-  }, [topic, name, email]);
+  const formData = useMemo(() => {
+    if (!form?.id) return new FormData();
+
+    const formData = new FormData();
+    formData.append('_wpcf7_unit_tag', `wpcf7-f${form.id}-o1`);
+    formData.append('your-name', name);
+    formData.append('your-email', email);
+    formData.append('your-subject', topic);
+    formData.append('your-message', generateMessage(topic));
+
+    return formData;
+  }, [topic, name, form, email]);
 
   const changeTopic = useCallback(
     (topic: string) => () => {
-      setValue('message', generateMessage(topic));
+      setValue('your-message', generateMessage(topic));
       setTopic(topic);
     },
     [setValue],
   );
 
+  useEffect(() => {
+    setValue('your-message', generateMessage(topic));
+  }, [setValue, topic]);
+
   return (
-    <form onSubmit={handleSubmit(() => onSubmit?.(topic, messageHtml))}>
+    <form onSubmit={handleSubmit(() => onSubmit?.(formData))}>
       <Box p={0}>
         <Typography className="text-center md:text-left" mb={2} variant="h2">
           You are about to download the datasheet of
@@ -80,45 +95,20 @@ export const DownloadForm: FC<DownloadFormProps> = ({
           download area.
         </Typography>
 
-        <Grid
+        <Box
+          display="flex"
+          flexWrap="wrap"
+          gap={3}
           justifyContent={{ xs: 'center', md: 'left' }}
-          spacing={3}
-          container
+          rowGap={2}
         >
-          <Grid md={6} textAlign="left" xs={12} item>
-            <Input
-              error={errors.name}
-              key="name"
-              label="Name"
-              name="name"
-              register={register}
-              rules={{ required: 'Name is required' }}
-              required
-            />
-          </Grid>
-          <Grid md={6} textAlign="left" xs={12} item>
-            <Input
-              error={errors.email}
-              key="email"
-              label="Email"
-              name="email"
-              register={register}
-              rules={{
-                required: 'Email is required',
-                pattern: {
-                  value: /\S+@\S+\.\S+/,
-                  message: 'Invalid email',
-                },
-              }}
-              required
-            />
-          </Grid>
-          <Grid xs={12} item>
-            <Button type="submit" variant="primary">
-              Submit
-            </Button>
-          </Grid>
-        </Grid>
+          {form && (
+            <ContactForm7 errors={errors} form={form} register={register} />
+          )}
+          <Button disabled={isLoading} type="submit" variant="primary">
+            Submit
+          </Button>
+        </Box>
       </Box>
     </form>
   );
