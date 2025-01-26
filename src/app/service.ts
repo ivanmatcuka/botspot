@@ -220,6 +220,9 @@ export const submitFeedbackForm = async (form: FormData, formId: number) => {
     const response = await fetch(`${formsUrl}/${formId}/feedback`, {
       method: 'POST',
       body: form,
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
     if (!response.ok) {
