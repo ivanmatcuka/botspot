@@ -219,14 +219,14 @@ export const submitFeedbackForm = async (form: FormData, formId: number) => {
   try {
     const response = await fetch(`${formsUrl}/${formId}/feedback`, {
       method: 'POST',
-      body: JSON.stringify(form),
+      body: form,
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (!response.ok) {
-      throw new Error('Failed to fetch forms');
+      throw new Error('Failed to submit form');
     }
 
     return await response.json();
