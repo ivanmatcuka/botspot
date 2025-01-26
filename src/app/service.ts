@@ -219,7 +219,7 @@ export const submitFeedbackForm = async (form: FormData, formId: number) => {
   try {
     const response = await fetch(`${formsUrl}/${formId}/feedback`, {
       method: 'POST',
-      body: form,
+      body: JSON.stringify(form),
       headers: {
         'Content-Type': 'application/json',
       },
