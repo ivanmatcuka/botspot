@@ -43,7 +43,6 @@ export type CustomFields = {
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const formsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/contact-form-7/v1/contact-forms`;
-const authUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/simple-jwt-login/v1/auth`;
 
 const requestInit: RequestInit = {
   method: 'GET',
@@ -232,68 +231,3 @@ export const submitFeedbackForm = async (form: FormData, formId: number) => {
     return error;
   }
 };
-
-export const getForms = async () => {
-  const { data: auth } = await getAuth();
-  if (!auth) return { data: [], count: 0 };
-
-  try {
-    const response = await fetch(`${formsUrl}?JWT=${auth.jwt}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch forms');
-    }
-
-    return await response.json();
-  } catch (error) {
-    return error;
-  }
-};
-
-export const getFormById = async (id: number) => {
-  const { data: auth } = await getAuth();
-  if (!auth) return { data: [], count: 0 };
-
-  try {
-    const response = await fetch(`${formsUrl}/${id}?JWT=${auth.jwt}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch forms');
-    }
-
-    return await response.json();
-  } catch (error) {
-    return error;
-  }
-};
-
-export async function getAuth() {
-  const response = await fetch(authUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      username: process.env.NEXT_PUBLIC_WORDPRESS_USER,
-      password: process.env.NEXT_PUBLIC_WORDPRESS_PASSWORD,
-    }),
-  });
-
-  try {
-    const data = await response.json();
-
-    return data;
-  } catch {
-    return null;
-  }
-}

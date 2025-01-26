@@ -1,13 +1,15 @@
 'use client';
 
-import { sendEmail } from '@/app/actions';
+import { submitFeedbackForm } from '../service';
+
 import { Button } from '@/app/components/Button/Button';
 import { Form, Input } from '@/app/components/Form/Form';
 import { useSnackbar } from '@/app/components/Snackbar';
 
 import { Box, Typography } from '@mui/material';
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
+const FORM_ID = 15431;
 
 export const QuestionForm: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,21 +26,22 @@ export const QuestionForm: FC = () => {
 
   const { showSnackbar } = useSnackbar();
 
-  const messageHtml = useMemo(() => {
-    return `Email: ${email}<br/>
-            Message: ${question}<br/>`;
-  }, [email, question]);
-
   const onSubmit = useCallback(() => {
     setIsLoading(true);
-    sendEmail(process.env.NEXT_PUBLIC_EMAIL_FROM ?? '', `Question`, messageHtml)
+    const newFormData = new FormData();
+
+    newFormData.append('_wpcf7_unit_tag', `wpcf7-f${FORM_ID}-o1`);
+    newFormData.append('your-email', email);
+    newFormData.append('your-question', question);
+
+    submitFeedbackForm(newFormData, FORM_ID)
       .then(() => showSnackbar('Thank you for your feedback!', 'success', 3000))
       .catch(() => showSnackbar('Something went wrong!', 'error', 3000))
       .finally(() => {
         setIsLoading(false);
         reset();
       });
-  }, [messageHtml, showSnackbar, reset]);
+  }, [showSnackbar, reset, email, question]);
 
   return (
     <Form secondary onSubmit={handleSubmit(onSubmit)}>

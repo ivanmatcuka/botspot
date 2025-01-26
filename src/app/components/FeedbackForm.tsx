@@ -1,12 +1,10 @@
 'use client';
 
-import { ContactForm7 } from './ContactForm7';
-
 import { Button } from '@/app/components/Button/Button';
-import { Form } from '@/app/components/Form/Form';
+import { Form, Input } from '@/app/components/Form/Form';
 import { Menu } from '@/app/components/Menu/Menu';
 import { useSnackbar } from '@/app/components/Snackbar';
-import { getFormById, getProducts, submitFeedbackForm } from '@/app/service';
+import { getProducts, submitFeedbackForm } from '@/app/service';
 
 import {
   Box,
@@ -44,8 +42,6 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
     TOPICS.find((t) => t === defaultTopic) ?? TOPICS[0],
   );
 
-  const [form, setForm] = useState<CF7Form | null>(null);
-
   // Cloning is only done because of TypeScript issues
   const [topics, setTopics] = useState<Topic[]>([...TOPICS]);
   const [isLoading, setIsLoading] = useState(false);
@@ -57,25 +53,23 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
   const { showSnackbar } = useSnackbar();
 
   const onSubmit = useCallback(() => {
-    if (!form?.id) return;
-
     setIsLoading(true);
     const newFormData = new FormData();
 
-    newFormData.append('_wpcf7_unit_tag', `wpcf7-f${form.id}-o1`);
+    newFormData.append('_wpcf7_unit_tag', `wpcf7-f${FORM_ID}-o1`);
     newFormData.append('your-name', name);
     newFormData.append('your-email', email);
     newFormData.append('your-subject', topic);
     newFormData.append('your-message', message);
 
-    submitFeedbackForm(newFormData, form.id)
+    submitFeedbackForm(newFormData, FORM_ID)
       .then(() => showSnackbar('Thank you for your feedback!', 'success', 3000))
       .catch(() => showSnackbar('Something went wrong!', 'error', 3000))
       .finally(() => {
         setIsLoading(false);
         reset();
       });
-  }, [showSnackbar, reset, form, name, email, topic, message]);
+  }, [showSnackbar, reset, name, email, topic, message]);
 
   const changeTopic = useCallback(
     (topic: Topic) => () => {
@@ -90,7 +84,6 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
   };
 
   useEffect(() => {
-    getFormById(FORM_ID).then((form) => setForm(form));
     getProducts().then(({ data }) => {
       const newTopics = [
         ...data.map((product) => product.title.rendered),
@@ -142,9 +135,42 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
           justifyContent={{ xs: 'center', md: 'left' }}
           rowGap={2}
         >
-          {form && (
-            <ContactForm7 errors={errors} form={form} register={register} />
-          )}
+          <Input
+            error={errors.name}
+            key="name"
+            label="Name"
+            name="your-name"
+            register={register}
+            rules={{ required: 'Name is required' }}
+            required
+          />
+          <Input
+            error={errors.email}
+            key="email"
+            label="Email"
+            name="your-email"
+            register={register}
+            rules={{
+              required: 'Email is required',
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: 'Invalid email',
+              },
+            }}
+            required
+          />
+          <Input
+            error={errors.message}
+            key="message"
+            label="Message"
+            name="your-message"
+            register={register}
+            rows={3}
+            rules={{ required: 'Message is required' }}
+            type="textarea"
+            fullWidth
+            required
+          />
           <Button disabled={isLoading} type="submit" variant="primary">
             Submit
           </Button>

@@ -6,17 +6,12 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { Post } from '@/app/components/Post';
 import { useSnackbar } from '@/app/components/Snackbar';
-import {
-  CustomFields,
-  CustomPost,
-  getFormById,
-  submitFeedbackForm,
-} from '@/app/service';
+import { CustomFields, CustomPost, submitFeedbackForm } from '@/app/service';
 
 import { Grid } from '@mui/material';
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 
-const FORM_ID = 15422;
+export const FORM_ID = 15422;
 
 type DownloadAreaContentProps = {
   products: CustomPost[];
@@ -27,17 +22,14 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
   defaultProductSlug,
 }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [form, setForm] = useState<CF7Form | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const { showSnackbar } = useSnackbar();
 
   const onSubmit = (formData: FormData) => {
-    if (!form?.id) return;
-
     setIsLoading(true);
 
-    submitFeedbackForm(formData, form.id)
+    submitFeedbackForm(formData, FORM_ID)
       .then(() => {
         showSnackbar('Thank you for your feedback!', 'success', 3000);
         setIsSubmitted(true);
@@ -45,10 +37,6 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
       .catch(() => showSnackbar('Something went wrong!', 'error', 3000))
       .finally(() => setIsLoading(false));
   };
-
-  useEffect(() => {
-    getFormById(FORM_ID).then((form) => setForm(form));
-  }, []);
 
   return isSubmitted ? (
     <>
@@ -90,7 +78,6 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
           products.find((product) => product.slug === defaultProductSlug)?.title
             .rendered
         }
-        form={form}
         isLoading={isLoading}
         productNames={products.map((product) => product.title.rendered)}
         onSubmit={onSubmit}
