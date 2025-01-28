@@ -1,14 +1,14 @@
 'use client';
 
-import { submitFeedbackForm } from '../service';
-
 import { Button } from '@/app/components/Button/Button';
 import { Form, Input } from '@/app/components/Form/Form';
 import { useSnackbar } from '@/app/components/Snackbar';
+import { submitFeedbackForm } from '@/app/service';
 
 import { Box, Typography } from '@mui/material';
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
 const FORM_ID = 15431;
 
 export const QuestionForm: FC = () => {
@@ -29,6 +29,7 @@ export const QuestionForm: FC = () => {
 
   const onSubmit = useCallback(() => {
     setIsLoading(true);
+
     const newFormData = new FormData();
 
     newFormData.append('_wpcf7_unit_tag', `${FORM_ID}`);
@@ -44,9 +45,7 @@ export const QuestionForm: FC = () => {
       });
   }, [showSnackbar, reset, email, question]);
 
-  useEffect(() => {
-    setValue('your-question', question);
-  }, [setValue, question]);
+  useEffect(() => setValue('your-question', question), [setValue, question]);
 
   return (
     <Form secondary onSubmit={handleSubmit(onSubmit)}>
