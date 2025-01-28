@@ -7,7 +7,7 @@ import { Form, Input } from '@/app/components/Form/Form';
 import { useSnackbar } from '@/app/components/Snackbar';
 
 import { Box, Typography } from '@mui/material';
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 const FORM_ID = 15431;
 
@@ -20,9 +20,10 @@ export const QuestionForm: FC = () => {
     formState: { errors },
     reset,
     watch,
+    setValue,
   } = useForm();
-  const email = watch('email');
-  const question = watch('question');
+  const email = watch('your-email');
+  const question = watch('your-question');
 
   const { showSnackbar } = useSnackbar();
 
@@ -30,7 +31,7 @@ export const QuestionForm: FC = () => {
     setIsLoading(true);
     const newFormData = new FormData();
 
-    newFormData.append('_wpcf7_unit_tag', `wpcf7-f${FORM_ID}-o1`);
+    newFormData.append('_wpcf7_unit_tag', `${FORM_ID}`);
     newFormData.append('your-email', email);
     newFormData.append('your-question', question);
 
@@ -42,6 +43,10 @@ export const QuestionForm: FC = () => {
         reset();
       });
   }, [showSnackbar, reset, email, question]);
+
+  useEffect(() => {
+    setValue('your-question', question);
+  }, [setValue, question]);
 
   return (
     <Form secondary onSubmit={handleSubmit(onSubmit)}>
@@ -64,10 +69,10 @@ export const QuestionForm: FC = () => {
         >
           <Input
             color="white"
-            error={errors.email}
+            error={errors['your-email']}
             key="email"
             label="Email"
-            name="email"
+            name="your-email"
             register={register}
             rules={{
               required: 'Email is required',
@@ -81,10 +86,10 @@ export const QuestionForm: FC = () => {
           />
           <Input
             color="white"
-            error={errors.question}
+            error={errors['your-question']}
             key="question"
             label="Question"
-            name="question"
+            name="your-question"
             register={register}
             rows={3}
             rules={{ required: 'Question is required' }}

@@ -56,7 +56,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
     setIsLoading(true);
     const newFormData = new FormData();
 
-    newFormData.append('_wpcf7_unit_tag', `wpcf7-f${FORM_ID}-o1`);
+    newFormData.append('_wpcf7_unit_tag', `${FORM_ID}`);
     newFormData.append('your-name', name);
     newFormData.append('your-email', email);
     newFormData.append('your-subject', topic);
@@ -84,6 +84,8 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
   };
 
   useEffect(() => {
+    setValue('your-message', generateMessage(defaultTopic));
+
     getProducts().then(({ data }) => {
       const newTopics = [
         ...data.map((product) => product.title.rendered),
@@ -92,11 +94,12 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
       setTopics(newTopics);
 
       if (!defaultTopic) return;
+
       setTopic(
         newTopics.find((currTopic) => currTopic === defaultTopic) ?? TOPICS[0],
       );
     });
-  }, [defaultTopic]);
+  }, [defaultTopic, setValue]);
 
   return (
     <Form frameless={frameless} onSubmit={handleSubmit(onSubmit)}>
@@ -136,7 +139,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
           rowGap={2}
         >
           <Input
-            error={errors.name}
+            error={errors['your-name']}
             key="name"
             label="Name"
             name="your-name"
@@ -145,7 +148,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
             required
           />
           <Input
-            error={errors.email}
+            error={errors['your-email']}
             key="email"
             label="Email"
             name="your-email"
@@ -160,7 +163,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
             required
           />
           <Input
-            error={errors.message}
+            error={errors['your-message']}
             key="message"
             label="Message"
             name="your-message"

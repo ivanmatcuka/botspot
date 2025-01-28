@@ -2,9 +2,9 @@
 
 import { Input } from './Form/Form';
 
-import { FORM_ID } from '@/app/download-area/DownloadAreaContent';
 import { Button } from '@/app/components/Button/Button';
 import { Menu } from '@/app/components/Menu/Menu';
+import { FORM_ID } from '@/app/download-area/DownloadAreaContent';
 
 import {
   Box,
@@ -47,26 +47,25 @@ export const DownloadForm: FC<DownloadFormProps> = ({
   const formData = useMemo(() => {
     const formData = new FormData();
 
-    formData.append('_wpcf7_unit_tag', `wpcf7-f${FORM_ID}-o1`);
+    formData.append('_wpcf7_unit_tag', `${FORM_ID}`);
     formData.append('your-name', name);
     formData.append('your-email', email);
     formData.append('your-subject', topic);
-    formData.append('your-message', generateMessage(topic));
 
     return formData;
   }, [topic, name, email]);
 
   const changeTopic = useCallback(
     (topic: string) => () => {
-      setValue('your-message', generateMessage(topic));
+      setValue('your-subject', generateMessage(topic));
       setTopic(topic);
     },
     [setValue],
   );
 
   useEffect(() => {
-    setValue('your-message', generateMessage(topic));
-  }, [setValue, topic]);
+    setValue('your-subject', defaultProductName || productNames[0]);
+  }, [defaultProductName, productNames, setValue]);
 
   return (
     <form onSubmit={handleSubmit(() => onSubmit?.(formData))}>
@@ -102,7 +101,7 @@ export const DownloadForm: FC<DownloadFormProps> = ({
         >
           <Grid md={6} textAlign="left" xs={12} item>
             <Input
-              error={errors.name}
+              error={errors['your-name']}
               key="name"
               label="Name"
               name="your-name"
@@ -113,7 +112,7 @@ export const DownloadForm: FC<DownloadFormProps> = ({
           </Grid>
           <Grid md={6} textAlign="left" xs={12} item>
             <Input
-              error={errors.email}
+              error={errors['your-email']}
               key="email"
               label="Email"
               name="your-email"

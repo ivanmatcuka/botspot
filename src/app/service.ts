@@ -215,14 +215,14 @@ export const getPage = async (
   }
 };
 
-export const submitFeedbackForm = async (form: FormData, formId: number) => {
+export const submitFeedbackForm = async (
+  formData: FormData,
+  formId: number,
+) => {
   try {
     const response = await fetch(`${formsUrl}/${formId}/feedback`, {
       method: 'POST',
-      body: form,
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      body: formData,
     });
 
     if (!response.ok) {
