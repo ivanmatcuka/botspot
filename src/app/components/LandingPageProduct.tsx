@@ -52,7 +52,7 @@ export const LandingPageProduct: FC<LandingPageProductProps> = ({
         }
         key={product.id}
       />
-      <PageContainer banner>{contentBlock}</PageContainer>
+      <PageContainer>{contentBlock}</PageContainer>
     </>
   );
 };
