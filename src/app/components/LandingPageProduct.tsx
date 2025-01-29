@@ -47,9 +47,7 @@ export const LandingPageProduct: FC<LandingPageProductProps> = ({
   ) : (
     <>
       <MediaBlock
-        assetUrl={
-          hasEnoughImages ? getFeaturedImageUrl(product) : imagesUrls[0]
-        }
+        assetUrl={imagesUrls[0] ?? getFeaturedImageUrl(product)}
         key={product.id}
       />
       <PageContainer>{contentBlock}</PageContainer>

@@ -33,6 +33,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",
+    "react-in-viewport": "^1.0.0-beta.8",
     "yup": "^1.4.0"
   },
   "devDependencies": {
