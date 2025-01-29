@@ -37,6 +37,7 @@ export const SkeletonVideo: FC<SkeletonVideoProps> = ({
         className={`w-full h-full relative ${className}`}
         ref={video}
         src={videoSrc}
+        playsInline
         {...props}
       />
     </div>
