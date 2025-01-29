@@ -1,5 +1,5 @@
-const redirectsUrl = `${process.env.WORDPRESS_URL}/redirection/v1/redirect`;
-const authUrl = `${process.env.WORDPRESS_URL}/simple-jwt-login/v1/auth`;
+const redirectsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/redirection/v1/redirect`;
+const authUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/simple-jwt-login/v1/auth`;
 
 async function getAuth() {
   const response = await fetch(authUrl, {
