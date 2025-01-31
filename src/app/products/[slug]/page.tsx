@@ -31,9 +31,11 @@ import { isValidElement, ReactElement } from 'react';
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const product = await getProductBySlug(params.slug);
+  const slug = (await params).slug;
+  const product = await getProductBySlug(slug);
+
   if (!product) return {};
 
   return (
@@ -45,9 +47,11 @@ export async function generateMetadata({
 export default async function Product({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const product = await getProductBySlug(params.slug);
+  const slug = (await params).slug;
+  const product = await getProductBySlug(slug);
+
   if (!product) return notFound();
 
   const {

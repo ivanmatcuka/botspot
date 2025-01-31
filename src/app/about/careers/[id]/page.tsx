@@ -11,9 +11,10 @@ import { notFound } from 'next/navigation';
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-  const job = await getPost(+params.id);
+  const id = (await params).id;
+  const job = await getPost(+id);
   if (!job) return {};
 
   return (
@@ -23,8 +24,14 @@ export async function generateMetadata({
   );
 }
 
-export default async function Job({ params }: { params: { id: string } }) {
-  const job = await getPost(+params.id);
+export default async function Job({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const id = (await params).id;
+  const job = await getPost(+id);
+
   if (!job) return notFound();
 
   return (

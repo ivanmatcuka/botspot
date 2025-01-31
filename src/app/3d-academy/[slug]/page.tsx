@@ -15,9 +15,10 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+  const slug = (await params).slug;
+  const post = await getPostBySlug(slug);
   if (!post) return {};
 
   const result: Metadata = generateSeo(post) ?? {
@@ -27,8 +28,14 @@ export async function generateMetadata({
   return result;
 }
 
-export default async function Post({ params }: { params: { slug: string } }) {
-  const post = await getPostBySlug(params.slug);
+export default async function Post({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = (await params).slug;
+  const post = await getPostBySlug(slug);
+
   if (!post) return notFound();
 
   return (
@@ -49,7 +56,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
               mt={{ xs: 5, md: 10 }}
             >
               <Button
-                href={`https://www.facebook.com/sharer/sharer.php?u=${baseUrl}/3d-academy/${params.slug}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=${baseUrl}/3d-academy/${slug}`}
                 startIcon={<Facebook color="inherit" fontSize="small" />}
                 target="_blank"
                 variant="outline"
@@ -57,7 +64,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 Share on Facebook
               </Button>
               <Button
-                href={`https://twitter.com/share?url=${baseUrl}/3d-academy/${params.slug}`}
+                href={`https://twitter.com/share?url=${baseUrl}/3d-academy/${slug}`}
                 startIcon={<Twitter color="inherit" fontSize="small" />}
                 target="_blank"
                 variant="outline"
@@ -65,7 +72,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 Share on Twitter
               </Button>
               <Button
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${baseUrl}/3d-academy/${params.slug}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${baseUrl}/3d-academy/${slug}`}
                 startIcon={<LinkedIn color="inherit" fontSize="small" />}
                 target="_blank"
                 variant="outline"
