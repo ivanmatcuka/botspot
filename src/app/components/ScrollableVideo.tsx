@@ -2,6 +2,7 @@
 'use client';
 
 import { Box, Skeleton } from '@mui/material';
+import NextImage from 'next/image';
 import { FC, useEffect, useRef, useState } from 'react';
 
 type ScrollableVideoProps = {
@@ -71,11 +72,14 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
           {!isReady ? (
             <Skeleton height="100%" variant="rectangular" />
           ) : (
-            <img
+            <NextImage
               alt={`frame_${frame + 1}`}
               className="w-full h-full object-cover"
-              loading="lazy"
+              height={1024}
+              quality={100}
+              sizes="100vw"
               src={images?.[frame]?.src}
+              width={768}
             />
           )}
         </div>
