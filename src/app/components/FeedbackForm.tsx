@@ -84,8 +84,6 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
   };
 
   useEffect(() => {
-    setValue('your-message', generateMessage(defaultTopic));
-
     getProducts().then(({ data }) => {
       const newTopics = [
         ...data.map((product) => product.title.rendered),
