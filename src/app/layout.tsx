@@ -67,7 +67,11 @@ export default async function RootLayout({
         },
       ],
     },
-    { label: 'Learn About 3D Scanning', href: '/learn' },
+    {
+      label: 'Learn About 3D Scanning',
+      href: '/learn',
+      children: [{ label: '3D Academy', href: '/3d-academy' }],
+    },
     {
       label: 'About Us',
       href: '/about',
