@@ -29,11 +29,6 @@ export default function Service() {
         }}
         primaryCta={
           <Button href="/contact-us" variant="primary">
-            Collaboration Services
-          </Button>
-        }
-        secondaryCta={
-          <Button href="/contact-us" variant="secondary">
             In-House Scan Service
           </Button>
         }
@@ -47,7 +42,7 @@ export default function Service() {
               Request In-House Scan Service
             </Button>
           }
-          headline="Visit us or send us your items and receive high-quality 3D models."
+          headline="Visit our 3D scanning studio in Berlin or send us your items to receive high-quality 3D models that will be delivered to you shortly afterwards.”"
           subline="In-House Scan Service"
         />
       </PageContainer>
@@ -77,10 +72,10 @@ export default function Service() {
       <Box mb={{ xs: 5, md: 10 }}>
         <Gallery
           firstChild={
-            <Iframe src="https://sketchfab.com/models/74a79ea84e674a878c5ade45838e457a/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
+            <Iframe src="https://sketchfab.com/models/a934a5364ef24f828333206a23f18d17/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
           }
           secondChild={
-            <Iframe src="https://sketchfab.com/models/87f87f23481f4ed7bd73b2155c1332b4/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
+            <Iframe src="https://sketchfab.com/models/c896b54b644443cc8e6c04aa3e5d6d45/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
           }
         />
       </Box>

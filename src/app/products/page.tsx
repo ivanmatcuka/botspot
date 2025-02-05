@@ -33,7 +33,7 @@ export default async function Products() {
         }
         secondaryCta={
           <Button href="/areas" variant="secondary">
-            See Areas of Use
+            Areas of Use
           </Button>
         }
         sublineElement="Generate photorealistic 3D models with our industry-leading scanners, designed for precision, high-resolution detail, and reliable performance across any project."

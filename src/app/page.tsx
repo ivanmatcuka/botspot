@@ -27,13 +27,13 @@ export default async function Home() {
           assetUrl: '/videos/landing-page.mp4',
         }}
         primaryCta={
-          <Button href="/products/botscan-neo" variant="primary">
-            Explore NEO
+          <Button href="/products" variant="primary">
+            Explore Products
           </Button>
         }
         secondaryCta={
-          <Button href="/download-area/botscan-neo" variant="secondary">
-            Download Data Sheet
+          <Button href="/areas" variant="secondary">
+            Explore Areas of Use
           </Button>
         }
         sublineElement="With over 10 years of experience in photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."

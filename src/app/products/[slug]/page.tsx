@@ -102,7 +102,10 @@ export default async function Product({
             </Button>
           }
           secondaryCta={
-            <Button href="#feedback-form" variant="secondary">
+            <Button
+              href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/ob7tkWl_QESAXQPuuaQR_w2"
+              variant="secondary"
+            >
               Request a Demo
             </Button>
           }
