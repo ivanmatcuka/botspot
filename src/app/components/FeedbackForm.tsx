@@ -73,19 +73,12 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
 
   const changeTopic = useCallback(
     (topic: Topic) => () => {
-      setValue('your-message', generateMessage(topic));
       setTopic(topic);
     },
-    [setValue],
+    [],
   );
 
-  const generateMessage = (topic: Topic) => {
-    return `Hello. I would like to receive some information about ${topic}. Thank you.`;
-  };
-
   useEffect(() => {
-    setValue('your-message', generateMessage(defaultTopic));
-
     getProducts().then(({ data }) => {
       const newTopics = [
         ...data.map((product) => product.title.rendered),
