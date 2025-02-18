@@ -118,6 +118,23 @@ export const getProductBySlug = async (
   }
 };
 
+export const getAreaBySlug = async (
+  slug: string,
+): Promise<CustomPost | null> => {
+  console.log(`${baseUrl}/area?slug=${slug}&_embed&acf_format=standard`);
+  const response = await fetch(
+    `${baseUrl}/area?slug=${slug}&_embed&acf_format=standard`,
+    requestInit,
+  );
+
+  try {
+    const data = await response.json();
+    return data[0];
+  } catch (error) {
+    return null;
+  }
+};
+
 export const getPeople = async (): Promise<{
   data: CustomPost[];
   count: number;

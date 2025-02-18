@@ -6,18 +6,24 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
-import { generatePageMetadata } from '@/app/utils';
+import { getAreaBySlug } from '@/app/service';
+import { generatePageMetadata, getFeaturedImageUrl } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
+const AREA_SLUG = 'areas-industrial';
 const POST_SLUG = 'digitization-of-automotive-parts-with-complex-geometry';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('industrial');
 }
 
-export default function Industrial() {
+export default async function Industrial() {
+  const area = await getAreaBySlug(AREA_SLUG);
+  const post = area?.acf?.post;
+  const relatedImage = getFeaturedImageUrl(post ?? undefined);
+
   return (
     <main className="">
       <Banner
@@ -90,17 +96,19 @@ export default function Industrial() {
         </Typography>
       </Tile>
 
-      <GalleryTile imgUrl="/img/areas/industrial/5.png">
-        <SecondaryBlock
-          headline="We recommend our 3D Object Scanner"
-          primaryCta={
-            <Button href="/products/3d-object" variant="primary">
-              Explore 3D Object Scanner
-            </Button>
-          }
-          sublineElement="Durable and fast, our 3D Object is ideal for industrial applications."
-        />
-      </GalleryTile>
+      {post && (
+        <GalleryTile imgUrl={relatedImage}>
+          <SecondaryBlock
+            headline={post.post_title}
+            primaryCta={
+              <Button href={`/3d-academy/${post.post_name}`} variant="primary">
+                Read Full Story
+              </Button>
+            }
+            sublineElement={post.post_title}
+          />
+        </GalleryTile>
+      )}
     </main>
   );
 }

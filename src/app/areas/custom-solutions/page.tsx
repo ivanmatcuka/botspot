@@ -6,16 +6,23 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
-import { generatePageMetadata } from '@/app/utils';
+import { getAreaBySlug } from '@/app/service';
+import { generatePageMetadata, getFeaturedImageUrl } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
+
+const AREA_SLUG = 'areas-custom';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('custom-solutions');
 }
 
-export default function CustomSolutions() {
+export default async function CustomSolutions() {
+  const area = await getAreaBySlug(AREA_SLUG);
+  const post = area?.acf?.post;
+  const relatedImage = getFeaturedImageUrl(post ?? undefined);
+
   return (
     <main className="">
       <Banner
@@ -72,17 +79,19 @@ export default function CustomSolutions() {
         </Typography>
       </Tile>
 
-      <GalleryTile imgUrl="/img/areas/custom-solution/3.png">
-        <SecondaryBlock
-          headline="Innovation Lab"
-          primaryCta={
-            <Button href="/about/innovation-lab" variant="primary">
-              Visit Innovation Lab
-            </Button>
-          }
-          sublineElement="Our Innovation Lab handles Custom Solutions and bridges the gap between research and industrial production."
-        />
-      </GalleryTile>
+      {post && (
+        <GalleryTile imgUrl={relatedImage}>
+          <SecondaryBlock
+            headline={post.post_title}
+            primaryCta={
+              <Button href={`/3d-academy/${post.post_name}`} variant="primary">
+                Read Full Story
+              </Button>
+            }
+            sublineElement={post.post_title}
+          />
+        </GalleryTile>
+      )}
     </main>
   );
 }
