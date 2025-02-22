@@ -38,7 +38,11 @@ export default function Service() {
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           cta={
-            <Button href="/contact-us" variant="primary">
+            <Button
+              href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/1z_5HDew_kyNeepl2Mi6TA2"
+              target="_blank"
+              variant="primary"
+            >
               Request In-House Scan Service
             </Button>
           }

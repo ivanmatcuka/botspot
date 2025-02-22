@@ -66,6 +66,10 @@ export const Footer: FC<FooterProps> = ({ products }) => (
                 alt="linkedin"
                 href="https://linkedin.com/company/botspot-3d-scan/"
               />
+              <IconLink
+                alt="youtube"
+                href="https://www.youtube.com/@botspot3D"
+              />
             </Box>
           </Grid>
           <Grid
@@ -118,6 +122,7 @@ export const Footer: FC<FooterProps> = ({ products }) => (
               alt="linkedin"
               href="https://linkedin.com/company/botspot-3d-scan/"
             />
+            <IconLink alt="youtube" href="https://www.youtube.com/@botspot3D" />
           </Box>
         </Grid>
       </Container>

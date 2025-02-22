@@ -16,7 +16,7 @@ import {
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const TOPICS = ['3D Scan Service', 'Innovation Lab', 'Demo', 'Other'] as const;
+const TOPICS = ['3D Scan Service', 'Innovation Lab'] as const;
 const FORM_ID = 15420;
 
 type Topic = (typeof TOPICS)[number] | string;
