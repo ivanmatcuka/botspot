@@ -28,7 +28,10 @@ export default function Service() {
           assetUrl: '/img/banners/services.png',
         }}
         primaryCta={
-          <Button href="/contact-us" variant="primary">
+          <Button
+            href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/1z_5HDew_kyNeepl2Mi6TA2"
+            variant="primary"
+          >
             In-House Scan Service
           </Button>
         }
