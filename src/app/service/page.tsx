@@ -32,7 +32,7 @@ export default function Service() {
             href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/1z_5HDew_kyNeepl2Mi6TA2"
             variant="primary"
           >
-            In-House Scan Service
+            Book In-House Scan Service
           </Button>
         }
         sublineElement="Our 3D scan services cater to individuals and businesses seeking  high-quality scans without the upfront costs and technical requirements  of owning a scanner."
