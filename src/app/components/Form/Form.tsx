@@ -79,18 +79,16 @@ export const Input: FC<InputProps> = ({
 );
 
 type FormProps = {
-  onSubmit: () => void;
   frameless?: boolean;
   secondary?: boolean;
 };
 
 export const Form: FC<PropsWithChildren<FormProps>> = ({
   children,
-  onSubmit,
   frameless = false,
   secondary = false,
 }) => {
-  const form = <form onSubmit={onSubmit}>{children}</form>;
+  const form = <form>{children}</form>;
 
   if (frameless) return form;
 

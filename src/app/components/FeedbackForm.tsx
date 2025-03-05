@@ -95,7 +95,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
   }, [defaultTopic, setValue]);
 
   return (
-    <Form frameless={frameless} onSubmit={handleSubmit(onSubmit)}>
+    <Form frameless={frameless}>
       <Box
         id="feedback-form"
         p={frameless ? 0 : { xs: 3, md: 5 }}
@@ -167,7 +167,11 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
             fullWidth
             required
           />
-          <Button disabled={isLoading} type="submit" variant="primary">
+          <Button
+            disabled={isLoading}
+            variant="primary"
+            onClick={handleSubmit(onSubmit)}
+          >
             Submit
           </Button>
         </Box>

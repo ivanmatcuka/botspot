@@ -48,7 +48,7 @@ export const QuestionForm: FC = () => {
   useEffect(() => setValue('your-question', question), [setValue, question]);
 
   return (
-    <Form secondary onSubmit={handleSubmit(onSubmit)}>
+    <Form secondary>
       <Box p={{ xs: 3, md: 5 }} py={{ xs: 2 }}>
         <Typography color="white" mb={2} variant="h2">
           Do you have a question?
@@ -96,7 +96,11 @@ export const QuestionForm: FC = () => {
             fullWidth
             required
           />
-          <Button disabled={isLoading} type="submit" variant="primary">
+          <Button
+            disabled={isLoading}
+            variant="primary"
+            onClick={handleSubmit(onSubmit)}
+          >
             Submit
           </Button>
         </Box>

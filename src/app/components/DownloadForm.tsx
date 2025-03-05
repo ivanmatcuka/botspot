@@ -32,7 +32,6 @@ export const DownloadForm: FC<DownloadFormProps> = ({
   const [topic, setTopic] = useState(defaultProductName || productNames[0]);
 
   const {
-    handleSubmit,
     register,
     formState: { errors },
     setValue,
@@ -68,7 +67,7 @@ export const DownloadForm: FC<DownloadFormProps> = ({
   }, [defaultProductName, productNames, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(() => onSubmit?.(formData))}>
+    <form>
       <Box p={0}>
         <Typography className="text-center md:text-left" mb={2} variant="h2">
           You are about to download the datasheet of
@@ -128,7 +127,11 @@ export const DownloadForm: FC<DownloadFormProps> = ({
             />
           </Grid>
           <Grid xs={12} item>
-            <Button disabled={isLoading} type="submit" variant="primary">
+            <Button
+              disabled={isLoading}
+              variant="primary"
+              onClick={() => onSubmit?.(formData)}
+            >
               Submit
             </Button>
           </Grid>
