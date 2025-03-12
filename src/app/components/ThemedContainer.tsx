@@ -10,17 +10,20 @@ export const ThemedContainer = styled(Container)(({ theme }) => ({
       marginBottom: theme.spacing(2),
     },
   },
-  h2: {
+  h1: {
     ...theme.typography.h2,
   },
-  h3: {
+  h2: {
     ...theme.typography.h3,
   },
-  h4: {
+  h3: {
     ...theme.typography.h4,
   },
+  h4: {
+    ...theme.typography.h5,
+  },
   h5: {
-    ...theme.typography.h4,
+    ...theme.typography.h5,
   },
   p: {
     ...theme.typography.body1,
