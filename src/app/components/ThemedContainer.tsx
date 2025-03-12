@@ -3,7 +3,7 @@
 import { Container, styled } from '@mui/material';
 
 export const ThemedContainer = styled(Container)(({ theme }) => ({
-  'h2, h3, h4, h5, p': {
+  'h1, h2, h3, h4, h5, p': {
     marginBottom: theme.spacing(3),
 
     [theme.breakpoints.down('md')]: {
