@@ -98,7 +98,7 @@ export default async function RootLayout({
             <SnackbarProvider>
               <Navbar
                 cta={
-                  <Button href="/contact-us" variant="secondary">
+                  <Button href="/contact-us" variant="primary">
                     Contact Us
                   </Button>
                 }

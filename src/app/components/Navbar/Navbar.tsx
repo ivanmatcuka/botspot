@@ -23,18 +23,10 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import useDetectScroll from '@smakss/react-scroll-direction';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  FC,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
 
 const ControlledAccordion: FC<AccordionProps & { item: MenuItem }> = ({
   item,
@@ -70,12 +62,9 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
   const currentPath = usePathname();
 
   const [isOpen, setIsOpen] = useState(false);
-  const [position, setPosition] = useState<'relative' | 'sticky'>('relative');
 
   const { breakpoints } = useTheme();
   const matches = useMediaQuery(breakpoints.up('xl'));
-
-  const { scrollDir } = useDetectScroll();
 
   const renderMenu = useCallback(
     (item: MenuItem) => {
@@ -135,20 +124,12 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
     [navItems, renderDrawer],
   );
 
-  useEffect(() => {
-    if (scrollDir === 'up') {
-      setPosition('sticky');
-    } else {
-      setPosition('relative');
-    }
-  }, [scrollDir]);
-
   return (
     <MuiAppBar
       className="border-b border-gray-200 z-[1201]"
       color="transparent"
       elevation={24}
-      position={position}
+      position="sticky"
       sx={{ backgroundColor: 'white' }}
     >
       <Toolbar disableGutters>
