@@ -151,12 +151,14 @@ export default async function Product({
         </Tile>
       ))}
 
-      <Box my={{ xs: 5, md: 10 }}>
-        <Gallery
-          firstChild={<Iframe src={firstAnimation ?? ''} />}
-          secondChild={<Iframe src={secondAnimation ?? ''} />}
-        />
-      </Box>
+      {firstAnimation && secondAnimation && (
+        <Box my={{ xs: 5, md: 10 }}>
+          <Gallery
+            firstChild={<Iframe src={firstAnimation} />}
+            secondChild={<Iframe src={secondAnimation} />}
+          />
+        </Box>
+      )}
 
       {groups?.props?.children && (
         <PageContainer my={{ xs: 5, md: 10 }}>
