@@ -18,7 +18,7 @@ export default async function DownloadArea({
 
   return (
     <main className="m-auto">
-      <DownloadAreaContent defaultProductSlug={slug?.[0]} products={products} />
+      <DownloadAreaContent defaultProductSlug={slug} products={products} />
     </main>
   );
 }

@@ -113,6 +113,7 @@ export default async function Product({
         />
       )}
 
+      {/* XS */}
       <MediaBlock
         assetUrl={picture}
         containerClassName="block md:hidden"
@@ -120,6 +121,7 @@ export default async function Product({
         banner
       />
 
+      {/* MD */}
       <MediaBlock
         assetUrl={picture}
         containerClassName="hidden md:block"
