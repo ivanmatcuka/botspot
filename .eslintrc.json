@@ -21,7 +21,7 @@
         "newlines-between": "always",
         "pathGroups": [
           {
-            "pattern": "@app/**",
+            "pattern": "@/**",
             "group": "external",
             "position": "after"
           }

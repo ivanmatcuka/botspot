@@ -1,4 +1,8 @@
-import { SkeletonVideo } from '../../components/SkeletonVideo';
+import { Box } from '@mui/material';
+import parse from 'html-react-parser';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { isValidElement, ReactElement } from 'react';
 
 import { Iframe } from '@/components/3dIframe/3dIframe';
 import { Banner } from '@/components/Banner/Banner';
@@ -10,6 +14,7 @@ import { MainBlock } from '@/components/MainBlock/MainBlock';
 import { MediaBlock } from '@/components/MediaBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { SecondaryBlock } from '@/components/SecondaryBlock/SecondaryBlock';
+import { SkeletonVideo } from '@/components/SkeletonVideo';
 import { ThemedContainer } from '@/components/ThemedContainer';
 import { Tile } from '@/components/Tile/Tile';
 import { UnorderedList } from '@/components/UnorderedList';
@@ -21,12 +26,6 @@ import {
   getProductBySlug,
 } from '@/service';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
-
-import { Box } from '@mui/material';
-import parse from 'html-react-parser';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { isValidElement, ReactElement } from 'react';
 
 export async function generateMetadata({
   params,

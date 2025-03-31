@@ -1,12 +1,13 @@
 import { Posts } from './Posts';
 
+import { Box, Grid } from '@mui/material';
+import { Metadata } from 'next';
+
 import { MainBlock } from '@/components/MainBlock/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { QuestionForm } from '@/components/QuestionForm';
 import { generatePageMetadata } from '@/utils';
 
-import { Box, Grid } from '@mui/material';
-import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('3d-academy');

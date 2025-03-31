@@ -3,8 +3,6 @@
 import { CustomHoverMenu } from './HoverMenu';
 import { MobileMenu } from './MobileMenu';
 
-import { ButtonProps } from '@/components/Button/Button';
-
 import {
   MenuItem as MuiMenuItem,
   MenuItemProps as MuiMenuItemProps,
@@ -15,6 +13,8 @@ import {
 import { usePopupState } from 'material-ui-popup-state/hooks';
 import { useRouter } from 'next/navigation';
 import { FC, PropsWithChildren, useCallback } from 'react';
+
+import { ButtonProps } from '@/components/Button/Button';
 
 export const MenuItem: FC<PropsWithChildren<MuiMenuItemProps>> = styled(
   MuiMenuItem,

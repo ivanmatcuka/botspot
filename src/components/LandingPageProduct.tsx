@@ -1,3 +1,5 @@
+import { FC } from 'react';
+
 import { Button } from '@/components/Button/Button';
 import { MediaBlock } from '@/components/MediaBlock';
 import { PageContainer } from '@/components/PageContainer';
@@ -5,8 +7,6 @@ import { ScrollableBlock } from '@/components/ScrollableBlock';
 import { SecondaryBlock } from '@/components/SecondaryBlock/SecondaryBlock';
 import { CustomFields, CustomPost } from '@/service';
 import { getFeaturedImageUrl } from '@/utils';
-
-import { FC } from 'react';
 
 type LandingPageProductProps = {
   product: CustomPost;

@@ -2,9 +2,6 @@
 
 import { Input } from './Form/Form';
 
-import { Button } from '@/components/Button/Button';
-import { Menu } from '@/components/Menu/Menu';
-
 import {
   Box,
   Checkbox,
@@ -15,6 +12,9 @@ import {
 } from '@mui/material';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
+import { Button } from '@/components/Button/Button';
+import { Menu } from '@/components/Menu/Menu';
 
 export const FORM_ID = 15422;
 

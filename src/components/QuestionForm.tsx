@@ -1,13 +1,13 @@
 'use client';
 
+import { Box, Typography } from '@mui/material';
+import { FC, useCallback, useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+
 import { Button } from '@/components/Button/Button';
 import { Form, Input } from '@/components/Form/Form';
 import { useSnackbar } from '@/components/Snackbar';
 import { submitFeedbackForm } from '@/service';
-
-import { Box, Typography } from '@mui/material';
-import { FC, useCallback, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
 
 const FORM_ID = 15431;
 

@@ -1,3 +1,6 @@
+import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
 import { Banner } from '@/components/Banner/Banner';
 import { Button } from '@/components/Button/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
@@ -8,8 +11,6 @@ import { Tile } from '@/components/Tile/Tile';
 import { getPostBySlug } from '@/service';
 import { getFeaturedImageUrl } from '@/utils';
 
-import { Box, Typography } from '@mui/material';
-import { Metadata } from 'next';
 
 const POST_SLUG = 'scanning-horses';
 

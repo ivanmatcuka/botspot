@@ -2,6 +2,12 @@ export const revalidate = 0;
 
 import './globals.scss';
 
+import { Box } from '@mui/material';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { GoogleTagManager } from '@next/third-parties/google';
+import { Inter } from 'next/font/google';
+import { ReactNode } from 'react';
+
 import { Button } from '@/components/Button/Button';
 import { Footer } from '@/components/Footer/Footer';
 import { Navbar } from '@/components/Navbar/Navbar';
@@ -9,11 +15,6 @@ import { SnackbarProvider } from '@/components/Snackbar';
 import { getProducts } from '@/service';
 import ThemeRegistry from '@/theme/ThemeRegistry';
 
-import { Box } from '@mui/material';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { GoogleTagManager } from '@next/third-parties/google';
-import { Inter } from 'next/font/google';
-import { ReactNode } from 'react';
 
 import type { Metadata } from 'next';
 

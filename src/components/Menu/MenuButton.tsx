@@ -1,9 +1,9 @@
 'use client';
 
-import { Button, ButtonProps } from '@/components/Button/Button';
-
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { FC, MouseEvent } from 'react';
+
+import { Button, ButtonProps } from '@/components/Button/Button';
 
 type MenuButtonProps = {
   label: string;

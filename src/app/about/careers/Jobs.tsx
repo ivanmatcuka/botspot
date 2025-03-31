@@ -1,8 +1,9 @@
+import { Grid } from '@mui/material';
+import { FC } from 'react';
+
 import { Job } from '@/components/Job';
 import { CustomPost } from '@/service';
 
-import { Grid } from '@mui/material';
-import { FC } from 'react';
 
 type JobsProps = {
   data: CustomPost[];

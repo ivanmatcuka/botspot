@@ -1,9 +1,10 @@
+import { Grid } from '@mui/material';
+import { FC } from 'react';
+
 import { Post } from '@/components/Post';
 import { CustomPost } from '@/service';
 import { getFeaturedImageUrl } from '@/utils';
 
-import { Grid } from '@mui/material';
-import { FC } from 'react';
 
 type PeopleProps = {
   data: CustomPost[];

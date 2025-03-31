@@ -1,3 +1,6 @@
+import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
 import { Iframe } from '@/components/3dIframe/3dIframe';
 import { Banner } from '@/components/Banner/Banner';
 import { Button } from '@/components/Button/Button';
@@ -9,8 +12,6 @@ import { Tile } from '@/components/Tile/Tile';
 import { getAreaBySlug } from '@/service';
 import { generatePageMetadata, getFeaturedImageUrl } from '@/utils';
 
-import { Box, Typography } from '@mui/material';
-import { Metadata } from 'next';
 
 const AREA_SLUG = 'areas-custom';
 

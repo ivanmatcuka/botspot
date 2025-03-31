@@ -1,8 +1,9 @@
 import { DownloadAreaContent } from '../DownloadAreaContent';
 
+import { Metadata } from 'next';
+
 import { getProducts } from '@/service';
 
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'DOWNLOAD AREA – botspot',

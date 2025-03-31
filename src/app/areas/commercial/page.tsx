@@ -1,3 +1,7 @@
+import { Typography } from '@mui/material';
+import { Metadata } from 'next';
+import Image from 'next/image';
+
 import { Banner } from '@/components/Banner/Banner';
 import { Button } from '@/components/Button/Button';
 import { GalleryTile } from '@/components/GalleryTile/GalleryTile';
@@ -8,9 +12,6 @@ import { Tile } from '@/components/Tile/Tile';
 import { getAreaBySlug } from '@/service';
 import { generatePageMetadata, getFeaturedImageUrl } from '@/utils';
 
-import { Typography } from '@mui/material';
-import { Metadata } from 'next';
-import Image from 'next/image';
 
 const AREA_SLUG = 'areas-commercial';
 

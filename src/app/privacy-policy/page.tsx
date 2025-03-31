@@ -1,10 +1,10 @@
-import { ThemedContainer } from '@/components/ThemedContainer';
-import { getPage } from '@/service';
-import { generatePageMetadata } from '@/utils';
-
 import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+import { ThemedContainer } from '@/components/ThemedContainer';
+import { getPage } from '@/service';
+import { generatePageMetadata } from '@/utils';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('privacy-policy');

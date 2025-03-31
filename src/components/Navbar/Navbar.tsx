@@ -1,8 +1,5 @@
 'use client';
 
-import { Button } from '@/components/Button/Button';
-import { Menu } from '@/components/Menu/Menu';
-
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -27,6 +24,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
+
+import { Button } from '@/components/Button/Button';
+import { Menu } from '@/components/Menu/Menu';
 
 const ControlledAccordion: FC<AccordionProps & { item: MenuItem }> = ({
   item,

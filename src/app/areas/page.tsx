@@ -1,5 +1,7 @@
 import { SkeletonVideo } from '../components/SkeletonVideo';
 
+import { Metadata } from 'next';
+
 import { Banner } from '@/components/Banner/Banner';
 import { Button } from '@/components/Button/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
@@ -7,7 +9,6 @@ import { MainBlock } from '@/components/MainBlock/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { generatePageMetadata } from '@/utils';
 
-import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('areas');

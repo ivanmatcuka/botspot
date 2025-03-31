@@ -1,6 +1,10 @@
 import { generatePageMetadata } from '../../utils';
 import { Posts } from '../3d-academy/Posts';
 
+import { Box, Grid, Typography } from '@mui/material';
+import { Metadata } from 'next';
+import Image from 'next/image';
+
 import { Banner } from '@/components/Banner/Banner';
 import { Button } from '@/components/Button/Button';
 import { MainBlock } from '@/components/MainBlock/MainBlock';
@@ -8,9 +12,6 @@ import { PageContainer } from '@/components/PageContainer';
 import { QuestionForm } from '@/components/QuestionForm';
 import { Tile } from '@/components/Tile/Tile';
 
-import { Box, Grid, Typography } from '@mui/material';
-import { Metadata } from 'next';
-import Image from 'next/image';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('learn');

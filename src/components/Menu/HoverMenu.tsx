@@ -2,8 +2,6 @@
 
 import { MenuButton } from './MenuButton';
 
-import { ButtonProps } from '@/components/Button/Button';
-
 import { useTheme } from '@mui/material';
 import {
   bindHover,
@@ -12,6 +10,8 @@ import {
 } from 'material-ui-popup-state/hooks';
 import HoverMenu from 'material-ui-popup-state/HoverMenu';
 import { FC, PropsWithChildren } from 'react';
+
+import { ButtonProps } from '@/components/Button/Button';
 
 type CustomHoverMenuProps = {
   label: string;

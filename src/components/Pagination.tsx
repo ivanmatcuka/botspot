@@ -1,7 +1,5 @@
 'use client';
 
-import { Button } from '@/components/Button/Button';
-
 import {
   Box,
   Pagination as MuiPagination,
@@ -9,6 +7,8 @@ import {
   useTheme,
 } from '@mui/material';
 import { FC, ReactEventHandler } from 'react';
+
+import { Button } from '@/components/Button/Button';
 
 type PaginationProps = {
   count: number;

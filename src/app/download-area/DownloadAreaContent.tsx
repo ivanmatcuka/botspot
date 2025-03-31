@@ -1,5 +1,8 @@
 'use client';
 
+import { Grid } from '@mui/material';
+import { FC, useState } from 'react';
+
 import { Button } from '@/components/Button/Button';
 import { DownloadForm, FORM_ID } from '@/components/DownloadForm';
 import { MainBlock } from '@/components/MainBlock/MainBlock';
@@ -8,8 +11,6 @@ import { Post } from '@/components/Post';
 import { useSnackbar } from '@/components/Snackbar';
 import { CustomFields, CustomPost, submitFeedbackForm } from '@/service';
 
-import { Grid } from '@mui/material';
-import { FC, useState } from 'react';
 
 type DownloadAreaContentProps = {
   products: CustomPost[];
