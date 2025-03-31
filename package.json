@@ -6,8 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "chromatic": "npx chromatic"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
@@ -40,7 +39,6 @@
     "@types/react-dom": "^18",
     "@types/wordpress__block-library": "^2.6.3",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
-    "chromatic": "^11.16.5",
     "eslint": "^8",
     "eslint-config-next": "15.1.6",
     "eslint-config-prettier": "^9.1.0",
