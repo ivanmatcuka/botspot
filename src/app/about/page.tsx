@@ -5,9 +5,9 @@ import { Button } from '@/app/components/Button/Button';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { Tile } from '@/app/components/Tile/Tile';
-import { createTranslation } from '@/app/i18n/server';
 import { getPeople } from '@/app/service';
 import { generatePageMetadata } from '@/app/utils';
+import { createTranslation } from '@/i18n/server';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';

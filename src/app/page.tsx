@@ -6,9 +6,9 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { PartnerLogo } from '@/app/components/PartnerLogo';
 import { Tile } from '@/app/components/Tile/Tile';
-import { createTranslation } from '@/app/i18n/server';
 import { getProducts } from '@/app/service';
 import { generatePageMetadata } from '@/app/utils';
+import { createTranslation } from '@/i18n/server';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
