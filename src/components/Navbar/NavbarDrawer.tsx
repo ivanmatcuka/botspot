@@ -43,7 +43,7 @@ export const NavbarDrawer: FC<NavbarDrawerProps> = ({ item }) => {
   if (!item.children?.length) {
     return (
       <ListItem key={item.label}>
-        <ListItemButton href={item.href ?? '/'} disableRipple>
+        <ListItemButton component={Link} href={item.href ?? '/'} disableRipple>
           {item.label}
         </ListItemButton>
       </ListItem>
