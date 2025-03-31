@@ -15,6 +15,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const id = (await params).id;
   const job = await getPost(+id);
+
   if (!job) return {};
 
   return (
