@@ -6,15 +6,23 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
+import { getAreaBySlug } from '@/app/service';
+import { generatePageMetadata, getFeaturedImageUrl } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Custom Solutions – botspot',
-};
+const AREA_SLUG = 'areas-custom';
 
-export default function CustomSolutions() {
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('custom-solutions');
+}
+
+export default async function CustomSolutions() {
+  const area = await getAreaBySlug(AREA_SLUG);
+  const post = area?.acf?.post;
+  const relatedImage = getFeaturedImageUrl(post ?? undefined);
+
   return (
     <main className="">
       <Banner
@@ -54,7 +62,7 @@ export default function CustomSolutions() {
           Approached by the new historical epic series “Those About to Die”,
           botspot took on the challenge of 3D scanning a horse.
         </Typography>
-        <Button href="/blog" variant="primary">
+        <Button href="/3d-academy" variant="primary">
           Read Article
         </Button>
       </Tile>
@@ -71,17 +79,19 @@ export default function CustomSolutions() {
         </Typography>
       </Tile>
 
-      <GalleryTile imgUrl="/img/areas/custom-solution/3.png">
-        <SecondaryBlock
-          headline="Innovation Lab"
-          primaryCta={
-            <Button href="/about/innovation-lab" variant="primary">
-              Visit Innovation Lab
-            </Button>
-          }
-          sublineElement="Our Innovation Lab handles Custom Solutions and bridges the gap between research and industrial production."
-        />
-      </GalleryTile>
+      {post && (
+        <GalleryTile imgUrl={relatedImage}>
+          <SecondaryBlock
+            headline={post.post_title}
+            primaryCta={
+              <Button href={`/3d-academy/${post.post_name}`} variant="primary">
+                Read Full Story
+              </Button>
+            }
+            sublineElement={post.post_title}
+          />
+        </GalleryTile>
+      )}
     </main>
   );
 }

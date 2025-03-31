@@ -1,13 +1,15 @@
 'use client';
 
-import { sendEmail } from '@/app/actions';
 import { Button } from '@/app/components/Button/Button';
 import { Form, Input } from '@/app/components/Form/Form';
 import { useSnackbar } from '@/app/components/Snackbar';
+import { submitFeedbackForm } from '@/app/service';
 
 import { Box, Typography } from '@mui/material';
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
+const FORM_ID = 15431;
 
 export const QuestionForm: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,30 +20,35 @@ export const QuestionForm: FC = () => {
     formState: { errors },
     reset,
     watch,
+    setValue,
   } = useForm();
-  const email = watch('email');
-  const question = watch('question');
+  const email = watch('your-email');
+  const question = watch('your-question');
 
   const { showSnackbar } = useSnackbar();
 
-  const messageHtml = useMemo(() => {
-    return `Email: ${email}<br/>
-            Message: ${question}<br/>`;
-  }, [email, question]);
-
   const onSubmit = useCallback(() => {
     setIsLoading(true);
-    sendEmail(process.env.NEXT_PUBLIC_EMAIL_FROM ?? '', `Question`, messageHtml)
+
+    const newFormData = new FormData();
+
+    newFormData.append('_wpcf7_unit_tag', `${FORM_ID}`);
+    newFormData.append('your-email', email);
+    newFormData.append('your-question', question);
+
+    submitFeedbackForm(newFormData, FORM_ID)
       .then(() => showSnackbar('Thank you for your feedback!', 'success', 3000))
       .catch(() => showSnackbar('Something went wrong!', 'error', 3000))
       .finally(() => {
         setIsLoading(false);
         reset();
       });
-  }, [messageHtml, showSnackbar, reset]);
+  }, [showSnackbar, reset, email, question]);
+
+  useEffect(() => setValue('your-question', question), [setValue, question]);
 
   return (
-    <Form secondary onSubmit={handleSubmit(onSubmit)}>
+    <Form secondary>
       <Box p={{ xs: 3, md: 5 }} py={{ xs: 2 }}>
         <Typography color="white" mb={2} variant="h2">
           Do you have a question?
@@ -61,10 +68,10 @@ export const QuestionForm: FC = () => {
         >
           <Input
             color="white"
-            error={errors.email}
+            error={errors['your-email']}
             key="email"
             label="Email"
-            name="email"
+            name="your-email"
             register={register}
             rules={{
               required: 'Email is required',
@@ -78,10 +85,10 @@ export const QuestionForm: FC = () => {
           />
           <Input
             color="white"
-            error={errors.question}
+            error={errors['your-question']}
             key="question"
             label="Question"
-            name="question"
+            name="your-question"
             register={register}
             rows={3}
             rules={{ required: 'Question is required' }}
@@ -89,7 +96,11 @@ export const QuestionForm: FC = () => {
             fullWidth
             required
           />
-          <Button disabled={isLoading} type="submit" variant="primary">
+          <Button
+            disabled={isLoading}
+            variant="primary"
+            onClick={handleSubmit(onSubmit)}
+          >
             Submit
           </Button>
         </Box>

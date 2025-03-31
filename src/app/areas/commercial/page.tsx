@@ -5,16 +5,24 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
+import { getAreaBySlug } from '@/app/service';
+import { generatePageMetadata, getFeaturedImageUrl } from '@/app/utils';
 
 import { Typography } from '@mui/material';
 import { Metadata } from 'next';
 import Image from 'next/image';
 
-export const metadata: Metadata = {
-  title: 'Commercial Areas of Use – botspot',
-};
+const AREA_SLUG = 'areas-commercial';
 
-export default function Commercial() {
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('commercial');
+}
+
+export default async function Commercial() {
+  const area = await getAreaBySlug(AREA_SLUG);
+  const post = area?.acf?.post;
+  const relatedImage = getFeaturedImageUrl(post ?? undefined);
+
   return (
     <main className="">
       <Banner
@@ -138,17 +146,19 @@ export default function Commercial() {
         </Typography>
       </Tile>
 
-      <GalleryTile imgUrl="/img/areas/commercial/6.png">
-        <SecondaryBlock
-          headline="We recommend our 3D Studio Scanner"
-          primaryCta={
-            <Button href="/products/3d-studio" variant="primary">
-              Explore 3D Studio
-            </Button>
-          }
-          sublineElement="Versatile and powerful, our 3D Studio Scanner is ideal for commercial applications."
-        />
-      </GalleryTile>
+      {post && (
+        <GalleryTile imgUrl={relatedImage}>
+          <SecondaryBlock
+            headline={post.post_title}
+            primaryCta={
+              <Button href={`/3d-academy/${post.post_name}`} variant="primary">
+                Read Full Story
+              </Button>
+            }
+            sublineElement={post.post_title}
+          />
+        </GalleryTile>
+      )}
     </main>
   );
 }

@@ -1,6 +1,5 @@
 export const revalidate = 0;
 
-import { ConsentProvider } from './ConsentProvider';
 import './globals.scss';
 
 import { Button } from '@/app/components/Button/Button';
@@ -12,9 +11,9 @@ import ThemeRegistry from '@/app/theme/ThemeRegistry';
 
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
-import { GoogleTagManager } from '@next/third-parties/google';
 
 import type { Metadata } from 'next';
 
@@ -68,7 +67,11 @@ export default async function RootLayout({
         },
       ],
     },
-    { label: 'Learn About 3D Scanning', href: '/learn' },
+    {
+      label: 'Learn About 3D Scanning',
+      href: '/learn',
+      children: [{ label: '3D Academy', href: '/3d-academy' }],
+    },
     {
       label: 'About Us',
       href: '/about',
@@ -84,29 +87,29 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        )}
+      </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <AppRouterCacheProvider>
           <ThemeRegistry>
             <SnackbarProvider>
-              <ConsentProvider>
-                <Navbar
-                  cta={
-                    <Button href="/contact-us" variant="secondary">
-                      Contact Us
-                    </Button>
-                  }
-                  navItems={navbarItems}
-                />
-                <Box className="flex-1 flex flex-col">{children}</Box>
-                <Footer products={products} />
-              </ConsentProvider>
+              <Navbar
+                cta={
+                  <Button href="/contact-us" variant="primary">
+                    Contact Us
+                  </Button>
+                }
+                navItems={navbarItems}
+              />
+              <Box className="flex-1 flex flex-col">{children}</Box>
+              <Footer products={products} />
             </SnackbarProvider>
           </ThemeRegistry>
         </AppRouterCacheProvider>
       </body>
-      {process.env.NEXT_PUBLIC_GTM_ID && (
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
-      )}
     </html>
   );
 }

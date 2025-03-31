@@ -1,11 +1,10 @@
 'use client';
 
-import { sendEmail } from '@/app/actions';
 import { Button } from '@/app/components/Button/Button';
 import { Form, Input } from '@/app/components/Form/Form';
 import { Menu } from '@/app/components/Menu/Menu';
 import { useSnackbar } from '@/app/components/Snackbar';
-import { getProducts } from '@/app/service';
+import { getProducts, submitFeedbackForm } from '@/app/service';
 
 import {
   Box,
@@ -14,10 +13,11 @@ import {
   FormGroup,
   Typography,
 } from '@mui/material';
-import { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const TOPICS = ['Other', '3D Scan Service', 'Innovation Lab', 'Demo'] as const;
+const TOPICS = ['3D Scan Service', 'Innovation Lab'] as const;
+const FORM_ID = 15420;
 
 type Topic = (typeof TOPICS)[number] | string;
 
@@ -41,48 +41,42 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
   const [topic, setTopic] = useState<Topic>(
     TOPICS.find((t) => t === defaultTopic) ?? TOPICS[0],
   );
+
   // Cloning is only done because of TypeScript issues
   const [topics, setTopics] = useState<Topic[]>([...TOPICS]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const name = watch('name');
-  const email = watch('email');
-  const message = watch('message');
+  const name = watch('your-name');
+  const email = watch('your-email');
+  const message = watch('your-message');
 
   const { showSnackbar } = useSnackbar();
 
-  const messageHtml = useMemo(() => {
-    return `Name: ${name}<br/>
-            Email: ${email}<br/>
-            Message: ${message}<br/>`;
-  }, [name, email, message]);
-
   const onSubmit = useCallback(() => {
     setIsLoading(true);
-    sendEmail(
-      process.env.NEXT_PUBLIC_EMAIL_FROM ?? '',
-      `Feedback form: ${topic}`,
-      messageHtml,
-    )
+    const newFormData = new FormData();
+
+    newFormData.append('_wpcf7_unit_tag', `${FORM_ID}`);
+    newFormData.append('your-name', name);
+    newFormData.append('your-email', email);
+    newFormData.append('your-subject', topic);
+    newFormData.append('your-message', message);
+
+    submitFeedbackForm(newFormData, FORM_ID)
       .then(() => showSnackbar('Thank you for your feedback!', 'success', 3000))
       .catch(() => showSnackbar('Something went wrong!', 'error', 3000))
       .finally(() => {
         setIsLoading(false);
         reset();
       });
-  }, [topic, messageHtml, showSnackbar, reset]);
+  }, [showSnackbar, reset, name, email, topic, message]);
 
   const changeTopic = useCallback(
     (topic: Topic) => () => {
-      setValue('message', generateMessage(topic));
       setTopic(topic);
     },
-    [setValue],
+    [],
   );
-
-  const generateMessage = (topic: Topic) => {
-    return `Hello. I would like to receive some information about ${topic}. Thank you.`;
-  };
 
   useEffect(() => {
     getProducts().then(({ data }) => {
@@ -93,15 +87,20 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
       setTopics(newTopics);
 
       if (!defaultTopic) return;
+
       setTopic(
         newTopics.find((currTopic) => currTopic === defaultTopic) ?? TOPICS[0],
       );
     });
-  }, [defaultTopic]);
+  }, [defaultTopic, setValue]);
 
   return (
-    <Form frameless={frameless} onSubmit={handleSubmit(onSubmit)}>
-      <Box p={frameless ? 0 : { xs: 3, md: 5 }} py={frameless ? 0 : { xs: 2 }}>
+    <Form frameless={frameless}>
+      <Box
+        id="feedback-form"
+        p={frameless ? 0 : { xs: 3, md: 5 }}
+        py={frameless ? 0 : { xs: 2 }}
+      >
         <Typography className="text-center md:text-left" mb={2} variant="h2">
           Thank you for your interest in
         </Typography>
@@ -133,19 +132,19 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
           rowGap={2}
         >
           <Input
-            error={errors.name}
+            error={errors['your-name']}
             key="name"
             label="Name"
-            name="name"
+            name="your-name"
             register={register}
             rules={{ required: 'Name is required' }}
             required
           />
           <Input
-            error={errors.email}
+            error={errors['your-email']}
             key="email"
             label="Email"
-            name="email"
+            name="your-email"
             register={register}
             rules={{
               required: 'Email is required',
@@ -157,10 +156,10 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
             required
           />
           <Input
-            error={errors.message}
+            error={errors['your-message']}
             key="message"
             label="Message"
-            name="message"
+            name="your-message"
             register={register}
             rows={3}
             rules={{ required: 'Message is required' }}
@@ -168,7 +167,11 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
             fullWidth
             required
           />
-          <Button disabled={isLoading} type="submit" variant="primary">
+          <Button
+            disabled={isLoading}
+            variant="primary"
+            onClick={handleSubmit(onSubmit)}
+          >
             Submit
           </Button>
         </Box>

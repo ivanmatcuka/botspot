@@ -46,9 +46,14 @@ const OutlineButton = styled(SecondaryButton)(({ theme }) => ({
   },
 }));
 
-const MenuButton = ({ ...props }: MuiButtonProps) => (
+const MenuButton = styled(({ ...props }: MuiButtonProps) => (
   <MuiButton color="info" variant="text" {...props} />
-);
+))(({ theme }) => ({
+  '&.active': {
+    backgroundColor: theme.palette.grey[100],
+    color: theme.palette.primary.main,
+  },
+}));
 
 const TopicButton = styled(({ ...props }: MuiButtonProps) => (
   <MuiButton color="primary" variant="text" {...props} />
@@ -58,7 +63,7 @@ const TopicButton = styled(({ ...props }: MuiButtonProps) => (
 }));
 
 const MenuItemButton = styled(({ ...props }: MuiButtonProps) => (
-  <MenuItem>
+  <MenuItem className={props.className}>
     <MuiButton color="info" variant="text" {...props} />
   </MenuItem>
 ))(({ theme }) => ({

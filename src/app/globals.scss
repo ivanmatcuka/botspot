@@ -6,13 +6,11 @@
 @import "~@wordpress/base-styles/mixins";
 @import "~@wordpress/base-styles/variables";
 @import "~@wordpress/base-styles/z-index";
-
-@import "~@wordpress/components/src/style.scss";
-@import "~@wordpress/block-editor/src/style.scss";
 @import "~@wordpress/block-library/src/style.scss";
 @import "~@wordpress/block-library/src/theme.scss";
 @import "~@wordpress/block-library/src/editor.scss";
 @import "~@wordpress/format-library/src/style.scss";
+@import "~@wordpress/components/src/style.scss";
 
 @tailwind base;
 @tailwind components;

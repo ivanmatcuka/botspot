@@ -21,6 +21,8 @@ export const LandingPageProduct: FC<LandingPageProductProps> = ({
       .flat()
       .map((url) => url.full_image_url) ?? [];
 
+  const hasEnoughImages = imagesUrls.length > 9;
+
   const contentBlock = (
     <SecondaryBlock
       headline={product?.acf?.['full-name'] || product.title.rendered}
@@ -38,14 +40,18 @@ export const LandingPageProduct: FC<LandingPageProductProps> = ({
     />
   );
 
-  return imagesUrls.length ? (
+  return hasEnoughImages ? (
     <ScrollableBlock imagesUrls={imagesUrls} key={product.id}>
       {contentBlock}
     </ScrollableBlock>
   ) : (
     <>
-      <MediaBlock assetUrl={getFeaturedImageUrl(product)} key={product.id} />
-      <PageContainer banner>{contentBlock}</PageContainer>
+      <MediaBlock
+        assetUrl={imagesUrls[0] ?? getFeaturedImageUrl(product)}
+        key={product.id}
+        objectFit="contain"
+      />
+      <PageContainer>{contentBlock}</PageContainer>
     </>
   );
 };

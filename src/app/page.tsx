@@ -8,8 +8,14 @@ import { PartnerLogo } from '@/app/components/PartnerLogo';
 import { Tile } from '@/app/components/Tile/Tile';
 import { createTranslation } from '@/app/i18n/server';
 import { getProducts } from '@/app/service';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('home');
+}
 
 export default async function Home() {
   const { data: products } = await getProducts();
@@ -23,13 +29,13 @@ export default async function Home() {
           assetUrl: '/videos/landing-page.mp4',
         }}
         primaryCta={
-          <Button href="/products/botscan-neo" variant="primary">
-            {t('landing-page:banner.primaryCta')}
+          <Button href="/products" variant="primary">
+            Explore Products
           </Button>
         }
         secondaryCta={
-          <Button href="/download-area/botscan-neo" variant="secondary">
-            {t('landing-page:banner.secondaryCta')}
+          <Button href="/areas" variant="secondary">
+            Explore Areas of Use
           </Button>
         }
         sublineElement={t('landing-page:banner.sublineText')}
@@ -55,6 +61,7 @@ export default async function Home() {
         <PartnerLogo name="vrinsight" />
         <PartnerLogo name="thyng" />
         <PartnerLogo name="acod" />
+        <PartnerLogo name="vertex" />
       </Box>
 
       {products.map((product) => (

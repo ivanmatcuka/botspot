@@ -1,4 +1,4 @@
-import { CustomPost } from '@/app/service';
+import { CustomPost, getPage } from '@/app/service';
 
 import { Metadata } from 'next';
 import { Robots } from 'next/dist/lib/metadata/types/metadata-types';
@@ -35,7 +35,7 @@ export const generateSeo = (post: CustomPost) => {
         openGraph: {
           title: yoast.og_title,
           description: yoast.og_description,
-          url: process.env.NEXT_PUBLIC_BASE_URL,
+          url: yoast.og_url,
           siteName: yoast.og_site_name,
           images: yoast.og_image,
           locale: yoast.og_locale,
@@ -54,3 +54,32 @@ export const generateSeo = (post: CustomPost) => {
 
   return result;
 };
+
+export const generatePageMetadata = async (slug: string): Promise<Metadata> => {
+  const page = await getPage(slug);
+
+  if (!page) {
+    return {
+      title: 'botspot',
+    };
+  }
+
+  return (
+    generateSeo(page) ?? {
+      title: `${page.title.rendered} – botspot`,
+    }
+  );
+};
+
+export function parseFieldOptions(options: string[]): Record<string, string> {
+  return options.reduce(
+    (acc, option) => {
+      const [key, value] = option.split(':');
+      if (key && value) {
+        acc[key.trim()] = value.trim();
+      }
+      return acc;
+    },
+    {} as Record<string, string>,
+  );
+}

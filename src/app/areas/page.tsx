@@ -1,14 +1,17 @@
+import { SkeletonVideo } from '../components/SkeletonVideo';
+
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
 import { FeedbackForm } from '@/app/components/FeedbackForm';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'AREAS OF USE – botspot',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('areas');
+}
 
 export default function Areas() {
   return (
@@ -30,6 +33,10 @@ export default function Areas() {
         }
         sublineElement="Potential areas of use are as versatile as our 3D Scanners. We have delivered commercial, industrial and custom solutions in order to exceed our clients’  needs."
       />
+
+      <PageContainer mt={{ xs: 10, md: 15 }}>
+        <SkeletonVideo videoSrc="/videos/areas-demo.mp4" autoPlay loop muted />
+      </PageContainer>
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock

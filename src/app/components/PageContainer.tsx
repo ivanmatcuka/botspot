@@ -12,9 +12,10 @@ export const PageContainer: FC<PropsWithChildren<PageContainerProps>> = ({
   <Container maxWidth="xl">
     <Grid
       mb={{ xs: 10, md: 20 }}
+      md={10}
       mt={{ xs: 2, md: 3 }}
       mx="auto"
-      xs={10}
+      xs={12}
       container
       {...margins}
     >

@@ -19,7 +19,10 @@ import {
 } from 'react-hook-form';
 
 type InputProps = Pick<UseControllerProps, 'name' | 'rules'> &
-  Pick<MuiInputProps, 'fullWidth' | 'required' | 'value' | 'type' | 'rows'> & {
+  Pick<
+    MuiInputProps,
+    'fullWidth' | 'required' | 'value' | 'type' | 'rows' | 'className'
+  > & {
     error?: FieldValues;
     label?: string;
     color?: 'primary' | 'white';
@@ -76,18 +79,16 @@ export const Input: FC<InputProps> = ({
 );
 
 type FormProps = {
-  onSubmit: () => void;
   frameless?: boolean;
   secondary?: boolean;
 };
 
 export const Form: FC<PropsWithChildren<FormProps>> = ({
   children,
-  onSubmit,
   frameless = false,
   secondary = false,
 }) => {
-  const form = <form onSubmit={onSubmit}>{children}</form>;
+  const form = <form>{children}</form>;
 
   if (frameless) return form;
 

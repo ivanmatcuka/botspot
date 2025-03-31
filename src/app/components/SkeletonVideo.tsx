@@ -1,16 +1,31 @@
 'use client';
 
 import { Skeleton } from '@mui/material';
-import { FC, MediaHTMLAttributes } from 'react';
+import { FC, MediaHTMLAttributes, useEffect, useRef } from 'react';
+import { useInViewport } from 'react-in-viewport';
 
 type SkeletonVideoProps = {
   videoSrc: string;
 } & MediaHTMLAttributes<HTMLVideoElement>;
 export const SkeletonVideo: FC<SkeletonVideoProps> = ({
   videoSrc,
-  className,
+  className = '',
+  autoPlay,
   ...props
 }: SkeletonVideoProps) => {
+  const video = useRef<HTMLVideoElement>(null);
+  const { inViewport } = useInViewport(video);
+
+  useEffect(() => {
+    if (!autoPlay) return;
+
+    if (inViewport) {
+      video.current?.play();
+    } else {
+      video.current?.pause();
+    }
+  }, [autoPlay, inViewport, videoSrc]);
+
   return (
     <div className={`relative ${className}`}>
       <Skeleton
@@ -20,8 +35,9 @@ export const SkeletonVideo: FC<SkeletonVideoProps> = ({
       />
       <video
         className={`w-full h-full relative ${className}`}
+        ref={video}
         src={videoSrc}
-        controls
+        playsInline
         {...props}
       />
     </div>

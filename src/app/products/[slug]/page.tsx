@@ -31,9 +31,11 @@ import { isValidElement, ReactElement } from 'react';
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const product = await getProductBySlug(params.slug);
+  const slug = (await params).slug;
+  const product = await getProductBySlug(slug);
+
   if (!product) return {};
 
   return (
@@ -45,9 +47,11 @@ export async function generateMetadata({
 export default async function Product({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const product = await getProductBySlug(params.slug);
+  const slug = (await params).slug;
+  const product = await getProductBySlug(slug);
+
   if (!product) return notFound();
 
   const {
@@ -98,7 +102,10 @@ export default async function Product({
             </Button>
           }
           secondaryCta={
-            <Button href="/contact-us/Demo" variant="secondary">
+            <Button
+              href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/ob7tkWl_QESAXQPuuaQR_w2"
+              variant="secondary"
+            >
               Request a Demo
             </Button>
           }
@@ -106,6 +113,7 @@ export default async function Product({
         />
       )}
 
+      {/* XS */}
       <MediaBlock
         assetUrl={picture}
         containerClassName="block md:hidden"
@@ -113,6 +121,7 @@ export default async function Product({
         banner
       />
 
+      {/* MD */}
       <MediaBlock
         assetUrl={picture}
         containerClassName="hidden md:block"
@@ -144,12 +153,14 @@ export default async function Product({
         </Tile>
       ))}
 
-      <Box my={{ xs: 5, md: 10 }}>
-        <Gallery
-          firstChild={<Iframe src={firstAnimation ?? ''} />}
-          secondChild={<Iframe src={secondAnimation ?? ''} />}
-        />
-      </Box>
+      {firstAnimation && secondAnimation && (
+        <Box my={{ xs: 5, md: 10 }}>
+          <Gallery
+            firstChild={<Iframe src={firstAnimation} />}
+            secondChild={<Iframe src={secondAnimation} />}
+          />
+        </Box>
+      )}
 
       {groups?.props?.children && (
         <PageContainer my={{ xs: 5, md: 10 }}>
@@ -161,7 +172,7 @@ export default async function Product({
 
       {demoVideo && (
         <PageContainer>
-          <SkeletonVideo videoSrc={demoVideo} />
+          <SkeletonVideo videoSrc={demoVideo} autoPlay loop muted />
         </PageContainer>
       )}
 
@@ -170,7 +181,7 @@ export default async function Product({
           <SecondaryBlock
             headline={post.title.rendered}
             primaryCta={
-              <Button href={`/blog/${post.id}`} variant="primary">
+              <Button href={`/3d-academy/${post.slug}`} variant="primary">
                 Read Full Story
               </Button>
             }

@@ -1,18 +1,17 @@
 'use client';
 
-import { sendEmail } from '@/app/actions';
 import { Button } from '@/app/components/Button/Button';
 import { DownloadForm } from '@/app/components/DownloadForm';
 import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { Post } from '@/app/components/Post';
 import { useSnackbar } from '@/app/components/Snackbar';
-import { CustomFields, CustomPost } from '@/app/service';
+import { CustomFields, CustomPost, submitFeedbackForm } from '@/app/service';
 
 import { Grid } from '@mui/material';
 import { FC, useState } from 'react';
 
-const EMAIL_SUBJECT = 'New download form submission for';
+export const FORM_ID = 15422;
 
 type DownloadAreaContentProps = {
   products: CustomPost[];
@@ -23,20 +22,20 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
   defaultProductSlug,
 }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { showSnackbar } = useSnackbar();
 
-  const onSubmit = (topic: string, message: string) => {
-    sendEmail(
-      process.env.NEXT_PUBLIC_EMAIL_FROM ?? '',
-      `${EMAIL_SUBJECT} ${topic}`,
-      message,
-    )
+  const onSubmit = (formData: FormData) => {
+    setIsLoading(true);
+
+    submitFeedbackForm(formData, FORM_ID)
       .then(() => {
         showSnackbar('Thank you for your feedback!', 'success', 3000);
         setIsSubmitted(true);
       })
-      .catch(() => showSnackbar('Something went wrong!', 'error', 3000));
+      .catch(() => showSnackbar('Something went wrong!', 'error', 3000))
+      .finally(() => setIsLoading(false));
   };
 
   return isSubmitted ? (
@@ -79,6 +78,7 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
           products.find((product) => product.slug === defaultProductSlug)?.title
             .rendered
         }
+        isLoading={isLoading}
         productNames={products.map((product) => product.title.rendered)}
         onSubmit={onSubmit}
       />

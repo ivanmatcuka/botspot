@@ -42,6 +42,7 @@ export type CustomFields = {
 };
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+const formsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/contact-form-7/v1/contact-forms`;
 
 const requestInit: RequestInit = {
   method: 'GET',
@@ -58,7 +59,7 @@ export const getPosts = async (
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
-    `${baseUrl}posts?&orderby=modified&per_page=${perPage}&page=${page}&categories=${category.id}&_embed`,
+    `${baseUrl}/posts?&orderby=modified&per_page=${perPage}&page=${page}&categories=${category.id}&_embed`,
     requestInit,
   );
 
@@ -73,7 +74,7 @@ export const getPosts = async (
 
 export const getPost = async (id: number): Promise<CustomPost | null> => {
   const response = await fetch(
-    `${baseUrl}posts?include=${id}&_embed`,
+    `${baseUrl}/posts?include=${id}&_embed`,
     requestInit,
   );
 
@@ -89,7 +90,7 @@ export const getPostBySlug = async (
   slug: string,
 ): Promise<CustomPost | null> => {
   const response = await fetch(
-    `${baseUrl}posts?slug=${slug}&_embed&acf_format=standard`,
+    `${baseUrl}/posts?slug=${slug}&_embed&acf_format=standard`,
     requestInit,
   );
 
@@ -105,7 +106,23 @@ export const getProductBySlug = async (
   slug: string,
 ): Promise<CustomPost | null> => {
   const response = await fetch(
-    `${baseUrl}product?slug=${slug}&_embed&acf_format=standard`,
+    `${baseUrl}/product?slug=${slug}&_embed&acf_format=standard`,
+    requestInit,
+  );
+
+  try {
+    const data = await response.json();
+    return data[0];
+  } catch (error) {
+    return null;
+  }
+};
+
+export const getAreaBySlug = async (
+  slug: string,
+): Promise<CustomPost | null> => {
+  const response = await fetch(
+    `${baseUrl}/area?slug=${slug}&_embed&acf_format=standard`,
     requestInit,
   );
 
@@ -125,7 +142,7 @@ export const getPeople = async (): Promise<{
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
-    `${baseUrl}posts?&categories=${category.id}&_embed`,
+    `${baseUrl}/posts?&categories=${category.id}&per_page=100&_embed`,
     requestInit,
   );
 
@@ -143,7 +160,7 @@ export const getProducts = async (): Promise<{
   count: number;
 }> => {
   const response = await fetch(
-    `${baseUrl}product?&acf_format=standard`,
+    `${baseUrl}/product?&per_page=100&acf_format=standard`,
     requestInit,
   );
 
@@ -169,7 +186,7 @@ export const getJobs = async (): Promise<{
   if (!category) return { data: [], count: 0 };
 
   const response = await fetch(
-    `${baseUrl}posts?&categories=${category.id}&_embed`,
+    `${baseUrl}/posts?&categories=${category.id}&per_page=100&_embed`,
     requestInit,
   );
 
@@ -186,7 +203,7 @@ export const getCategory = async (
   slug: string,
 ): Promise<WP_REST_API_Categories[number] | null> => {
   const response = await fetch(
-    `${baseUrl}categories?slug=${slug}`,
+    `${baseUrl}/categories?slug=${slug}`,
     requestInit,
   );
 
@@ -202,7 +219,7 @@ export const getPage = async (
   slug: string,
 ): Promise<WP_REST_API_Page | null> => {
   const response = await fetch(
-    `${baseUrl}pages?slug=${slug}&_embed`,
+    `${baseUrl}/pages?slug=${slug}&_embed`,
     requestInit,
   );
 
@@ -211,5 +228,25 @@ export const getPage = async (
     return data[0];
   } catch (error) {
     return null;
+  }
+};
+
+export const submitFeedbackForm = async (
+  formData: FormData,
+  formId: number,
+) => {
+  try {
+    const response = await fetch(`${formsUrl}/${formId}/feedback`, {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to submit form');
+    }
+
+    return await response.json();
+  } catch (error) {
+    return error;
   }
 };

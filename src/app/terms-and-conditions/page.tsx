@@ -1,13 +1,14 @@
 import { ThemedContainer } from '@/app/components/ThemedContainer';
 import { getPage } from '@/app/service';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: 'TERMS AND CONDITIONS – botspot',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('terms-and-conditions');
+}
 
 export default async function TermsAndConditions() {
   const page = await getPage('terms-and-conditions');

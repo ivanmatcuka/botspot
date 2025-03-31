@@ -1,3 +1,5 @@
+import { SkeletonVideo } from '../components/SkeletonVideo';
+
 import { Iframe } from '@/app/components/3dIframe/3dIframe';
 import { Banner } from '@/app/components/Banner/Banner';
 import { Button } from '@/app/components/Button/Button';
@@ -8,13 +10,14 @@ import { MainBlock } from '@/app/components/MainBlock/MainBlock';
 import { PageContainer } from '@/app/components/PageContainer';
 import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
 import { Tile } from '@/app/components/Tile/Tile';
+import { generatePageMetadata } from '@/app/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: '3D SCAN SERVICE – botspot',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('service');
+}
 
 export default function Service() {
   return (
@@ -25,13 +28,11 @@ export default function Service() {
           assetUrl: '/img/banners/services.png',
         }}
         primaryCta={
-          <Button href="/contact-us" variant="primary">
-            Collaboration Services
-          </Button>
-        }
-        secondaryCta={
-          <Button href="/contact-us" variant="secondary">
-            In-House Scan Service
+          <Button
+            href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/1z_5HDew_kyNeepl2Mi6TA2"
+            variant="primary"
+          >
+            Book In-House Scan Service
           </Button>
         }
         sublineElement="Our 3D scan services cater to individuals and businesses seeking  high-quality scans without the upfront costs and technical requirements  of owning a scanner."
@@ -40,11 +41,15 @@ export default function Service() {
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock
           cta={
-            <Button href="/contact-us" variant="primary">
+            <Button
+              href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/1z_5HDew_kyNeepl2Mi6TA2"
+              target="_blank"
+              variant="primary"
+            >
               Request In-House Scan Service
             </Button>
           }
-          headline="Visit us or send us your items and receive high-quality 3D models."
+          headline="Visit our 3D scanning studio in Berlin or send us your items to receive high-quality 3D models that will be delivered to you shortly afterwards.”"
           subline="In-House Scan Service"
         />
       </PageContainer>
@@ -74,13 +79,73 @@ export default function Service() {
       <Box mb={{ xs: 5, md: 10 }}>
         <Gallery
           firstChild={
-            <Iframe src="https://sketchfab.com/models/74a79ea84e674a878c5ade45838e457a/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
+            <Iframe src="https://sketchfab.com/models/a934a5364ef24f828333206a23f18d17/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
           }
           secondChild={
-            <Iframe src="https://sketchfab.com/models/87f87f23481f4ed7bd73b2155c1332b4/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
+            <Iframe src="https://sketchfab.com/models/c896b54b644443cc8e6c04aa3e5d6d45/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
           }
         />
       </Box>
+
+      <PageContainer my={{ xs: 10, md: 15 }}>
+        <MainBlock
+          headline="We understand every project is unique. That’s why we offer flexible post-processing options, from foundational scans to premium visualizations."
+          subline="Post-Processing Tailored to Your Needs"
+        />
+      </PageContainer>
+
+      <Tile headline="Raw 3D Scans">
+        <Typography variant="body1">
+          Receive unprocessed scans directly from our scanners - capturing
+          precise geometry and texture. These serve as the perfect starting
+          point for customization, post-processing or integration into your
+          projects.
+        </Typography>
+      </Tile>
+      <PageContainer my={{ xs: 10, md: 15 }}>
+        <SkeletonVideo
+          controls={false}
+          videoSrc="/videos/SH01_FINAL.mp4"
+          autoPlay
+          loop
+          muted
+        />
+      </PageContainer>
+
+      <Tile headline="Optimization for Digital Use">
+        <Typography variant="body1">
+          For projects requiring more polish, we offer services to create
+          refined 3D models. These ready-to-use assets are perfect for
+          e-commerce, virtual showrooms or engaging 3D experiences.
+        </Typography>
+      </Tile>
+      <PageContainer my={{ xs: 10, md: 15 }}>
+        <SkeletonVideo
+          controls={false}
+          videoSrc="/videos/SH02_FINAL.mp4"
+          autoPlay
+          loop
+          muted
+        />
+      </PageContainer>
+
+      <Tile headline="Premium Product Visualizations">
+        <Typography variant="body1">
+          Elevate your 3D scans into fully rendered assets, seamlessly
+          integrated into videos and images for high-end product visualization.
+          The rendered models deliver a captivating level of realism and detail
+          for marketing and advertising.
+        </Typography>
+      </Tile>
+      <PageContainer my={{ xs: 10, md: 15 }}>
+        <SkeletonVideo
+          controls={false}
+          videoSrc="/videos/SH03_FINAL.mp4"
+          autoPlay
+          loop
+          muted
+        />
+      </PageContainer>
 
       <PageContainer mt={{ xs: 10, md: 15 }}>
         <MainBlock

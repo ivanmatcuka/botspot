@@ -33,7 +33,7 @@ export default async function InnovationLab() {
           </Button>
         }
         secondaryCta={
-          <Button href="/blog" variant="secondary">
+          <Button href="/3d-academy" variant="secondary">
             Visit 3D Academy
           </Button>
         }
@@ -75,7 +75,7 @@ export default async function InnovationLab() {
         <PageContainer mb={5} mt={0}>
           <MainBlock
             cta={
-              <Button href="/blog" variant="primary">
+              <Button href="/3d-academy" variant="primary">
                 Visit 3D Academy
               </Button>
             }
@@ -90,7 +90,7 @@ export default async function InnovationLab() {
           <PageContainer mb={0}>
             <Post
               cta={
-                <Button href={`/blog/${post.id}`} variant="secondary">
+                <Button href={`/3d-academy/${post.slug}`} variant="secondary">
                   Read Full Story
                 </Button>
               }

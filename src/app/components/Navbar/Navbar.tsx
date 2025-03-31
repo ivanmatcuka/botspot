@@ -23,17 +23,10 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import useDetectScroll from '@smakss/react-scroll-direction';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  FC,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { usePathname } from 'next/navigation';
+import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
 
 const ControlledAccordion: FC<AccordionProps & { item: MenuItem }> = ({
   item,
@@ -66,34 +59,42 @@ type NavbarProps = {
   navItems: MenuItem[];
 };
 export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
+  const currentPath = usePathname();
+
   const [isOpen, setIsOpen] = useState(false);
-  const [position, setPosition] = useState<'relative' | 'sticky'>('relative');
 
   const { breakpoints } = useTheme();
   const matches = useMediaQuery(breakpoints.up('xl'));
 
-  const { scrollDir } = useDetectScroll();
+  const renderMenu = useCallback(
+    (item: MenuItem) => {
+      if (!item.children?.length) {
+        return (
+          <Button
+            className={currentPath === item.href ? 'active' : ''}
+            disabled={item.disabled}
+            href={item.href ?? '/'}
+            key={item.label}
+            variant="menuItem"
+          >
+            {item.label}
+          </Button>
+        );
+      }
 
-  const renderMenu = useCallback((item: MenuItem) => {
-    if (!item.children?.length) {
       return (
-        <Button
-          disabled={item.disabled}
-          href={item.href ?? '/'}
+        <Menu
+          className={currentPath === item.href ? 'active' : ''}
+          href={item.href}
           key={item.label}
-          variant="menuItem"
+          label={item.label}
         >
-          {item.label}
-        </Button>
+          {item.children.map((child) => renderMenu(child))}
+        </Menu>
       );
-    }
-
-    return (
-      <Menu href={item.href} key={item.label} label={item.label}>
-        {item.children.map((child) => renderMenu(child))}
-      </Menu>
-    );
-  }, []);
+    },
+    [currentPath],
+  );
 
   const menu = useMemo(
     () => navItems.map((item) => renderMenu(item)),
@@ -123,20 +124,12 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
     [navItems, renderDrawer],
   );
 
-  useEffect(() => {
-    if (scrollDir === 'up') {
-      setPosition('sticky');
-    } else {
-      setPosition('relative');
-    }
-  }, [scrollDir]);
-
   return (
     <MuiAppBar
       className="border-b border-gray-200 z-[1201]"
       color="transparent"
       elevation={24}
-      position={position}
+      position="sticky"
       sx={{ backgroundColor: 'white' }}
     >
       <Toolbar disableGutters>
@@ -149,9 +142,13 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
               justifyContent="flex-start"
               item
             >
-              <Link href="/">
-                <Image alt="logo" height={46} src="/logo.svg" width={150} />
-              </Link>
+              {matches ? (
+                <Link href="/">
+                  <Image alt="logo" height={46} src="/logo.svg" width={150} />
+                </Link>
+              ) : (
+                cta
+              )}
               {matches ? (
                 <>
                   <Box display="flex" flex={1}>
