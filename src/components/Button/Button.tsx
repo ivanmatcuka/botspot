@@ -1,6 +1,6 @@
 'use client';
 
-import { MenuItem } from '@/app/components/Menu/Menu';
+import { MenuItem } from '@/components/Menu/Menu';
 
 import {
   Button as MuiButton,

@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from '@/app/components/Button/Button';
-import { Menu } from '@/app/components/Menu/Menu';
+import { Button } from '@/components/Button/Button';
+import { Menu } from '@/components/Menu/Menu';
 
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';

@@ -1,9 +1,9 @@
 'use client';
 
-import { Button } from '@/app/components/Button/Button';
-import { Form, Input } from '@/app/components/Form/Form';
-import { Menu } from '@/app/components/Menu/Menu';
-import { useSnackbar } from '@/app/components/Snackbar';
+import { Button } from '@/components/Button/Button';
+import { Form, Input } from '@/components/Form/Form';
+import { Menu } from '@/components/Menu/Menu';
+import { useSnackbar } from '@/components/Snackbar';
 import { getProducts, submitFeedbackForm } from '@/service';
 
 import {

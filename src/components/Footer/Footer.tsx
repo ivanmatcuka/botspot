@@ -1,6 +1,6 @@
 'use client';
 
-import { IconLink } from '@/app/components/IconLink';
+import { IconLink } from '@/components/IconLink';
 import { CustomPost } from '@/service';
 
 import {
