@@ -2,7 +2,7 @@
 
 import { MenuButton } from './MenuButton';
 
-import { ButtonProps } from '@/app/components/Button/Button';
+import { ButtonProps } from '@/components/Button/Button';
 
 import { useTheme } from '@mui/material';
 import {

@@ -2,7 +2,7 @@
 
 import { MenuButton } from './MenuButton';
 
-import { ButtonProps } from '@/app/components/Button/Button';
+import { ButtonProps } from '@/components/Button/Button';
 
 import { Menu as MuiMenu, useTheme } from '@mui/material';
 import { FC, PropsWithChildren, useState } from 'react';

@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/Button/Button';
-import { DownloadForm } from '@/components/DownloadForm';
+import { DownloadForm, FORM_ID } from '@/components/DownloadForm';
 import { MainBlock } from '@/components/MainBlock/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { Post } from '@/components/Post';
@@ -10,8 +10,6 @@ import { CustomFields, CustomPost, submitFeedbackForm } from '@/service';
 
 import { Grid } from '@mui/material';
 import { FC, useState } from 'react';
-
-export const FORM_ID = 15422;
 
 type DownloadAreaContentProps = {
   products: CustomPost[];

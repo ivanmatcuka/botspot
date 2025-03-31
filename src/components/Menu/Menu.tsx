@@ -3,7 +3,7 @@
 import { CustomHoverMenu } from './HoverMenu';
 import { MobileMenu } from './MobileMenu';
 
-import { ButtonProps } from '@/app/components/Button/Button';
+import { ButtonProps } from '@/components/Button/Button';
 
 import {
   MenuItem as MuiMenuItem,

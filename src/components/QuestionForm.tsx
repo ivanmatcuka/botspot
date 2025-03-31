@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from '@/app/components/Button/Button';
-import { Form, Input } from '@/app/components/Form/Form';
-import { useSnackbar } from '@/app/components/Snackbar';
+import { Button } from '@/components/Button/Button';
+import { Form, Input } from '@/components/Form/Form';
+import { useSnackbar } from '@/components/Snackbar';
 import { submitFeedbackForm } from '@/service';
 
 import { Box, Typography } from '@mui/material';

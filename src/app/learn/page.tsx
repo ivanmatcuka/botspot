@@ -1,6 +1,6 @@
 import { generatePageMetadata } from '../../utils';
+import { Posts } from '../3d-academy/Posts';
 
-import { Posts } from '@/3d-academy/Posts';
 import { Banner } from '@/components/Banner/Banner';
 import { Button } from '@/components/Button/Button';
 import { MainBlock } from '@/components/MainBlock/MainBlock';

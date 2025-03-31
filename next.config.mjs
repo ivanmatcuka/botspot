@@ -60,6 +60,9 @@ function adaptRedirectsForNextJs(jsonData) {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  sassOptions: {
+    silenceDeprecations: ['color-functions', 'mixed-decls', 'legacy-js-api'],
+  },
   images: {
     remotePatterns: [
       {

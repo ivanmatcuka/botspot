@@ -2,9 +2,8 @@
 
 import { Input } from './Form/Form';
 
-import { Button } from '@/app/components/Button/Button';
-import { Menu } from '@/app/components/Menu/Menu';
-import { FORM_ID } from '@/app/download-area/DownloadAreaContent';
+import { Button } from '@/components/Button/Button';
+import { Menu } from '@/components/Menu/Menu';
 
 import {
   Box,
@@ -16,6 +15,8 @@ import {
 } from '@mui/material';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
+export const FORM_ID = 15422;
 
 type DownloadFormProps = {
   productNames: string[];
