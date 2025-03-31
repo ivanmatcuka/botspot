@@ -2,22 +2,21 @@ import { People } from './People';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
 import { Button } from '@/components/Button';
+import { LoadingSkeletons } from '@/components/LoadingSkeletons';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { Tile } from '@/components/Tile';
-import { getPeople } from '@/service';
 import { generatePageMetadata } from '@/utils';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('about');
 }
 
-export default async function About() {
-  const { data } = await getPeople();
-
+export default function About() {
   return (
     <main className="">
       <Banner
@@ -74,7 +73,9 @@ export default async function About() {
       </PageContainer>
 
       <PageContainer mt={0}>
-        <People data={data} />
+        <Suspense fallback={<LoadingSkeletons />}>
+          <People />
+        </Suspense>
       </PageContainer>
 
       <Box

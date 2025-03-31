@@ -1,21 +1,19 @@
 import { ExtraFooter } from './ExtraFooter';
 import { Jobs } from './Jobs';
 
-import { Box, Grid } from '@mui/material';
+import { Box } from '@mui/material';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
-import { getJobs } from '@/service';
 
 export const metadata: Metadata = {
   title: 'CAREERS – botspot',
 };
 
-export default async function Careers() {
-  const { data } = await getJobs();
-
+export default function Careers() {
   return (
     <main className="">
       <Banner
@@ -34,13 +32,9 @@ export default async function Careers() {
       </PageContainer>
 
       <Box maxWidth="xl" mx="auto">
-        <Grid
-          mb={{ xs: 5, md: 10 }}
-          spacing={{ xs: 2, md: 3, lg: 5 }}
-          container
-        >
-          <Jobs data={data} />
-        </Grid>
+        <Suspense>
+          <Jobs />
+        </Suspense>
       </Box>
 
       <ExtraFooter />

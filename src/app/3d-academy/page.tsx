@@ -1,8 +1,10 @@
 import { Posts } from './Posts';
 
-import { Box, Grid } from '@mui/material';
+import { Box } from '@mui/material';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
+import { LoadingSkeletons } from '@/components/LoadingSkeletons';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { QuestionForm } from '@/components/QuestionForm';
@@ -26,9 +28,9 @@ export default function Blog() {
       </PageContainer>
 
       <Box className="w-full flex justify-center" maxWidth="xl" mx="auto">
-        <Grid spacing={{ xs: 2, md: 3, lg: 5 }} xs={10} container>
+        <Suspense fallback={<LoadingSkeletons />}>
           <Posts />
-        </Grid>
+        </Suspense>
       </Box>
 
       <QuestionForm />

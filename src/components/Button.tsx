@@ -5,6 +5,7 @@ import {
   ButtonProps as MuiButtonProps,
   styled,
 } from '@mui/material';
+import Link from 'next/link';
 import { FC } from 'react';
 
 import { MenuItem } from '@/components/Menu/Menu';
@@ -64,7 +65,7 @@ const TopicButton = styled(({ ...props }: MuiButtonProps) => (
 
 const MenuItemButton = styled(({ ...props }: MuiButtonProps) => (
   <MenuItem className={props.className}>
-    <MuiButton color="info" variant="text" {...props} />
+    <MuiButton color="info" component={Link} variant="text" {...props} />
   </MenuItem>
 ))(({ theme }) => ({
   '&:hover': {

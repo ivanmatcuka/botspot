@@ -1,12 +1,14 @@
 import { generatePageMetadata } from '../../utils';
 import { Posts } from '../3d-academy/Posts';
 
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
 import { Button } from '@/components/Button';
+import { LoadingSkeletons } from '@/components/LoadingSkeletons';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { QuestionForm } from '@/components/QuestionForm';
@@ -90,9 +92,9 @@ export default function Learn() {
       </PageContainer>
 
       <Box className="w-full flex justify-center" maxWidth="xl" mx="auto">
-        <Grid spacing={{ xs: 2, md: 3, lg: 5 }} xs={10} container>
+        <Suspense fallback={<LoadingSkeletons count={6} />}>
           <Posts perPage={6} hidePagination />
-        </Grid>
+        </Suspense>
       </Box>
 
       <QuestionForm />

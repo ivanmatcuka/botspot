@@ -1,24 +1,23 @@
-import { Box, Typography } from '@mui/material';
+import LandingPageProducts from './LandingPageProducts';
+
+import { Box, Skeleton, Typography } from '@mui/material';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
 import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
-import { LandingPageProduct } from '@/components/LandingPageProduct';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { PartnerLogo } from '@/components/PartnerLogo';
 import { Tile } from '@/components/Tile';
-import { getProducts } from '@/service';
 import { generatePageMetadata } from '@/utils';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('home');
 }
 
-export default async function Home() {
-  const { data: products } = await getProducts();
-
+export default function Home() {
   return (
     <main className="">
       <Banner
@@ -62,9 +61,9 @@ export default async function Home() {
         <PartnerLogo name="vertex" />
       </Box>
 
-      {products.map((product) => (
-        <LandingPageProduct key={product.id} product={product} />
-      ))}
+      <Suspense fallback={<Skeleton height="100%" variant="rectangular" />}>
+        <LandingPageProducts />
+      </Suspense>
 
       <Box
         bgcolor="grey.100"

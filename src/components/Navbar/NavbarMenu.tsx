@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { FC } from 'react';
 
 import { Button } from '@/components/Button';
@@ -20,6 +21,7 @@ export const NavbarMenu: FC<NavbarMenuProps> = ({ item, currentPath }) => {
     return (
       <Button
         className={currentPath === item.href ? 'active' : ''}
+        component={Link}
         disabled={item.disabled}
         href={item.href ?? '/'}
         key={item.label}

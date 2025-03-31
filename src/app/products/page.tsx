@@ -1,24 +1,24 @@
-import { Box, Typography } from '@mui/material';
+import ProductsList from './Products';
+
+import { Box, Skeleton, Typography } from '@mui/material';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
 import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
 import { GalleryTile } from '@/components/GalleryTile';
 import { MainBlock } from '@/components/MainBlock';
-import { MediaBlock } from '@/components/MediaBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { SecondaryBlock } from '@/components/SecondaryBlock';
 import { Tile } from '@/components/Tile';
-import { CustomFields, getProducts } from '@/service';
 import { generatePageMetadata } from '@/utils';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('products');
 }
-export default async function Products() {
-  const { data: products } = await getProducts();
 
+export default function Products() {
   return (
     <main className="">
       <Banner
@@ -73,48 +73,9 @@ export default async function Products() {
         </Tile>
       </Box>
 
-      {products.map((product, index) => {
-        const { picture }: Partial<CustomFields> = product.acf ?? {};
-
-        return (
-          <div key={index}>
-            <MediaBlock
-              assetUrl={picture}
-              containerClassName="block md:hidden"
-              objectFit="cover"
-              banner
-            />
-
-            <MediaBlock
-              assetUrl={picture}
-              containerClassName="hidden md:block"
-              objectFit="contain"
-              banner
-            />
-
-            <PageContainer mt={{ xs: 10, md: 15 }}>
-              <SecondaryBlock
-                headline={product?.acf?.['full-name'] || product.title.rendered}
-                primaryCta={
-                  <Button href={`/products/${product.slug}`} variant="primary">
-                    Explore{' '}
-                    {product?.acf?.['short-name'] || product.title.rendered}
-                  </Button>
-                }
-                secondaryCta={
-                  <Button
-                    href={`/download-area/${product.slug}`}
-                    variant="secondary"
-                  >
-                    Download Data Sheet
-                  </Button>
-                }
-                sublineElement={product.excerpt.rendered}
-              />
-            </PageContainer>
-          </div>
-        );
-      })}
+      <Suspense fallback={<Skeleton height="100%" variant="rectangular" />}>
+        <ProductsList />
+      </Suspense>
 
       <GalleryTile imgUrl="/img/products/4.png">
         <SecondaryBlock

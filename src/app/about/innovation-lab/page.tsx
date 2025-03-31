@@ -1,25 +1,21 @@
+import InnovationLabPost from './Post';
+
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
 import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
-import { Post } from '@/components/Post';
 import { Tile } from '@/components/Tile';
-import { getPostBySlug } from '@/service';
-import { getFeaturedImageUrl } from '@/utils';
-
-const POST_SLUG = 'scanning-horses';
 
 export const metadata: Metadata = {
   title: 'INNOVATION LAB – botspot',
 };
 
-export default async function InnovationLab() {
-  const post = await getPostBySlug(POST_SLUG);
-
+export default function InnovationLab() {
   return (
     <main className="">
       <Banner
@@ -86,19 +82,10 @@ export default async function InnovationLab() {
             subline="Recent Developments"
           />
         </PageContainer>
-        {post && (
-          <PageContainer mb={0}>
-            <Post
-              cta={
-                <Button href={`/3d-academy/${post.slug}`} variant="secondary">
-                  Read Full Story
-                </Button>
-              }
-              featuredImage={getFeaturedImageUrl(post)}
-              title={post.title.rendered}
-            />
-          </PageContainer>
-        )}
+
+        <Suspense>
+          <InnovationLabPost />
+        </Suspense>
       </Box>
 
       <FeedbackForm defaultTopic="Innovation Lab" />

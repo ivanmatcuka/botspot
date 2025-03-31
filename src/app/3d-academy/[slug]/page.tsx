@@ -5,8 +5,10 @@ import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 
 import { Button } from '@/components/Button';
+import { LoadingSkeletons } from '@/components/LoadingSkeletons';
 import { ThemedContainer } from '@/components/ThemedContainer';
 import { getPostBySlug } from '@/service';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
@@ -100,9 +102,10 @@ export default async function Post({
             >
               Related Articles:
             </Typography>
-            <Grid spacing={{ xs: 2, md: 3, lg: 5 }} container>
+
+            <Suspense fallback={<LoadingSkeletons count={3} />}>
               <Posts perPage={3} hidePagination />
-            </Grid>
+            </Suspense>
           </Box>
         </Grid>
       </Grid>

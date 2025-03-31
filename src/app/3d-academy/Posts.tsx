@@ -1,9 +1,10 @@
 'use client';
 
-import { Grid, Skeleton } from '@mui/material';
-import { FC, useEffect, useMemo, useState } from 'react';
+import { Grid } from '@mui/material';
+import { FC, useEffect, useState } from 'react';
 
 import { Button } from '@/components/Button';
+import { LoadingSkeletons } from '@/components/LoadingSkeletons';
 import { Pagination } from '@/components/Pagination';
 import { Post } from '@/components/Post';
 import { CustomPost, getPosts } from '@/service';
@@ -34,50 +35,40 @@ export const Posts: FC<PostProps> = ({
       .finally(() => setLoading(false));
   }, [page, perPage]);
 
-  const skeleton = useMemo(
-    () =>
-      Array(perPage)
-        .fill(null)
-        .map((_, index) => (
-          <Grid key={index} lg={4} md={6} xs={12} item>
-            <Skeleton height={360} variant="rounded" />
-          </Grid>
-        )),
-    [perPage],
-  );
-
   return (
-    <>
-      {loading
-        ? skeleton
-        : posts.map((post) => (
-            <Grid
-              key={post.id}
-              lg={list ? 12 : 4}
-              md={list ? 12 : 6}
-              xs={12}
-              item
-            >
-              <Post
-                cta={
-                  <Button
-                    href={`/3d-academy/${post.slug}`}
-                    target="_blank"
-                    variant="secondary"
-                  >
-                    Read Full Article
-                  </Button>
-                }
-                featuredImage={getFeaturedImageUrl(post)}
-                title={post.title.rendered}
-              />
-            </Grid>
-          ))}
+    <Grid spacing={{ xs: 2, md: 3, lg: 5 }} xs={10} container>
+      {loading ? (
+        <LoadingSkeletons count={perPage} />
+      ) : (
+        posts.map((post) => (
+          <Grid
+            key={post.id}
+            lg={list ? 12 : 4}
+            md={list ? 12 : 6}
+            xs={12}
+            item
+          >
+            <Post
+              cta={
+                <Button
+                  href={`/3d-academy/${post.slug}`}
+                  target="_blank"
+                  variant="secondary"
+                >
+                  Read Full Article
+                </Button>
+              }
+              featuredImage={getFeaturedImageUrl(post)}
+              title={post.title.rendered}
+            />
+          </Grid>
+        ))
+      )}
       {!hidePagination && (
         <Grid mx="auto" xs={12} item>
           <Pagination count={count} perPage={perPage} setPage={setPage} />
         </Grid>
       )}
-    </>
+    </Grid>
   );
 };

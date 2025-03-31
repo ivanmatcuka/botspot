@@ -1,16 +1,16 @@
+import AreaPost from '../AreaPost';
+
 import { Typography } from '@mui/material';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
 import { Button } from '@/components/Button';
-import { GalleryTile } from '@/components/GalleryTile';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
-import { SecondaryBlock } from '@/components/SecondaryBlock';
 import { Tile } from '@/components/Tile';
-import { getAreaBySlug } from '@/service';
-import { generatePageMetadata, getFeaturedImageUrl } from '@/utils';
+import { generatePageMetadata } from '@/utils';
 
 const AREA_SLUG = 'areas-commercial';
 
@@ -18,11 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('commercial');
 }
 
-export default async function Commercial() {
-  const area = await getAreaBySlug(AREA_SLUG);
-  const post = area?.acf?.post;
-  const relatedImage = getFeaturedImageUrl(post ?? undefined);
-
+export default function Commercial() {
   return (
     <main className="">
       <Banner
@@ -146,19 +142,9 @@ export default async function Commercial() {
         </Typography>
       </Tile>
 
-      {post && (
-        <GalleryTile imgUrl={relatedImage}>
-          <SecondaryBlock
-            headline={post.post_title}
-            primaryCta={
-              <Button href={`/3d-academy/${post.post_name}`} variant="primary">
-                Read Full Story
-              </Button>
-            }
-            sublineElement={post.post_title}
-          />
-        </GalleryTile>
-      )}
+      <Suspense>
+        <AreaPost slug={AREA_SLUG} />
+      </Suspense>
     </main>
   );
 }

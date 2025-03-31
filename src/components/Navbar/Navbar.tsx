@@ -60,13 +60,10 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
               justifyContent="flex-start"
               item
             >
-              {matches ? (
-                <Link href="/">
-                  <Image alt="logo" height={46} src="/logo.svg" width={150} />
-                </Link>
-              ) : (
-                cta
-              )}
+              <Link className="hidden xl:block" href="/">
+                <Image alt="logo" height={46} src="/logo.svg" width={150} />
+              </Link>
+              <div className="block xl:hidden">{cta}</div>
               {matches ? (
                 <>
                   <Box display="flex" flex={1}>

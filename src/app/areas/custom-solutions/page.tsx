@@ -1,16 +1,16 @@
+import AreaPost from '../AreaPost';
+
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { Iframe } from '@/components/3dIframe';
 import { Banner } from '@/components/Banner';
 import { Button } from '@/components/Button';
-import { GalleryTile } from '@/components/GalleryTile';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
-import { SecondaryBlock } from '@/components/SecondaryBlock';
 import { Tile } from '@/components/Tile';
-import { getAreaBySlug } from '@/service';
-import { generatePageMetadata, getFeaturedImageUrl } from '@/utils';
+import { generatePageMetadata } from '@/utils';
 
 const AREA_SLUG = 'areas-custom';
 
@@ -18,11 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('custom-solutions');
 }
 
-export default async function CustomSolutions() {
-  const area = await getAreaBySlug(AREA_SLUG);
-  const post = area?.acf?.post;
-  const relatedImage = getFeaturedImageUrl(post ?? undefined);
-
+export default function CustomSolutions() {
   return (
     <main className="">
       <Banner
@@ -79,19 +75,9 @@ export default async function CustomSolutions() {
         </Typography>
       </Tile>
 
-      {post && (
-        <GalleryTile imgUrl={relatedImage}>
-          <SecondaryBlock
-            headline={post.post_title}
-            primaryCta={
-              <Button href={`/3d-academy/${post.post_name}`} variant="primary">
-                Read Full Story
-              </Button>
-            }
-            sublineElement={post.post_title}
-          />
-        </GalleryTile>
-      )}
+      <Suspense>
+        <AreaPost slug={AREA_SLUG} />
+      </Suspense>
     </main>
   );
 }
