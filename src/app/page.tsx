@@ -30,12 +30,12 @@ export default async function Home() {
         }}
         primaryCta={
           <Button href="/products" variant="primary">
-            Explore Products
+            {t('landing-page:banner.primaryCta')}
           </Button>
         }
         secondaryCta={
           <Button href="/areas" variant="secondary">
-            Explore Areas of Use
+            {t('landing-page:banner.secondaryCta')}
           </Button>
         }
         sublineElement={t('landing-page:banner.sublineText')}
