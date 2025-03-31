@@ -2,12 +2,12 @@ export const revalidate = 0;
 
 import './globals.scss';
 
-import { Button } from '@/app/components/Button/Button';
-import { Footer } from '@/app/components/Footer/Footer';
-import { Navbar } from '@/app/components/Navbar/Navbar';
-import { SnackbarProvider } from '@/app/components/Snackbar';
-import { getProducts } from '@/app/service';
-import ThemeRegistry from '@/app/theme/ThemeRegistry';
+import { Button } from '@/components/Button/Button';
+import { Footer } from '@/components/Footer/Footer';
+import { Navbar } from '@/components/Navbar/Navbar';
+import { SnackbarProvider } from '@/components/Snackbar';
+import { getProducts } from '@/service';
+import ThemeRegistry from '@/theme/ThemeRegistry';
 
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';

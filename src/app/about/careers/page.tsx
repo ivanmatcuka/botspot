@@ -1,10 +1,10 @@
 import { ExtraFooter } from './ExtraFooter';
 import { Jobs } from './Jobs';
 
-import { Banner } from '@/app/components/Banner/Banner';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer';
-import { getJobs } from '@/app/service';
+import { Banner } from '@/components/Banner/Banner';
+import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { PageContainer } from '@/components/PageContainer';
+import { getJobs } from '@/service';
 
 import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';

@@ -1,13 +1,13 @@
-import { Iframe } from '@/app/components/3dIframe/3dIframe';
-import { Banner } from '@/app/components/Banner/Banner';
-import { Button } from '@/app/components/Button/Button';
-import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer';
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { Tile } from '@/app/components/Tile/Tile';
-import { getAreaBySlug } from '@/app/service';
-import { generatePageMetadata, getFeaturedImageUrl } from '@/app/utils';
+import { Iframe } from '@/components/3dIframe/3dIframe';
+import { Banner } from '@/components/Banner/Banner';
+import { Button } from '@/components/Button/Button';
+import { GalleryTile } from '@/components/GalleryTile/GalleryTile';
+import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { PageContainer } from '@/components/PageContainer';
+import { SecondaryBlock } from '@/components/SecondaryBlock/SecondaryBlock';
+import { Tile } from '@/components/Tile/Tile';
+import { getAreaBySlug } from '@/service';
+import { generatePageMetadata, getFeaturedImageUrl } from '@/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';

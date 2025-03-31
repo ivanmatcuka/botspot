@@ -1,26 +1,26 @@
 import { SkeletonVideo } from '../../components/SkeletonVideo';
 
-import { Iframe } from '@/app/components/3dIframe/3dIframe';
-import { Banner } from '@/app/components/Banner/Banner';
-import { Button } from '@/app/components/Button/Button';
-import { FeedbackForm } from '@/app/components/FeedbackForm';
-import { Gallery } from '@/app/components/Gallery/Gallery';
-import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { MediaBlock } from '@/app/components/MediaBlock';
-import { PageContainer } from '@/app/components/PageContainer';
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { ThemedContainer } from '@/app/components/ThemedContainer';
-import { Tile } from '@/app/components/Tile/Tile';
-import { UnorderedList } from '@/app/components/UnorderedList';
-import { UnorderedListItem } from '@/app/components/UnorderedListItem';
+import { Iframe } from '@/components/3dIframe/3dIframe';
+import { Banner } from '@/components/Banner/Banner';
+import { Button } from '@/components/Button/Button';
+import { FeedbackForm } from '@/components/FeedbackForm';
+import { Gallery } from '@/components/Gallery/Gallery';
+import { GalleryTile } from '@/components/GalleryTile/GalleryTile';
+import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { MediaBlock } from '@/components/MediaBlock';
+import { PageContainer } from '@/components/PageContainer';
+import { SecondaryBlock } from '@/components/SecondaryBlock/SecondaryBlock';
+import { ThemedContainer } from '@/components/ThemedContainer';
+import { Tile } from '@/components/Tile/Tile';
+import { UnorderedList } from '@/components/UnorderedList';
+import { UnorderedListItem } from '@/components/UnorderedListItem';
 import {
   CustomFields,
   CustomPost,
   getPostBySlug,
   getProductBySlug,
-} from '@/app/service';
-import { generateSeo, getFeaturedImageUrl } from '@/app/utils';
+} from '@/service';
+import { generateSeo, getFeaturedImageUrl } from '@/utils';
 
 import { Box } from '@mui/material';
 import parse from 'html-react-parser';

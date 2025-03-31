@@ -1,9 +1,9 @@
 import { Posts } from './Posts';
 
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer';
-import { QuestionForm } from '@/app/components/QuestionForm';
-import { generatePageMetadata } from '@/app/utils';
+import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { PageContainer } from '@/components/PageContainer';
+import { QuestionForm } from '@/components/QuestionForm';
+import { generatePageMetadata } from '@/utils';
 
 import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';

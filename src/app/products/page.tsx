@@ -1,14 +1,14 @@
-import { Banner } from '@/app/components/Banner/Banner';
-import { Button } from '@/app/components/Button/Button';
-import { FeedbackForm } from '@/app/components/FeedbackForm';
-import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { MediaBlock } from '@/app/components/MediaBlock';
-import { PageContainer } from '@/app/components/PageContainer';
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { Tile } from '@/app/components/Tile/Tile';
-import { CustomFields, getProducts } from '@/app/service';
-import { generatePageMetadata } from '@/app/utils';
+import { Banner } from '@/components/Banner/Banner';
+import { Button } from '@/components/Button/Button';
+import { FeedbackForm } from '@/components/FeedbackForm';
+import { GalleryTile } from '@/components/GalleryTile/GalleryTile';
+import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { MediaBlock } from '@/components/MediaBlock';
+import { PageContainer } from '@/components/PageContainer';
+import { SecondaryBlock } from '@/components/SecondaryBlock/SecondaryBlock';
+import { Tile } from '@/components/Tile/Tile';
+import { CustomFields, getProducts } from '@/service';
+import { generatePageMetadata } from '@/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';

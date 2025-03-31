@@ -1,12 +1,12 @@
-import { generatePageMetadata } from '../utils';
+import { generatePageMetadata } from '../../utils';
 
-import { Posts } from '@/app/3d-academy/Posts';
-import { Banner } from '@/app/components/Banner/Banner';
-import { Button } from '@/app/components/Button/Button';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer';
-import { QuestionForm } from '@/app/components/QuestionForm';
-import { Tile } from '@/app/components/Tile/Tile';
+import { Posts } from '@/3d-academy/Posts';
+import { Banner } from '@/components/Banner/Banner';
+import { Button } from '@/components/Button/Button';
+import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { PageContainer } from '@/components/PageContainer';
+import { QuestionForm } from '@/components/QuestionForm';
+import { Tile } from '@/components/Tile/Tile';
 
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';

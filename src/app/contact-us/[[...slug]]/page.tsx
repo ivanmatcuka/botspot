@@ -1,4 +1,4 @@
-import { FeedbackForm } from '@/app/components/FeedbackForm';
+import { FeedbackForm } from '@/components/FeedbackForm';
 
 import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';

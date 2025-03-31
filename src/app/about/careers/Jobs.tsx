@@ -1,5 +1,5 @@
-import { Job } from '@/app/components/Job';
-import { CustomPost } from '@/app/service';
+import { Job } from '@/components/Job';
+import { CustomPost } from '@/service';
 
 import { Grid } from '@mui/material';
 import { FC } from 'react';

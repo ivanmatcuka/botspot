@@ -1,4 +1,4 @@
-import { CustomPost, getPage } from '@/app/service';
+import { CustomPost, getPage } from '@/service';
 
 import { Metadata } from 'next';
 import { Robots } from 'next/dist/lib/metadata/types/metadata-types';

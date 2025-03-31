@@ -1,4 +1,4 @@
-import { Button } from '@/app/components/Button/Button';
+import { Button } from '@/components/Button/Button';
 
 import { Box, Typography } from '@mui/material';
 

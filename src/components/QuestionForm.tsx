@@ -3,7 +3,7 @@
 import { Button } from '@/app/components/Button/Button';
 import { Form, Input } from '@/app/components/Form/Form';
 import { useSnackbar } from '@/app/components/Snackbar';
-import { submitFeedbackForm } from '@/app/service';
+import { submitFeedbackForm } from '@/service';
 
 import { Box, Typography } from '@mui/material';
 import { FC, useCallback, useEffect, useState } from 'react';

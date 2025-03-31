@@ -1,13 +1,13 @@
-import { Banner } from '@/app/components/Banner/Banner';
-import { Button } from '@/app/components/Button/Button';
-import { FeedbackForm } from '@/app/components/FeedbackForm';
-import { LandingPageProduct } from '@/app/components/LandingPageProduct';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer';
-import { PartnerLogo } from '@/app/components/PartnerLogo';
-import { Tile } from '@/app/components/Tile/Tile';
-import { getProducts } from '@/app/service';
-import { generatePageMetadata } from '@/app/utils';
+import { Banner } from '@/components/Banner/Banner';
+import { Button } from '@/components/Button/Button';
+import { FeedbackForm } from '@/components/FeedbackForm';
+import { LandingPageProduct } from '@/components/LandingPageProduct';
+import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { PageContainer } from '@/components/PageContainer';
+import { PartnerLogo } from '@/components/PartnerLogo';
+import { Tile } from '@/components/Tile/Tile';
+import { getProducts } from '@/service';
+import { generatePageMetadata } from '@/utils';
 
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';

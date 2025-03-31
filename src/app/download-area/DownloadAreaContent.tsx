@@ -1,12 +1,12 @@
 'use client';
 
-import { Button } from '@/app/components/Button/Button';
-import { DownloadForm } from '@/app/components/DownloadForm';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer';
-import { Post } from '@/app/components/Post';
-import { useSnackbar } from '@/app/components/Snackbar';
-import { CustomFields, CustomPost, submitFeedbackForm } from '@/app/service';
+import { Button } from '@/components/Button/Button';
+import { DownloadForm } from '@/components/DownloadForm';
+import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { PageContainer } from '@/components/PageContainer';
+import { Post } from '@/components/Post';
+import { useSnackbar } from '@/components/Snackbar';
+import { CustomFields, CustomPost, submitFeedbackForm } from '@/service';
 
 import { Grid } from '@mui/material';
 import { FC, useState } from 'react';

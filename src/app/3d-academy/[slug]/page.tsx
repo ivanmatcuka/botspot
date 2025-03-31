@@ -1,9 +1,9 @@
 import { Posts } from '../Posts';
 
-import { Button } from '@/app/components/Button/Button';
-import { ThemedContainer } from '@/app/components/ThemedContainer';
-import { getPostBySlug } from '@/app/service';
-import { generateSeo, getFeaturedImageUrl } from '@/app/utils';
+import { Button } from '@/components/Button/Button';
+import { ThemedContainer } from '@/components/ThemedContainer';
+import { getPostBySlug } from '@/service';
+import { generateSeo, getFeaturedImageUrl } from '@/utils';
 
 import { Facebook, LinkedIn, Twitter } from '@mui/icons-material';
 import { Box, Grid, Typography } from '@mui/material';

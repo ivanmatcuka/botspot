@@ -1,6 +1,6 @@
 import { DownloadAreaContent } from '../DownloadAreaContent';
 
-import { getProducts } from '@/app/service';
+import { getProducts } from '@/service';
 
 import { Metadata } from 'next';
 

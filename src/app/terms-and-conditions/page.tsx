@@ -1,6 +1,6 @@
-import { ThemedContainer } from '@/app/components/ThemedContainer';
-import { getPage } from '@/app/service';
-import { generatePageMetadata } from '@/app/utils';
+import { ThemedContainer } from '@/components/ThemedContainer';
+import { getPage } from '@/service';
+import { generatePageMetadata } from '@/utils';
 
 import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';

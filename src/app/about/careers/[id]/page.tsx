@@ -1,8 +1,8 @@
 import { ExtraFooter } from '../ExtraFooter';
 
-import { ThemedContainer } from '@/app/components/ThemedContainer';
-import { getPost } from '@/app/service';
-import { generateSeo } from '@/app/utils';
+import { ThemedContainer } from '@/components/ThemedContainer';
+import { getPost } from '@/service';
+import { generateSeo } from '@/utils';
 
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';

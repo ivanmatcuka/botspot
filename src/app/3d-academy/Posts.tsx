@@ -1,10 +1,10 @@
 'use client';
 
-import { Button } from '@/app/components/Button/Button';
-import { Pagination } from '@/app/components/Pagination';
-import { Post } from '@/app/components/Post';
-import { CustomPost, getPosts } from '@/app/service';
-import { getFeaturedImageUrl } from '@/app/utils';
+import { Button } from '@/components/Button/Button';
+import { Pagination } from '@/components/Pagination';
+import { Post } from '@/components/Post';
+import { CustomPost, getPosts } from '@/service';
+import { getFeaturedImageUrl } from '@/utils';
 
 import { Grid, Skeleton } from '@mui/material';
 import { FC, useEffect, useMemo, useState } from 'react';

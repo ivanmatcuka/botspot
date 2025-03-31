@@ -1,7 +1,7 @@
 'use client';
 
 import { IconLink } from '@/app/components/IconLink';
-import { CustomPost } from '@/app/service';
+import { CustomPost } from '@/service';
 
 import {
   Box,
