@@ -1,15 +1,15 @@
 import { Posts } from '../Posts';
 
-import { Button } from '@/app/components/Button/Button';
-import { ThemedContainer } from '@/app/components/ThemedContainer';
-import { getPostBySlug } from '@/app/service';
-import { generateSeo, getFeaturedImageUrl } from '@/app/utils';
-
 import { Facebook, LinkedIn, Twitter } from '@mui/icons-material';
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+
+import { Button } from '@/components/Button';
+import { ThemedContainer } from '@/components/ThemedContainer';
+import { getPostBySlug } from '@/service';
+import { generateSeo, getFeaturedImageUrl } from '@/utils';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 

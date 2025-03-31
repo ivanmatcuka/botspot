@@ -1,11 +1,5 @@
 'use client';
 
-import { Button } from '@/app/components/Button/Button';
-import { Form, Input } from '@/app/components/Form/Form';
-import { Menu } from '@/app/components/Menu/Menu';
-import { useSnackbar } from '@/app/components/Snackbar';
-import { getProducts, submitFeedbackForm } from '@/app/service';
-
 import {
   Box,
   Checkbox,
@@ -15,6 +9,12 @@ import {
 } from '@mui/material';
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
+import { Button } from '@/components/Button';
+import { Form, Input } from '@/components/Form';
+import { Menu } from '@/components/Menu/Menu';
+import { useSnackbar } from '@/components/Snackbar';
+import { getProducts, submitFeedbackForm } from '@/service';
 
 const TOPICS = ['3D Scan Service', 'Innovation Lab'] as const;
 const FORM_ID = 15420;

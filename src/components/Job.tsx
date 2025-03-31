@@ -1,5 +1,5 @@
-import { Button } from './Button/Button';
-import { Tile } from './Tile/Tile';
+import { Button } from './Button';
+import { Tile } from './Tile';
 
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
 import { Box, Typography } from '@mui/material';

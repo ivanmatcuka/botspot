@@ -1,19 +1,18 @@
-import { SkeletonVideo } from '../components/SkeletonVideo';
-
-import { Iframe } from '@/app/components/3dIframe/3dIframe';
-import { Banner } from '@/app/components/Banner/Banner';
-import { Button } from '@/app/components/Button/Button';
-import { FeedbackForm } from '@/app/components/FeedbackForm';
-import { Gallery } from '@/app/components/Gallery/Gallery';
-import { GalleryTile } from '@/app/components/GalleryTile/GalleryTile';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer';
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { Tile } from '@/app/components/Tile/Tile';
-import { generatePageMetadata } from '@/app/utils';
-
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
+
+import { Iframe } from '@/components/3dIframe';
+import { Banner } from '@/components/Banner';
+import { Button } from '@/components/Button';
+import { FeedbackForm } from '@/components/FeedbackForm';
+import { Gallery } from '@/components/Gallery';
+import { GalleryTile } from '@/components/GalleryTile';
+import { MainBlock } from '@/components/MainBlock';
+import { PageContainer } from '@/components/PageContainer';
+import { SecondaryBlock } from '@/components/SecondaryBlock';
+import { SkeletonVideo } from '@/components/SkeletonVideo';
+import { Tile } from '@/components/Tile';
+import { generatePageMetadata } from '@/utils';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('service');

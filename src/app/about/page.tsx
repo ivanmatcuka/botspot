@@ -1,16 +1,16 @@
 import { People } from './People';
 
-import { Banner } from '@/app/components/Banner/Banner';
-import { Button } from '@/app/components/Button/Button';
-import { MainBlock } from '@/app/components/MainBlock/MainBlock';
-import { PageContainer } from '@/app/components/PageContainer';
-import { Tile } from '@/app/components/Tile/Tile';
-import { getPeople } from '@/app/service';
-import { generatePageMetadata } from '@/app/utils';
-import { createTranslation } from '@/i18n/server';
-
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
+
+import { Banner } from '@/components/Banner';
+import { Button } from '@/components/Button';
+import { MainBlock } from '@/components/MainBlock';
+import { PageContainer } from '@/components/PageContainer';
+import { Tile } from '@/components/Tile';
+import { createTranslation } from '@/i18n/server';
+import { getPeople } from '@/service';
+import { generatePageMetadata } from '@/utils';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('about');

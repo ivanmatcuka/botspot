@@ -2,18 +2,18 @@ export const revalidate = 0;
 
 import './globals.scss';
 
-import { Button } from '@/app/components/Button/Button';
-import { Footer } from '@/app/components/Footer/Footer';
-import { Navbar } from '@/app/components/Navbar/Navbar';
-import { SnackbarProvider } from '@/app/components/Snackbar';
-import { getProducts } from '@/app/service';
-import ThemeRegistry from '@/app/theme/ThemeRegistry';
-
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
+
+import { Button } from '@/components/Button';
+import { Footer } from '@/components/Footer';
+import { Navbar } from '@/components/Navbar/Navbar';
+import { SnackbarProvider } from '@/components/Snackbar';
+import { getProducts } from '@/service';
+import ThemeRegistry from '@/theme/ThemeRegistry';
 
 import type { Metadata } from 'next';
 

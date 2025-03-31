@@ -1,7 +1,7 @@
-import { MediaBlock, MediaBlockProps } from '@/app/components/MediaBlock';
-
 import { Box, Grid, Typography } from '@mui/material';
 import { FC, isValidElement, ReactNode } from 'react';
+
+import { MediaBlock, MediaBlockProps } from '@/components/MediaBlock';
 
 type BannerProps = {
   headline: string;

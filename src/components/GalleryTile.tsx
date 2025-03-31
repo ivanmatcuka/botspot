@@ -1,6 +1,6 @@
 import { Box, Grid } from '@mui/material';
-import { FC, PropsWithChildren } from 'react';
 import Image from 'next/image';
+import { FC, PropsWithChildren } from 'react';
 
 type GalleryTileProps = {
   imgUrl: string;

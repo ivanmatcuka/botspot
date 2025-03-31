@@ -1,12 +1,12 @@
-import { Button } from '@/app/components/Button/Button';
-import { MediaBlock } from '@/app/components/MediaBlock';
-import { PageContainer } from '@/app/components/PageContainer';
-import { ScrollableBlock } from '@/app/components/ScrollableBlock';
-import { SecondaryBlock } from '@/app/components/SecondaryBlock/SecondaryBlock';
-import { CustomFields, CustomPost } from '@/app/service';
-import { getFeaturedImageUrl } from '@/app/utils';
-
 import { FC } from 'react';
+
+import { Button } from '@/components/Button';
+import { MediaBlock } from '@/components/MediaBlock';
+import { PageContainer } from '@/components/PageContainer';
+import { ScrollableBlock } from '@/components/ScrollableBlock';
+import { SecondaryBlock } from '@/components/SecondaryBlock';
+import { CustomFields, CustomPost } from '@/service';
+import { getFeaturedImageUrl } from '@/utils';
 
 type LandingPageProductProps = {
   product: CustomPost;

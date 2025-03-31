@@ -1,6 +1,6 @@
-import { Button } from '@/app/components/Button/Button';
-
 import { Box, Typography } from '@mui/material';
+
+import { Button } from '@/components/Button';
 
 export default function NotFound() {
   return (

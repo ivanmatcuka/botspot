@@ -1,10 +1,10 @@
-import { CustomPost, getPage } from '@/app/service';
-
 import { Metadata } from 'next';
 import { Robots } from 'next/dist/lib/metadata/types/metadata-types';
 import { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { Twitter } from 'next/dist/lib/metadata/types/twitter-types';
 import { WP_REST_API_Attachment } from 'wp-types';
+
+import { CustomPost, getPage } from '@/service';
 interface Sizes {
   [size: string]: {
     source_url: string;

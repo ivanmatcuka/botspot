@@ -1,8 +1,5 @@
 'use client';
 
-import { IconLink } from '@/app/components/IconLink';
-import { CustomPost } from '@/app/service';
-
 import {
   Box,
   Container,
@@ -13,6 +10,9 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
+
+import { IconLink } from '@/components/IconLink';
+import { CustomPost } from '@/service';
 
 const Text = ({
   children,

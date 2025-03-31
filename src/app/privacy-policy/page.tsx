@@ -1,10 +1,10 @@
-import { ThemedContainer } from '@/app/components/ThemedContainer';
-import { getPage } from '@/app/service';
-import { generatePageMetadata } from '@/app/utils';
-
-import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+import { PageContainer } from '@/components/PageContainer';
+import { ThemedContainer } from '@/components/ThemedContainer';
+import { getPage } from '@/service';
+import { generatePageMetadata } from '@/utils';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('privacy-policy');
@@ -17,15 +17,11 @@ export default async function PrivacyPolicy() {
 
   return (
     <main className="">
-      <ThemedContainer maxWidth="xl">
-        <Grid md={10} mx="auto" xs={12} container>
-          <Grid my={{ xs: 8, md: 15 }} xs={12} item>
-            <Box
-              dangerouslySetInnerHTML={{ __html: page?.content.rendered ?? '' }}
-            />
-          </Grid>
-        </Grid>
-      </ThemedContainer>
+      <PageContainer mb={8} mt={{ xs: 10, md: 15 }}>
+        <ThemedContainer
+          dangerouslySetInnerHTML={{ __html: page?.content.rendered ?? '' }}
+        />
+      </PageContainer>
     </main>
   );
 }
