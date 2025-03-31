@@ -4,19 +4,19 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { isValidElement, ReactElement } from 'react';
 
-import { Iframe } from '@/components/3dIframe/3dIframe';
-import { Banner } from '@/components/Banner/Banner';
-import { Button } from '@/components/Button/Button';
+import { Iframe } from '@/components/3dIframe';
+import { Banner } from '@/components/Banner';
+import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
-import { Gallery } from '@/components/Gallery/Gallery';
-import { GalleryTile } from '@/components/GalleryTile/GalleryTile';
-import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { Gallery } from '@/components/Gallery';
+import { GalleryTile } from '@/components/GalleryTile';
+import { MainBlock } from '@/components/MainBlock';
 import { MediaBlock } from '@/components/MediaBlock';
 import { PageContainer } from '@/components/PageContainer';
-import { SecondaryBlock } from '@/components/SecondaryBlock/SecondaryBlock';
+import { SecondaryBlock } from '@/components/SecondaryBlock';
 import { SkeletonVideo } from '@/components/SkeletonVideo';
 import { ThemedContainer } from '@/components/ThemedContainer';
-import { Tile } from '@/components/Tile/Tile';
+import { Tile } from '@/components/Tile';
 import { UnorderedList } from '@/components/UnorderedList';
 import { UnorderedListItem } from '@/components/UnorderedListItem';
 import {

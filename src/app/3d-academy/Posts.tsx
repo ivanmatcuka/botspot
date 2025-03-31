@@ -3,12 +3,11 @@
 import { Grid, Skeleton } from '@mui/material';
 import { FC, useEffect, useMemo, useState } from 'react';
 
-import { Button } from '@/components/Button/Button';
+import { Button } from '@/components/Button';
 import { Pagination } from '@/components/Pagination';
 import { Post } from '@/components/Post';
 import { CustomPost, getPosts } from '@/service';
 import { getFeaturedImageUrl } from '@/utils';
-
 
 type PostProps = {
   perPage?: number;

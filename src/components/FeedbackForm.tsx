@@ -10,8 +10,8 @@ import {
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Button } from '@/components/Button/Button';
-import { Form, Input } from '@/components/Form/Form';
+import { Button } from '@/components/Button';
+import { Form, Input } from '@/components/Form';
 import { Menu } from '@/components/Menu/Menu';
 import { useSnackbar } from '@/components/Snackbar';
 import { getProducts, submitFeedbackForm } from '@/service';

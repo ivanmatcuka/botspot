@@ -3,14 +3,13 @@ import { People } from './People';
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
-import { Banner } from '@/components/Banner/Banner';
-import { Button } from '@/components/Button/Button';
-import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { Banner } from '@/components/Banner';
+import { Button } from '@/components/Button';
+import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
-import { Tile } from '@/components/Tile/Tile';
+import { Tile } from '@/components/Tile';
 import { getPeople } from '@/service';
 import { generatePageMetadata } from '@/utils';
-
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('about');

@@ -8,8 +8,8 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 
-import { Button } from '@/components/Button/Button';
-import { Footer } from '@/components/Footer/Footer';
+import { Button } from '@/components/Button';
+import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar/Navbar';
 import { SnackbarProvider } from '@/components/Snackbar';
 import { getProducts } from '@/service';

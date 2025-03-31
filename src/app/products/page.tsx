@@ -1,18 +1,17 @@
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
-import { Banner } from '@/components/Banner/Banner';
-import { Button } from '@/components/Button/Button';
+import { Banner } from '@/components/Banner';
+import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
-import { GalleryTile } from '@/components/GalleryTile/GalleryTile';
-import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { GalleryTile } from '@/components/GalleryTile';
+import { MainBlock } from '@/components/MainBlock';
 import { MediaBlock } from '@/components/MediaBlock';
 import { PageContainer } from '@/components/PageContainer';
-import { SecondaryBlock } from '@/components/SecondaryBlock/SecondaryBlock';
-import { Tile } from '@/components/Tile/Tile';
+import { SecondaryBlock } from '@/components/SecondaryBlock';
+import { Tile } from '@/components/Tile';
 import { CustomFields, getProducts } from '@/service';
 import { generatePageMetadata } from '@/utils';
-
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('products');

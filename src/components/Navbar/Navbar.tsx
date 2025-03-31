@@ -25,7 +25,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
 
-import { Button } from '@/components/Button/Button';
+import { Button } from '@/components/Button';
 import { Menu } from '@/components/Menu/Menu';
 
 const ControlledAccordion: FC<AccordionProps & { item: MenuItem }> = ({

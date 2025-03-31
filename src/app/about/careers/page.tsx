@@ -4,11 +4,10 @@ import { Jobs } from './Jobs';
 import { Box, Grid } from '@mui/material';
 import { Metadata } from 'next';
 
-import { Banner } from '@/components/Banner/Banner';
-import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { Banner } from '@/components/Banner';
+import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { getJobs } from '@/service';
-
 
 export const metadata: Metadata = {
   title: 'CAREERS – botspot',

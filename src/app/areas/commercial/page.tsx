@@ -2,16 +2,15 @@ import { Typography } from '@mui/material';
 import { Metadata } from 'next';
 import Image from 'next/image';
 
-import { Banner } from '@/components/Banner/Banner';
-import { Button } from '@/components/Button/Button';
-import { GalleryTile } from '@/components/GalleryTile/GalleryTile';
-import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { Banner } from '@/components/Banner';
+import { Button } from '@/components/Button';
+import { GalleryTile } from '@/components/GalleryTile';
+import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
-import { SecondaryBlock } from '@/components/SecondaryBlock/SecondaryBlock';
-import { Tile } from '@/components/Tile/Tile';
+import { SecondaryBlock } from '@/components/SecondaryBlock';
+import { Tile } from '@/components/Tile';
 import { getAreaBySlug } from '@/service';
 import { generatePageMetadata, getFeaturedImageUrl } from '@/utils';
-
 
 const AREA_SLUG = 'areas-commercial';
 

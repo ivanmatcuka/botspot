@@ -1,14 +1,14 @@
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
-import { Banner } from '@/components/Banner/Banner';
-import { Button } from '@/components/Button/Button';
+import { Banner } from '@/components/Banner';
+import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
 import { LandingPageProduct } from '@/components/LandingPageProduct';
-import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { PartnerLogo } from '@/components/PartnerLogo';
-import { Tile } from '@/components/Tile/Tile';
+import { Tile } from '@/components/Tile';
 import { getProducts } from '@/service';
 import { generatePageMetadata } from '@/utils';
 

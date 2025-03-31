@@ -3,7 +3,7 @@
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { FC, MouseEvent } from 'react';
 
-import { Button, ButtonProps } from '@/components/Button/Button';
+import { Button, ButtonProps } from '@/components/Button';
 
 type MenuButtonProps = {
   label: string;

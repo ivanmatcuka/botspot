@@ -5,7 +5,7 @@ import { MenuButton } from './MenuButton';
 import { Menu as MuiMenu, useTheme } from '@mui/material';
 import { FC, PropsWithChildren, useState } from 'react';
 
-import { ButtonProps } from '@/components/Button/Button';
+import { ButtonProps } from '@/components/Button';
 
 type MobileMenuProps = {
   label: string;

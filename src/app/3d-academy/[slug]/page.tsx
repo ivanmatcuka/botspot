@@ -1,16 +1,15 @@
 import { Posts } from '../Posts';
 
-
 import { Facebook, LinkedIn, Twitter } from '@mui/icons-material';
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import { generateSeo, getFeaturedImageUrl } from '@/utils';
-import { getPostBySlug } from '@/service';
+import { Button } from '@/components/Button';
 import { ThemedContainer } from '@/components/ThemedContainer';
-import { Button } from '@/components/Button/Button';
+import { getPostBySlug } from '@/service';
+import { generateSeo, getFeaturedImageUrl } from '@/utils';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 

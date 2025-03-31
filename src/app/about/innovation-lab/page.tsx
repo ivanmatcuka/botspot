@@ -1,16 +1,15 @@
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
-import { Banner } from '@/components/Banner/Banner';
-import { Button } from '@/components/Button/Button';
+import { Banner } from '@/components/Banner';
+import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
-import { MainBlock } from '@/components/MainBlock/MainBlock';
+import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { Post } from '@/components/Post';
-import { Tile } from '@/components/Tile/Tile';
+import { Tile } from '@/components/Tile';
 import { getPostBySlug } from '@/service';
 import { getFeaturedImageUrl } from '@/utils';
-
 
 const POST_SLUG = 'scanning-horses';
 

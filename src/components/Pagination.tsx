@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { FC, ReactEventHandler } from 'react';
 
-import { Button } from '@/components/Button/Button';
+import { Button } from '@/components/Button';
 
 type PaginationProps = {
   count: number;
