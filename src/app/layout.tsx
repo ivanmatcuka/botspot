@@ -15,7 +15,6 @@ import { SnackbarProvider } from '@/components/Snackbar';
 import { getProducts } from '@/service';
 import ThemeRegistry from '@/theme/ThemeRegistry';
 
-
 import type { Metadata } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });

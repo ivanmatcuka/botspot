@@ -12,7 +12,6 @@ import { Tile } from '@/components/Tile/Tile';
 import { getProducts } from '@/service';
 import { generatePageMetadata } from '@/utils';
 
-
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata('home');
 }
