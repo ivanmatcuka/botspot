@@ -49,6 +49,7 @@ const requestInit: RequestInit = {
   headers: {
     'Content-Type': 'application/json',
   },
+  cache: 'force-cache',
 };
 
 const redirectsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/redirection/v1/redirect`;
