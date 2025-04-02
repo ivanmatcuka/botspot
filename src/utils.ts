@@ -4,7 +4,7 @@ import { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { Twitter } from 'next/dist/lib/metadata/types/twitter-types';
 import { WP_REST_API_Attachment } from 'wp-types';
 
-import { CustomPost } from '@/service';
+import { CustomPost, getPages } from '@/service';
 interface Sizes {
   [size: string]: {
     source_url: string;
@@ -56,24 +56,20 @@ export const generateSeo = (post: CustomPost) => {
 };
 
 export const generatePageMetadata = async (slug: string): Promise<Metadata> => {
-  return {
-    title: 'botspot',
-  };
+  const pages = await getPages();
+  const page = pages.data.find((page) => page.slug === slug);
 
-  // const pages = await getPages();
-  // const page = pages.data.find((page) => page.slug === slug);
+  if (!page) {
+    return {
+      title: 'botspot',
+    };
+  }
 
-  // if (!page) {
-  //   return {
-  //     title: 'botspot',
-  //   };
-  // }
-
-  // return (
-  //   generateSeo(page) ?? {
-  //     title: `${page.title.rendered} – botspot`,
-  //   }
-  // );
+  return (
+    generateSeo(page) ?? {
+      title: `${page.title.rendered} – botspot`,
+    }
+  );
 };
 
 export function parseFieldOptions(options: string[]): Record<string, string> {
