@@ -27,6 +27,7 @@
     "html-react-parser": "^5.1.18",
     "material-ui-popup-state": "5.3.3",
     "next": "^15.2.3",
+    "nextjs-toploader": "^3.8.16",
     "rc-virtual-list": "^3.18.5",
     "react": "^18",
     "react-dom": "^18",

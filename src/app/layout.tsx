@@ -6,6 +6,7 @@ import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Inter } from 'next/font/google';
+import NextTopLoader from 'nextjs-toploader';
 import { ReactNode } from 'react';
 
 import { Button } from '@/components/Button';
@@ -96,6 +97,7 @@ export default async function RootLayout({
         <AppRouterCacheProvider>
           <ThemeRegistry>
             <SnackbarProvider>
+              <NextTopLoader />
               <Navbar
                 cta={
                   <Button href="/contact-us" variant="primary">
