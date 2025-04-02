@@ -41,7 +41,7 @@ export type CustomFields = {
   };
 };
 
-const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+const baseUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp/v2`;
 const formsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/contact-form-7/v1/contact-forms`;
 
 const requestInit: RequestInit = {

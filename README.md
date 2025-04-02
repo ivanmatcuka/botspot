@@ -32,7 +32,6 @@ The project follows a typical Next.js structure with some custom organization:
 Ensure you have the following environment variables set:
 
 - `NEXT_PUBLIC_BASE_URL`: The base URL of your website.
-- `NEXT_PUBLIC_API_URL`: The URL for your WordPress API (WP REST API).
 - `NEXT_PUBLIC_EMAIL_FROM`: The email address used as the sender for automated emails.
 
 - `SMTP_HOST`: The hostname of your SMTP server for sending emails.
