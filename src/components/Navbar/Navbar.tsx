@@ -61,7 +61,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
               item
             >
               {/* <Link className="hidden xl:block" href="/"> */}
-              <Link href="/">
+              <Link href="/" prefetch={false}>
                 <Image
                   alt="logo"
                   height={46}
