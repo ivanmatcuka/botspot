@@ -4,7 +4,7 @@ import { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { Twitter } from 'next/dist/lib/metadata/types/twitter-types';
 import { WP_REST_API_Attachment } from 'wp-types';
 
-import { CustomPost, getPage } from '@/service';
+import { CustomPost, getPages } from '@/service';
 interface Sizes {
   [size: string]: {
     source_url: string;
@@ -56,7 +56,8 @@ export const generateSeo = (post: CustomPost) => {
 };
 
 export const generatePageMetadata = async (slug: string): Promise<Metadata> => {
-  const page = await getPage(slug);
+  const pages = await getPages();
+  const page = pages.data.find((page) => page.slug === slug);
 
   if (!page) {
     return {

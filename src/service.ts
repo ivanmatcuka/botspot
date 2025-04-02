@@ -275,6 +275,21 @@ export const getPage = async (
   }
 };
 
+export const getPages = async (): Promise<{
+  data: CustomPost[];
+  count: number;
+}> => {
+  const response = await fetch(`${baseUrl}/pages`, requestInit);
+
+  try {
+    const data = await response.json();
+    const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
+    return { data, count };
+  } catch {
+    return { data: [], count: 0 };
+  }
+};
+
 export const submitFeedbackForm = async (
   formData: FormData,
   formId: number,
