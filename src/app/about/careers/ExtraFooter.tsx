@@ -17,7 +17,6 @@ export const ExtraFooter = () => (
             <Link
               className="hover:underline text-primary-main"
               href={`mailto:${EMAIL}`}
-              prefetch={false}
             >
               {EMAIL}
             </Link>{' '}

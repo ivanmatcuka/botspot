@@ -19,7 +19,6 @@ export const IconLink: FC<IconLinkProps> = ({ href, alt }) => (
     <Link
       className="absolute inset-0 opacity-0 hover:opacity-100"
       href={href}
-      prefetch={false}
       target="_blank"
     >
       <Image
