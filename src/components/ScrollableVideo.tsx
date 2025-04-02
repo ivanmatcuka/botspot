@@ -74,7 +74,7 @@ export const ScrollableVideo: FC<ScrollableVideoProps> = ({ imagesUrls }) => {
             <img
               alt={`frame_${frame + 1}`}
               className="w-full h-full object-cover"
-              loading="eager"
+              loading="lazy"
               src={images?.[frame]?.src}
             />
           )}
