@@ -1,8 +1,6 @@
-import { generatePageMetadata } from '../../utils';
 import { Posts } from '../3d-academy/Posts';
 
 import { Box, Typography } from '@mui/material';
-import { Metadata } from 'next';
 import Image from 'next/image';
 import { Suspense } from 'react';
 
@@ -13,10 +11,6 @@ import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { QuestionForm } from '@/components/QuestionForm';
 import { Tile } from '@/components/Tile';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generatePageMetadata('learn');
-}
 
 export default function Learn() {
   return (

@@ -1,7 +1,6 @@
 import AreaPost from '../AreaPost';
 
 import { Box, Typography } from '@mui/material';
-import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import { Iframe } from '@/components/3dIframe';
@@ -10,14 +9,9 @@ import { Button } from '@/components/Button';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { Tile } from '@/components/Tile';
-import { generatePageMetadata } from '@/utils';
 
 const AREA_SLUG = 'areas-industrial';
 const POST_SLUG = 'digitization-of-automotive-parts-with-complex-geometry';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generatePageMetadata('industrial');
-}
 
 export default function Industrial() {
   return (

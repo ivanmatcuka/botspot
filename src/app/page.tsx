@@ -1,7 +1,6 @@
 import LandingPageProducts from './LandingPageProducts';
 
 import { Box, Skeleton, Typography } from '@mui/material';
-import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
@@ -11,11 +10,6 @@ import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { PartnerLogo } from '@/components/PartnerLogo';
 import { Tile } from '@/components/Tile';
-import { generatePageMetadata } from '@/utils';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generatePageMetadata('home');
-}
 
 export default function Home() {
   return (

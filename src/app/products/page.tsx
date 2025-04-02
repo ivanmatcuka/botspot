@@ -1,7 +1,6 @@
 import ProductsList from './Products';
 
 import { Box, Skeleton, Typography } from '@mui/material';
-import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
@@ -12,11 +11,6 @@ import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { SecondaryBlock } from '@/components/SecondaryBlock';
 import { Tile } from '@/components/Tile';
-import { generatePageMetadata } from '@/utils';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generatePageMetadata('products');
-}
 
 export default function Products() {
   return (

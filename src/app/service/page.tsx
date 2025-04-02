@@ -1,5 +1,4 @@
 import { Box, Typography } from '@mui/material';
-import { Metadata } from 'next';
 
 import { Iframe } from '@/components/3dIframe';
 import { Banner } from '@/components/Banner';
@@ -12,11 +11,6 @@ import { PageContainer } from '@/components/PageContainer';
 import { SecondaryBlock } from '@/components/SecondaryBlock';
 import { SkeletonVideo } from '@/components/SkeletonVideo';
 import { Tile } from '@/components/Tile';
-import { generatePageMetadata } from '@/utils';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generatePageMetadata('service');
-}
 
 export default function Service() {
   return (

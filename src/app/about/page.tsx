@@ -1,7 +1,6 @@
 import { People } from './People';
 
 import { Box, Typography } from '@mui/material';
-import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
@@ -10,11 +9,6 @@ import { LoadingSkeletons } from '@/components/LoadingSkeletons';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { Tile } from '@/components/Tile';
-import { generatePageMetadata } from '@/utils';
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generatePageMetadata('about');
-}
 
 export default function About() {
   return (
