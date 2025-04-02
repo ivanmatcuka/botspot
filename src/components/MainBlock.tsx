@@ -29,7 +29,7 @@ export const MainBlock: FC<MainBlockProps> = ({
         alt=""
         className="object-cover w-full h-auto pt-[48px] min-h-[240px]"
         height={800}
-        quality={100}
+        quality={80}
         src={subAssetUrl}
         width={800}
       />

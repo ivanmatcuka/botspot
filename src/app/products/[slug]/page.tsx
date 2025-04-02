@@ -75,17 +75,14 @@ export default async function Product({
     ? await getPostBySlug(acfPost.post_name)
     : null;
 
-  const tileHeadlines = (
-    parse(product.content.rendered) as ReactElement[]
-  ).filter((element) => element.type === 'h4');
-
-  const groups = (parse(product.content.rendered) as ReactElement[]).find(
-    (element) => element.props?.className?.includes('wp-block-group'),
+  const parsedContent = parse(product.content.rendered) as ReactElement[];
+  const tileHeadlines = parsedContent.filter(
+    (element) => element.type === 'h4',
   );
-
-  const lists = (parse(product.content.rendered) as ReactElement[]).filter(
-    (element) => element.type === 'ul',
+  const groups = parsedContent.find((element) =>
+    element.props?.className?.includes('wp-block-group'),
   );
+  const lists = parsedContent.filter((element) => element.type === 'ul');
 
   const relatedImage = getFeaturedImageUrl(post ?? undefined);
 

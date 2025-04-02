@@ -53,7 +53,7 @@ export const Post: FC<PostProps> = ({
         alt=""
         className={`w-full h-full absolute inset-0 ${objectFit === 'cover' ? 'object-cover' : 'object-contain'} object-top`}
         height={1000}
-        quality={100}
+        quality={80}
         src={featuredImage}
         width={1000}
       />

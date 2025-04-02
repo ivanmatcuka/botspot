@@ -74,7 +74,7 @@ export default function Learn() {
           alt=""
           className="w-full rounded-xl"
           height={440}
-          quality={100}
+          quality={80}
           src="/img/learn/1.png"
           width={1010}
         />
