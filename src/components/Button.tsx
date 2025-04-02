@@ -65,7 +65,13 @@ const TopicButton = styled(({ ...props }: MuiButtonProps) => (
 
 const MenuItemButton = styled(({ ...props }: MuiButtonProps) => (
   <MenuItem className={props.className}>
-    <MuiButton color="info" component={Link} variant="text" {...props} />
+    <MuiButton
+      color="info"
+      component={Link}
+      prefetch={false}
+      variant="text"
+      {...props}
+    />
   </MenuItem>
 ))(({ theme }) => ({
   '&:hover': {
