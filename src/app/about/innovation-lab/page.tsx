@@ -21,7 +21,7 @@ export default function InnovationLab() {
       <Banner
         headline="Innovation Lab"
         mediaBlockOptions={{
-          assetUrl: '/img/banners/innovation-lab.png',
+          assetUrl: '/img/banners/innovation-lab.webp',
         }}
         primaryCta={
           <Button href="/contact-us" variant="primary">

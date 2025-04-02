@@ -22,7 +22,7 @@ export default function About() {
       <Banner
         headline="ABOUT US"
         mediaBlockOptions={{
-          assetUrl: '/img/banners/about.png',
+          assetUrl: '/img/banners/about.webp',
         }}
         primaryCta={
           <Button href="/about/careers" variant="primary">

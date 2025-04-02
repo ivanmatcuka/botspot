@@ -24,7 +24,7 @@ export default function Service() {
       <Banner
         headline="3D SCAN SERVICE"
         mediaBlockOptions={{
-          assetUrl: '/img/banners/services.png',
+          assetUrl: '/img/banners/services.webp',
         }}
         primaryCta={
           <Button

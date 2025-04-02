@@ -18,7 +18,7 @@ export default function Areas() {
       <Banner
         headline="AREAS OF USE"
         mediaBlockOptions={{
-          assetUrl: '/img/banners/areas.png',
+          assetUrl: '/img/banners/areas.webp',
         }}
         primaryCta={
           <Button href="/areas/commercial" variant="primary">

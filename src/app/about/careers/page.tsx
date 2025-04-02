@@ -19,7 +19,7 @@ export default function Careers() {
       <Banner
         headline="Careers"
         mediaBlockOptions={{
-          assetUrl: '/img/banners/careers.png',
+          assetUrl: '/img/banners/careers.webp',
         }}
         sublineElement="We are always on the lookout for young talents as well as seasoned professionals."
       />

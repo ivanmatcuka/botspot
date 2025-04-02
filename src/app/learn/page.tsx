@@ -24,7 +24,7 @@ export default function Learn() {
       <Banner
         headline="LEARN ABOUT 3D SCANNING"
         mediaBlockOptions={{
-          assetUrl: '/img/banners/learn.png',
+          assetUrl: '/img/banners/learn.webp',
         }}
         primaryCta={
           <Button href="/3d-academy" variant="primary">
