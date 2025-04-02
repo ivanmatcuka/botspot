@@ -23,7 +23,7 @@ const Text = ({
 
   if (href) {
     link = (
-      <Link className="hover:underline" href={href}>
+      <Link className="hover:underline" href={href} prefetch={false}>
         {children}
       </Link>
     );

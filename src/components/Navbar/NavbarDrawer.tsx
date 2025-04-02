@@ -31,7 +31,13 @@ const ControlledAccordion: FC<ControlledAccordionProps> = ({
       <AccordionSummary
         expandIcon={<ExpandMoreIcon onClick={() => setExpanded(!expanded)} />}
       >
-        {item.href ? <Link href={item.href}>{item.label}</Link> : item.label}
+        {item.href ? (
+          <Link href={item.href} prefetch={false}>
+            {item.label}
+          </Link>
+        ) : (
+          item.label
+        )}
       </AccordionSummary>
       {children}
     </Accordion>
@@ -43,7 +49,12 @@ export const NavbarDrawer: FC<NavbarDrawerProps> = ({ item }) => {
   if (!item.children?.length) {
     return (
       <ListItem key={item.label}>
-        <ListItemButton component={Link} href={item.href ?? '/'} disableRipple>
+        <ListItemButton
+          component={Link}
+          href={item.href ?? '/'}
+          prefetch={false}
+          disableRipple
+        >
           {item.label}
         </ListItemButton>
       </ListItem>
