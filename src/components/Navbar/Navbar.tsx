@@ -62,7 +62,13 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
             >
               {/* <Link className="hidden xl:block" href="/"> */}
               <Link href="/">
-                <Image alt="logo" height={46} src="/logo.svg" width={150} />
+                <Image
+                  alt="logo"
+                  height={46}
+                  loading="lazy"
+                  src="/logo.svg"
+                  width={150}
+                />
               </Link>
               {/* <div className="block xl:hidden">{cta}</div> */}
               {matches ? (

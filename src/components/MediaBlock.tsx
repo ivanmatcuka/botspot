@@ -49,6 +49,7 @@ export const MediaBlock: FC<MediaBlockProps> = ({
         alt=""
         className={classes}
         height={1080}
+        loading="lazy"
         quality={80}
         src={assetUrl}
         width={1920}

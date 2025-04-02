@@ -21,6 +21,7 @@ export const GalleryTile: FC<PropsWithChildren<GalleryTileProps>> = ({
           alt={alt ?? ''}
           className="rounded-xl"
           height={304}
+          loading="lazy"
           quality={80}
           src={imgUrl}
           width={493}

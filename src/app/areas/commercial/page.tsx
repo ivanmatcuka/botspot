@@ -56,6 +56,7 @@ export default function Commercial() {
         <Image
           alt="INUIKII"
           height={400}
+          loading="lazy"
           quality={80}
           src="/img/areas/commercial/1.png"
           style={{ width: '100%' }}
@@ -72,6 +73,7 @@ export default function Commercial() {
         <Image
           alt="Digital Furnishing"
           height={400}
+          loading="lazy"
           quality={80}
           src="/img/areas/commercial/2.png"
           style={{ width: '100%' }}
@@ -97,6 +99,7 @@ export default function Commercial() {
         <Image
           alt="Vyking"
           height={400}
+          loading="lazy"
           quality={80}
           src="/img/areas/commercial/3.png"
           style={{ width: '100%' }}
@@ -128,6 +131,7 @@ export default function Commercial() {
         <Image
           alt="Opera & Scenic Spaces"
           height={400}
+          loading="lazy"
           quality={80}
           src="/img/areas/commercial/4.png"
           style={{ width: '100%' }}

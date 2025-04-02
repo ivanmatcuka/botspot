@@ -51,6 +51,7 @@ export default async function Post({
               alt={post.title.rendered}
               className="w-full h-auto max-h-[400px] object-cover xs:max-h-[200px] mb-10"
               height={300}
+              loading="lazy"
               quality={80}
               src={featuredImage}
               width={1280}

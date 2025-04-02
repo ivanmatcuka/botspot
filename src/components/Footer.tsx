@@ -49,6 +49,7 @@ export const Footer: FC<FooterProps> = ({ products }) => (
               alt="logo"
               className="ml-[-8px]"
               height={74}
+              loading="lazy"
               src="/logo_white.svg"
               width={184}
             />
