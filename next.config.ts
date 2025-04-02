@@ -44,6 +44,11 @@ const nextConfig: NextConfig = {
         hostname: 'botspot.live-website.com',
         port: '',
       },
+      {
+        protocol: 'http',
+        hostname: 'botspot.matcuka.de',
+        port: '',
+      },
     ],
   },
   experimental: {
