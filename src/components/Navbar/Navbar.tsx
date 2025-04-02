@@ -108,7 +108,11 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
                   >
                     <List>
                       {navItems.map((item, index) => (
-                        <NavbarDrawer item={item} key={index} />
+                        <NavbarDrawer
+                          item={item}
+                          key={index}
+                          onOpen={() => setIsOpen(false)}
+                        />
                       ))}
                     </List>
                   </Drawer>

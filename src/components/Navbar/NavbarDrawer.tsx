@@ -19,10 +19,14 @@ type MenuItem = {
   onClick?: () => void;
 };
 
-type ControlledAccordionProps = AccordionProps & { item: MenuItem };
+type ControlledAccordionProps = AccordionProps & {
+  item: MenuItem;
+  onOpen: () => void;
+};
 const ControlledAccordion: FC<ControlledAccordionProps> = ({
   item,
   children,
+  onOpen,
 }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -30,6 +34,7 @@ const ControlledAccordion: FC<ControlledAccordionProps> = ({
     <Accordion expanded={expanded}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon onClick={() => setExpanded(!expanded)} />}
+        onClick={onOpen}
       >
         {item.href ? <Link href={item.href}>{item.label}</Link> : item.label}
       </AccordionSummary>
@@ -38,11 +43,11 @@ const ControlledAccordion: FC<ControlledAccordionProps> = ({
   );
 };
 
-type NavbarDrawerProps = { item: MenuItem };
-export const NavbarDrawer: FC<NavbarDrawerProps> = ({ item }) => {
+type NavbarDrawerProps = { item: MenuItem; onOpen: () => void };
+export const NavbarDrawer: FC<NavbarDrawerProps> = ({ item, onOpen }) => {
   if (!item.children?.length) {
     return (
-      <ListItem key={item.label}>
+      <ListItem key={item.label} onClick={onOpen}>
         <ListItemButton component={Link} href={item.href ?? '/'} disableRipple>
           {item.label}
         </ListItemButton>
@@ -51,9 +56,9 @@ export const NavbarDrawer: FC<NavbarDrawerProps> = ({ item }) => {
   }
 
   return (
-    <ControlledAccordion item={item} key={item.label}>
+    <ControlledAccordion item={item} key={item.label} onOpen={onOpen}>
       {item.children.map((child) => (
-        <NavbarDrawer item={child} key={child.label} />
+        <NavbarDrawer item={child} key={child.label} onOpen={onOpen} />
       ))}
     </ControlledAccordion>
   );
