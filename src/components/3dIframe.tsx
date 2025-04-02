@@ -4,6 +4,7 @@ export const Iframe = ({ src }: { src: string }) => (
     execution-while-not-rendered="true"
     execution-while-out-of-viewport="true"
     height="100%"
+    loading="lazy"
     src={src}
     web-share="true"
     width="100%"
