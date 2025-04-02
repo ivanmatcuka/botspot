@@ -1,7 +1,6 @@
 import ProductsList from './Products';
 
-import { Box, Skeleton, Typography } from '@mui/material';
-import { Suspense } from 'react';
+import { Box, Typography } from '@mui/material';
 
 import { Banner } from '@/components/Banner';
 import { Button } from '@/components/Button';
@@ -67,9 +66,7 @@ export default function Products() {
         </Tile>
       </Box>
 
-      <Suspense fallback={<Skeleton height="100%" variant="rectangular" />}>
-        <ProductsList />
-      </Suspense>
+      <ProductsList />
 
       <GalleryTile imgUrl="/img/products/4.png">
         <SecondaryBlock

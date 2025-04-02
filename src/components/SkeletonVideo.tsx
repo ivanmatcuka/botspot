@@ -35,6 +35,7 @@ export const SkeletonVideo: FC<SkeletonVideoProps> = ({
       />
       <video
         className={`w-full h-full relative ${className}`}
+        preload="none"
         ref={video}
         src={videoSrc}
         playsInline

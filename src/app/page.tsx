@@ -1,7 +1,6 @@
 import LandingPageProducts from './LandingPageProducts';
 
-import { Box, Skeleton, Typography } from '@mui/material';
-import { Suspense } from 'react';
+import { Box, Typography } from '@mui/material';
 
 import { Banner } from '@/components/Banner';
 import { Button } from '@/components/Button';
@@ -55,9 +54,7 @@ export default function Home() {
         <PartnerLogo name="vertex" />
       </Box>
 
-      <Suspense fallback={<Skeleton height="100%" variant="rectangular" />}>
-        <LandingPageProducts />
-      </Suspense>
+      <LandingPageProducts />
 
       <Box
         bgcolor="grey.100"
