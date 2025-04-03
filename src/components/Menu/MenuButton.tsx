@@ -1,7 +1,7 @@
 'use client';
 
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
-import { FC } from 'react';
+import { FC, MouseEvent } from 'react';
 
 import { Button, ButtonProps } from '@/components/Button';
 
@@ -9,14 +9,16 @@ type MenuButtonProps = {
   label: string;
   variant: ButtonProps['variant'];
   open: boolean;
-  className?: string;
   href?: string;
+  className?: string;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 export const MenuButton: FC<MenuButtonProps> = ({
   label,
   variant,
   open,
   href,
+  onClick,
   ...props
 }) => (
   <Button
@@ -24,10 +26,11 @@ export const MenuButton: FC<MenuButtonProps> = ({
     aria-expanded={open ? 'true' : undefined}
     aria-haspopup="true"
     endIcon={open ? <ExpandLess /> : <ExpandMore />}
-    href={href}
     id={`basic-button-${label}`}
     variant={variant}
+    onClick={onClick}
     {...props}
+    href={href}
   >
     {label}
   </Button>
