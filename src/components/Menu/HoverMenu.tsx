@@ -17,14 +17,14 @@ type CustomHoverMenuProps = {
   label: string;
   popupState: ReturnType<typeof usePopupState>;
   variant: ButtonProps['variant'];
-  onClick: () => void;
+  href?: string;
   className?: string;
 };
 export const CustomHoverMenu: FC<PropsWithChildren<CustomHoverMenuProps>> = ({
   label,
   popupState,
   variant,
-  onClick,
+  href,
   children,
   className,
 }) => {
@@ -35,10 +35,10 @@ export const CustomHoverMenu: FC<PropsWithChildren<CustomHoverMenuProps>> = ({
     <>
       <MenuButton
         className={className}
+        href={href}
         label={label}
         open={open}
         variant={variant}
-        onClick={onClick}
         {...bindHover(popupState)}
       />
       <HoverMenu

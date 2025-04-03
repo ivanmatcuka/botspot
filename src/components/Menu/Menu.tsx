@@ -61,10 +61,10 @@ export const Menu: FC<PropsWithChildren<MenuProps>> = ({
       ) : (
         <CustomHoverMenu
           className={className}
+          href={href}
           label={label}
           popupState={popupState}
           variant={variant}
-          onClick={handleClick}
         >
           {children}
         </CustomHoverMenu>
