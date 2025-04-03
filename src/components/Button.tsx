@@ -91,38 +91,28 @@ export type ButtonProps = {
   | 'startIcon'
 > &
   Pick<LinkProps, 'prefetch'>;
-export const Button: FC<ButtonProps> = ({
-  variant,
-  prefetch = false,
-  ...props
-}) => {
-  const component = props.href ? Link : props.component;
+export const Button: FC<ButtonProps> = ({ variant, ...rest }) => {
+  const component = rest.href ? Link : rest.component;
+  const prefetch = rest.href ? false : rest.prefetch;
+  const props = {
+    ...rest,
+    component,
+    prefetch,
+  };
 
   switch (variant) {
     case 'primary':
-      return (
-        <PrimaryButton {...props} component={component} prefetch={prefetch} />
-      );
+      return <PrimaryButton {...props} />;
     case 'secondary':
-      return (
-        <SecondaryButton {...props} component={component} prefetch={prefetch} />
-      );
+      return <SecondaryButton {...props} />;
     case 'outline':
-      return (
-        <OutlineButton {...props} component={component} prefetch={prefetch} />
-      );
+      return <OutlineButton {...props} />;
     case 'menu':
-      return (
-        <MenuButton {...props} component={component} prefetch={prefetch} />
-      );
+      return <MenuButton {...props} />;
     case 'menuItem':
-      return (
-        <MenuItemButton {...props} component={component} prefetch={prefetch} />
-      );
+      return <MenuItemButton {...props} />;
     case 'topic':
-      return (
-        <TopicButton {...props} component={component} prefetch={prefetch} />
-      );
+      return <TopicButton {...props} />;
     default:
       return <MuiButton {...props} />;
   }
