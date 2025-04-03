@@ -5,13 +5,13 @@ import {
   ButtonProps as MuiButtonProps,
   styled,
 } from '@mui/material';
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import { FC } from 'react';
 
 import { MenuItem } from '@/components/Menu/Menu';
 
-const PrimaryButton = styled(({ ...props }: MuiButtonProps) => (
-  <MuiButton color="primary" variant="contained" {...props} />
+const PrimaryButton = styled(({ ...props }: ButtonProps) => (
+  <MuiButton color="primary" {...props} variant="contained" />
 ))(({ theme }) => ({
   '&:hover': {
     backgroundColor: theme.palette.common.white,
@@ -21,8 +21,8 @@ const PrimaryButton = styled(({ ...props }: MuiButtonProps) => (
   },
 }));
 
-const SecondaryButton = styled(({ ...props }: MuiButtonProps) => (
-  <MuiButton color="primary" variant="outlined" {...props} />
+const SecondaryButton = styled(({ ...props }: ButtonProps) => (
+  <MuiButton color="primary" {...props} variant="outlined" />
 ))(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
 
@@ -47,8 +47,8 @@ const OutlineButton = styled(SecondaryButton)(({ theme }) => ({
   },
 }));
 
-const MenuButton = styled(({ ...props }: MuiButtonProps) => (
-  <MuiButton color="info" variant="text" {...props} />
+const MenuButton = styled(({ ...props }: ButtonProps) => (
+  <MuiButton color="info" {...props} variant="text" />
 ))(({ theme }) => ({
   '&.active': {
     backgroundColor: theme.palette.grey[100],
@@ -56,22 +56,16 @@ const MenuButton = styled(({ ...props }: MuiButtonProps) => (
   },
 }));
 
-const TopicButton = styled(({ ...props }: MuiButtonProps) => (
-  <MuiButton color="primary" variant="text" {...props} />
+const TopicButton = styled(({ ...props }: ButtonProps) => (
+  <MuiButton color="primary" {...props} variant="text" />
 ))(({ theme }) => ({
   padding: 0,
   ...theme.typography.h2,
 }));
 
-const MenuItemButton = styled(({ ...props }: MuiButtonProps) => (
+const MenuItemButton = styled(({ ...props }: ButtonProps) => (
   <MenuItem className={props.className}>
-    <MuiButton
-      color="info"
-      component={Link}
-      prefetch={false}
-      variant="text"
-      {...props}
-    />
+    <MuiButton color="info" {...props} variant="text" />
   </MenuItem>
 ))(({ theme }) => ({
   '&:hover': {
@@ -80,7 +74,7 @@ const MenuItemButton = styled(({ ...props }: MuiButtonProps) => (
 }));
 
 export type ButtonProps = {
-  variant: 'primary' | 'secondary' | 'outline' | 'menu' | 'menuItem' | 'topic';
+  variant?: 'primary' | 'secondary' | 'outline' | 'menu' | 'menuItem' | 'topic';
   target?: string;
 } & Pick<
   MuiButtonProps,
@@ -95,21 +89,40 @@ export type ButtonProps = {
   | 'className'
   | 'href'
   | 'startIcon'
->;
-export const Button: FC<ButtonProps> = ({ variant, ...props }) => {
+> &
+  Pick<LinkProps, 'prefetch'>;
+export const Button: FC<ButtonProps> = ({
+  variant,
+  prefetch = false,
+  ...props
+}) => {
+  const component = props.href ? Link : props.component;
+
   switch (variant) {
     case 'primary':
-      return <PrimaryButton {...props} />;
+      return (
+        <PrimaryButton {...props} component={component} prefetch={prefetch} />
+      );
     case 'secondary':
-      return <SecondaryButton {...props} />;
+      return (
+        <SecondaryButton {...props} component={component} prefetch={prefetch} />
+      );
     case 'outline':
-      return <OutlineButton {...props} />;
+      return (
+        <OutlineButton {...props} component={component} prefetch={prefetch} />
+      );
     case 'menu':
-      return <MenuButton {...props} />;
+      return (
+        <MenuButton {...props} component={component} prefetch={prefetch} />
+      );
     case 'menuItem':
-      return <MenuItemButton {...props} />;
+      return (
+        <MenuItemButton {...props} component={component} prefetch={prefetch} />
+      );
     case 'topic':
-      return <TopicButton {...props} />;
+      return (
+        <TopicButton {...props} component={component} prefetch={prefetch} />
+      );
     default:
       return <MuiButton {...props} />;
   }
