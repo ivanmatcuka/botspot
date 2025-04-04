@@ -1,14 +1,15 @@
 import AreaPost from '../AreaPost';
 
+import {
+  Banner,
+  Button,
+  Iframe,
+  MainBlock,
+  PageContainer,
+  Tile,
+} from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
 import { Suspense } from 'react';
-
-import { Iframe } from '@/components/3dIframe';
-import { Banner } from '@/components/Banner';
-import { MainBlock } from '@/components/MainBlock';
-import { PageContainer } from '@/components/PageContainer';
-import { Tile } from '@/components/Tile';
-import { Button } from '@botspot/ui';
 
 const AREA_SLUG = 'areas-custom';
 

@@ -1,15 +1,10 @@
 import ProductsList from './Products';
 
+import { Button, GalleryTile, Tile } from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
+import { Banner, MainBlock, PageContainer, SecondaryBlock } from '@botspot/ui';
 
-import { Banner } from '@/components/Banner';
 import { FeedbackForm } from '@/components/FeedbackForm';
-import { GalleryTile } from '@/components/GalleryTile';
-import { MainBlock } from '@/components/MainBlock';
-import { PageContainer } from '@/components/PageContainer';
-import { SecondaryBlock } from '@/components/SecondaryBlock';
-import { Tile } from '@/components/Tile';
-import { Button } from '@botspot/ui';
 
 export default function Products() {
   return (

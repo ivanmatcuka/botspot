@@ -2,6 +2,7 @@
 
 import { Input } from './Form';
 
+import { Button, Menu } from '@botspot/ui';
 import {
   Box,
   Checkbox,
@@ -12,9 +13,6 @@ import {
 } from '@mui/material';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
-
-import { Menu } from '@/components/Menu/Menu';
-import { Button } from '@botspot/ui';
 
 export const FORM_ID = 15422;
 

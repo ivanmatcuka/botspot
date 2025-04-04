@@ -1,14 +1,15 @@
 import { People } from './People';
 
+import {
+  Banner,
+  Button,
+  LoadingSkeletons,
+  MainBlock,
+  PageContainer,
+  Tile,
+} from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
 import { Suspense } from 'react';
-
-import { Banner } from '@/components/Banner';
-import { LoadingSkeletons } from '@/components/LoadingSkeletons';
-import { MainBlock } from '@/components/MainBlock';
-import { PageContainer } from '@/components/PageContainer';
-import { Tile } from '@/components/Tile';
-import { Button } from '@botspot/ui';
 
 export default function About() {
   return (

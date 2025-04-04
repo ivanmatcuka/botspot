@@ -1,5 +1,4 @@
 import { Box, Typography } from '@mui/material';
-
 import { Button } from '@botspot/ui';
 
 export default function NotFound() {

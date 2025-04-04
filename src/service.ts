@@ -43,6 +43,8 @@ export type CustomFields = {
 
 const baseUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp/v2`;
 const formsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/contact-form-7/v1/contact-forms`;
+const redirectsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/redirection/v1/redirect`;
+const authUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/simple-jwt-login/v1/auth`;
 
 const requestInit: RequestInit = {
   method: 'GET',
@@ -51,9 +53,6 @@ const requestInit: RequestInit = {
   },
   cache: 'force-cache',
 };
-
-const redirectsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/redirection/v1/redirect`;
-const authUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/simple-jwt-login/v1/auth`;
 
 const getAuth = async () => {
   const response = await fetch(authUrl, {
@@ -71,14 +70,15 @@ const getAuth = async () => {
     const data = await response.json();
 
     return data;
-  } catch {
+  } catch (error) {
     return null;
   }
 };
 
 export const getRedirects = async () => {
   const { data: auth } = await getAuth();
-  if (!auth) return { data: [], count: 0 };
+  const defaultReturn = { data: [], count: 0 };
+  if (!auth) return defaultReturn;
 
   const response = await fetch(`${redirectsUrl}?JWT=${auth.jwt}`, {
     method: 'GET',
@@ -88,14 +88,14 @@ export const getRedirects = async () => {
   });
 
   if (!response.ok) {
-    return { data: [], count: 0 };
+    return defaultReturn;
   }
 
   try {
     const data = await response.json();
     return { data: data.items, count: data.total };
   } catch {
-    return { data: [], count: 0 };
+    return defaultReturn;
   }
 };
 

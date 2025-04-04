@@ -1,7 +1,7 @@
+import { Job } from '@botspot/ui';
 import { Box } from '@mui/material';
 import { FC } from 'react';
 
-import { Job } from '@/components/Job';
 import { getJobs } from '@/service';
 
 export const Jobs: FC = async () => {

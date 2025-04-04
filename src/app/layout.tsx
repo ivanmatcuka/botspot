@@ -2,7 +2,7 @@ import './globals.scss';
 
 import ThemeProvider from './ThemeProvider';
 
-import { Button } from '@botspot/ui';
+import { Button, SnackbarProvider } from '@botspot/ui';
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { GoogleTagManager } from '@next/third-parties/google';
@@ -12,7 +12,6 @@ import { ReactNode } from 'react';
 
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar/Navbar';
-import { SnackbarProvider } from '@/components/Snackbar';
 import { getProducts } from '@/service';
 
 import type { Metadata } from 'next';

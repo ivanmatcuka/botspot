@@ -1,14 +1,9 @@
 import AreaPost from '../AreaPost';
 
+import { Button, Iframe, Tile } from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
 import { Suspense } from 'react';
-
-import { Iframe } from '@/components/3dIframe';
-import { Banner } from '@/components/Banner';
-import { MainBlock } from '@/components/MainBlock';
-import { PageContainer } from '@/components/PageContainer';
-import { Tile } from '@/components/Tile';
-import { Button } from '@botspot/ui';
+import { Banner, MainBlock, PageContainer } from '@botspot/ui';
 
 const AREA_SLUG = 'areas-industrial';
 const POST_SLUG = 'digitization-of-automotive-parts-with-complex-geometry';

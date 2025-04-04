@@ -3,11 +3,10 @@ import { ExtraFooter } from '../ExtraFooter';
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { ThemedContainer } from '@botspot/ui';
 
-import { ThemedContainer } from '@/components/ThemedContainer';
 import { getPost } from '@/service';
 import { generateSeo } from '@/utils';
-
 
 export async function generateMetadata({
   params,

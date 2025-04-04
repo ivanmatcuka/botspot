@@ -1,5 +1,6 @@
 import { Posts } from '../Posts';
 
+import { Button, LoadingSkeletons, ThemedContainer } from '@botspot/ui';
 import { Facebook, LinkedIn, Twitter } from '@mui/icons-material';
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
@@ -7,11 +8,8 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
-import { LoadingSkeletons } from '@/components/LoadingSkeletons';
-import { ThemedContainer } from '@/components/ThemedContainer';
 import { getPostBySlug } from '@/service';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
-import { Button } from '@botspot/ui';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 

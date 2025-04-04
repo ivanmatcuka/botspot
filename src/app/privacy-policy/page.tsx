@@ -1,7 +1,7 @@
+import { ThemedContainer } from '@botspot/ui';
 import { notFound } from 'next/navigation';
+import { PageContainer } from '@botspot/ui';
 
-import { PageContainer } from '@/components/PageContainer';
-import { ThemedContainer } from '@/components/ThemedContainer';
 import { getPage } from '@/service';
 
 export default async function PrivacyPolicy() {

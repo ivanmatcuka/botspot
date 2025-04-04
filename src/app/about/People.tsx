@@ -1,7 +1,7 @@
+import { Post } from '@botspot/ui';
 import { Grid } from '@mui/material';
 import { FC } from 'react';
 
-import { Post } from '@/components/Post';
 import { getPeople } from '@/service';
 import { getFeaturedImageUrl } from '@/utils';
 

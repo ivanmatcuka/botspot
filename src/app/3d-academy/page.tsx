@@ -2,10 +2,8 @@ import { Posts } from './Posts';
 
 import { Box } from '@mui/material';
 import { Suspense } from 'react';
+import { LoadingSkeletons, MainBlock, PageContainer } from '@botspot/ui';
 
-import { LoadingSkeletons } from '@/components/LoadingSkeletons';
-import { MainBlock } from '@/components/MainBlock';
-import { PageContainer } from '@/components/PageContainer';
 import { QuestionForm } from '@/components/QuestionForm';
 
 export default function Blog() {

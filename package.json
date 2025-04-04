@@ -6,10 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
-    "@botspot/ui": "^1.0.20",
+    "@botspot/ui": "^1.0.28",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",

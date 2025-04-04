@@ -1,15 +1,12 @@
 'use client';
 
+import { Button, MainBlock, PageContainer, Post } from '@botspot/ui';
 import { Grid } from '@mui/material';
 import { FC, useState } from 'react';
 
 import { DownloadForm, FORM_ID } from '@/components/DownloadForm';
-import { MainBlock } from '@/components/MainBlock';
-import { PageContainer } from '@/components/PageContainer';
-import { Post } from '@/components/Post';
 import { useSnackbar } from '@/components/Snackbar';
 import { CustomFields, CustomPost, submitFeedbackForm } from '@/service';
-import { Button } from '@botspot/ui';
 
 type DownloadAreaContentProps = {
   products: CustomPost[];

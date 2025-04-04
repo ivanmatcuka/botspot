@@ -1,5 +1,6 @@
 'use client';
 
+import { IconLink } from '@botspot/ui';
 import {
   Box,
   Container,
@@ -11,7 +12,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 
-import { IconLink } from '@/components/IconLink';
 import { CustomPost } from '@/service';
 
 const Text = ({

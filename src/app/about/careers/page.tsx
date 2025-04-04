@@ -1,13 +1,10 @@
 import { ExtraFooter } from './ExtraFooter';
 import { Jobs } from './Jobs';
 
+import { Banner, MainBlock, PageContainer } from '@botspot/ui';
 import { Box } from '@mui/material';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
-
-import { Banner } from '@/components/Banner';
-import { MainBlock } from '@/components/MainBlock';
-import { PageContainer } from '@/components/PageContainer';
 
 export const metadata: Metadata = {
   title: 'CAREERS – botspot',

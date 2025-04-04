@@ -1,25 +1,25 @@
 export const revalidate = 0;
 
+import {
+  Button,
+  Gallery,
+  GalleryTile,
+  Iframe,
+  MediaBlock,
+  SkeletonVideo,
+  ThemedContainer,
+  Tile,
+  UnorderedList,
+  UnorderedListItem,
+} from '@botspot/ui';
 import { Box } from '@mui/material';
 import parse from 'html-react-parser';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { isValidElement, ReactElement } from 'react';
+import { Banner, MainBlock, PageContainer, SecondaryBlock } from '@botspot/ui';
 
-import { Iframe } from '@/components/3dIframe';
-import { Banner } from '@/components/Banner';
 import { FeedbackForm } from '@/components/FeedbackForm';
-import { Gallery } from '@/components/Gallery';
-import { GalleryTile } from '@/components/GalleryTile';
-import { MainBlock } from '@/components/MainBlock';
-import { MediaBlock } from '@/components/MediaBlock';
-import { PageContainer } from '@/components/PageContainer';
-import { SecondaryBlock } from '@/components/SecondaryBlock';
-import { SkeletonVideo } from '@/components/SkeletonVideo';
-import { ThemedContainer } from '@/components/ThemedContainer';
-import { Tile } from '@/components/Tile';
-import { UnorderedList } from '@/components/UnorderedList';
-import { UnorderedListItem } from '@/components/UnorderedListItem';
 import {
   CustomFields,
   CustomPost,
@@ -27,7 +27,6 @@ import {
   getProductBySlug,
 } from '@/service';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
-import { Button } from '@botspot/ui';
 
 export async function generateMetadata({
   params,

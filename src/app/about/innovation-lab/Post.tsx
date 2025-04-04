@@ -1,8 +1,7 @@
-import { PageContainer } from '@/components/PageContainer';
-import { Post } from '@/components/Post';
+import { Button, PageContainer, Post } from '@botspot/ui';
+
 import { getPostBySlug } from '@/service';
 import { getFeaturedImageUrl } from '@/utils';
-import { Button } from '@botspot/ui';
 
 const POST_SLUG = 'scanning-horses';
 

@@ -1,9 +1,7 @@
 'use client';
 
+import { Button, Menu } from '@botspot/ui';
 import { FC } from 'react';
-
-import { Menu } from '@/components/Menu/Menu';
-import { Button } from '@botspot/ui';
 
 type MenuItem = {
   label: string;
