@@ -91,8 +91,12 @@ export const getRedirects = async () => {
     return { data: [], count: 0 };
   }
 
-  const data = await response.json();
-  return { data: data.items, count: data.total };
+  try {
+    const data = await response.json();
+    return { data: data.items, count: data.total };
+  } catch {
+    return { data: [], count: 0 };
+  }
 };
 
 export const getPosts = async (
