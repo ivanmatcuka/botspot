@@ -10,13 +10,11 @@ import { ButtonProps } from '@/components/Button';
 type MobileMenuProps = {
   label: string;
   variant: ButtonProps['variant'];
-  onClick: () => void;
 };
 export const MobileMenu: FC<PropsWithChildren<MobileMenuProps>> = ({
   label,
   variant,
   children,
-  onClick,
 }) => {
   const { shadows } = useTheme();
 
@@ -31,10 +29,7 @@ export const MobileMenu: FC<PropsWithChildren<MobileMenuProps>> = ({
         label={label}
         open={open}
         variant={variant}
-        onClick={(event) => {
-          setAnchorEl(event.currentTarget);
-          onClick();
-        }}
+        onClick={(event) => setAnchorEl(event.currentTarget)}
       />
       <MuiMenu
         anchorEl={anchorEl}

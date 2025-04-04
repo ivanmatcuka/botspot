@@ -3,11 +3,11 @@
 import List from 'rc-virtual-list';
 import { useEffect, useState } from 'react';
 
-import { Button } from '@/components/Button';
 import { MediaBlock } from '@/components/MediaBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { SecondaryBlock } from '@/components/SecondaryBlock';
 import { CustomFields, CustomPost, getProducts } from '@/service';
+import { Button } from '@botspot/ui';
 
 export default function ProductsList() {
   const [products, setProducts] = useState<CustomPost[]>([]);

@@ -8,7 +8,6 @@ import { isValidElement, ReactElement } from 'react';
 
 import { Iframe } from '@/components/3dIframe';
 import { Banner } from '@/components/Banner';
-import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
 import { Gallery } from '@/components/Gallery';
 import { GalleryTile } from '@/components/GalleryTile';
@@ -28,6 +27,7 @@ import {
   getProductBySlug,
 } from '@/service';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
+import { Button } from '@botspot/ui';
 
 export async function generateMetadata({
   params,

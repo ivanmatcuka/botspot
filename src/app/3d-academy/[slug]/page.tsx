@@ -7,11 +7,11 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
-import { Button } from '@/components/Button';
 import { LoadingSkeletons } from '@/components/LoadingSkeletons';
 import { ThemedContainer } from '@/components/ThemedContainer';
 import { getPostBySlug } from '@/service';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
+import { Button } from '@botspot/ui';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 

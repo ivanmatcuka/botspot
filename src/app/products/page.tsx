@@ -3,13 +3,13 @@ import ProductsList from './Products';
 import { Box, Typography } from '@mui/material';
 
 import { Banner } from '@/components/Banner';
-import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
 import { GalleryTile } from '@/components/GalleryTile';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { SecondaryBlock } from '@/components/SecondaryBlock';
 import { Tile } from '@/components/Tile';
+import { Button } from '@botspot/ui';
 
 export default function Products() {
   return (

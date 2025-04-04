@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@botspot/ui": "^1.0.20",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",

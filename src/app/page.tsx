@@ -1,9 +1,11 @@
+'use client';
+
 import LandingPageProducts from './LandingPageProducts';
 
+import { Button } from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
 
 import { Banner } from '@/components/Banner';
-import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';

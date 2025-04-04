@@ -13,8 +13,8 @@ import {
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Button } from '@/components/Button';
 import { Menu } from '@/components/Menu/Menu';
+import { Button } from '@botspot/ui';
 
 export const FORM_ID = 15422;
 

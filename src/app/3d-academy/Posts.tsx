@@ -3,12 +3,12 @@
 import { Grid } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
 
-import { Button } from '@/components/Button';
 import { LoadingSkeletons } from '@/components/LoadingSkeletons';
 import { Pagination } from '@/components/Pagination';
 import { Post } from '@/components/Post';
 import { CustomPost, getPosts } from '@/service';
 import { getFeaturedImageUrl } from '@/utils';
+import { Button } from '@botspot/ui';
 
 type PostProps = {
   perPage?: number;

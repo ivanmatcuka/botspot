@@ -2,7 +2,6 @@ import { Box, Typography } from '@mui/material';
 
 import { Iframe } from '@/components/3dIframe';
 import { Banner } from '@/components/Banner';
-import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
 import { Gallery } from '@/components/Gallery';
 import { GalleryTile } from '@/components/GalleryTile';
@@ -11,6 +10,7 @@ import { PageContainer } from '@/components/PageContainer';
 import { SecondaryBlock } from '@/components/SecondaryBlock';
 import { SkeletonVideo } from '@/components/SkeletonVideo';
 import { Tile } from '@/components/Tile';
+import { Button } from '@botspot/ui';
 
 export default function Service() {
   return (

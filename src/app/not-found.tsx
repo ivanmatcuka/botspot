@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 
-import { Button } from '@/components/Button';
+import { Button } from '@botspot/ui';
 
 export default function NotFound() {
   return (

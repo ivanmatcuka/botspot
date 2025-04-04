@@ -1,9 +1,9 @@
 import { Banner } from '@/components/Banner';
-import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { SkeletonVideo } from '@/components/SkeletonVideo';
+import { Button } from '@botspot/ui';
 
 export default function Areas() {
   return (

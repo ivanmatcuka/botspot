@@ -1,5 +1,8 @@
 import './globals.scss';
 
+import ThemeProvider from './ThemeProvider';
+
+import { Button } from '@botspot/ui';
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { GoogleTagManager } from '@next/third-parties/google';
@@ -7,12 +10,10 @@ import { Inter } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import { ReactNode } from 'react';
 
-import { Button } from '@/components/Button';
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar/Navbar';
 import { SnackbarProvider } from '@/components/Snackbar';
 import { getProducts } from '@/service';
-import ThemeRegistry from '@/theme/ThemeRegistry';
 
 import type { Metadata } from 'next';
 
@@ -93,7 +94,7 @@ export default async function RootLayout({
       </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <AppRouterCacheProvider>
-          <ThemeRegistry>
+          <ThemeProvider>
             <SnackbarProvider>
               <NextTopLoader />
               <Navbar
@@ -107,7 +108,7 @@ export default async function RootLayout({
               <Box className="flex-1 flex flex-col">{children}</Box>
               <Footer products={products} />
             </SnackbarProvider>
-          </ThemeRegistry>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

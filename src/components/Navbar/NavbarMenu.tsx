@@ -2,8 +2,8 @@
 
 import { FC } from 'react';
 
-import { Button } from '@/components/Button';
 import { Menu } from '@/components/Menu/Menu';
+import { Button } from '@botspot/ui';
 
 type MenuItem = {
   label: string;

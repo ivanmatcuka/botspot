@@ -1,4 +1,4 @@
-import { palette } from './src/theme/palette';
+import { palette } from '@botspot/ui';
 
 import type { Config } from 'tailwindcss';
 

@@ -5,11 +5,11 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
-import { Button } from '@/components/Button';
 import { FeedbackForm } from '@/components/FeedbackForm';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { Tile } from '@/components/Tile';
+import { Button } from '@botspot/ui';
 
 export const metadata: Metadata = {
   title: 'INNOVATION LAB – botspot',

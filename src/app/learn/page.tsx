@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { Suspense } from 'react';
 
 import { Banner } from '@/components/Banner';
-import { Button } from '@/components/Button';
 import { LoadingSkeletons } from '@/components/LoadingSkeletons';
 import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { QuestionForm } from '@/components/QuestionForm';
 import { Tile } from '@/components/Tile';
+import { Button } from '@botspot/ui';
 
 export default function Learn() {
   return (

@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { Button } from '@/components/Button';
 import { MediaBlock } from '@/components/MediaBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { ScrollableBlock } from '@/components/ScrollableBlock';
 import { SecondaryBlock } from '@/components/SecondaryBlock';
 import { CustomFields, CustomPost } from '@/service';
 import { getFeaturedImageUrl } from '@/utils';
+import { Button } from '@botspot/ui';
 
 type LandingPageProductProps = {
   product: CustomPost;
