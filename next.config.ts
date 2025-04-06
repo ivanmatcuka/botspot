@@ -54,6 +54,7 @@ const nextConfig: NextConfig = {
   experimental: {
     inlineCss: true,
   },
+  output: 'standalone',
   async redirects() {
     const jsonData = await getRedirects();
     const nextJsRedirects = adaptRedirectsForNextJs(jsonData.data);
