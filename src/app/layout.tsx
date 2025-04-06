@@ -6,7 +6,7 @@ import { Button, SnackbarProvider } from '@botspot/ui';
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { GoogleTagManager } from '@next/third-parties/google';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import { ReactNode } from 'react';
 
@@ -16,7 +16,7 @@ import { getProducts } from '@/service';
 
 import type { Metadata } from 'next';
 
-const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({ subsets: ['latin'], weight: ['300', '500', '700'] });
 
 export const metadata: Metadata = {
   title: 'botspot',
@@ -91,7 +91,7 @@ export default async function RootLayout({
           <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
         )}
       </head>
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
+      <body className={`${poppins.className} flex flex-col min-h-screen`}>
         <AppRouterCacheProvider>
           <ThemeProvider>
             <SnackbarProvider>

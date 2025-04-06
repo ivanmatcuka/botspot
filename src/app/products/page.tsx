@@ -1,8 +1,15 @@
-import ProductsList from './Products';
+import ProductsList from '../../components/Products';
 
-import { Button, GalleryTile, Tile } from '@botspot/ui';
+import {
+  Banner,
+  Button,
+  GalleryTile,
+  MainBlock,
+  PageContainer,
+  SecondaryBlock,
+  Tile,
+} from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
-import { Banner, MainBlock, PageContainer, SecondaryBlock } from '@botspot/ui';
 
 import { FeedbackForm } from '@/components/FeedbackForm';
 

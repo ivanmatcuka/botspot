@@ -1,4 +1,4 @@
-import { Posts } from '../Posts';
+import { Posts } from '../../../components/Posts';
 
 import { Button, LoadingSkeletons, ThemedContainer } from '@botspot/ui';
 import { Facebook, LinkedIn, Twitter } from '@mui/icons-material';

@@ -1,4 +1,4 @@
-import InnovationLabPost from './Post';
+import InnovationLabPost from '../../../components/Post';
 
 import { Banner, Button, MainBlock, PageContainer, Tile } from '@botspot/ui';
 import { Box, Typography } from '@mui/material';

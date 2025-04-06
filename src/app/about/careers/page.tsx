@@ -1,5 +1,5 @@
-import { ExtraFooter } from './ExtraFooter';
-import { Jobs } from './Jobs';
+import { ExtraFooter } from '../../../components/ExtraFooter';
+import { Jobs } from '../../../components/Jobs';
 
 import { Banner, MainBlock, PageContainer } from '@botspot/ui';
 import { Box } from '@mui/material';

@@ -1,4 +1,4 @@
-import { People } from './People';
+import { People } from '../../components/People';
 
 import {
   Banner,

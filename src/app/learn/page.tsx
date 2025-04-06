@@ -1,4 +1,4 @@
-import { Posts } from '../3d-academy/Posts';
+import { Posts } from '../../components/Posts';
 
 import {
   Banner,

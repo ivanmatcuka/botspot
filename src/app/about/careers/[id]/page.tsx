@@ -1,9 +1,9 @@
-import { ExtraFooter } from '../ExtraFooter';
+import { ExtraFooter } from '../../../../components/ExtraFooter';
 
+import { ThemedContainer } from '@botspot/ui';
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ThemedContainer } from '@botspot/ui';
 
 import { getPost } from '@/service';
 import { generateSeo } from '@/utils';

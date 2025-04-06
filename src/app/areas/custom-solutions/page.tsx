@@ -1,4 +1,4 @@
-import AreaPost from '../AreaPost';
+import AreaPost from '../../../components/AreaPost';
 
 import {
   Banner,

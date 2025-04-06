@@ -1,8 +1,8 @@
-import { Posts } from './Posts';
+import { Posts } from '../../components/Posts';
 
+import { LoadingSkeletons, MainBlock, PageContainer } from '@botspot/ui';
 import { Box } from '@mui/material';
 import { Suspense } from 'react';
-import { LoadingSkeletons, MainBlock, PageContainer } from '@botspot/ui';
 
 import { QuestionForm } from '@/components/QuestionForm';
 
