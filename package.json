@@ -43,6 +43,8 @@
     "eslint": "^8",
     "eslint-config-next": "15.1.6",
     "eslint-config-prettier": "^9.1.0",
+    "i": "^0.3.7",
+    "npm": "^11.2.0",
     "postcss": "^8",
     "prettier-plugin-organize-imports": "^4.1.0",
     "sass": "^1.79.5",

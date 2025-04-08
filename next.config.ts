@@ -54,6 +54,7 @@ const nextConfig: NextConfig = {
   experimental: {
     inlineCss: true,
     esmExternals: true,
+    webpackMemoryOptimizations: true,
   },
   output: 'standalone',
   async redirects() {
