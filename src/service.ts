@@ -48,11 +48,6 @@ const requestInit: RequestInit = {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
-    ...(process.env.NODE_ENV !== 'development'
-      ? {
-          'Access-Control-Allow-Origin': '*',
-        }
-      : {}),
   },
 };
 
