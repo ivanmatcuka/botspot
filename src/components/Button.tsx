@@ -5,7 +5,7 @@ import {
   ButtonProps as MuiButtonProps,
   styled,
 } from '@mui/material';
-import Link, { LinkProps } from 'next/link';
+import { LinkProps } from 'next/link';
 import { FC } from 'react';
 
 import { MenuItem } from '@/components/Menu/Menu';
@@ -92,11 +92,11 @@ export type ButtonProps = {
 > &
   Pick<LinkProps, 'prefetch'>;
 export const Button: FC<ButtonProps> = ({ variant, ...rest }) => {
-  const component = rest.href ? Link : rest.component;
+  // const component = rest.href ? Link : rest.component;
   const prefetch = rest.href ? false : rest.prefetch;
   const props = {
     ...rest,
-    component,
+    // component,
     prefetch,
   };
 
