@@ -36,9 +36,9 @@ const ControlledAccordion: FC<ControlledAccordionProps> = ({
         expandIcon={<ExpandMoreIcon onClick={() => setExpanded(!expanded)} />}
       >
         {item.href ? (
-          <a href={item.href} onClick={onOpen}>
+          <Link href={item.href} onClick={onOpen}>
             {item.label}
-          </a>
+          </Link>
         ) : (
           item.label
         )}

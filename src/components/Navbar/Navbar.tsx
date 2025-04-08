@@ -18,6 +18,7 @@ import {
   useTheme,
 } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC, ReactNode, useState } from 'react';
 
@@ -61,7 +62,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
             >
               {/* <Link className="hidden xl:block" href="/"> */}
               {/* eslint-disable */}
-              <a href="/">
+              <Link href="/">
                 <Image
                   alt="logo"
                   height={46}
@@ -69,7 +70,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
                   src="/logo.svg"
                   width={150}
                 />
-              </a>
+              </Link>
               {/* <div className="block xl:hidden">{cta}</div> */}
               {matches ? (
                 <>
