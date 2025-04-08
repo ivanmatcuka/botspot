@@ -1,6 +1,14 @@
+import { FeedbackForm } from '@/components/FeedbackForm';
+import { Button } from '@/components/NextButton/NextButton';
+import {
+  CustomFields,
+  CustomPost,
+  getPostBySlug,
+  getProductBySlug,
+} from '@/services';
+import { generateSeo, getFeaturedImageUrl } from '@/utils';
 import {
   Banner,
-  Button,
   Gallery,
   GalleryTile,
   Iframe,
@@ -19,15 +27,6 @@ import parse from 'html-react-parser';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { isValidElement, ReactElement } from 'react';
-
-import { FeedbackForm } from '@/components/FeedbackForm';
-import {
-  CustomFields,
-  CustomPost,
-  getPostBySlug,
-  getProductBySlug,
-} from '@/services';
-import { generateSeo, getFeaturedImageUrl } from '@/utils';
 
 export async function generateMetadata({
   params,
@@ -56,21 +55,21 @@ export default async function Product({
   if (!product) return notFound();
 
   const {
-    picture,
-    closeup,
     banner,
-
+    closeup,
     'demo-video': demoVideo,
 
     'first-animation': firstAnimation,
-    'second-animation': secondAnimation,
 
     'first-headline': firstHeadline,
     'first-subline': firstSubline,
-    'second-headline': secondHeadline,
-    'second-subline': secondSubline,
 
+    picture,
     post: acfPost,
+    'second-animation': secondAnimation,
+    'second-headline': secondHeadline,
+
+    'second-subline': secondSubline,
   }: Partial<CustomFields> = product.acf ?? {};
 
   const post: CustomPost | null = acfPost?.post_name
@@ -92,21 +91,16 @@ export default async function Product({
     <main className="">
       {banner && (
         <Banner
+          primary={{
+            href: `/download-area/${product.slug}`,
+            value: 'Download Data Sheet',
+          }}
+          secondary={{
+            href: 'https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/ob7tkWl_QESAXQPuuaQR_w2',
+            value: 'Request a Demo',
+          }}
           headline={product.title.rendered}
           mediaBlockOptions={{ assetUrl: banner }}
-          primaryCta={
-            <Button href={`/download-area/${product.slug}`} variant="primary">
-              Download Data Sheet
-            </Button>
-          }
-          secondaryCta={
-            <Button
-              href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/ob7tkWl_QESAXQPuuaQR_w2"
-              variant="secondary"
-            >
-              Request a Demo
-            </Button>
-          }
           sublineElement={product.excerpt.rendered}
         />
       )}
@@ -127,13 +121,13 @@ export default async function Product({
         banner
       />
 
-      <PageContainer mt={{ xs: 5, md: 10 }}>
+      <PageContainer mt={{ md: 10, xs: 5 }}>
         <MainBlock headline={firstHeadline} subline={firstSubline} />
       </PageContainer>
 
       <MediaBlock assetUrl={closeup} objectFit="cover" fullHeight />
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock headline={secondHeadline} subline={secondSubline} />
       </PageContainer>
 
@@ -152,7 +146,7 @@ export default async function Product({
       ))}
 
       {firstAnimation && secondAnimation && (
-        <Box my={{ xs: 5, md: 10 }}>
+        <Box my={{ md: 10, xs: 5 }}>
           <Gallery
             firstChild={<Iframe src={firstAnimation} />}
             secondChild={<Iframe src={secondAnimation} />}
@@ -161,7 +155,7 @@ export default async function Product({
       )}
 
       {groups?.props?.children && (
-        <PageContainer my={{ xs: 5, md: 10 }}>
+        <PageContainer my={{ md: 10, xs: 5 }}>
           <ThemedContainer className="!p-0" maxWidth="xl">
             {groups.props.children}
           </ThemedContainer>
@@ -177,12 +171,12 @@ export default async function Product({
       {post && (
         <GalleryTile imgUrl={relatedImage}>
           <SecondaryBlock
-            headline={post.title.rendered}
             primaryCta={
               <Button href={`/3d-academy/${post.slug}`} variant="primary">
                 Read Full Story
               </Button>
             }
+            headline={post.title.rendered}
             sublineElement={post.excerpt.rendered}
           />
         </GalleryTile>

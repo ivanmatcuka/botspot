@@ -1,20 +1,21 @@
 'use client';
 
-import { Button, MainBlock, PageContainer, Post } from '@botspot/ui';
-import { Grid } from '@mui/material';
-import { FC, useState } from 'react';
-
 import { DownloadForm, FORM_ID } from '@/components/DownloadForm';
 import { useSnackbar } from '@/components/Snackbar';
 import { CustomFields, CustomPost, submitFeedbackForm } from '@/services';
+import { MainBlock, PageContainer, Post } from '@botspot/ui';
+import { Grid } from '@mui/material';
+import { FC, useState } from 'react';
+
+import { Button } from './NextButton/NextButton';
 
 type DownloadAreaContentProps = {
-  products: CustomPost[];
   defaultProductSlug?: string;
+  products: CustomPost[];
 };
 export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
-  products,
   defaultProductSlug,
+  products,
 }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +43,7 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
         />
       </PageContainer>
       <PageContainer mb={8}>
-        <Grid spacing={{ xs: 2, md: 3, lg: 5 }} container>
+        <Grid spacing={{ lg: 5, md: 3, xs: 2 }} container>
           {products.map((product, index) => {
             const { datasheet, picture }: Partial<CustomFields> =
               product.acf ?? {};
@@ -74,8 +75,8 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
             .rendered
         }
         isLoading={isLoading}
-        productNames={products.map((product) => product.title.rendered)}
         onSubmit={onSubmit}
+        productNames={products.map((product) => product.title.rendered)}
       />
     </PageContainer>
   );

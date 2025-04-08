@@ -1,7 +1,6 @@
-'use client';
-
+import { CustomFields, CustomPost } from '@/services';
+import { getFeaturedImageUrl } from '@/utils';
 import {
-  Button,
   MediaBlock,
   PageContainer,
   ScrollableBlock,
@@ -9,8 +8,7 @@ import {
 } from '@botspot/ui';
 import { FC } from 'react';
 
-import { CustomFields, CustomPost } from '@/services';
-import { getFeaturedImageUrl } from '@/utils';
+import { Button } from './NextButton/NextButton';
 
 type LandingPageProductProps = {
   product: CustomPost;
@@ -29,7 +27,6 @@ export const LandingPageProduct: FC<LandingPageProductProps> = ({
 
   const contentBlock = (
     <SecondaryBlock
-      headline={product?.acf?.['full-name'] || product.title.rendered}
       primaryCta={
         <Button href={`/products/${product.slug}`} variant="primary">
           Explore {product?.acf?.['short-name'] || product.title.rendered}
@@ -40,6 +37,7 @@ export const LandingPageProduct: FC<LandingPageProductProps> = ({
           Download Data Sheet
         </Button>
       }
+      headline={product?.acf?.['full-name'] || product.title.rendered}
       sublineElement={product.excerpt.rendered}
     />
   );

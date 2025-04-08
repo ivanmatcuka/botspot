@@ -1,11 +1,10 @@
-import InnovationLabPost from '../../../components/Post';
-
-import { Banner, Button, MainBlock, PageContainer, Tile } from '@botspot/ui';
+import { FeedbackForm } from '@/components/FeedbackForm';
+import { Banner, MainBlock, PageContainer, Tile } from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 
-import { FeedbackForm } from '@/components/FeedbackForm';
+import InnovationLabPost from '../../../components/Post';
 
 export const metadata: Metadata = {
   title: 'INNOVATION LAB – botspot',
@@ -15,24 +14,22 @@ export default function InnovationLab() {
   return (
     <main className="">
       <Banner
-        headline="Innovation Lab"
         mediaBlockOptions={{
           assetUrl: '/img/banners/innovation-lab.webp',
         }}
-        primaryCta={
-          <Button href="/contact-us" variant="primary">
-            Contact Innovation Lab
-          </Button>
-        }
-        secondaryCta={
-          <Button href="/3d-academy" variant="secondary">
-            Visit 3D Academy
-          </Button>
-        }
+        primary={{
+          href: '/contact-us',
+          value: 'Contact Innovation Lab',
+        }}
+        secondary={{
+          href: '/3d-academy',
+          value: 'Visit 3D Academy',
+        }}
+        headline="Innovation Lab"
         sublineElement="Our Innovation Lab operates as an interface between research and industrial production, assessing Custom Solutions and Special Requests."
       />
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="We lead in innovation with advanced 3D scanning technology, delivering state-of-the-art solutions."
           subline="How We Drive Innovation"
@@ -63,14 +60,14 @@ export default function InnovationLab() {
         </Typography>
       </Tile>
 
-      <Box bgcolor="grey.100" overflow="auto" py={{ xs: 5, md: 10 }}>
+      <Box bgcolor="grey.100" overflow="auto" py={{ md: 10, xs: 5 }}>
         <PageContainer mb={5} mt={0}>
           <MainBlock
-            cta={
-              <Button href="/3d-academy" variant="primary">
-                Visit 3D Academy
-              </Button>
-            }
+            cta={{
+              href: '/3d-academy',
+              value: 'Visit 3D Academy',
+              variant: 'primary',
+            }}
             headline={
               'On our constant quest to stay up to date, our 3D Academy allows for exclusive insights.'
             }

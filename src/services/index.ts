@@ -1,44 +1,44 @@
-import { DeepPartial, Seo } from '@/types/yoast';
-
 import type {
   WP_REST_API_Categories,
   WP_REST_API_Page,
   WP_REST_API_Post,
 } from 'wp-types';
 
-export type CustomPost = WP_REST_API_Post & {
-  yoast_head_json?: DeepPartial<Seo>;
+import { DeepPartial, Seo } from '@/types/yoast';
+
+export type CustomPost = {
   acf?: Partial<CustomFields>;
-};
+  yoast_head_json?: DeepPartial<Seo>;
+} & WP_REST_API_Post;
 
 export type CustomFields = {
-  'full-name': string;
-  'short-name': string;
-
-  picture: string;
-  closeup: string;
   banner: string;
+  closeup: string;
+
   datasheet: string;
-
   'demo-video': string;
-
   'first-animation': string;
-  'second-animation': string;
-
   'first-headline': string;
+
   'first-subline': string;
+
+  'full-name': string;
+  picture: string;
+
+  'second-animation': string;
   'second-headline': string;
   'second-subline': string;
-
-  post: CustomPost & {
-    post_title: string;
-    post_excerpt: string;
-    post_name: string;
-  };
+  'short-name': string;
 
   photo_gallery: {
     animation: { full_image_url: string }[];
   };
+
+  post: {
+    post_excerpt: string;
+    post_name: string;
+    post_title: string;
+  } & CustomPost;
 };
 
 const baseUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp/v2`;
@@ -54,9 +54,9 @@ const requestInit: RequestInit = {
 export const getPosts = async (
   page = 1,
   perPage = 12,
-): Promise<{ data: CustomPost[]; count: number }> => {
+): Promise<{ count: number; data: CustomPost[]; }> => {
   const category = await getCategory('3d-academy');
-  if (!category) return { data: [], count: 0 };
+  if (!category) return { count: 0, data: [] };
 
   const response = await fetch(
     `${baseUrl}/posts?&orderby=modified&per_page=${perPage}&page=${page}&categories=${category.id}&_embed`,
@@ -66,9 +66,9 @@ export const getPosts = async (
   try {
     const data = await response.json();
     const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
-    return { data, count };
+    return { count, data };
   } catch {
-    return { data: [], count: 0 };
+    return { count: 0, data: [] };
   }
 };
 
@@ -135,11 +135,11 @@ export const getAreaBySlug = async (
 };
 
 export const getPeople = async (): Promise<{
-  data: CustomPost[];
   count: number;
+  data: CustomPost[];
 }> => {
   const category = await getCategory('people');
-  if (!category) return { data: [], count: 0 };
+  if (!category) return { count: 0, data: [] };
 
   const response = await fetch(
     `${baseUrl}/posts?&categories=${category.id}&per_page=100&_embed`,
@@ -149,15 +149,15 @@ export const getPeople = async (): Promise<{
   try {
     const data = await response.json();
     const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
-    return { data, count };
+    return { count, data };
   } catch {
-    return { data: [], count: 0 };
+    return { count: 0, data: [] };
   }
 };
 
 export const getProducts = async (): Promise<{
-  data: CustomPost[];
   count: number;
+  data: CustomPost[];
 }> => {
   const response = await fetch(
     `${baseUrl}/product?&per_page=100&acf_format=standard`,
@@ -169,21 +169,21 @@ export const getProducts = async (): Promise<{
     const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
 
     if (data?.data?.status) {
-      return { data: [], count: 0 };
+      return { count: 0, data: [] };
     }
 
-    return { data, count };
+    return { count, data };
   } catch {
-    return { data: [], count: 0 };
+    return { count: 0, data: [] };
   }
 };
 
 export const getJobs = async (): Promise<{
-  data: CustomPost[];
   count: number;
+  data: CustomPost[];
 }> => {
   const category = await getCategory('jobs');
-  if (!category) return { data: [], count: 0 };
+  if (!category) return { count: 0, data: [] };
 
   const response = await fetch(
     `${baseUrl}/posts?&categories=${category.id}&per_page=100&_embed`,
@@ -193,9 +193,9 @@ export const getJobs = async (): Promise<{
   try {
     const data = await response.json();
     const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
-    return { data, count };
+    return { count, data };
   } catch {
-    return { data: [], count: 0 };
+    return { count: 0, data: [] };
   }
 };
 
@@ -232,17 +232,17 @@ export const getPage = async (
 };
 
 export const getPages = async (): Promise<{
-  data: CustomPost[];
   count: number;
+  data: CustomPost[];
 }> => {
   const response = await fetch(`${baseUrl}/pages`, requestInit);
 
   try {
     const data = await response.json();
     const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
-    return { data, count };
+    return { count, data };
   } catch {
-    return { data: [], count: 0 };
+    return { count: 0, data: [] };
   }
 };
 
@@ -252,8 +252,8 @@ export const submitFeedbackForm = async (
 ) => {
   try {
     const response = await fetch(`${formsUrl}/${formId}/feedback`, {
-      method: 'POST',
       body: formData,
+      method: 'POST',
     });
 
     if (!response.ok) {

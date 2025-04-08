@@ -1,5 +1,6 @@
 'use client';
 
+import { CustomPost } from '@/services';
 import { IconLink } from '@botspot/ui';
 import {
   Box,
@@ -12,13 +13,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 
-import { CustomPost } from '@/services';
-
 const Text = ({
   children,
   href,
   ...props
-}: TypographyProps & { href?: string }) => {
+}: { href?: string } & TypographyProps) => {
   let link;
 
   if (href) {
@@ -44,7 +43,7 @@ export const Footer: FC<FooterProps> = ({ products }) => (
     <footer className="bg-info-main">
       <Container maxWidth="xl">
         <Grid md={10} mx="auto" py={8} xs={12} container>
-          <Grid flexBasis={{ xs: '100%', md: '40%' }} item>
+          <Grid flexBasis={{ md: '40%', xs: '100%' }} item>
             <Image
               alt="logo"
               className="ml-[-8px]"
@@ -60,7 +59,7 @@ export const Footer: FC<FooterProps> = ({ products }) => (
             <Text href="tel:+49 30 985 40 400">+49 30 985 40 400</Text>
             <br />
             <Text href="mailto:mail@botspot.de">mail@botspot.de</Text>
-            <Box display={{ xs: 'none', md: 'flex' }} gap={3} mt={3}>
+            <Box display={{ md: 'flex', xs: 'none' }} gap={3} mt={3}>
               <IconLink alt="ig" href="https://instagram.com/botspot3d/" />
               <IconLink alt="x" href="https://x.com/botspot3d" />
               <IconLink
@@ -74,8 +73,8 @@ export const Footer: FC<FooterProps> = ({ products }) => (
             </Box>
           </Grid>
           <Grid
-            flexBasis={{ xs: '100%', md: '20%' }}
-            mt={{ xs: 5, md: 9.25 }}
+            flexBasis={{ md: '20%', xs: '100%' }}
+            mt={{ md: 9.25, xs: 5 }}
             pr={2}
             item
           >
@@ -89,8 +88,8 @@ export const Footer: FC<FooterProps> = ({ products }) => (
             <Text href="/service">Scan Service</Text>
           </Grid>
           <Grid
-            flexBasis={{ xs: '100%', md: '20%' }}
-            mt={{ xs: 5, md: 9.25 }}
+            flexBasis={{ md: '20%', xs: '100%' }}
+            mt={{ md: 9.25, xs: 5 }}
             item
           >
             <Text>Resources</Text>
@@ -100,8 +99,8 @@ export const Footer: FC<FooterProps> = ({ products }) => (
             <Text href="/areas">Areas of Use</Text>
           </Grid>
           <Grid
-            flexBasis={{ xs: '100%', md: '20%' }}
-            mt={{ xs: 5, md: 9.25 }}
+            flexBasis={{ md: '20%', xs: '100%' }}
+            mt={{ md: 9.25, xs: 5 }}
             item
           >
             <Text>Company</Text>
@@ -111,7 +110,7 @@ export const Footer: FC<FooterProps> = ({ products }) => (
             <Text href="/about/careers">Careers</Text>
           </Grid>
           <Box
-            display={{ xs: 'flex', md: 'none' }}
+            display={{ md: 'none', xs: 'flex' }}
             gap={3}
             justifyContent="center"
             mt={3}
@@ -131,17 +130,17 @@ export const Footer: FC<FooterProps> = ({ products }) => (
     <footer className="bg-common-black">
       <Grid maxWidth="xl" mx="auto" py={3} container>
         <Grid
-          alignItems={{ xs: 'center', md: 'flex-end' }}
+          alignItems={{ md: 'flex-end', xs: 'center' }}
           display="flex"
           flexBasis="100%"
-          flexDirection={{ xs: 'column', md: 'row' }}
+          flexDirection={{ md: 'row', xs: 'column' }}
           gap={3}
           md={10}
           mx="auto"
           xs={12}
           item
         >
-          <Text mr={{ xs: 0, md: 'auto' }}>
+          <Text mr={{ md: 'auto', xs: 0 }}>
             Copyright © 2024 botspot, All rights reserved
           </Text>
           <Text href="/privacy-policy">Privacy Policy</Text>

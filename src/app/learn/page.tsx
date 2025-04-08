@@ -1,8 +1,6 @@
-import { Posts } from '../../components/Posts';
-
+import { QuestionForm } from '@/components/QuestionForm';
 import {
   Banner,
-  Button,
   LoadingSkeletons,
   MainBlock,
   PageContainer,
@@ -12,30 +10,28 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import { Suspense } from 'react';
 
-import { QuestionForm } from '@/components/QuestionForm';
+import { Posts } from '../../components/Posts';
 
 export default function Learn() {
   return (
     <main className="">
       <Banner
-        headline="LEARN ABOUT 3D SCANNING"
         mediaBlockOptions={{
           assetUrl: '/img/banners/learn.webp',
         }}
-        primaryCta={
-          <Button href="/3d-academy" variant="primary">
-            Visit 3D Academy
-          </Button>
-        }
-        secondaryCta={
-          <Button href="/contact-us" variant="secondary">
-            Ask Us Α Question
-          </Button>
-        }
+        primary={{
+          href: '/3d-academy',
+          value: 'Visit 3D Academy',
+        }}
+        secondary={{
+          href: '/contact-us',
+          value: 'Ask Us Α Question',
+        }}
+        headline="LEARN ABOUT 3D SCANNING"
         sublineElement="Discover the fundamentals of 3D scanning and explore how this cutting-edge technology is transforming industries, from design to manufacturing."
       />
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="3D photogrammetry scanning creates a 3D model by combining many photos taken from different angles of an object or scene."
           subline="What Is 3D Scanning?"
@@ -76,13 +72,13 @@ export default function Learn() {
           width={1010}
         />
       </PageContainer>
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
-          cta={
-            <Button href="/3d-academy" variant="secondary">
-              Visit 3D Academy
-            </Button>
-          }
+          cta={{
+            href: '/3d-academy',
+            value: 'Visit 3D Academy',
+            variant: 'secondary',
+          }}
           headline="Our 3D Academy offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology."
           subline="Questions & Articles"
         />

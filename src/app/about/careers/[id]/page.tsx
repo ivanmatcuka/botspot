@@ -1,12 +1,11 @@
-import { ExtraFooter } from '../../../../components/ExtraFooter';
-
+import { getPost } from '@/services';
+import { generateSeo } from '@/utils';
 import { ThemedContainer } from '@botspot/ui';
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { getPost } from '@/services';
-import { generateSeo } from '@/utils';
+import { ExtraFooter } from '../../../../components/ExtraFooter';
 
 export async function generateMetadata({
   params,
@@ -39,14 +38,14 @@ export default async function Job({
     <main className="flex flex-col flex-1">
       <ThemedContainer maxWidth="xl">
         <Grid md={10} mx="auto" xs={12} container>
-          <Grid my={{ xs: 8, md: 15 }} xs={12} item>
+          <Grid my={{ md: 15, xs: 8 }} xs={12} item>
             <>
               <Typography component="span" variant="body1">
                 Open Positions
               </Typography>
               <Typography
                 component="h1"
-                mb={{ xs: 3, md: 4 }}
+                mb={{ md: 4, xs: 3 }}
                 mt={2}
                 variant="h2"
               >

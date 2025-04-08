@@ -18,28 +18,28 @@ import {
   UseFormRegister,
 } from 'react-hook-form';
 
-type InputProps = Pick<UseControllerProps, 'name' | 'rules'> &
+type InputProps = {
+    color?: 'primary' | 'white';
+    error?: FieldValues;
+    label?: string;
+    register: UseFormRegister<FieldValues>;
+  } &
   Pick<
     MuiInputProps,
     'fullWidth' | 'required' | 'value' | 'type' | 'rows' | 'className'
-  > & {
-    error?: FieldValues;
-    label?: string;
-    color?: 'primary' | 'white';
-    register: UseFormRegister<FieldValues>;
-  };
+  > & Pick<UseControllerProps, 'name' | 'rules'>;
 export const Input: FC<InputProps> = ({
+  color,
+  error,
   fullWidth,
   label,
-  error,
-  color,
+  name,
+  register,
   required,
   rows,
+  rules,
   type,
   value,
-  name,
-  rules,
-  register,
 }) => (
   <Grid
     className="!text-white"
@@ -96,10 +96,10 @@ export const Form: FC<PropsWithChildren<FormProps>> = ({
     <Container maxWidth="xl">
       <Grid
         direction="column"
-        mb={{ xs: 10, md: 15 }}
+        mb={{ md: 15, xs: 10 }}
         md={10}
         mx="auto"
-        pt={{ xs: 5, md: 10 }}
+        pt={{ md: 10, xs: 5 }}
         xs={12}
         container
       >

@@ -1,6 +1,7 @@
-import { Posts } from '../../../components/Posts';
-
-import { Button, LoadingSkeletons, ThemedContainer } from '@botspot/ui';
+import { Button } from '@/components/NextButton/NextButton';
+import { getPostBySlug } from '@/services';
+import { generateSeo, getFeaturedImageUrl } from '@/utils';
+import { LoadingSkeletons, ThemedContainer } from '@botspot/ui';
 import { Facebook, LinkedIn, Twitter } from '@mui/icons-material';
 import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
@@ -8,8 +9,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
-import { getPostBySlug } from '@/services';
-import { generateSeo, getFeaturedImageUrl } from '@/utils';
+import { Posts } from '../../../components/Posts';
 
 const baseUrl = process.env.NEXT_PUBLIC_URL;
 
@@ -43,7 +43,7 @@ export default async function Post({
   return (
     <ThemedContainer maxWidth="xl">
       <Grid md={10} mx="auto" xs={12} container>
-        <Grid my={{ xs: 8, md: 15 }} xs={12} item>
+        <Grid my={{ md: 15, xs: 8 }} xs={12} item>
           {featuredImage && (
             <Image
               alt={post.title.rendered}
@@ -57,14 +57,14 @@ export default async function Post({
           )}
           <Typography
             dangerouslySetInnerHTML={{ __html: post.title.rendered ?? '' }}
-            mb={{ xs: 3, md: 4 }}
+            mb={{ md: 4, xs: 3 }}
             variant="h1"
           />
           <Typography>{post.excerpt.protected}</Typography>
           <Box dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
           <Box
             className="flex gap-2 flex-col md:flex-row items-center"
-            mt={{ xs: 5, md: 10 }}
+            mt={{ md: 10, xs: 5 }}
           >
             <Button
               href={`https://www.facebook.com/sharer/sharer.php?u=${baseUrl}/3d-academy/${slug}`}
@@ -91,12 +91,12 @@ export default async function Post({
               Share on LinkedIn
             </Button>
           </Box>
-          <Box pt={{ xs: 10, md: 15 }}>
+          <Box pt={{ md: 15, xs: 10 }}>
             <hr />
             <Typography
               component="h2"
-              mb={{ xs: 3, md: 6 }}
-              mt={{ xs: 3, md: 10 }}
+              mb={{ md: 6, xs: 3 }}
+              mt={{ md: 10, xs: 3 }}
               variant="h2"
             >
               Related Articles:

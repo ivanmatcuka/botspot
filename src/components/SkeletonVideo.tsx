@@ -8,9 +8,9 @@ export type SkeletonVideoProps = {
   videoSrc: string;
 } & MediaHTMLAttributes<HTMLVideoElement>;
 export const SkeletonVideo: FC<SkeletonVideoProps> = ({
-  videoSrc,
-  className = '',
   autoPlay,
+  className = '',
+  videoSrc,
   ...props
 }: SkeletonVideoProps) => {
   const video = useRef<HTMLVideoElement>(null);
@@ -38,11 +38,11 @@ export const SkeletonVideo: FC<SkeletonVideoProps> = ({
       )}
       <video
         className={`w-full h-full relative ${className}`}
+        onLoad={() => setIsloaded(true)}
         preload="none"
         ref={video}
         src={videoSrc}
         playsInline
-        onLoad={() => setIsloaded(true)}
         {...props}
       />
     </div>

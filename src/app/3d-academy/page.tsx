@@ -1,15 +1,14 @@
-import { Posts } from '../../components/Posts';
-
+import { QuestionForm } from '@/components/QuestionForm';
 import { LoadingSkeletons, MainBlock, PageContainer } from '@botspot/ui';
 import { Box } from '@mui/material';
 import { Suspense } from 'react';
 
-import { QuestionForm } from '@/components/QuestionForm';
+import { Posts } from '../../components/Posts';
 
 export default function Blog() {
   return (
     <main className="">
-      <PageContainer mb={8} mt={{ xs: 10, md: 15 }}>
+      <PageContainer mb={8} mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline={
             'Our "3D Academy" offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology.'

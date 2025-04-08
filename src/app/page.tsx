@@ -1,18 +1,16 @@
 'use client';
 
-import { Banner, MainBlock, PageContainer, Tile } from '@botspot/ui';
-import { Box, Skeleton, Typography } from '@mui/material';
-import { Suspense } from 'react';
-
 import { FeedbackForm } from '@/components/FeedbackForm';
 import LandingPageProducts from '@/components/LandingPageProducts';
 import { PartnerLogo } from '@/components/PartnerLogo';
+import { Banner, MainBlock, PageContainer, Tile } from '@botspot/ui';
+import { Box, Skeleton, Typography } from '@mui/material';
+import { Suspense } from 'react';
 
 export default function Home() {
   return (
     <main className="">
       <Banner
-        headline="THE WORLD’S BEST FOR EXCEPTIONAL SCANNING SOLUTIONS"
         mediaBlockOptions={{
           assetUrl: '/videos/landing-page.webm',
         }}
@@ -24,6 +22,7 @@ export default function Home() {
           href: '/areas',
           value: 'Explore Areas of Use',
         }}
+        headline="THE WORLD’S BEST FOR EXCEPTIONAL SCANNING SOLUTIONS"
         sublineElement="With over 10 years of experience in photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
       />
 
@@ -33,8 +32,8 @@ export default function Home() {
         justifyContent="center"
         maxWidth="xl"
         mx="auto"
-        my={{ xs: 8, md: 10 }}
-        px={{ xs: 4, md: 8 }}
+        my={{ md: 10, xs: 8 }}
+        px={{ md: 8, xs: 4 }}
       >
         <PartnerLogo name="canon" />
         <PartnerLogo name="umg" />
@@ -58,10 +57,10 @@ export default function Home() {
         bgcolor="grey.100"
         display="flex"
         flexDirection="column"
-        py={{ xs: 4, md: 10 }}
+        py={{ md: 10, xs: 4 }}
         width="100%"
       >
-        <PageContainer mb={{ xs: 3, md: 6 }}>
+        <PageContainer mb={{ md: 6, xs: 3 }}>
           <MainBlock
             cta={{
               href: '/service',

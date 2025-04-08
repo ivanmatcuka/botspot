@@ -1,8 +1,6 @@
 'use client';
 
-import { Input } from './Form';
-
-import { Button, Menu } from '@botspot/ui';
+import { Menu } from '@botspot/ui';
 import {
   Box,
   Checkbox,
@@ -14,25 +12,28 @@ import {
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { Input } from './Form';
+import { Button } from './NextButton/NextButton';
+
 export const FORM_ID = 15422;
 
 type DownloadFormProps = {
-  productNames: string[];
-  isLoading: boolean;
   defaultProductName?: string;
+  isLoading: boolean;
+  productNames: string[];
   onSubmit?: (formData: FormData) => void;
 };
 export const DownloadForm: FC<DownloadFormProps> = ({
-  productNames,
-  isLoading,
   defaultProductName,
+  isLoading,
   onSubmit,
+  productNames,
 }) => {
   const [topic, setTopic] = useState(defaultProductName || productNames[0]);
 
   const {
-    register,
     formState: { errors },
+    register,
     setValue,
     watch,
   } = useForm();
@@ -93,7 +94,7 @@ export const DownloadForm: FC<DownloadFormProps> = ({
         </Typography>
 
         <Grid
-          justifyContent={{ xs: 'center', md: 'left' }}
+          justifyContent={{ md: 'left', xs: 'center' }}
           spacing={3}
           container
         >
@@ -110,26 +111,26 @@ export const DownloadForm: FC<DownloadFormProps> = ({
           </Grid>
           <Grid md={6} textAlign="left" xs={12} item>
             <Input
+              rules={{
+                required: 'Email is required',
+                pattern: {
+                  message: 'Invalid email',
+                  value: /\S+@\S+\.\S+/,
+                },
+              }}
               error={errors['your-email']}
               key="email"
               label="Email"
               name="your-email"
               register={register}
-              rules={{
-                required: 'Email is required',
-                pattern: {
-                  value: /\S+@\S+\.\S+/,
-                  message: 'Invalid email',
-                },
-              }}
               required
             />
           </Grid>
           <Grid xs={12} item>
             <Button
               disabled={isLoading}
-              variant="primary"
               onClick={() => onSubmit?.(formData)}
+              variant="primary"
             >
               Submit
             </Button>

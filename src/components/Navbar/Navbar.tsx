@@ -1,8 +1,5 @@
 'use client';
 
-import { NavbarDrawer } from './NavbarDrawer';
-import { NavbarMenu } from './NavbarMenu';
-
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
@@ -22,11 +19,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC, ReactNode, useState } from 'react';
 
+import { NavbarDrawer } from './NavbarDrawer';
+import { NavbarMenu } from './NavbarMenu';
+
 type MenuItem = {
-  label: string;
-  href?: string;
   children?: MenuItem[];
   disabled?: boolean;
+  href?: string;
+  label: string;
   onClick?: () => void;
 };
 

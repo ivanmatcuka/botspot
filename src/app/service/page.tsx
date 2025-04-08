@@ -1,6 +1,7 @@
+import { FeedbackForm } from '@/components/FeedbackForm';
+import { Button } from '@/components/NextButton/NextButton';
 import {
   Banner,
-  Button,
   Gallery,
   GalleryTile,
   Iframe,
@@ -12,38 +13,28 @@ import {
 } from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
 
-import { FeedbackForm } from '@/components/FeedbackForm';
-
 export default function Service() {
   return (
     <main className="">
       <Banner
-        headline="3D SCAN SERVICE"
         mediaBlockOptions={{
           assetUrl: '/img/banners/services.webp',
         }}
-        primaryCta={
-          <Button
-            href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/1z_5HDew_kyNeepl2Mi6TA2"
-            variant="primary"
-          >
-            Book In-House Scan Service
-          </Button>
-        }
+        primary={{
+          href: 'https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/1z_5HDew_kyNeepl2Mi6TA2',
+          value: 'Book In-House Scan Service',
+        }}
+        headline="3D SCAN SERVICE"
         sublineElement="Our 3D scan services cater to individuals and businesses seeking  high-quality scans without the upfront costs and technical requirements  of owning a scanner."
       />
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
-          cta={
-            <Button
-              href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/1z_5HDew_kyNeepl2Mi6TA2"
-              target="_blank"
-              variant="primary"
-            >
-              Request In-House Scan Service
-            </Button>
-          }
+          cta={{
+            href: 'https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/1z_5HDew_kyNeepl2Mi6TA2',
+            value: 'Request In-House Scan Service',
+            variant: 'primary',
+          }}
           headline="Visit our 3D scanning studio in Berlin or send us your items to receive high-quality 3D models that will be delivered to you shortly afterwards.”"
           subline="In-House Scan Service"
         />
@@ -71,7 +62,7 @@ export default function Service() {
         </Typography>
       </Tile>
 
-      <Box mb={{ xs: 5, md: 10 }}>
+      <Box mb={{ md: 10, xs: 5 }}>
         <Gallery
           firstChild={
             <Iframe src="https://sketchfab.com/models/a934a5364ef24f828333206a23f18d17/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1" />
@@ -82,7 +73,7 @@ export default function Service() {
         />
       </Box>
 
-      <PageContainer my={{ xs: 10, md: 15 }}>
+      <PageContainer my={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="We understand every project is unique. That’s why we offer flexible post-processing options, from foundational scans to premium visualizations."
           subline="Post-Processing Tailored to Your Needs"
@@ -98,7 +89,7 @@ export default function Service() {
         </Typography>
       </Tile>
 
-      <PageContainer my={{ xs: 10, md: 15 }}>
+      <PageContainer my={{ md: 15, xs: 10 }}>
         <SkeletonVideo
           controls={false}
           videoSrc="/videos/SH01_FINAL.webm"
@@ -115,7 +106,7 @@ export default function Service() {
           e-commerce, virtual showrooms or engaging 3D experiences.
         </Typography>
       </Tile>
-      <PageContainer my={{ xs: 10, md: 15 }}>
+      <PageContainer my={{ md: 15, xs: 10 }}>
         <SkeletonVideo
           controls={false}
           videoSrc="/videos/SH02_FINAL.webm"
@@ -133,7 +124,7 @@ export default function Service() {
           for marketing and advertising.
         </Typography>
       </Tile>
-      <PageContainer my={{ xs: 10, md: 15 }}>
+      <PageContainer my={{ md: 15, xs: 10 }}>
         <SkeletonVideo
           controls={false}
           videoSrc="/videos/SH03_FINAL.webm"
@@ -143,13 +134,13 @@ export default function Service() {
         />
       </PageContainer>
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
-          cta={
-            <Button href="/contact-us" variant="primary">
-              Tell Us About Your Project
-            </Button>
-          }
+          cta={{
+            href: '/contact-us',
+            value: 'Tell Us About Your Project',
+            variant: 'primary',
+          }}
           headline="Flexible services designed to enhance your projects and drive successful outcomes."
           subline="Dynamic Collaboration Services"
         />
@@ -178,24 +169,24 @@ export default function Service() {
 
       <GalleryTile bgColor="white" imgUrl="/img/service/1.png">
         <SecondaryBlock
-          headline="Event Hire"
           primaryCta={
             <Button href="/contact-us" variant="primary">
               Request Event Hire
             </Button>
           }
+          headline="Event Hire"
           sublineElement="Corporate event, fair show or convention coming up? Guarantee an unforgettable experience with full-body scanning. We deliver and set up the scanner, ensuring a seamless and impressive experience."
         />
       </GalleryTile>
 
       <GalleryTile imgUrl="/img/service/2.png">
         <SecondaryBlock
-          headline="Special Requests"
           primaryCta={
             <Button href="/about/innovation-lab" variant="primary">
               Explore Innovation Lab
             </Button>
           }
+          headline="Special Requests"
           sublineElement="Have a large or unusual item that needs scanning? Our Innovation Lab specializes in handling special requests, even for the most challenging projects."
         />
       </GalleryTile>

@@ -1,7 +1,6 @@
+import { getPage } from '@/services';
 import { PageContainer, ThemedContainer } from '@botspot/ui';
 import { notFound } from 'next/navigation';
-
-import { getPage } from '@/services';
 
 export default async function PrivacyPolicy() {
   const page = await getPage('privacy-policy');
@@ -10,7 +9,7 @@ export default async function PrivacyPolicy() {
 
   return (
     <main className="">
-      <PageContainer mb={8} mt={{ xs: 10, md: 15 }}>
+      <PageContainer mb={8} mt={{ md: 15, xs: 10 }}>
         <ThemedContainer
           dangerouslySetInnerHTML={{ __html: page?.content.rendered ?? '' }}
         />

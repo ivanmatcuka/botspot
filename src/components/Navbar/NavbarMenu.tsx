@@ -1,19 +1,21 @@
 'use client';
 
-import { Button, Menu } from '@botspot/ui';
+import { Menu } from '@botspot/ui';
 import { FC } from 'react';
 
+import { Button } from '../NextButton/NextButton';
+
 type MenuItem = {
-  label: string;
-  href?: string;
   children?: MenuItem[];
   disabled?: boolean;
+  href?: string;
+  label: string;
   onClick?: () => void;
 };
 
-type NavbarMenuProps = { item: MenuItem; currentPath: string };
+type NavbarMenuProps = { currentPath: string; item: MenuItem };
 
-export const NavbarMenu: FC<NavbarMenuProps> = ({ item, currentPath }) => {
+export const NavbarMenu: FC<NavbarMenuProps> = ({ currentPath, item }) => {
   if (!item.children?.length) {
     return (
       <Button

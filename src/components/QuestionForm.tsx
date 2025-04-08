@@ -1,13 +1,13 @@
 'use client';
 
-import { Box, Typography } from '@mui/material';
-import { FC, useCallback, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Button } from '@botspot/ui';
-
 import { Form, Input } from '@/components/Form';
 import { useSnackbar } from '@/components/Snackbar';
 import { submitFeedbackForm } from '@/services';
+import { Box, Typography } from '@mui/material';
+import { FC, useCallback, useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+
+import { Button } from './NextButton/NextButton';
 
 const FORM_ID = 15431;
 
@@ -15,12 +15,12 @@ export const QuestionForm: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const {
-    register,
-    handleSubmit,
     formState: { errors },
+    handleSubmit,
+    register,
     reset,
-    watch,
     setValue,
+    watch,
   } = useForm();
   const email = watch('your-email');
   const question = watch('your-question');
@@ -49,7 +49,7 @@ export const QuestionForm: FC = () => {
 
   return (
     <Form secondary>
-      <Box p={{ xs: 3, md: 5 }} py={{ xs: 2 }}>
+      <Box p={{ md: 5, xs: 3 }} py={{ xs: 2 }}>
         <Typography color="white" mb={2} variant="h2">
           Do you have a question?
         </Typography>
@@ -63,23 +63,23 @@ export const QuestionForm: FC = () => {
           display="flex"
           flexWrap="wrap"
           gap={3}
-          justifyContent={{ xs: 'center', md: 'left' }}
+          justifyContent={{ md: 'left', xs: 'center' }}
           rowGap={2}
         >
           <Input
+            rules={{
+              required: 'Email is required',
+              pattern: {
+                message: 'Invalid email',
+                value: /\S+@\S+\.\S+/,
+              },
+            }}
             color="white"
             error={errors['your-email']}
             key="email"
             label="Email"
             name="your-email"
             register={register}
-            rules={{
-              required: 'Email is required',
-              pattern: {
-                value: /\S+@\S+\.\S+/,
-                message: 'Invalid email',
-              },
-            }}
             fullWidth
             required
           />
@@ -98,8 +98,8 @@ export const QuestionForm: FC = () => {
           />
           <Button
             disabled={isLoading}
-            variant="primary"
             onClick={handleSubmit(onSubmit)}
+            variant="primary"
           >
             Submit
           </Button>

@@ -1,9 +1,10 @@
-import AreaPost from '../../../components/AreaPost';
-
-import { Banner, Button, MainBlock, PageContainer, Tile } from '@botspot/ui';
+import { Button } from '@/components/NextButton/NextButton';
+import { Banner, MainBlock, PageContainer, Tile } from '@botspot/ui';
 import { Typography } from '@mui/material';
 import Image from 'next/image';
 import { Suspense } from 'react';
+
+import AreaPost from '../../../components/AreaPost';
 
 const AREA_SLUG = 'areas-commercial';
 
@@ -11,14 +12,14 @@ export default function Commercial() {
   return (
     <main className="">
       <Banner
-        headline="Commercial Areas of Use"
         mediaBlockOptions={{
           assetUrl: '/img/areas/commercial/banner.png',
         }}
+        headline="Commercial Areas of Use"
         sublineElement="Reduce your return rates and offer your customers an astonishing quality of product visualization with the help of 3D technology."
       />
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="With new emerging technologies, using digital assets is more important than ever before."
           subline="Insight"
@@ -34,7 +35,7 @@ export default function Commercial() {
         </Typography>
       </Tile>
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="Product visualization is an essential part of sales promotion in digital retail – 3D models open up completely new possibilities for product display."
           subline="E-commerce"
@@ -77,7 +78,7 @@ export default function Commercial() {
         </Typography>
       </Tile>
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="Transform VR experiences with our 3D scanners, delivering precise, high-fidelity models."
           subline="Virtual Reality"
@@ -109,7 +110,7 @@ export default function Commercial() {
         </Button>
       </Tile>
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="Bring cultural elements and stage designs to life with unparalleled detail and realism."
           subline="Culture"

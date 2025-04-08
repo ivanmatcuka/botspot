@@ -1,5 +1,3 @@
-import { People } from '../../components/People';
-
 import {
   Banner,
   LoadingSkeletons,
@@ -10,11 +8,12 @@ import {
 import { Box, Typography } from '@mui/material';
 import { Suspense } from 'react';
 
+import { People } from '../../components/People';
+
 export default function About() {
   return (
     <main className="">
       <Banner
-        headline="ABOUT US"
         mediaBlockOptions={{
           assetUrl: '/img/banners/about.webp',
         }}
@@ -26,10 +25,11 @@ export default function About() {
           href: '/contact-us',
           value: 'Contact Us',
         }}
+        headline="ABOUT US"
         sublineElement="Whenever 3D scanning technology can shift the status quo, botspot is here for you to innovate."
       />
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="We set new standards in the 3D scanning industry."
           subline="Our Mission"
@@ -56,7 +56,7 @@ export default function About() {
         </Typography>
       </Tile>
 
-      <PageContainer mb={8} mt={{ xs: 10, md: 15 }}>
+      <PageContainer mb={8} mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="With commitment and tenacity, we make the impossible possible."
           subline="Our Team"
@@ -74,7 +74,7 @@ export default function About() {
         bgcolor="grey.100"
         display="flex"
         flexDirection="column"
-        py={{ xs: 5, md: 10 }}
+        py={{ md: 10, xs: 5 }}
         width="100%"
       >
         <PageContainer mb={0} my={0}>
@@ -90,7 +90,7 @@ export default function About() {
         </PageContainer>
       </Box>
 
-      <PageContainer id="our-story" mt={{ xs: 5, md: 10 }}>
+      <PageContainer id="our-story" mt={{ md: 10, xs: 5 }}>
         <MainBlock
           headline="Delivering excellence for over ten years."
           subline="Our Story"
@@ -118,7 +118,7 @@ export default function About() {
           a growing global market.
         </Typography>
         <br />
-        <Typography mb={{ xs: 5, md: 10 }} variant="body1">
+        <Typography mb={{ md: 10, xs: 5 }} variant="body1">
           Today, botspot is based in Berlin’s tech hub, Adlershof, committed to
           creating innovative scanning solutions. Photogrammetry remains their
           foundation—while the sky’s the limit.

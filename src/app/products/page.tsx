@@ -1,8 +1,7 @@
-import ProductsList from '../../components/Products';
-
+import { FeedbackForm } from '@/components/FeedbackForm';
+import { Button } from '@/components/NextButton/NextButton';
 import {
   Banner,
-  Button,
   GalleryTile,
   MainBlock,
   PageContainer,
@@ -12,37 +11,35 @@ import {
 import { Box, Skeleton, Typography } from '@mui/material';
 import { Suspense } from 'react';
 
-import { FeedbackForm } from '@/components/FeedbackForm';
+import ProductsList from '../../components/Products';
 
 export default function Products() {
   return (
     <main className="">
       <Banner
-        headline="PRODUCTS"
         mediaBlockOptions={{
           assetUrl: '/videos/banners/products.webm',
         }}
-        primaryCta={
-          <Button href="/download-area" variant="primary">
-            Download Data Sheets
-          </Button>
-        }
-        secondaryCta={
-          <Button href="/areas" variant="secondary">
-            Areas of Use
-          </Button>
-        }
+        primary={{
+          href: '/download-area',
+          value: 'Download Data Sheets',
+        }}
+        secondary={{
+          href: '/areas',
+          value: 'Areas of Use',
+        }}
+        headline="PRODUCTS"
         sublineElement="Generate photorealistic 3D models with our industry-leading scanners, designed for precision, high-resolution detail, and reliable performance across any project."
       />
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="3D Scanners made by botspot are easy to use and come with a fully automated software package."
           subline="Virtual Precision"
         />
       </PageContainer>
 
-      <Box mb={{ xs: 10, md: 15 }}>
+      <Box mb={{ md: 15, xs: 10 }}>
         <Tile headline="Full-Body Scanning">
           <Typography variant="body1">
             Capture complete, high-resolution 3D scans with our 3D Full-Body
@@ -75,12 +72,12 @@ export default function Products() {
 
       <GalleryTile imgUrl="/img/products/4.png">
         <SecondaryBlock
-          headline="Our Scanners in Action"
           primaryCta={
             <Button href="/areas" variant="primary">
               Explore Applications
             </Button>
           }
+          headline="Our Scanners in Action"
           sublineElement="Discover our areas of use with a diverse range of applications and industries."
         />
       </GalleryTile>

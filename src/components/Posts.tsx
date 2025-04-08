@@ -1,21 +1,22 @@
 'use client';
 
-import { Button, LoadingSkeletons, Pagination, Post } from '@botspot/ui';
+import { CustomPost, getPosts } from '@/services';
+import { getFeaturedImageUrl } from '@/utils';
+import { LoadingSkeletons, Pagination, Post } from '@botspot/ui';
 import { Grid } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
 
-import { CustomPost, getPosts } from '@/services';
-import { getFeaturedImageUrl } from '@/utils';
+import { Button } from './NextButton/NextButton';
 
 type PostProps = {
-  perPage?: number;
   hidePagination?: boolean;
   list?: boolean;
+  perPage?: number;
 };
 export const Posts: FC<PostProps> = ({
-  perPage = 12,
   hidePagination = false,
   list = false,
+  perPage = 12,
 }) => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -25,7 +26,7 @@ export const Posts: FC<PostProps> = ({
   useEffect(() => {
     setLoading(true);
     getPosts(page, perPage)
-      .then(({ data, count }) => {
+      .then(({ count, data }) => {
         setPosts(data);
         setCount(count);
       })
@@ -33,7 +34,7 @@ export const Posts: FC<PostProps> = ({
   }, [page, perPage]);
 
   return (
-    <Grid spacing={{ xs: 2, md: 3, lg: 5 }} xs={10} container>
+    <Grid spacing={{ lg: 5, md: 3, xs: 2 }} xs={10} container>
       {loading ? (
         <LoadingSkeletons count={perPage} />
       ) : (

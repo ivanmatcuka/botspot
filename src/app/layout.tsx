@@ -1,9 +1,14 @@
 import '@botspot/ui/dist/ui.css';
+
 import './globals.scss';
 
-import { WProvider } from './components/WProvider';
+import type { Metadata } from 'next';
 
-import { Button, SnackbarProvider, ThemeRegistry } from '@botspot/ui';
+import { Footer } from '@/components/Footer';
+import { Navbar } from '@/components/Navbar/Navbar';
+import { Button } from '@/components/NextButton/NextButton';
+import { getProducts } from '@/services';
+import { SnackbarProvider, ThemeRegistry } from '@botspot/ui';
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { GoogleTagManager } from '@next/third-parties/google';
@@ -11,11 +16,7 @@ import { Poppins } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import { ReactNode } from 'react';
 
-import { Footer } from '@/components/Footer';
-import { Navbar } from '@/components/Navbar/Navbar';
-import { getProducts } from '@/services';
-
-import type { Metadata } from 'next';
+import { WProvider } from './components/WProvider';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -23,8 +24,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'botspot',
   description: '3D Scanning Services',
+  title: 'botspot',
   icons: [
     {
       rel: 'apple-touch-icon',
@@ -47,43 +48,43 @@ export default async function RootLayout({
   const { data: products } = await getProducts();
 
   const productsLinks = products?.map((product) => ({
-    label: product.title.rendered,
     href: `/products/${product.slug}`,
+    label: product.title.rendered,
   }));
 
   const navbarItems = [
     {
-      label: 'Products',
-      href: '/products',
       children: productsLinks,
+      href: '/products',
+      label: 'Products',
     },
-    { label: '3D Scan Service', href: '/service' },
+    { href: '/service', label: '3D Scan Service' },
     {
-      label: 'Areas of use',
       href: '/areas',
+      label: 'Areas of use',
       children: [
-        { label: 'Commercial', href: '/areas/commercial' },
-        { label: 'Industrial', href: '/areas/industrial' },
+        { href: '/areas/commercial', label: 'Commercial' },
+        { href: '/areas/industrial', label: 'Industrial' },
         {
-          label: 'Custom Solutions',
           href: '/areas/custom-solutions',
+          label: 'Custom Solutions',
         },
       ],
     },
     {
-      label: 'Learn About 3D Scanning',
+      children: [{ href: '/3d-academy', label: '3D Academy' }],
       href: '/learn',
-      children: [{ label: '3D Academy', href: '/3d-academy' }],
+      label: 'Learn About 3D Scanning',
     },
     {
-      label: 'About Us',
       href: '/about',
+      label: 'About Us',
       children: [
         {
-          label: 'Innovation Lab',
           href: '/about/innovation-lab',
+          label: 'Innovation Lab',
         },
-        { label: 'Careers', href: '/about/careers' },
+        { href: '/about/careers', label: 'Careers' },
       ],
     },
   ];

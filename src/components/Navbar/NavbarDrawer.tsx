@@ -12,20 +12,20 @@ import Link from 'next/link';
 import { FC, useState } from 'react';
 
 type MenuItem = {
-  label: string;
-  href?: string;
   children?: MenuItem[];
   disabled?: boolean;
+  href?: string;
+  label: string;
   onClick?: () => void;
 };
 
-type ControlledAccordionProps = AccordionProps & {
+type ControlledAccordionProps = {
   item: MenuItem;
   onOpen: () => void;
-};
+} & AccordionProps;
 const ControlledAccordion: FC<ControlledAccordionProps> = ({
-  item,
   children,
+  item,
   onOpen,
 }) => {
   const [expanded, setExpanded] = useState(false);

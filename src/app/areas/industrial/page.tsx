@@ -1,15 +1,9 @@
-import AreaPost from '../../../components/AreaPost';
-
-import {
-  Banner,
-  Button,
-  Iframe,
-  MainBlock,
-  PageContainer,
-  Tile,
-} from '@botspot/ui';
+import { Button } from '@/components/NextButton/NextButton';
+import { Banner, Iframe, MainBlock, PageContainer, Tile } from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
 import { Suspense } from 'react';
+
+import AreaPost from '../../../components/AreaPost';
 
 const AREA_SLUG = 'areas-industrial';
 const POST_SLUG = 'digitization-of-automotive-parts-with-complex-geometry';
@@ -18,14 +12,14 @@ export default function Industrial() {
   return (
     <main className="">
       <Banner
-        headline="Industrial Areas of Use"
         mediaBlockOptions={{
           assetUrl: '/img/areas/industrial/banner.png',
         }}
+        headline="Industrial Areas of Use"
         sublineElement="Benefit from accelerated workflows thanks to reverse engineering and the  most efficient quality control in the context of Industry 4.0."
       />
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="We provide high-precision 3D models of objects, 360° images for documentation and extraction of measurement data for quality control."
           subline="Insight"
@@ -41,7 +35,7 @@ export default function Industrial() {
         </Typography>
       </Tile>
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="Streamline industrial processes with our 3D scanners for accurate measurements and improved precision."
           subline="Quality Control & Reverse Engineering"

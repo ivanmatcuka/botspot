@@ -1,5 +1,5 @@
+import { Button } from '@/components/NextButton/NextButton';
 import { Box, Typography } from '@mui/material';
-import { Button } from '@botspot/ui';
 
 export default function NotFound() {
   return (

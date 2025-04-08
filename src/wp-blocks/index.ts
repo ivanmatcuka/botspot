@@ -1,5 +1,5 @@
-import { CoreBlocks } from '@faustwp/blocks';
+// import { CoreBlocks } from '@faustwp/blocks';
 
-export default {
-  ...CoreBlocks,
-};
+// export default {
+//   ...CoreBlocks,
+// };

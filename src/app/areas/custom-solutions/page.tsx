@@ -1,15 +1,9 @@
-import AreaPost from '../../../components/AreaPost';
-
-import {
-  Banner,
-  Button,
-  Iframe,
-  MainBlock,
-  PageContainer,
-  Tile,
-} from '@botspot/ui';
+import { Button } from '@/components/NextButton/NextButton';
+import { Banner, Iframe, MainBlock, PageContainer, Tile } from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
 import { Suspense } from 'react';
+
+import AreaPost from '../../../components/AreaPost';
 
 const AREA_SLUG = 'areas-custom';
 
@@ -17,14 +11,14 @@ export default function CustomSolutions() {
   return (
     <main className="">
       <Banner
-        headline="Custom Solutions"
         mediaBlockOptions={{
           assetUrl: '/img/areas/custom-solution/banner.png',
         }}
+        headline="Custom Solutions"
         sublineElement="Create bespoke solutions with our 3D scanners, offering accurate, customized models to fit your unique specifications."
       />
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="We see unconventional 3D scanning requests as an opportunity to collaborate even closer with our clients."
           subline="Insight"
@@ -38,7 +32,7 @@ export default function CustomSolutions() {
         </Typography>
       </Tile>
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
           headline="Achieve tailored results with our 3D scanning solutions, delivering precise and custom-fit models for your specific needs."
           subline="Custom Solutions"

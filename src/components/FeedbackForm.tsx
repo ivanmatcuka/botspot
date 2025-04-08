@@ -1,6 +1,9 @@
 'use client';
 
-import { Button, Menu } from '@botspot/ui';
+import { Form, Input } from '@/components/Form';
+import { useSnackbar } from '@/components/Snackbar';
+import { getProducts, submitFeedbackForm } from '@/services';
+import { Menu } from '@botspot/ui';
 import {
   Box,
   Checkbox,
@@ -11,9 +14,7 @@ import {
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Form, Input } from '@/components/Form';
-import { useSnackbar } from '@/components/Snackbar';
-import { getProducts, submitFeedbackForm } from '@/services';
+import { Button } from './NextButton/NextButton';
 
 const TOPICS = ['3D Scan Service', 'Innovation Lab'] as const;
 const FORM_ID = 15420;
@@ -21,20 +22,20 @@ const FORM_ID = 15420;
 type Topic = (typeof TOPICS)[number] | string;
 
 type FeedbackFormProps = {
-  frameless?: boolean;
   defaultTopic?: Topic;
+  frameless?: boolean;
 };
 export const FeedbackForm: FC<FeedbackFormProps> = ({
-  frameless = false,
   defaultTopic = TOPICS[0],
+  frameless = false,
 }) => {
   const {
+    formState: { errors },
     handleSubmit,
     register,
+    reset,
     setValue,
     watch,
-    reset,
-    formState: { errors },
   } = useForm();
 
   const [topic, setTopic] = useState<Topic>(
@@ -97,7 +98,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
     <Form frameless={frameless}>
       <Box
         id="feedback-form"
-        p={frameless ? 0 : { xs: 3, md: 5 }}
+        p={frameless ? 0 : { md: 5, xs: 3 }}
         py={frameless ? 0 : { xs: 2 }}
       >
         <Typography className="text-center md:text-left" mb={2} variant="h2">
@@ -127,7 +128,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
           display="flex"
           flexWrap="wrap"
           gap={3}
-          justifyContent={{ xs: 'center', md: 'left' }}
+          justifyContent={{ md: 'left', xs: 'center' }}
           rowGap={2}
         >
           <Input
@@ -140,18 +141,18 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
             required
           />
           <Input
+            rules={{
+              required: 'Email is required',
+              pattern: {
+                message: 'Invalid email',
+                value: /\S+@\S+\.\S+/,
+              },
+            }}
             error={errors['your-email']}
             key="email"
             label="Email"
             name="your-email"
             register={register}
-            rules={{
-              required: 'Email is required',
-              pattern: {
-                value: /\S+@\S+\.\S+/,
-                message: 'Invalid email',
-              },
-            }}
             required
           />
           <Input
@@ -168,8 +169,8 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
           />
           <Button
             disabled={isLoading}
-            variant="primary"
             onClick={handleSubmit(onSubmit)}
+            variant="primary"
           >
             Submit
           </Button>
