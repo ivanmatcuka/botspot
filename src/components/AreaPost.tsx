@@ -1,6 +1,6 @@
 import { Button, GalleryTile, SecondaryBlock } from '@botspot/ui';
 
-import { getAreaBySlug } from '@/service';
+import { getAreaBySlug } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 
 type AreaPostProps = {

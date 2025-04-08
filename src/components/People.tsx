@@ -2,7 +2,7 @@ import { Post } from '@botspot/ui';
 import { Grid } from '@mui/material';
 import { FC } from 'react';
 
-import { getPeople } from '@/service';
+import { getPeople } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 
 export const People: FC = async () => {

@@ -4,7 +4,7 @@ import { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { Twitter } from 'next/dist/lib/metadata/types/twitter-types';
 import { WP_REST_API_Attachment } from 'wp-types';
 
-import { CustomPost, getPages } from '@/service';
+import { CustomPost, getPages } from '@/services';
 interface Sizes {
   [size: string]: {
     source_url: string;

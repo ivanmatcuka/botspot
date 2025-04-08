@@ -1,4 +1,4 @@
-import { getRedirects } from './src/service';
+import { getRedirects } from './src/services/getRedirects';
 
 import { NextConfig } from 'next';
 
@@ -53,7 +53,10 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     inlineCss: true,
+    esmExternals: true,
+    webpackMemoryOptimizations: true,
   },
+  output: 'standalone',
   async redirects() {
     const jsonData = await getRedirects();
     const nextJsRedirects = adaptRedirectsForNextJs(jsonData.data);

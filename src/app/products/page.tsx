@@ -9,7 +9,8 @@ import {
   SecondaryBlock,
   Tile,
 } from '@botspot/ui';
-import { Box, Typography } from '@mui/material';
+import { Box, Skeleton, Typography } from '@mui/material';
+import { Suspense } from 'react';
 
 import { FeedbackForm } from '@/components/FeedbackForm';
 
@@ -19,7 +20,7 @@ export default function Products() {
       <Banner
         headline="PRODUCTS"
         mediaBlockOptions={{
-          assetUrl: '/videos/banners/products.mp4',
+          assetUrl: '/videos/banners/products.webm',
         }}
         primaryCta={
           <Button href="/download-area" variant="primary">
@@ -68,7 +69,9 @@ export default function Products() {
         </Tile>
       </Box>
 
-      <ProductsList />
+      <Suspense fallback={<Skeleton height="100%" variant="rectangular" />}>
+        <ProductsList />
+      </Suspense>
 
       <GalleryTile imgUrl="/img/products/4.png">
         <SecondaryBlock

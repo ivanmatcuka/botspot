@@ -6,7 +6,7 @@ import { FC, useState } from 'react';
 
 import { DownloadForm, FORM_ID } from '@/components/DownloadForm';
 import { useSnackbar } from '@/components/Snackbar';
-import { CustomFields, CustomPost, submitFeedbackForm } from '@/service';
+import { CustomFields, CustomPost, submitFeedbackForm } from '@/services';
 
 type DownloadAreaContentProps = {
   products: CustomPost[];

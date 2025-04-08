@@ -4,7 +4,7 @@ import { Button, LoadingSkeletons, Pagination, Post } from '@botspot/ui';
 import { Grid } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
 
-import { CustomPost, getPosts } from '@/service';
+import { CustomPost, getPosts } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 
 type PostProps = {

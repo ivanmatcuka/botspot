@@ -13,7 +13,7 @@ import { useForm } from 'react-hook-form';
 
 import { Form, Input } from '@/components/Form';
 import { useSnackbar } from '@/components/Snackbar';
-import { getProducts, submitFeedbackForm } from '@/service';
+import { getProducts, submitFeedbackForm } from '@/services';
 
 const TOPICS = ['3D Scan Service', 'Innovation Lab'] as const;
 const FORM_ID = 15420;

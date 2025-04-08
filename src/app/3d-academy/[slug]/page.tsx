@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
-import { getPostBySlug } from '@/service';
+import { getPostBySlug } from '@/services';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
 
 const baseUrl = process.env.NEXT_PUBLIC_URL;

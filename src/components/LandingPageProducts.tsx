@@ -1,22 +1,11 @@
-'use client';
-
 import { LandingPageProduct } from './LandingPageProduct';
 
-import List from 'rc-virtual-list';
-import { useEffect, useState } from 'react';
+import { getProducts } from '@/services';
 
-import { CustomPost, getProducts } from '@/service';
+export default async function LandingPageProducts() {
+  const { data: products } = await getProducts();
 
-export default function LandingPageProducts() {
-  const [products, setProducts] = useState<CustomPost[]>([]);
-
-  useEffect(() => {
-    getProducts().then(({ data }) => setProducts(data));
-  }, []);
-
-  return (
-    <List data={products} itemKey="id">
-      {(product) => <LandingPageProduct key={product.id} product={product} />}
-    </List>
-  );
+  return products.map((product) => (
+    <LandingPageProduct key={product.id} product={product} />
+  ));
 }

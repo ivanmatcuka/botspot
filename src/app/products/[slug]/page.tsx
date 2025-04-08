@@ -1,11 +1,13 @@
-export const revalidate = 0;
-
 import {
+  Banner,
   Button,
   Gallery,
   GalleryTile,
   Iframe,
+  MainBlock,
   MediaBlock,
+  PageContainer,
+  SecondaryBlock,
   SkeletonVideo,
   ThemedContainer,
   Tile,
@@ -17,7 +19,6 @@ import parse from 'html-react-parser';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { isValidElement, ReactElement } from 'react';
-import { Banner, MainBlock, PageContainer, SecondaryBlock } from '@botspot/ui';
 
 import { FeedbackForm } from '@/components/FeedbackForm';
 import {
@@ -25,7 +26,7 @@ import {
   CustomPost,
   getPostBySlug,
   getProductBySlug,
-} from '@/service';
+} from '@/services';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
 
 export async function generateMetadata({

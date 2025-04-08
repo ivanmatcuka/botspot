@@ -1,6 +1,5 @@
-import { ThemedContainer } from '@botspot/ui';
+import { PageContainer, ThemedContainer } from '@botspot/ui';
 import { notFound } from 'next/navigation';
-import { PageContainer } from '@botspot/ui';
 
 import { getPage } from '@/service';
 

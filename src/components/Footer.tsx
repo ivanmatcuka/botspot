@@ -12,7 +12,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 
-import { CustomPost } from '@/service';
+import { CustomPost } from '@/services';
 
 const Text = ({
   children,
@@ -23,7 +23,7 @@ const Text = ({
 
   if (href) {
     link = (
-      <Link className="hover:underline" href={href} prefetch={false}>
+      <Link className="hover:underline" href={href}>
         {children}
       </Link>
     );

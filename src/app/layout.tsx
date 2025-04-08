@@ -13,7 +13,7 @@ import { ReactNode } from 'react';
 
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar/Navbar';
-import { getProducts } from '@/service';
+import { getProducts } from '@/services';
 
 import type { Metadata } from 'next';
 

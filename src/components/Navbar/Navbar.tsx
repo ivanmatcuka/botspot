@@ -61,7 +61,8 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
               item
             >
               {/* <Link className="hidden xl:block" href="/"> */}
-              <Link href="/" prefetch={false}>
+              {/* eslint-disable */}
+              <Link href="/">
                 <Image
                   alt="logo"
                   height={46}

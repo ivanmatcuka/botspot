@@ -1,7 +1,8 @@
 'use client';
 
 import { Banner, MainBlock, PageContainer, Tile } from '@botspot/ui';
-import { Box, Typography } from '@mui/material';
+import { Box, Skeleton, Typography } from '@mui/material';
+import { Suspense } from 'react';
 
 import { FeedbackForm } from '@/components/FeedbackForm';
 import LandingPageProducts from '@/components/LandingPageProducts';
@@ -13,7 +14,7 @@ export default function Home() {
       <Banner
         headline="THE WORLD’S BEST FOR EXCEPTIONAL SCANNING SOLUTIONS"
         mediaBlockOptions={{
-          assetUrl: '/videos/landing-page.mp4',
+          assetUrl: '/videos/landing-page.webm',
         }}
         primary={{
           href: '/products',
@@ -49,7 +50,9 @@ export default function Home() {
         <PartnerLogo name="vertex" />
       </Box>
 
-      <LandingPageProducts />
+      <Suspense fallback={<Skeleton height="100%" variant="rectangular" />}>
+        <LandingPageProducts />
+      </Suspense>
 
       <Box
         bgcolor="grey.100"

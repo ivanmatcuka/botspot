@@ -2,7 +2,7 @@ import { Job } from '@botspot/ui';
 import { Box } from '@mui/material';
 import { FC } from 'react';
 
-import { getJobs } from '@/service';
+import { getJobs } from '@/services';
 
 export const Jobs: FC = async () => {
   const { data } = await getJobs();

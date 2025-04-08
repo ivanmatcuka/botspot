@@ -9,7 +9,7 @@ import {
 } from '@botspot/ui';
 import { FC } from 'react';
 
-import { CustomFields, CustomPost } from '@/service';
+import { CustomFields, CustomPost } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 
 type LandingPageProductProps = {

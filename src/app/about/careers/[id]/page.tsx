@@ -5,7 +5,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { getPost } from '@/service';
+import { getPost } from '@/services';
 import { generateSeo } from '@/utils';
 
 export async function generateMetadata({

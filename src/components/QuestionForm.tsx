@@ -7,7 +7,7 @@ import { Button } from '@botspot/ui';
 
 import { Form, Input } from '@/components/Form';
 import { useSnackbar } from '@/components/Snackbar';
-import { submitFeedbackForm } from '@/service';
+import { submitFeedbackForm } from '@/services';
 
 const FORM_ID = 15431;
 
