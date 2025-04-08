@@ -51,6 +51,9 @@ const requestInit: RequestInit = {
     'Access-Control-Allow-Origin': '*',
   },
   cache: 'no-store',
+  next: {
+    revalidate: 0,
+  },
 };
 
 const redirectsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/redirection/v1/redirect`;
