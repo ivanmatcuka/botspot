@@ -48,6 +48,7 @@ const requestInit: RequestInit = {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
   cache: 'force-cache',
 };

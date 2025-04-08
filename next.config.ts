@@ -53,6 +53,7 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     inlineCss: true,
+    esmExternals: true,
   },
   output: 'standalone',
   async redirects() {
