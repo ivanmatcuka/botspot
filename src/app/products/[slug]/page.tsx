@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import parse from 'html-react-parser';
 import { Metadata } from 'next';
+import { revalidatePath } from 'next/cache';
 import { notFound } from 'next/navigation';
 import { isValidElement, ReactElement } from 'react';
 
@@ -26,6 +27,8 @@ import {
   getProductBySlug,
 } from '@/service';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
+
+revalidatePath('/products/[slug]');
 
 export async function generateMetadata({
   params,
