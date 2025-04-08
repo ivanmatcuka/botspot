@@ -50,6 +50,7 @@ const requestInit: RequestInit = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
   },
+  cache: 'no-store',
 };
 
 const redirectsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/redirection/v1/redirect`;

@@ -13,7 +13,7 @@ import { ThemedContainer } from '@/components/ThemedContainer';
 import { getPostBySlug } from '@/service';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const baseUrl = process.env.NEXT_PUBLIC_URL;
 
 export async function generateMetadata({
   params,
