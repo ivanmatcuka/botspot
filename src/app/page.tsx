@@ -1,4 +1,4 @@
-import LandingPageProducts from './LandingPageProducts';
+// import LandingPageProducts from './LandingPageProducts';
 
 import { Box, Typography } from '@mui/material';
 
@@ -54,7 +54,7 @@ export default function Home() {
         <PartnerLogo name="vertex" />
       </Box>
 
-      <LandingPageProducts />
+      {/* <LandingPageProducts /> */}
 
       <Box
         bgcolor="grey.100"
