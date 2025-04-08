@@ -1,5 +1,3 @@
-export const revalidate = 0;
-
 import { Box } from '@mui/material';
 import parse from 'html-react-parser';
 import { Metadata } from 'next';

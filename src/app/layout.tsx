@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import './globals.scss';
 
 import { Box } from '@mui/material';
