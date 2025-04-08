@@ -11,7 +11,7 @@ import { Suspense } from 'react';
 import { getPostBySlug } from '@/service';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const baseUrl = process.env.NEXT_PUBLIC_URL;
 
 export async function generateMetadata({
   params,

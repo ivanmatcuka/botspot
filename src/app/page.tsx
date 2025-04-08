@@ -1,11 +1,10 @@
 'use client';
 
-import LandingPageProducts from './LandingPageProducts';
-
-import { Banner, Button, MainBlock, PageContainer, Tile } from '@botspot/ui';
+import { Banner, MainBlock, PageContainer, Tile } from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
 
 import { FeedbackForm } from '@/components/FeedbackForm';
+import LandingPageProducts from '@/components/LandingPageProducts';
 import { PartnerLogo } from '@/components/PartnerLogo';
 
 export default function Home() {
@@ -16,16 +15,14 @@ export default function Home() {
         mediaBlockOptions={{
           assetUrl: '/videos/landing-page.mp4',
         }}
-        primaryCta={
-          <Button href="/products" variant="primary">
-            Explore Products
-          </Button>
-        }
-        secondaryCta={
-          <Button href="/areas" variant="secondary">
-            Explore Areas of Use
-          </Button>
-        }
+        primary={{
+          href: '/products',
+          value: 'Explore Products',
+        }}
+        secondary={{
+          href: '/areas',
+          value: 'Explore Areas of Use',
+        }}
         sublineElement="With over 10 years of experience in photogrammetry, botspot helps you realize your vision with an unmatched level of adaptability."
       />
 
@@ -63,11 +60,11 @@ export default function Home() {
       >
         <PageContainer mb={{ xs: 3, md: 6 }}>
           <MainBlock
-            cta={
-              <Button href="/service" variant="primary">
-                Explore Our Services
-              </Button>
-            }
+            cta={{
+              href: '/service',
+              value: 'Explore Our Services',
+              variant: 'primary',
+            }}
             headline="Our services go beyond the simple act of ownership, exploring ways of collaboration and flexibility."
             subline="How We Can Help"
           />

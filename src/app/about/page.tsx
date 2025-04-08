@@ -2,7 +2,6 @@ import { People } from '../../components/People';
 
 import {
   Banner,
-  Button,
   LoadingSkeletons,
   MainBlock,
   PageContainer,
@@ -19,16 +18,14 @@ export default function About() {
         mediaBlockOptions={{
           assetUrl: '/img/banners/about.webp',
         }}
-        primaryCta={
-          <Button href="/about/careers" variant="primary">
-            Explore Careers
-          </Button>
-        }
-        secondaryCta={
-          <Button href="/contact-us" variant="secondary">
-            Contact Us
-          </Button>
-        }
+        primary={{
+          href: '/about/careers',
+          value: 'Explore Careers',
+        }}
+        secondary={{
+          href: '/contact-us',
+          value: 'Contact Us',
+        }}
         sublineElement="Whenever 3D scanning technology can shift the status quo, botspot is here for you to innovate."
       />
 
@@ -82,11 +79,11 @@ export default function About() {
       >
         <PageContainer mb={0} my={0}>
           <MainBlock
-            cta={
-              <Button href="/about/careers" variant="primary">
-                Explore Careers
-              </Button>
-            }
+            cta={{
+              href: '/about/careers',
+              value: 'Explore Careers',
+              variant: 'primary',
+            }}
             headline="Want to be part of our team?"
             subline="Your Opportunity"
           />

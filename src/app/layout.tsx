@@ -1,8 +1,9 @@
+import '@botspot/ui/dist/ui.css';
 import './globals.scss';
 
-import ThemeProvider from './ThemeProvider';
+import { WProvider } from './components/WProvider';
 
-import { Button, SnackbarProvider } from '@botspot/ui';
+import { Button, SnackbarProvider, ThemeRegistry } from '@botspot/ui';
 import { Box } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { GoogleTagManager } from '@next/third-parties/google';
@@ -16,7 +17,10 @@ import { getProducts } from '@/service';
 
 import type { Metadata } from 'next';
 
-const poppins = Poppins({ subsets: ['latin'], weight: ['300', '500', '700'] });
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '600', '500', '700'],
+});
 
 export const metadata: Metadata = {
   title: 'botspot',
@@ -93,21 +97,23 @@ export default async function RootLayout({
       </head>
       <body className={`${poppins.className} flex flex-col min-h-screen`}>
         <AppRouterCacheProvider>
-          <ThemeProvider>
-            <SnackbarProvider>
-              <NextTopLoader />
-              <Navbar
-                cta={
-                  <Button href="/contact-us" variant="primary">
-                    Contact Us
-                  </Button>
-                }
-                navItems={navbarItems}
-              />
-              <Box className="flex-1 flex flex-col">{children}</Box>
-              <Footer products={products} />
-            </SnackbarProvider>
-          </ThemeProvider>
+          <WProvider>
+            <ThemeRegistry>
+              <SnackbarProvider>
+                <NextTopLoader />
+                <Navbar
+                  cta={
+                    <Button href="/contact-us" variant="primary">
+                      Contact Us
+                    </Button>
+                  }
+                  navItems={navbarItems}
+                />
+                <Box className="flex-1 flex flex-col">{children}</Box>
+                <Footer products={products} />
+              </SnackbarProvider>
+            </ThemeRegistry>
+          </WProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

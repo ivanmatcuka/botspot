@@ -10,10 +10,11 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
-    "@botspot/ui": "^1.0.28",
+    "@botspot/ui": "^1.0.53",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@faustwp/blocks": "^6.1.2",
     "@mui/icons-material": "^5.15.11",
     "@mui/material": "^5.14.13",
     "@mui/material-nextjs": "^6.4.2",
