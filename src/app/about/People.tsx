@@ -2,7 +2,7 @@ import { Grid } from '@mui/material';
 import { FC } from 'react';
 
 import { Post } from '@/components/Post';
-import { getPeople } from '@/service';
+import { getPeople } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 
 export const People: FC = async () => {

@@ -1,6 +1,6 @@
 import { LandingPageProduct } from './LandingPageProduct';
 
-import { getProducts } from '@/service';
+import { getProducts } from '@/services';
 
 export default async function LandingPageProducts() {
   const { data: products } = await getProducts();

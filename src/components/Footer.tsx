@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 import { IconLink } from '@/components/IconLink';
-import { CustomPost } from '@/service';
+import { CustomPost } from '@/services';
 
 const Text = ({
   children,

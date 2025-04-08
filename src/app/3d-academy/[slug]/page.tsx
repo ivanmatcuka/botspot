@@ -10,7 +10,7 @@ import { Suspense } from 'react';
 import { Button } from '@/components/Button';
 import { LoadingSkeletons } from '@/components/LoadingSkeletons';
 import { ThemedContainer } from '@/components/ThemedContainer';
-import { getPostBySlug } from '@/service';
+import { getPostBySlug } from '@/services';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
 
 const baseUrl = process.env.NEXT_PUBLIC_URL;

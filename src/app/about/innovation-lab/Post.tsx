@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button';
 import { PageContainer } from '@/components/PageContainer';
 import { Post } from '@/components/Post';
-import { getPostBySlug } from '@/service';
+import { getPostBySlug } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 
 const POST_SLUG = 'scanning-horses';

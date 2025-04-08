@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 
 import { PageContainer } from '@/components/PageContainer';
 import { ThemedContainer } from '@/components/ThemedContainer';
-import { getPage } from '@/service';
+import { getPage } from '@/services';
 
 export default async function TermsAndConditions() {
   const page = await getPage('terms-and-conditions');

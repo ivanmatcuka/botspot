@@ -51,53 +51,6 @@ const requestInit: RequestInit = {
   },
 };
 
-const redirectsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/redirection/v1/redirect`;
-const authUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/simple-jwt-login/v1/auth`;
-
-const getAuth = async () => {
-  const response = await fetch(authUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      username: process.env.WORDPRESS_USER,
-      password: process.env.WORDPRESS_PASSWORD,
-    }),
-  });
-
-  try {
-    const data = await response.json();
-
-    return data;
-  } catch {
-    return null;
-  }
-};
-
-export const getRedirects = async () => {
-  const { data: auth } = await getAuth();
-  if (!auth) return { data: [], count: 0 };
-
-  const response = await fetch(`${redirectsUrl}?JWT=${auth.jwt}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  if (!response.ok) {
-    return { data: [], count: 0 };
-  }
-
-  try {
-    const data = await response.json();
-    return { data: data.items, count: data.total };
-  } catch {
-    return { data: [], count: 0 };
-  }
-};
-
 export const getPosts = async (
   page = 1,
   perPage = 12,

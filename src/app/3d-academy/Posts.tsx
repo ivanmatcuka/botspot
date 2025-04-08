@@ -7,7 +7,7 @@ import { Button } from '@/components/Button';
 import { LoadingSkeletons } from '@/components/LoadingSkeletons';
 import { Pagination } from '@/components/Pagination';
 import { Post } from '@/components/Post';
-import { CustomPost, getPosts } from '@/service';
+import { CustomPost, getPosts } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 
 type PostProps = {

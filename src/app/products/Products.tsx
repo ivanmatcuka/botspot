@@ -2,7 +2,7 @@ import { Button } from '@/components/Button';
 import { MediaBlock } from '@/components/MediaBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { SecondaryBlock } from '@/components/SecondaryBlock';
-import { CustomFields, getProducts } from '@/service';
+import { CustomFields, getProducts } from '@/services';
 
 export default async function ProductsList() {
   const { data: products } = await getProducts();

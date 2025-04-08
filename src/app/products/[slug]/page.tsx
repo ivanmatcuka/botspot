@@ -24,7 +24,7 @@ import {
   CustomPost,
   getPostBySlug,
   getProductBySlug,
-} from '@/service';
+} from '@/services';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
 
 export async function generateMetadata({

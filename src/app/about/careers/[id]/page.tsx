@@ -5,9 +5,8 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { ThemedContainer } from '@/components/ThemedContainer';
-import { getPost } from '@/service';
+import { getPost } from '@/services';
 import { generateSeo } from '@/utils';
-
 
 export async function generateMetadata({
   params,

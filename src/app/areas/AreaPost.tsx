@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button';
 import { GalleryTile } from '@/components/GalleryTile';
 import { SecondaryBlock } from '@/components/SecondaryBlock';
-import { getAreaBySlug } from '@/service';
+import { getAreaBySlug } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 
 type AreaPostProps = {

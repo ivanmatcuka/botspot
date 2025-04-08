@@ -1,4 +1,4 @@
-import { getRedirects } from './src/service';
+import { getRedirects } from './src/services/getRedirects';
 
 import { NextConfig } from 'next';
 

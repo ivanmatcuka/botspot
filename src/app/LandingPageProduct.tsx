@@ -5,7 +5,7 @@ import { MediaBlock } from '@/components/MediaBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { ScrollableBlock } from '@/components/ScrollableBlock';
 import { SecondaryBlock } from '@/components/SecondaryBlock';
-import { CustomFields, CustomPost } from '@/service';
+import { CustomFields, CustomPost } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 
 type LandingPageProductProps = {

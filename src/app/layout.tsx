@@ -13,7 +13,7 @@ import { Button } from '@/components/Button';
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar/Navbar';
 import { SnackbarProvider } from '@/components/Snackbar';
-import { getProducts } from '@/service';
+import { getProducts } from '@/services';
 import ThemeRegistry from '@/theme/ThemeRegistry';
 
 import type { Metadata } from 'next';

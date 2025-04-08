@@ -9,7 +9,7 @@ import { MainBlock } from '@/components/MainBlock';
 import { PageContainer } from '@/components/PageContainer';
 import { Post } from '@/components/Post';
 import { useSnackbar } from '@/components/Snackbar';
-import { CustomFields, CustomPost, submitFeedbackForm } from '@/service';
+import { CustomFields, CustomPost, submitFeedbackForm } from '@/services';
 
 type DownloadAreaContentProps = {
   products: CustomPost[];
