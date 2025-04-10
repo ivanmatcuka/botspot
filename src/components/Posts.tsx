@@ -6,7 +6,7 @@ import { LoadingSkeletons, Pagination, Post } from '@botspot/ui';
 import { Grid } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
 
-import { Button } from './NextButton/NextButton';
+import { NextButton } from './NextButton';
 
 type PostProps = {
   hidePagination?: boolean;
@@ -48,13 +48,13 @@ export const Posts: FC<PostProps> = ({
           >
             <Post
               cta={
-                <Button
+                <NextButton
                   href={`/3d-academy/${post.slug}`}
                   target="_blank"
                   variant="secondary"
                 >
                   Read Full Article
-                </Button>
+                </NextButton>
               }
               featuredImage={getFeaturedImageUrl(post)}
               title={post.title.rendered}

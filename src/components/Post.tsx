@@ -2,7 +2,7 @@ import { getPostBySlug } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 import { PageContainer, Post } from '@botspot/ui';
 
-import { Button } from './NextButton/NextButton';
+import { NextButton } from './NextButton';
 
 const POST_SLUG = 'scanning-horses';
 
@@ -15,9 +15,9 @@ export default async function InnovationLabPost() {
     <PageContainer mb={0}>
       <Post
         cta={
-          <Button href={`/3d-academy/${post.slug}`} variant="secondary">
+          <NextButton href={`/3d-academy/${post.slug}`} variant="secondary">
             Read Full Story
-          </Button>
+          </NextButton>
         }
         featuredImage={getFeaturedImageUrl(post)}
         title={post.title.rendered}

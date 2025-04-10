@@ -54,7 +54,7 @@ const requestInit: RequestInit = {
 export const getPosts = async (
   page = 1,
   perPage = 12,
-): Promise<{ count: number; data: CustomPost[]; }> => {
+): Promise<{ count: number; data: CustomPost[] }> => {
   const category = await getCategory('3d-academy');
   if (!category) return { count: 0, data: [] };
 
@@ -215,9 +215,34 @@ export const getCategory = async (
   }
 };
 
+export type WPComponentNames =
+  | 'ui/banner'
+  | 'ui/botspot-button'
+  | 'ui/media-block'
+  | 'ui/main-block'
+  | 'ui/page-container'
+  | 'ui/secondary-block'
+  | 'ui/tile'
+  | 'ui/gallery-tile'
+  | 'ui/iframe'
+  | 'ui/skeleton-video';
+export type Block = {
+  attrs: any;
+  blockName: WPComponentNames;
+  innerBlocks: Block[];
+  innerContent: unknown[];
+  innerHTML: string;
+  rendered: string;
+};
 export const getPage = async (
   slug: string,
-): Promise<WP_REST_API_Page | null> => {
+): Promise<
+  | ({
+      block_data: Block[];
+      has_blocks: true;
+    } & WP_REST_API_Page)
+  | null
+> => {
   const response = await fetch(
     `${baseUrl}/pages?slug=${slug}&_embed`,
     requestInit,

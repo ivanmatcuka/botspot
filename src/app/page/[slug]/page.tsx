@@ -1,10 +1,14 @@
 import { FeedbackForm } from '@/components/FeedbackForm';
 import { getPage } from '@/services';
 
-import { WPBlocks } from '../../components/WPBlocks';
+import { WPBlocks } from '../../../components/WPBlocks';
 
-export default async function Areas() {
-  const page = await getPage('areas-of-use');
+export default async function Areas({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const page = await getPage((await params).slug);
   const blocks = page?.block_data;
 
   return (

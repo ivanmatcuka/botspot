@@ -1,4 +1,4 @@
-import { Button } from '@/components/NextButton/NextButton';
+import { NextButton } from '@/components/NextButton';
 import { Banner, Iframe, MainBlock, PageContainer, Tile } from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
 import { Suspense } from 'react';
@@ -52,9 +52,9 @@ export default function Industrial() {
           customer – with success. We are very satisfied and recommend botspot
           with a clear conscience!”
         </Typography>
-        <Button href={`/3d-academy/${POST_SLUG}`} variant="primary">
+        <NextButton href={`/3d-academy/${POST_SLUG}`} variant="primary">
           Read Article
-        </Button>
+        </NextButton>
       </Tile>
       <Tile headline="Reverse Engineering">
         <Box height={360}>

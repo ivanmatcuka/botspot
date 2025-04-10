@@ -1,9 +1,10 @@
 'use client';
 
 import { Menu } from '@botspot/ui';
+import Link from 'next/link';
 import { FC } from 'react';
 
-import { Button } from '../NextButton/NextButton';
+import { NextButton } from '../NextButton';
 
 type MenuItem = {
   children?: MenuItem[];
@@ -18,7 +19,7 @@ type NavbarMenuProps = { currentPath: string; item: MenuItem };
 export const NavbarMenu: FC<NavbarMenuProps> = ({ currentPath, item }) => {
   if (!item.children?.length) {
     return (
-      <Button
+      <NextButton
         className={currentPath === item.href ? 'active' : ''}
         disabled={item.disabled}
         href={item.href ?? '/'}
@@ -26,20 +27,25 @@ export const NavbarMenu: FC<NavbarMenuProps> = ({ currentPath, item }) => {
         variant="menuItem"
       >
         {item.label}
-      </Button>
+      </NextButton>
     );
   }
 
   return (
-    <Menu
-      className={currentPath === item.href ? 'active' : ''}
-      href={item.href}
-      key={item.label}
-      label={item.label}
-    >
-      {item.children.map((child) => (
-        <NavbarMenu currentPath={currentPath} item={child} key={child.label} />
-      ))}
-    </Menu>
+    <Link href={item.href || '#'}>
+      <Menu
+        className={currentPath === item.href ? 'active' : ''}
+        key={item.label}
+        label={item.label}
+      >
+        {item.children.map((child) => (
+          <NavbarMenu
+            currentPath={currentPath}
+            item={child}
+            key={child.label}
+          />
+        ))}
+      </Menu>
+    </Link>
   );
 };

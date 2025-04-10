@@ -1,4 +1,4 @@
-import { Button } from '@/components/NextButton/NextButton';
+import { NextButton } from '@/components/NextButton';
 import { getPostBySlug } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 import { PageContainer, Post } from '@botspot/ui';
@@ -14,9 +14,9 @@ export default async function InnovationLabPost() {
     <PageContainer mb={0}>
       <Post
         cta={
-          <Button href={`/3d-academy/${post.slug}`} variant="secondary">
+          <NextButton href={`/3d-academy/${post.slug}`} variant="secondary">
             Read Full Story
-          </Button>
+          </NextButton>
         }
         featuredImage={getFeaturedImageUrl(post)}
         title={post.title.rendered}

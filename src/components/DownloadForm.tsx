@@ -13,7 +13,7 @@ import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Input } from './Form';
-import { Button } from './NextButton/NextButton';
+import { NextButton } from './NextButton';
 
 export const FORM_ID = 15422;
 
@@ -127,13 +127,13 @@ export const DownloadForm: FC<DownloadFormProps> = ({
             />
           </Grid>
           <Grid xs={12} item>
-            <Button
+            <NextButton
               disabled={isLoading}
               onClick={() => onSubmit?.(formData)}
               variant="primary"
             >
               Submit
-            </Button>
+            </NextButton>
           </Grid>
         </Grid>
       </Box>

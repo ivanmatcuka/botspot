@@ -6,17 +6,14 @@ import type { Metadata } from 'next';
 
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar/Navbar';
-import { Button } from '@/components/NextButton/NextButton';
+import { NextButton } from '@/components/NextButton';
 import { getProducts } from '@/services';
-import { SnackbarProvider, ThemeRegistry } from '@botspot/ui';
-import { Box } from '@mui/material';
+import { Box, SnackbarProvider, ThemeRegistry } from '@botspot/ui';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Poppins } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import { ReactNode } from 'react';
-
-import { WProvider } from './components/WProvider';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -98,23 +95,21 @@ export default async function RootLayout({
       </head>
       <body className={`${poppins.className} flex flex-col min-h-screen`}>
         <AppRouterCacheProvider>
-          <WProvider>
-            <ThemeRegistry>
-              <SnackbarProvider>
-                <NextTopLoader />
-                <Navbar
-                  cta={
-                    <Button href="/contact-us" variant="primary">
-                      Contact Us
-                    </Button>
-                  }
-                  navItems={navbarItems}
-                />
-                <Box className="flex-1 flex flex-col">{children}</Box>
-                <Footer products={products} />
-              </SnackbarProvider>
-            </ThemeRegistry>
-          </WProvider>
+          <ThemeRegistry>
+            <SnackbarProvider>
+              <NextTopLoader />
+              <Navbar
+                cta={
+                  <NextButton href="/contact-us" variant="primary">
+                    Contact Us
+                  </NextButton>
+                }
+                navItems={navbarItems}
+              />
+              <Box className="flex-1 flex flex-col">{children}</Box>
+              <Footer products={products} />
+            </SnackbarProvider>
+          </ThemeRegistry>
         </AppRouterCacheProvider>
       </body>
     </html>

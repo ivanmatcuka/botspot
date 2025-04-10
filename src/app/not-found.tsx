@@ -1,5 +1,5 @@
-import { Button } from '@/components/NextButton/NextButton';
-import { Box, Typography } from '@mui/material';
+import { NextButton } from '@/components/NextButton';
+import { Box, Typography } from '@botspot/ui';
 
 export default function NotFound() {
   return (
@@ -21,9 +21,9 @@ export default function NotFound() {
         Page not Found
       </Typography>
 
-      <Button href="/" variant="primary">
+      <NextButton href="/" variant="primary">
         Go Home
-      </Button>
+      </NextButton>
     </Box>
   );
 }

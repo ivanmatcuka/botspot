@@ -1,4 +1,4 @@
-import { Button } from '@/components/NextButton/NextButton';
+import { NextButton } from '@/components/NextButton';
 import { Banner, Iframe, MainBlock, PageContainer, Tile } from '@botspot/ui';
 import { Box, Typography } from '@mui/material';
 import { Suspense } from 'react';
@@ -47,9 +47,9 @@ export default function CustomSolutions() {
           Approached by the new historical epic series “Those About to Die”,
           botspot took on the challenge of 3D scanning a horse.
         </Typography>
-        <Button href="/3d-academy" variant="primary">
+        <NextButton href="/3d-academy" variant="primary">
           Read Article
-        </Button>
+        </NextButton>
       </Tile>
       <Tile headline="Large Objects">
         <Box height={360}>

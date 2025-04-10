@@ -14,7 +14,7 @@ import {
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Button } from './NextButton/NextButton';
+import { NextButton } from './NextButton';
 
 const TOPICS = ['3D Scan Service', 'Innovation Lab'] as const;
 const FORM_ID = 15420;
@@ -167,13 +167,13 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
             fullWidth
             required
           />
-          <Button
+          <NextButton
             disabled={isLoading}
             onClick={handleSubmit(onSubmit)}
             variant="primary"
           >
             Submit
-          </Button>
+          </NextButton>
         </Box>
       </Box>
     </Form>

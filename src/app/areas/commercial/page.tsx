@@ -1,4 +1,4 @@
-import { Button } from '@/components/NextButton/NextButton';
+import { NextButton } from '@/components/NextButton';
 import { Banner, MainBlock, PageContainer, Tile } from '@botspot/ui';
 import { Typography } from '@mui/material';
 import Image from 'next/image';
@@ -101,13 +101,13 @@ export default function Commercial() {
           we digitized numerous shoes which were integrated into the app and are
           now available for a digital try-on.
         </Typography>
-        <Button
+        <NextButton
           href="https://www.vyking.io/shoes"
           target="_blank"
           variant="primary"
         >
           Test Virtual Try-On
-        </Button>
+        </NextButton>
       </Tile>
 
       <PageContainer mt={{ md: 15, xs: 10 }}>

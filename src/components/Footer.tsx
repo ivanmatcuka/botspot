@@ -1,23 +1,19 @@
 'use client';
 
 import { CustomPost } from '@/services';
-import { IconLink } from '@botspot/ui';
-import {
-  Box,
-  Container,
-  Grid,
-  Typography,
-  TypographyProps,
-} from '@mui/material';
+import { Box, Container, Grid, IconLink, Typography } from '@botspot/ui';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC } from 'react';
+import { ComponentType, FC, PropsWithChildren } from 'react';
 
-const Text = ({
+type TextProps = {
+  href?: string;
+} & ComponentType<typeof Typography>;
+const Text: FC<PropsWithChildren<TextProps>> = ({
   children,
   href,
   ...props
-}: { href?: string } & TypographyProps) => {
+}) => {
   let link;
 
   if (href) {

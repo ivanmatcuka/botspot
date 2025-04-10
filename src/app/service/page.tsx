@@ -1,5 +1,5 @@
 import { FeedbackForm } from '@/components/FeedbackForm';
-import { Button } from '@/components/NextButton/NextButton';
+import { NextButton } from '@/components/NextButton';
 import {
   Banner,
   Gallery,
@@ -170,9 +170,9 @@ export default function Service() {
       <GalleryTile bgColor="white" imgUrl="/img/service/1.png">
         <SecondaryBlock
           primaryCta={
-            <Button href="/contact-us" variant="primary">
+            <NextButton href="/contact-us" variant="primary">
               Request Event Hire
-            </Button>
+            </NextButton>
           }
           headline="Event Hire"
           sublineElement="Corporate event, fair show or convention coming up? Guarantee an unforgettable experience with full-body scanning. We deliver and set up the scanner, ensuring a seamless and impressive experience."
@@ -182,9 +182,9 @@ export default function Service() {
       <GalleryTile imgUrl="/img/service/2.png">
         <SecondaryBlock
           primaryCta={
-            <Button href="/about/innovation-lab" variant="primary">
+            <NextButton href="/about/innovation-lab" variant="primary">
               Explore Innovation Lab
-            </Button>
+            </NextButton>
           }
           headline="Special Requests"
           sublineElement="Have a large or unusual item that needs scanning? Our Innovation Lab specializes in handling special requests, even for the most challenging projects."

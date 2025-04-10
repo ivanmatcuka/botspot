@@ -3,8 +3,15 @@
 import { FeedbackForm } from '@/components/FeedbackForm';
 import LandingPageProducts from '@/components/LandingPageProducts';
 import { PartnerLogo } from '@/components/PartnerLogo';
-import { Banner, MainBlock, PageContainer, Tile } from '@botspot/ui';
-import { Box, Skeleton, Typography } from '@mui/material';
+import {
+  Banner,
+  Box,
+  MainBlock,
+  PageContainer,
+  Skeleton,
+  Tile,
+  Typography,
+} from '@botspot/ui';
 import { Suspense } from 'react';
 
 export default function Home() {

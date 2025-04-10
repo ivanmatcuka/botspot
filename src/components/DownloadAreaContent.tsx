@@ -7,7 +7,7 @@ import { MainBlock, PageContainer, Post } from '@botspot/ui';
 import { Grid } from '@mui/material';
 import { FC, useState } from 'react';
 
-import { Button } from './NextButton/NextButton';
+import { NextButton } from './NextButton';
 
 type DownloadAreaContentProps = {
   defaultProductSlug?: string;
@@ -52,9 +52,9 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
               <Grid key={index} lg={4} md={6} xs={12} item>
                 <Post
                   cta={
-                    <Button href={datasheet} variant="secondary">
+                    <NextButton href={datasheet} variant="secondary">
                       Download Data Sheet
-                    </Button>
+                    </NextButton>
                   }
                   excerpt={product.excerpt.rendered}
                   featuredImage={picture}

@@ -7,7 +7,7 @@ import { Box, Typography } from '@mui/material';
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Button } from './NextButton/NextButton';
+import { NextButton } from './NextButton';
 
 const FORM_ID = 15431;
 
@@ -96,13 +96,13 @@ export const QuestionForm: FC = () => {
             fullWidth
             required
           />
-          <Button
+          <NextButton
             disabled={isLoading}
             onClick={handleSubmit(onSubmit)}
             variant="primary"
           >
             Submit
-          </Button>
+          </NextButton>
         </Box>
       </Box>
     </Form>

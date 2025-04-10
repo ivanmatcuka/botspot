@@ -1,9 +1,14 @@
-import { Button } from '@/components/NextButton/NextButton';
+import { NextButton } from '@/components/NextButton';
 import { getPostBySlug } from '@/services';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
-import { LoadingSkeletons, ThemedContainer } from '@botspot/ui';
+import {
+  Box,
+  Grid,
+  LoadingSkeletons,
+  ThemedContainer,
+  Typography,
+} from '@botspot/ui';
 import { Facebook, LinkedIn, Twitter } from '@mui/icons-material';
-import { Box, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -66,30 +71,30 @@ export default async function Post({
             className="flex gap-2 flex-col md:flex-row items-center"
             mt={{ md: 10, xs: 5 }}
           >
-            <Button
+            <NextButton
               href={`https://www.facebook.com/sharer/sharer.php?u=${baseUrl}/3d-academy/${slug}`}
               startIcon={<Facebook color="inherit" fontSize="small" />}
               target="_blank"
               variant="outline"
             >
               Share on Facebook
-            </Button>
-            <Button
+            </NextButton>
+            <NextButton
               href={`https://twitter.com/share?url=${baseUrl}/3d-academy/${slug}`}
               startIcon={<Twitter color="inherit" fontSize="small" />}
               target="_blank"
               variant="outline"
             >
               Share on Twitter
-            </Button>
-            <Button
+            </NextButton>
+            <NextButton
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${baseUrl}/3d-academy/${slug}`}
               startIcon={<LinkedIn color="inherit" fontSize="small" />}
               target="_blank"
               variant="outline"
             >
               Share on LinkedIn
-            </Button>
+            </NextButton>
           </Box>
           <Box pt={{ md: 15, xs: 10 }}>
             <hr />

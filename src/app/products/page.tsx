@@ -1,5 +1,5 @@
 import { FeedbackForm } from '@/components/FeedbackForm';
-import { Button } from '@/components/NextButton/NextButton';
+import { NextButton } from '@/components/NextButton';
 import {
   Banner,
   GalleryTile,
@@ -73,9 +73,9 @@ export default function Products() {
       <GalleryTile imgUrl="/img/products/4.png">
         <SecondaryBlock
           primaryCta={
-            <Button href="/areas" variant="primary">
+            <NextButton href="/areas" variant="primary">
               Explore Applications
-            </Button>
+            </NextButton>
           }
           headline="Our Scanners in Action"
           sublineElement="Discover our areas of use with a diverse range of applications and industries."

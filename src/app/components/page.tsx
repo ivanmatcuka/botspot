@@ -1,19 +1,17 @@
-import { getPage } from '@/services';
-import { PageContainer, ThemedContainer } from '@botspot/ui';
+import { Block, getPage } from '@/services';
 import { notFound } from 'next/navigation';
+
+import { WPBlocks } from '../../components/WPBlocks';
 
 export default async function Components() {
   const page = await getPage('components');
+  if (!page) return notFound();
 
-  if (!page?.content) return notFound();
+  const blocks = page.block_data as Block[];
 
   return (
-    <main className="">
-      <PageContainer mb={8} mt={{ md: 15, xs: 10 }}>
-        <ThemedContainer
-          dangerouslySetInnerHTML={{ __html: page?.content.rendered ?? '' }}
-        />
-      </PageContainer>
+    <main>
+      <WPBlocks blocks={blocks} />
     </main>
   );
 }

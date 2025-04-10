@@ -1,5 +1,5 @@
 import { FeedbackForm } from '@/components/FeedbackForm';
-import { Button } from '@/components/NextButton/NextButton';
+import { NextButton } from '@/components/NextButton';
 import {
   CustomFields,
   CustomPost,
@@ -172,9 +172,9 @@ export default async function Product({
         <GalleryTile imgUrl={relatedImage}>
           <SecondaryBlock
             primaryCta={
-              <Button href={`/3d-academy/${post.slug}`} variant="primary">
+              <NextButton href={`/3d-academy/${post.slug}`} variant="primary">
                 Read Full Story
-              </Button>
+              </NextButton>
             }
             headline={post.title.rendered}
             sublineElement={post.excerpt.rendered}

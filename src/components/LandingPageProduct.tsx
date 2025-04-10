@@ -8,7 +8,7 @@ import {
 } from '@botspot/ui';
 import { FC } from 'react';
 
-import { Button } from './NextButton/NextButton';
+import { NextButton } from './NextButton';
 
 type LandingPageProductProps = {
   product: CustomPost;
@@ -28,14 +28,14 @@ export const LandingPageProduct: FC<LandingPageProductProps> = ({
   const contentBlock = (
     <SecondaryBlock
       primaryCta={
-        <Button href={`/products/${product.slug}`} variant="primary">
+        <NextButton href={`/products/${product.slug}`} variant="primary">
           Explore {product?.acf?.['short-name'] || product.title.rendered}
-        </Button>
+        </NextButton>
       }
       secondaryCta={
-        <Button href={`/download-area/${product.slug}`} variant="secondary">
+        <NextButton href={`/download-area/${product.slug}`} variant="secondary">
           Download Data Sheet
-        </Button>
+        </NextButton>
       }
       headline={product?.acf?.['full-name'] || product.title.rendered}
       sublineElement={product.excerpt.rendered}

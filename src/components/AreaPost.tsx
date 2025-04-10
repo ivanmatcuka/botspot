@@ -2,7 +2,7 @@ import { getAreaBySlug } from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 import { GalleryTile, SecondaryBlock } from '@botspot/ui';
 
-import { Button } from './NextButton/NextButton';
+import { NextButton } from './NextButton';
 
 type AreaPostProps = {
   slug: string;
@@ -18,9 +18,9 @@ export default async function AreaPost({ slug }: AreaPostProps) {
     <GalleryTile imgUrl={relatedImage}>
       <SecondaryBlock
         primaryCta={
-          <Button href={`/3d-academy/${post.post_name}`} variant="primary">
+          <NextButton href={`/3d-academy/${post.post_name}`} variant="primary">
             Read Full Story
-          </Button>
+          </NextButton>
         }
         headline={post.post_title}
         sublineElement={post.post_title}

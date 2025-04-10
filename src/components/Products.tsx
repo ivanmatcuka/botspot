@@ -1,7 +1,7 @@
 import { CustomFields, getProducts } from '@/services';
 import { MediaBlock, PageContainer, SecondaryBlock } from '@botspot/ui';
 
-import { Button } from './NextButton/NextButton';
+import { NextButton } from './NextButton';
 
 export default async function ProductsList() {
   const { data: products } = await getProducts();
@@ -28,17 +28,17 @@ export default async function ProductsList() {
         <PageContainer mt={{ md: 15, xs: 10 }}>
           <SecondaryBlock
             primaryCta={
-              <Button href={`/products/${product.slug}`} variant="primary">
+              <NextButton href={`/products/${product.slug}`} variant="primary">
                 Explore {product?.acf?.['short-name'] || product.title.rendered}
-              </Button>
+              </NextButton>
             }
             secondaryCta={
-              <Button
+              <NextButton
                 href={`/download-area/${product.slug}`}
                 variant="secondary"
               >
                 Download Data Sheet
-              </Button>
+              </NextButton>
             }
             headline={product?.acf?.['full-name'] || product.title.rendered}
             sublineElement={product.excerpt.rendered}
