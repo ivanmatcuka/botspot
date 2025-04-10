@@ -1,4 +1,4 @@
-import LandingPageProducts from './LandingPageProducts';
+// import LandingPageProducts from './LandingPageProducts';
 
 import { Box, Skeleton, Typography } from '@mui/material';
 import { Suspense } from 'react';
@@ -56,7 +56,7 @@ export default function Home() {
       </Box>
 
       <Suspense fallback={<Skeleton height="100%" variant="rectangular" />}>
-        <LandingPageProducts />
+        {/* <LandingPageProducts /> */}
       </Suspense>
 
       <Box
