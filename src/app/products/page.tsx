@@ -1,4 +1,4 @@
-// import ProductsList from './Products';
+import ProductsList from './Products';
 
 import { Box, Skeleton, Typography } from '@mui/material';
 import { Suspense } from 'react';
@@ -68,7 +68,7 @@ export default function Products() {
       </Box>
 
       <Suspense fallback={<Skeleton height="100%" variant="rectangular" />}>
-        {/* <ProductsList /> */}
+        <ProductsList />
       </Suspense>
 
       <GalleryTile imgUrl="/img/products/4.png">
