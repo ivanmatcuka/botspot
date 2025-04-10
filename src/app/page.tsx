@@ -17,7 +17,7 @@ export default function Home() {
       <Banner
         headline="THE WORLD’S BEST FOR EXCEPTIONAL SCANNING SOLUTIONS"
         mediaBlockOptions={{
-          assetUrl: '/videos/landing-page.webm',
+          assetUrl: '/img/banners/learn.webp',
         }}
         primaryCta={
           <Button href="/products" variant="primary">
