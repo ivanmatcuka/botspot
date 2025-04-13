@@ -27,22 +27,20 @@ export default async function ProductsList() {
 
         <PageContainer mt={{ md: 15, xs: 10 }}>
           <SecondaryBlock
-            primaryCta={
-              <NextButton href={`/products/${product.slug}`} variant="primary">
-                Explore {product?.acf?.['short-name'] || product.title.rendered}
-              </NextButton>
-            }
-            secondaryCta={
-              <NextButton
-                href={`/download-area/${product.slug}`}
-                variant="secondary"
-              >
-                Download Data Sheet
-              </NextButton>
-            }
             headline={product?.acf?.['full-name'] || product.title.rendered}
             sublineElement={product.excerpt.rendered}
-          />
+          >
+            <NextButton href={`/products/${product.slug}`} variant="primary">
+              Explore {product?.acf?.['short-name'] || product.title.rendered}
+            </NextButton>
+
+            <NextButton
+              href={`/download-area/${product.slug}`}
+              variant="secondary"
+            >
+              Download Data Sheet
+            </NextButton>
+          </SecondaryBlock>
         </PageContainer>
       </div>
     );

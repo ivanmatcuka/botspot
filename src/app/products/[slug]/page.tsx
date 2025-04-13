@@ -9,6 +9,8 @@ import {
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
 import {
   Banner,
+  Box,
+  Button,
   Gallery,
   GalleryTile,
   Iframe,
@@ -22,7 +24,6 @@ import {
   UnorderedList,
   UnorderedListItem,
 } from '@botspot/ui';
-import { Box } from '@mui/material';
 import parse from 'html-react-parser';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -91,18 +92,20 @@ export default async function Product({
     <main className="">
       {banner && (
         <Banner
-          primary={{
-            href: `/download-area/${product.slug}`,
-            value: 'Download Data Sheet',
-          }}
-          secondary={{
-            href: 'https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/ob7tkWl_QESAXQPuuaQR_w2',
-            value: 'Request a Demo',
-          }}
           headline={product.title.rendered}
           mediaBlockOptions={{ assetUrl: banner }}
           sublineElement={product.excerpt.rendered}
-        />
+        >
+          <Button href={`/download-area/${product.slug}`} variant="primary">
+            Download Data Sheet
+          </Button>
+          <Button
+            href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/ob7tkWl_QESAXQPuuaQR_w2"
+            variant="secondary"
+          >
+            Request a Demo
+          </Button>
+        </Banner>
       )}
 
       {/* XS */}
@@ -147,10 +150,10 @@ export default async function Product({
 
       {firstAnimation && secondAnimation && (
         <Box my={{ md: 10, xs: 5 }}>
-          <Gallery
-            firstChild={<Iframe src={firstAnimation} />}
-            secondChild={<Iframe src={secondAnimation} />}
-          />
+          <Gallery>
+            <Iframe src={firstAnimation} />
+            <Iframe src={secondAnimation} />
+          </Gallery>
         </Box>
       )}
 
@@ -171,14 +174,13 @@ export default async function Product({
       {post && (
         <GalleryTile imgUrl={relatedImage}>
           <SecondaryBlock
-            primaryCta={
-              <NextButton href={`/3d-academy/${post.slug}`} variant="primary">
-                Read Full Story
-              </NextButton>
-            }
             headline={post.title.rendered}
             sublineElement={post.excerpt.rendered}
-          />
+          >
+            <NextButton href={`/3d-academy/${post.slug}`} variant="primary">
+              Read Full Story
+            </NextButton>{' '}
+          </SecondaryBlock>
         </GalleryTile>
       )}
 

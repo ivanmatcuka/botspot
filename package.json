@@ -10,7 +10,7 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
-    "@botspot/ui": "^1.0.76",
+    "@botspot/ui": "^1.0.92",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
@@ -28,6 +28,7 @@
     "@wordpress/format-library": "^5.9.0",
     "cookies-next": "^4.3.0",
     "html-react-parser": "^5.1.18",
+    "html-to-react": "^1.7.0",
     "material-ui-popup-state": "5.3.3",
     "next": "^15.2.3",
     "nextjs-toploader": "^3.8.16",

@@ -1,19 +1,21 @@
+import { WPBlocks } from '@/components/WPBlocks';
 import { getPage } from '@/services';
-import { PageContainer, ThemedContainer } from '@botspot/ui';
+import { ThemedContainer } from '@botspot/ui';
 import { notFound } from 'next/navigation';
 
 export default async function PrivacyPolicy() {
-  const page = await getPage('privacy-policy');
-
+  const page = await getPage('privacy');
   if (!page) return notFound();
+
+  const blocks = page.block_data;
 
   return (
     <main className="">
-      <PageContainer mb={8} mt={{ md: 15, xs: 10 }}>
-        <ThemedContainer
-          dangerouslySetInnerHTML={{ __html: page?.content.rendered ?? '' }}
-        />
-      </PageContainer>
+      {blocks && (
+        <ThemedContainer>
+          <WPBlocks blocks={blocks} />
+        </ThemedContainer>
+      )}
     </main>
   );
 }

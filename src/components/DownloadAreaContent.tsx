@@ -51,16 +51,15 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
             return (
               <Grid key={index} lg={4} md={6} xs={12} item>
                 <Post
-                  cta={
-                    <NextButton href={datasheet} variant="secondary">
-                      Download Data Sheet
-                    </NextButton>
-                  }
                   excerpt={product.excerpt.rendered}
                   featuredImage={picture}
                   objectFit="contain"
                   title={product.title.rendered}
-                />
+                >
+                  <NextButton href={datasheet} variant="secondary">
+                    Download Data Sheet
+                  </NextButton>
+                </Post>
               </Grid>
             );
           })}

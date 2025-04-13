@@ -10,21 +10,20 @@ type AreaPostProps = {
 export default async function AreaPost({ slug }: AreaPostProps) {
   const area = await getAreaBySlug(slug);
   const post = area?.acf?.post;
-  const relatedImage = getFeaturedImageUrl(post ?? undefined);
+  const relatedImage = getFeaturedImageUrl(area ?? undefined);
 
   if (!post) return null;
 
   return (
     <GalleryTile imgUrl={relatedImage}>
       <SecondaryBlock
-        primaryCta={
-          <NextButton href={`/3d-academy/${post.post_name}`} variant="primary">
-            Read Full Story
-          </NextButton>
-        }
         headline={post.post_title}
         sublineElement={post.post_title}
-      />
+      >
+        <NextButton href={`/3d-academy/${post.post_name}`} variant="primary">
+          Read Full Story
+        </NextButton>
+      </SecondaryBlock>
     </GalleryTile>
   );
 }

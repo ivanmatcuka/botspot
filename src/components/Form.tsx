@@ -19,15 +19,15 @@ import {
 } from 'react-hook-form';
 
 type InputProps = {
-    color?: 'primary' | 'white';
-    error?: FieldValues;
-    label?: string;
-    register: UseFormRegister<FieldValues>;
-  } &
-  Pick<
-    MuiInputProps,
-    'fullWidth' | 'required' | 'value' | 'type' | 'rows' | 'className'
-  > & Pick<UseControllerProps, 'name' | 'rules'>;
+  color?: 'primary' | 'white';
+  error?: FieldValues;
+  label?: string;
+  register: UseFormRegister<FieldValues>;
+} & Pick<
+  MuiInputProps,
+  'fullWidth' | 'required' | 'value' | 'type' | 'rows' | 'className'
+> &
+  Pick<UseControllerProps, 'name' | 'rules'>;
 export const Input: FC<InputProps> = ({
   color,
   error,
@@ -41,17 +41,17 @@ export const Input: FC<InputProps> = ({
   type,
   value,
 }) => (
-  <Grid
+  <Box
     className="!text-white"
     flex={fullWidth ? '0 0 100%' : 'auto'}
     flexGrow={1}
-    item
   >
     {label && (
       <Box mb={0.5}>
         <InputLabel
           className={color === 'white' ? '!text-white' : ''}
           required={required}
+          sx={{ textAlign: 'left' }}
         >
           <Typography variant="caption">{label}</Typography>
         </InputLabel>
@@ -75,7 +75,7 @@ export const Input: FC<InputProps> = ({
         </Typography>
       </Box>
     )}
-  </Grid>
+  </Box>
 );
 
 type FormProps = {
@@ -105,7 +105,9 @@ export const Form: FC<PropsWithChildren<FormProps>> = ({
       >
         <Grid item>
           <Paper
-            className={`${secondary && '!bg-primary-main'} border-2 border-divider`}
+            className={`${
+              secondary && '!bg-primary-main'
+            } border-2 border-divider`}
             elevation={1}
           >
             {form}

@@ -34,7 +34,7 @@ export const Posts: FC<PostProps> = ({
   }, [page, perPage]);
 
   return (
-    <Grid spacing={{ lg: 5, md: 3, xs: 2 }} xs={10} container>
+    <Grid spacing={{ lg: 5, md: 3, xs: 2 }} container>
       {loading ? (
         <LoadingSkeletons count={perPage} />
       ) : (
@@ -47,18 +47,17 @@ export const Posts: FC<PostProps> = ({
             item
           >
             <Post
-              cta={
-                <NextButton
-                  href={`/3d-academy/${post.slug}`}
-                  target="_blank"
-                  variant="secondary"
-                >
-                  Read Full Article
-                </NextButton>
-              }
               featuredImage={getFeaturedImageUrl(post)}
               title={post.title.rendered}
-            />
+            >
+              <NextButton
+                href={`/3d-academy/${post.slug}`}
+                target="_blank"
+                variant="secondary"
+              >
+                Read Full Article
+              </NextButton>
+            </Post>
           </Grid>
         ))
       )}

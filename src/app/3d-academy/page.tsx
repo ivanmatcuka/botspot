@@ -1,29 +1,9 @@
-import { QuestionForm } from '@/components/QuestionForm';
-import { Box, LoadingSkeletons, MainBlock, PageContainer } from '@botspot/ui';
-import { Suspense } from 'react';
+import { WPBlocks } from '@/components/WPBlocks';
+import { getPage } from '@/services';
 
-import { Posts } from '../../components/Posts';
+export default async function Blog() {
+  const page = await getPage('3d-academy');
+  const blocks = page?.block_data;
 
-export default function Blog() {
-  return (
-    <main className="">
-      <PageContainer mb={8} mt={{ md: 15, xs: 10 }}>
-        <MainBlock
-          headline={
-            'Our "3D Academy" offers a clear overview of 3D scanning, with insights, tips, and detailed explanations for understanding the technology.'
-          }
-          subline="3D Academy"
-          botomless
-        />
-      </PageContainer>
-
-      <Box className="w-full flex justify-center" maxWidth="xl" mx="auto">
-        <Suspense fallback={<LoadingSkeletons />}>
-          <Posts />
-        </Suspense>
-      </Box>
-
-      <QuestionForm />
-    </main>
-  );
+  return <main className="">{blocks && <WPBlocks blocks={blocks} />}</main>;
 }

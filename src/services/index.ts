@@ -120,7 +120,13 @@ export const getProductBySlug = async (
 
 export const getAreaBySlug = async (
   slug: string,
-): Promise<CustomPost | null> => {
+): Promise<
+  | ({
+      block_data: Block[];
+      has_blocks: true;
+    } & CustomPost)
+  | null
+> => {
   const response = await fetch(
     `${baseUrl}/area?slug=${slug}&_embed&acf_format=standard`,
     requestInit,
@@ -217,7 +223,7 @@ export const getCategory = async (
 
 export type WPComponentNames =
   | 'ui/banner'
-  | 'ui/botspot-button'
+  | 'ui/button'
   | 'ui/media-block'
   | 'ui/main-block'
   | 'ui/page-container'
@@ -225,7 +231,16 @@ export type WPComponentNames =
   | 'ui/tile'
   | 'ui/gallery-tile'
   | 'ui/iframe'
-  | 'ui/skeleton-video';
+  | 'ui/skeleton-video'
+  | 'ui/typography'
+  | 'ui/gallery'
+  | 'ui/posts'
+  | 'ui/people'
+  | 'ui/jobs'
+  | 'ui/landing-page-products'
+  | 'ui/partner-logo'
+  | 'ui/partner-logo-container'
+  | 'ui/dynamic-form';
 export type Block = {
   attrs: any;
   blockName: WPComponentNames;

@@ -2,6 +2,7 @@ import { FeedbackForm } from '@/components/FeedbackForm';
 import { NextButton } from '@/components/NextButton';
 import {
   Banner,
+  Button,
   GalleryTile,
   MainBlock,
   PageContainer,
@@ -20,17 +21,16 @@ export default function Products() {
         mediaBlockOptions={{
           assetUrl: '/videos/banners/products.webm',
         }}
-        primary={{
-          href: '/download-area',
-          value: 'Download Data Sheets',
-        }}
-        secondary={{
-          href: '/areas',
-          value: 'Areas of Use',
-        }}
         headline="PRODUCTS"
         sublineElement="Generate photorealistic 3D models with our industry-leading scanners, designed for precision, high-resolution detail, and reliable performance across any project."
-      />
+      >
+        <Button href="/download-area" variant="primary">
+          Download Data Sheet
+        </Button>
+        <Button href="/areas" variant="secondary">
+          Areas of Use
+        </Button>
+      </Banner>
 
       <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock
@@ -72,14 +72,13 @@ export default function Products() {
 
       <GalleryTile imgUrl="/img/products/4.png">
         <SecondaryBlock
-          primaryCta={
-            <NextButton href="/areas" variant="primary">
-              Explore Applications
-            </NextButton>
-          }
           headline="Our Scanners in Action"
           sublineElement="Discover our areas of use with a diverse range of applications and industries."
-        />
+        >
+          <NextButton href="/areas" variant="primary">
+            Explore Applications
+          </NextButton>
+        </SecondaryBlock>
       </GalleryTile>
 
       <FeedbackForm />

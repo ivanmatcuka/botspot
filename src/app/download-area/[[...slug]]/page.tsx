@@ -1,4 +1,5 @@
 import { getProducts } from '@/services';
+import { SnackbarProvider } from '@botspot/ui';
 import { Metadata } from 'next';
 
 import { DownloadAreaContent } from '../../../components/DownloadAreaContent';
@@ -17,7 +18,9 @@ export default async function DownloadArea({
 
   return (
     <main className="m-auto">
-      <DownloadAreaContent defaultProductSlug={slug} products={products} />
+      <SnackbarProvider>
+        <DownloadAreaContent defaultProductSlug={slug} products={products} />
+      </SnackbarProvider>
     </main>
   );
 }

@@ -4,11 +4,11 @@ import { CustomPost } from '@/services';
 import { Box, Container, Grid, IconLink, Typography } from '@botspot/ui';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ComponentType, FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 type TextProps = {
   href?: string;
-} & ComponentType<typeof Typography>;
+};
 const Text: FC<PropsWithChildren<TextProps>> = ({
   children,
   href,
@@ -136,9 +136,7 @@ export const Footer: FC<FooterProps> = ({ products }) => (
           xs={12}
           item
         >
-          <Text mr={{ md: 'auto', xs: 0 }}>
-            Copyright © 2024 botspot, All rights reserved
-          </Text>
+          <Text>Copyright © 2024 botspot, All rights reserved</Text>
           <Text href="/privacy-policy">Privacy Policy</Text>
           <Text href="/terms-and-conditions">Terms and Conditions</Text>
           <Text href="/legal-notice">Legal Notice</Text>
