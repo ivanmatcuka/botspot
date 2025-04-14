@@ -1,4 +1,4 @@
-import { Block, WPComponentNames } from '@/services';
+import { Block, submitForm, WPComponentNames } from '@/services';
 import * as WPImports from '@botspot/ui';
 import { ComponentProps, FC } from 'react';
 
@@ -26,9 +26,14 @@ type WPComponents = Pick<
 type WPComponent = (typeof WPImports)[keyof WPComponents];
 type ComponentMap = Record<WPComponentNames, WPComponent>;
 
+const Form: FC<ComponentProps<typeof WPImports.DynamicForm>> = (props) => {
+  return <WPImports.DynamicForm {...props} submitForm={submitForm} />;
+};
+
 const componentMap: Partial<ComponentMap> = {
   'ui/banner': WPImports.Banner,
   'ui/button': NextButton,
+  'ui/dynamic-form': Form,
   'ui/gallery': WPImports.Gallery,
   'ui/gallery-tile': WPImports.GalleryTile,
   'ui/iframe': WPImports.Iframe,
@@ -43,7 +48,6 @@ const componentMap: Partial<ComponentMap> = {
   'ui/posts': Posts,
   'ui/skeleton-video': WPImports.SkeletonVideo,
   'ui/tile': WPImports.Tile,
-  // 'ui/dynamic-form', WPImports.
   'ui/typography': WPImports.Typography,
 };
 

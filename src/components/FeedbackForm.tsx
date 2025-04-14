@@ -2,7 +2,7 @@
 
 import { Form, Input } from '@/components/Form';
 import { useSnackbar } from '@/components/Snackbar';
-import { getProducts, submitFeedbackForm } from '@/services';
+import { getProducts, submitForm } from '@/services';
 import { Menu } from '@botspot/ui';
 import {
   Box,
@@ -62,7 +62,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
     newFormData.append('your-subject', topic);
     newFormData.append('your-message', message);
 
-    submitFeedbackForm(newFormData, FORM_ID)
+    submitForm(newFormData, FORM_ID)
       .then(() => showSnackbar('Thank you for your feedback!', 'success', 3000))
       .catch(() => showSnackbar('Something went wrong!', 'error', 3000))
       .finally(() => {

@@ -286,10 +286,7 @@ export const getPages = async (): Promise<{
   }
 };
 
-export const submitFeedbackForm = async (
-  formData: FormData,
-  formId: number,
-) => {
+export const submitForm = async (formData: FormData, formId: number) => {
   try {
     const response = await fetch(`${formsUrl}/${formId}/feedback`, {
       body: formData,

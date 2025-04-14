@@ -2,7 +2,7 @@
 
 import { DownloadForm, FORM_ID } from '@/components/DownloadForm';
 import { useSnackbar } from '@/components/Snackbar';
-import { CustomFields, CustomPost, submitFeedbackForm } from '@/services';
+import { CustomFields, CustomPost, submitForm } from '@/services';
 import { MainBlock, PageContainer, Post } from '@botspot/ui';
 import { Grid } from '@mui/material';
 import { FC, useState } from 'react';
@@ -25,7 +25,7 @@ export const DownloadAreaContent: FC<DownloadAreaContentProps> = ({
   const onSubmit = (formData: FormData) => {
     setIsLoading(true);
 
-    submitFeedbackForm(formData, FORM_ID)
+    submitForm(formData, FORM_ID)
       .then(() => {
         showSnackbar('Thank you for your feedback!', 'success', 3000);
         setIsSubmitted(true);
