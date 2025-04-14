@@ -1,5 +1,4 @@
-import { PageContainer, SecondaryBlock } from '@botspot/ui';
-import { Box, Typography } from '@mui/material';
+import { Box, PageContainer, SecondaryBlock, Typography } from '@botspot/ui';
 import Link from 'next/link';
 
 const EMAIL = 'career@botspot.de';

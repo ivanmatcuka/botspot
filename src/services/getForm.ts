@@ -1,4 +1,6 @@
-export type Field = {
+'use server';
+
+type Field = {
   attr: string;
   basetype: string;
   content: string;

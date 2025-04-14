@@ -1,17 +1,13 @@
-import { FeedbackForm } from '@/components/FeedbackForm';
 import { getPage } from '@/services';
+import { notFound } from 'next/navigation';
 
 import { WPBlocks } from '../../components/WPBlocks';
 
 export default async function Service() {
   const page = await getPage('3d-scan-service');
-  const blocks = page?.block_data;
+  if (!page) return notFound();
 
-  return (
-    <main className="">
-      {blocks && <WPBlocks blocks={blocks} />}
+  const blocks = page.block_data;
 
-      <FeedbackForm defaultTopic="3D Scan Service" />
-    </main>
-  );
+  return <main className="">{blocks && <WPBlocks blocks={blocks} />}</main>;
 }

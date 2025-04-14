@@ -1,5 +1,6 @@
 import { NextButton } from '@/components/NextButton';
-import { getPostBySlug } from '@/services';
+import { Posts } from '@/components/WPBlocks';
+import { getPostBySlug, getPosts } from '@/services';
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
 import {
   Box,
@@ -13,8 +14,6 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
-
-import { Posts } from '../../../components/Posts';
 
 const baseUrl = process.env.NEXT_PUBLIC_URL;
 
@@ -108,7 +107,7 @@ export default async function Post({
             </Typography>
 
             <Suspense fallback={<LoadingSkeletons count={3} />}>
-              <Posts perPage={3} hidePagination />
+              <Posts getPosts={getPosts} perPage={3} hidePagination />
             </Suspense>
           </Box>
         </Grid>

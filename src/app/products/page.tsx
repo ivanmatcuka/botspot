@@ -1,15 +1,16 @@
-import { FeedbackForm } from '@/components/FeedbackForm';
 import { NextButton } from '@/components/NextButton';
 import {
   Banner,
+  Box,
   Button,
   GalleryTile,
   MainBlock,
   PageContainer,
   SecondaryBlock,
+  Skeleton,
   Tile,
+  Typography,
 } from '@botspot/ui';
-import { Box, Skeleton, Typography } from '@mui/material';
 import { Suspense } from 'react';
 
 import ProductsList from '../../components/Products';
@@ -80,8 +81,6 @@ export default function Products() {
           </NextButton>
         </SecondaryBlock>
       </GalleryTile>
-
-      <FeedbackForm />
     </main>
   );
 }

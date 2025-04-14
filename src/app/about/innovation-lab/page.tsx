@@ -1,4 +1,3 @@
-import { FeedbackForm } from '@/components/FeedbackForm';
 import { WPBlocks } from '@/components/WPBlocks';
 import { getPage } from '@/services';
 import { Metadata } from 'next';
@@ -14,11 +13,5 @@ export default async function InnovationLab() {
 
   const blocks = page.block_data;
 
-  return (
-    <main className="">
-      {blocks && <WPBlocks blocks={blocks} />}
-
-      <FeedbackForm defaultTopic="Innovation Lab" />
-    </main>
-  );
+  return <main className="">{blocks && <WPBlocks blocks={blocks} />}</main>;
 }

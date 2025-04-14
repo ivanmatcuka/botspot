@@ -1,17 +1,13 @@
-import { FeedbackForm } from '@/components/FeedbackForm';
 import { getPage } from '@/services';
+import { notFound } from 'next/navigation';
 
 import { WPBlocks } from '../../components/WPBlocks';
 
 export default async function Areas() {
   const page = await getPage('areas-of-use');
-  const blocks = page?.block_data;
+  if (!page) return notFound();
 
-  return (
-    <main className="">
-      {blocks && <WPBlocks blocks={blocks} />}
+  const blocks = page.block_data;
 
-      <FeedbackForm />
-    </main>
-  );
+  return <main className="">{blocks && <WPBlocks blocks={blocks} />}</main>;
 }

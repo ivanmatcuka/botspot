@@ -1,6 +1,7 @@
-import { FeedbackForm } from '@/components/FeedbackForm';
-import { Box, Grid } from '@mui/material';
+import { WPBlocks } from '@/components/WPBlocks';
+import { getPage } from '@/services';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'CONTACT US – botspot',
@@ -12,22 +13,10 @@ export default async function ContactUs({
   params: Promise<{ slug?: string[] }>;
 }) {
   const slug = (await params).slug?.[0];
-  return (
-    <main className="m-auto">
-      <Box
-        className="flex flex-1 items-center"
-        maxWidth="xl"
-        mb={8}
-        mt={6}
-        mx="auto"
-        px={3}
-      >
-        <Grid xs={12} container>
-          <Grid md={10} mx="auto" xs={12} item>
-            <FeedbackForm defaultTopic={slug} frameless />
-          </Grid>
-        </Grid>
-      </Box>
-    </main>
-  );
+  const page = await getPage('contact-us');
+  if (!page) return notFound();
+
+  const blocks = page.block_data;
+
+  return <main className="">{blocks && <WPBlocks blocks={blocks} />}</main>;
 }

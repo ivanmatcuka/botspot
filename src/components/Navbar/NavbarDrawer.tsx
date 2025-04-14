@@ -1,15 +1,14 @@
 'use client';
 
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Accordion,
-  AccordionProps,
   AccordionSummary,
   ListItem,
   ListItemButton,
-} from '@mui/material';
+} from '@botspot/ui';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Link from 'next/link';
-import { FC, useState } from 'react';
+import { ComponentProps, FC, useState } from 'react';
 
 type MenuItem = {
   children?: MenuItem[];
@@ -22,7 +21,7 @@ type MenuItem = {
 type ControlledAccordionProps = {
   item: MenuItem;
   onOpen: () => void;
-} & AccordionProps;
+} & ComponentProps<typeof Accordion>;
 const ControlledAccordion: FC<ControlledAccordionProps> = ({
   children,
   item,

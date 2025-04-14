@@ -1,3 +1,5 @@
+'use server';
+
 import type {
   WP_REST_API_Categories,
   WP_REST_API_Page,
@@ -240,7 +242,8 @@ export type WPComponentNames =
   | 'ui/landing-page-products'
   | 'ui/partner-logo'
   | 'ui/partner-logo-container'
-  | 'ui/dynamic-form';
+  | 'ui/dynamic-form'
+  | 'ui/download-area-content';
 export type Block = {
   attrs: any;
   blockName: WPComponentNames;

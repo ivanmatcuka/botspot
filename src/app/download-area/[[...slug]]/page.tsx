@@ -1,8 +1,7 @@
-import { getProducts } from '@/services';
-import { SnackbarProvider } from '@botspot/ui';
+import { WPBlocks } from '@/components/WPBlocks';
+import { getPage } from '@/services';
 import { Metadata } from 'next';
-
-import { DownloadAreaContent } from '../../../components/DownloadAreaContent';
+import { notFound } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'DOWNLOAD AREA – botspot',
@@ -14,13 +13,11 @@ export default async function DownloadArea({
   params: Promise<{ slug?: string[] }>;
 }) {
   const slug = (await params).slug?.[0];
-  const { data: products } = await getProducts();
+  const page = await getPage('download-area');
 
-  return (
-    <main className="m-auto">
-      <SnackbarProvider>
-        <DownloadAreaContent defaultProductSlug={slug} products={products} />
-      </SnackbarProvider>
-    </main>
-  );
+  if (!page) return notFound();
+
+  const blocks = page.block_data;
+
+  return <main className="">{blocks && <WPBlocks blocks={blocks} />}</main>;
 }

@@ -1,7 +1,5 @@
 'use client';
 
-import CloseIcon from '@mui/icons-material/Close';
-import MenuIcon from '@mui/icons-material/Menu';
 import {
   Box,
   Container,
@@ -13,7 +11,9 @@ import {
   Toolbar,
   useMediaQuery,
   useTheme,
-} from '@mui/material';
+} from '@botspot/ui';
+import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

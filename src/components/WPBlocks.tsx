@@ -1,38 +1,76 @@
-import { Block, submitForm, WPComponentNames } from '@/services';
+import {
+  Block,
+  getJobs,
+  getPeople,
+  getPosts,
+  submitForm,
+  WPComponentNames,
+} from '@/services';
+import { getForm } from '@/services/getForm';
 import * as WPImports from '@botspot/ui';
 import { ComponentProps, FC } from 'react';
 
-import { Jobs } from './Jobs';
-import LandingPageProducts from './LandingPageProducts';
+import { getProducts } from '../services/index';
 import { NextButton } from './NextButton';
-import { People } from './People';
-import { Posts } from './Posts';
 
-type WPComponents = Pick<
-  typeof WPImports,
-  | 'Banner'
-  | 'Button'
-  | 'MediaBlock'
-  | 'MainBlock'
-  | 'PageContainer'
-  | 'Tile'
-  | 'GalleryTile'
-  | 'Iframe'
-  | 'SkeletonVideo'
-  | 'Gallery'
-  | 'PartnerLogo'
-  | 'PartnerLogoContainer'
->;
-type WPComponent = (typeof WPImports)[keyof WPComponents];
-type ComponentMap = Record<WPComponentNames, WPComponent>;
+type ComponentMap = Record<WPComponentNames, FC<ComponentProps<any>>>;
 
 const Form: FC<ComponentProps<typeof WPImports.DynamicForm>> = (props) => {
-  return <WPImports.DynamicForm {...props} submitForm={submitForm} />;
+  return (
+    <WPImports.DynamicForm
+      {...props}
+      getForm={getForm}
+      submitForm={submitForm}
+    />
+  );
+};
+
+const DownloadAreaContent: FC<
+  ComponentProps<typeof WPImports.DownloadAreaContent>
+> = async (props) => {
+  const { data } = await getProducts();
+  return (
+    <WPImports.DownloadAreaContent
+      {...props}
+      getForm={getForm}
+      products={data}
+      submitForm={submitForm}
+    />
+  );
+};
+
+const Jobs: FC = async () => {
+  const { data } = await getJobs();
+  return <WPImports.Jobs jobs={data}></WPImports.Jobs>;
+};
+
+const People: FC = async () => {
+  const { data } = await getPeople();
+  return <WPImports.People people={data}></WPImports.People>;
+};
+
+export const Posts: FC<ComponentProps<typeof WPImports.Posts>> = async (
+  props,
+) => {
+  return <WPImports.Posts {...props} getPosts={getPosts}></WPImports.Posts>;
+};
+
+const LandingPageProducts: FC<
+  ComponentProps<typeof WPImports.LandingPageProducts>
+> = async (props) => {
+  const { data } = await getProducts();
+  return (
+    <WPImports.LandingPageProducts
+      {...props}
+      products={data}
+    ></WPImports.LandingPageProducts>
+  );
 };
 
 const componentMap: Partial<ComponentMap> = {
   'ui/banner': WPImports.Banner,
   'ui/button': NextButton,
+  'ui/download-area-content': DownloadAreaContent,
   'ui/dynamic-form': Form,
   'ui/gallery': WPImports.Gallery,
   'ui/gallery-tile': WPImports.GalleryTile,

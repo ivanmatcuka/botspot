@@ -1,7 +1,6 @@
 import { getPost } from '@/services';
 import { generateSeo } from '@/utils';
-import { ThemedContainer } from '@botspot/ui';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, ThemedContainer, Typography } from '@botspot/ui';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 

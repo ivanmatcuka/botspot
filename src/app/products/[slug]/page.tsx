@@ -1,4 +1,3 @@
-import { FeedbackForm } from '@/components/FeedbackForm';
 import { NextButton } from '@/components/NextButton';
 import {
   CustomFields,
@@ -179,12 +178,10 @@ export default async function Product({
           >
             <NextButton href={`/3d-academy/${post.slug}`} variant="primary">
               Read Full Story
-            </NextButton>{' '}
+            </NextButton>
           </SecondaryBlock>
         </GalleryTile>
       )}
-
-      <FeedbackForm defaultTopic={product.title.rendered} />
     </main>
   );
 }
