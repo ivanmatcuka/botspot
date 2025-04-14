@@ -2,7 +2,7 @@ import { WPBlocks } from '@/components/WPBlocks';
 import { getPage } from '@/services';
 import { notFound } from 'next/navigation';
 
-export default async function Areas() {
+export default async function Home() {
   const page = await getPage('home');
   if (!page) return notFound();
 

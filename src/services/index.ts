@@ -243,7 +243,8 @@ export type WPComponentNames =
   | 'ui/partner-logo'
   | 'ui/partner-logo-container'
   | 'ui/dynamic-form'
-  | 'ui/download-area-content';
+  | 'ui/download-area-content'
+  | 'ui/products-topic';
 export type Block = {
   attrs: any;
   blockName: WPComponentNames;

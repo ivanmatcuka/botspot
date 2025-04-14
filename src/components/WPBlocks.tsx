@@ -12,6 +12,7 @@ import { ComponentProps, FC } from 'react';
 
 import { getProducts } from '../services/index';
 import { NextButton } from './NextButton';
+import { ProductsTopic } from './ProductsTopic';
 
 type ComponentMap = Record<WPComponentNames, FC<ComponentProps<any>>>;
 
@@ -59,12 +60,7 @@ const LandingPageProducts: FC<
   ComponentProps<typeof WPImports.LandingPageProducts>
 > = async (props) => {
   const { data } = await getProducts();
-  return (
-    <WPImports.LandingPageProducts
-      {...props}
-      products={data}
-    ></WPImports.LandingPageProducts>
-  );
+  return <WPImports.LandingPageProducts {...props} products={data} />;
 };
 
 const componentMap: Partial<ComponentMap> = {
@@ -84,6 +80,7 @@ const componentMap: Partial<ComponentMap> = {
   'ui/partner-logo-container': WPImports.PartnerLogoContainer,
   'ui/people': People,
   'ui/posts': Posts,
+  'ui/products-topic': ProductsTopic,
   'ui/skeleton-video': WPImports.SkeletonVideo,
   'ui/tile': WPImports.Tile,
   'ui/typography': WPImports.Typography,
