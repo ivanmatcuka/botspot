@@ -1,4 +1,4 @@
-import LandingPageProducts from './LandingPageProducts';
+// import LandingPageProducts from './LandingPageProducts';
 
 import { Box, Skeleton, Typography } from '@mui/material';
 import { Suspense } from 'react';
@@ -17,7 +17,7 @@ export default function Home() {
       <Banner
         headline="THE WORLD’S BEST FOR EXCEPTIONAL SCANNING SOLUTIONS"
         mediaBlockOptions={{
-          assetUrl: '/img/banners/learn.webp',
+          assetUrl: '/videos/landing-page.webm',
         }}
         primaryCta={
           <Button href="/products" variant="primary">
@@ -56,7 +56,7 @@ export default function Home() {
       </Box>
 
       <Suspense fallback={<Skeleton height="100%" variant="rectangular" />}>
-        <LandingPageProducts />
+        {/* <LandingPageProducts /> */}
       </Suspense>
 
       <Box
