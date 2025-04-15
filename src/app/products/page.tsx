@@ -18,7 +18,7 @@ export default function Products() {
       <Banner
         headline="PRODUCTS"
         mediaBlockOptions={{
-          assetUrl: '/img/banners/learn.webp',
+          assetUrl: '/videos/banners/products.mp4',
         }}
         primaryCta={
           <Button href="/download-area" variant="primary">
