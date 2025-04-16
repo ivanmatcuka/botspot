@@ -62,6 +62,7 @@ const nextConfig: NextConfig = {
   },
   sassOptions: {
     silenceDeprecations: [
+      'global-builtin',
       'color-functions',
       'mixed-decls',
       'legacy-js-api',
