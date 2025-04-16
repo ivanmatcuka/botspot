@@ -20,7 +20,7 @@ export default function Products() {
     <main className="">
       <Banner
         mediaBlockOptions={{
-          assetUrl: '/videos/banners/products.webm',
+          assetUrl: '/videos/banners/products.mp4',
         }}
         headline="PRODUCTS"
         sublineElement="Generate photorealistic 3D models with our industry-leading scanners, designed for precision, high-resolution detail, and reliable performance across any project."
