@@ -8,6 +8,7 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import { Inter } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import { ReactNode } from 'react';
+import Script from 'next/script';
 
 import { Button } from '@/components/Button';
 import { Footer } from '@/components/Footer';
@@ -92,9 +93,9 @@ export default async function RootLayout({
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
         )}
-        <script>
-          window.varify = window.varify || {}; window.varify.iid = 4004;
-        </script>
+        <Script id="varify">
+          {`window.varify = window.varify || {}; window.varify.iid = 4004;`}
+        </Script>
         <script src="https://app.varify.io/varify.js" defer />
       </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
