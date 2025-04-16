@@ -12,9 +12,9 @@ import { Box, SnackbarProvider, ThemeRegistry } from '@botspot/ui';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Poppins } from 'next/font/google';
+import Script from 'next/script';
 import NextTopLoader from 'nextjs-toploader';
 import { ReactNode } from 'react';
-import Script from 'next/script';
 
 const poppins = Poppins({
   subsets: ['latin'],
