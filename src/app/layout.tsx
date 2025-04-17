@@ -96,7 +96,7 @@ export default async function RootLayout({
         <Script id="varify">
           {`window.varify = window.varify || {}; window.varify.iid = 4004;`}
         </Script>
-        <script src="https://app.varify.io/varify.js" defer />
+        <Script src="https://app.varify.io/varify.js" />
       </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <AppRouterCacheProvider>
