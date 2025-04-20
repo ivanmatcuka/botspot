@@ -7,12 +7,7 @@ export const metadata: Metadata = {
   title: 'CONTACT US – botspot',
 };
 
-export default async function ContactUs({
-  params,
-}: {
-  params: Promise<{ slug?: string[] }>;
-}) {
-  const slug = (await params).slug?.[0];
+export default async function ContactUs() {
   const page = await getPage('contact-us');
   if (!page) return notFound();
 

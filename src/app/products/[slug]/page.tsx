@@ -1,4 +1,5 @@
 import { NextButton } from '@/components/NextButton';
+import { WPBlocks } from '@/components/WPBlocks';
 import {
   CustomFields,
   CustomPost,
@@ -8,25 +9,15 @@ import {
 import { generateSeo, getFeaturedImageUrl } from '@/utils';
 import {
   Banner,
-  Box,
-  Button,
-  Gallery,
   GalleryTile,
-  Iframe,
   MainBlock,
   MediaBlock,
   PageContainer,
   SecondaryBlock,
   SkeletonVideo,
-  ThemedContainer,
-  Tile,
-  UnorderedList,
-  UnorderedListItem,
 } from '@botspot/ui';
-import parse from 'html-react-parser';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { isValidElement, ReactElement } from 'react';
 
 export async function generateMetadata({
   params,
@@ -44,6 +35,7 @@ export async function generateMetadata({
     }
   );
 }
+
 export default async function Product({
   params,
 }: {
@@ -51,39 +43,28 @@ export default async function Product({
 }) {
   const slug = (await params).slug;
   const product = await getProductBySlug(slug);
+  if (!product) return notFound();
+
+  const blocks = product.block_data;
 
   if (!product) return notFound();
 
   const {
     banner,
     closeup,
+    'demo-url': demoUrl,
     'demo-video': demoVideo,
-
-    'first-animation': firstAnimation,
-
     'first-headline': firstHeadline,
     'first-subline': firstSubline,
-
     picture,
     post: acfPost,
-    'second-animation': secondAnimation,
     'second-headline': secondHeadline,
-
     'second-subline': secondSubline,
   }: Partial<CustomFields> = product.acf ?? {};
 
   const post: CustomPost | null = acfPost?.post_name
     ? await getPostBySlug(acfPost.post_name)
     : null;
-
-  const parsedContent = parse(product.content.rendered) as ReactElement[];
-  const tileHeadlines = parsedContent.filter(
-    (element) => element.type === 'h4',
-  );
-  const groups = parsedContent.find((element) =>
-    element.props?.className?.includes('wp-block-group'),
-  );
-  const lists = parsedContent.filter((element) => element.type === 'ul');
 
   const relatedImage = getFeaturedImageUrl(post ?? undefined);
 
@@ -95,15 +76,12 @@ export default async function Product({
           mediaBlockOptions={{ assetUrl: banner }}
           sublineElement={product.excerpt.rendered}
         >
-          <Button href={`/download-area/${product.slug}`} variant="primary">
+          <NextButton href={`/download-area/${product.slug}`} variant="primary">
             Download Data Sheet
-          </Button>
-          <Button
-            href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/ob7tkWl_QESAXQPuuaQR_w2"
-            variant="secondary"
-          >
+          </NextButton>
+          <NextButton href={demoUrl} target="_blank" variant="secondary">
             Request a Demo
-          </Button>
+          </NextButton>
         </Banner>
       )}
 
@@ -123,7 +101,7 @@ export default async function Product({
         banner
       />
 
-      <PageContainer mt={{ md: 10, xs: 5 }}>
+      <PageContainer my={{ md: 10, xs: 5 }}>
         <MainBlock headline={firstHeadline} subline={firstSubline} />
       </PageContainer>
 
@@ -133,39 +111,10 @@ export default async function Product({
         <MainBlock headline={secondHeadline} subline={secondSubline} />
       </PageContainer>
 
-      {lists.map((item: ReactElement, index: number) => (
-        <Tile headline={tileHeadlines[index]?.props?.children} key={item.key}>
-          <UnorderedList>
-            {item.props?.children
-              ?.filter((item: unknown) => isValidElement(item))
-              .map((item: ReactElement) => (
-                <UnorderedListItem key={item.key}>
-                  {item.props.children}
-                </UnorderedListItem>
-              ))}
-          </UnorderedList>
-        </Tile>
-      ))}
-
-      {firstAnimation && secondAnimation && (
-        <Box my={{ md: 10, xs: 5 }}>
-          <Gallery>
-            <Iframe src={firstAnimation} />
-            <Iframe src={secondAnimation} />
-          </Gallery>
-        </Box>
-      )}
-
-      {groups?.props?.children && (
-        <PageContainer my={{ md: 10, xs: 5 }}>
-          <ThemedContainer className="!p-0" maxWidth="xl">
-            {groups.props.children}
-          </ThemedContainer>
-        </PageContainer>
-      )}
+      {!!blocks && <WPBlocks blocks={blocks} />}
 
       {demoVideo && (
-        <PageContainer>
+        <PageContainer my={{ md: 15, xs: 10 }}>
           <SkeletonVideo videoSrc={demoVideo} autoPlay loop muted />
         </PageContainer>
       )}

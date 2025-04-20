@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar/Navbar';
 import { NextButton } from '@/components/NextButton';
-import { getProducts } from '@/services';
+import { FooterResourceItem, getMenuBySlug, getProducts } from '@/services';
 import { Box, SnackbarProvider, ThemeRegistry } from '@botspot/ui';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { GoogleTagManager } from '@next/third-parties/google';
@@ -38,53 +38,71 @@ export const metadata: Metadata = {
   ],
 };
 
+type Link = {
+  children?: Link[];
+  href: string;
+  label: string;
+};
+
+const createDataTree = (dataset: FooterResourceItem[]) => {
+  const hashTable: Record<string, Link> = Object.create(null);
+
+  dataset.forEach(
+    (data) =>
+      (hashTable[data.ID] = {
+        href: new URL(data.url).pathname,
+        label: data.title,
+      }),
+  );
+
+  const dataTree: Link[] = [];
+
+  dataset.forEach((data) => {
+    if (data.menu_item_parent !== '0') {
+      hashTable[data.menu_item_parent].children = [];
+      hashTable[data.menu_item_parent].children?.push(hashTable[data.ID]);
+    } else {
+      dataTree.push(hashTable[data.ID]);
+    }
+  });
+
+  return dataTree;
+};
+
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
   const { data: products } = await getProducts();
+  const headerLinks = await getMenuBySlug('header');
 
   const productsLinks = products?.map((product) => ({
     href: `/products/${product.slug}`,
     label: product.title.rendered,
   }));
 
+  const grouped = createDataTree(headerLinks ?? []);
+
   const navbarItems = [
-    {
-      children: productsLinks,
-      href: '/products',
-      label: 'Products',
-    },
-    { href: '/service', label: '3D Scan Service' },
-    {
-      href: '/areas',
-      label: 'Areas of use',
-      children: [
-        { href: '/areas/commercial', label: 'Commercial' },
-        { href: '/areas/industrial', label: 'Industrial' },
-        {
-          href: '/areas/custom-solutions',
-          label: 'Custom Solutions',
-        },
-      ],
-    },
-    {
-      children: [{ href: '/3d-academy', label: '3D Academy' }],
-      href: '/learn',
-      label: 'Learn About 3D Scanning',
-    },
-    {
-      href: '/about',
-      label: 'About Us',
-      children: [
-        {
-          href: '/about/innovation-lab',
-          label: 'Innovation Lab',
-        },
-        { href: '/about/careers', label: 'Careers' },
-      ],
-    },
+    // {
+    //   children: productsLinks,
+    //   href: headerLinks?.[0].url || '/products',
+    //   label: headerLinks?.[0].title || 'Products',
+    // },
+    // {
+    //   href: '/areas',
+    //   label: 'Areas of use',
+    //   children: [
+    //     { href: '/areas/commercial', label: 'Commercial' },
+    //     { href: '/areas/industrial', label: 'Industrial' },
+    //     {
+    //       href: '/areas/custom-solutions',
+    //       label: 'Custom Solutions',
+    //     },
+    //   ],
+    // },
+    ...grouped,
   ];
 
   return (

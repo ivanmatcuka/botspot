@@ -1,4 +1,9 @@
-import { getAreaBySlug } from '@/services';
+import {
+  CustomFields,
+  CustomPost,
+  getAreaBySlug,
+  getPostBySlug,
+} from '@/services';
 import { getFeaturedImageUrl } from '@/utils';
 import { GalleryTile, SecondaryBlock } from '@botspot/ui';
 
@@ -9,18 +14,21 @@ type AreaPostProps = {
 };
 export default async function AreaPost({ slug }: AreaPostProps) {
   const area = await getAreaBySlug(slug);
-  const post = area?.acf?.post;
-  const relatedImage = getFeaturedImageUrl(area ?? undefined);
+  const { post: acfPost }: Partial<CustomFields> = area?.acf ?? {};
+  const post: CustomPost | null = acfPost?.post_name
+    ? await getPostBySlug(acfPost.post_name)
+    : null;
+  const relatedImage = getFeaturedImageUrl(post ?? undefined);
 
   if (!post) return null;
 
   return (
     <GalleryTile imgUrl={relatedImage}>
       <SecondaryBlock
-        headline={post.post_title}
-        sublineElement={post.post_title}
+        headline={post.title.rendered}
+        sublineElement={post.excerpt.rendered}
       >
-        <NextButton href={`/3d-academy/${post.post_name}`} variant="primary">
+        <NextButton href={`/3d-academy/${post.slug}`} variant="primary">
           Read Full Story
         </NextButton>
       </SecondaryBlock>

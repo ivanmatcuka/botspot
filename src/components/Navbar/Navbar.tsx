@@ -1,5 +1,6 @@
 'use client';
 
+import { getMenuBySlug } from '@/services';
 import {
   Box,
   Container,

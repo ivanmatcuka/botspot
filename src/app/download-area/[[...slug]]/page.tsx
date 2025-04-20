@@ -7,14 +7,8 @@ export const metadata: Metadata = {
   title: 'DOWNLOAD AREA – botspot',
 };
 
-export default async function DownloadArea({
-  params,
-}: {
-  params: Promise<{ slug?: string[] }>;
-}) {
-  const slug = (await params).slug?.[0];
+export default async function DownloadArea() {
   const page = await getPage('download-area');
-
   if (!page) return notFound();
 
   const blocks = page.block_data;

@@ -56,11 +56,11 @@ export const Posts: FC<ComponentProps<typeof WPImports.Posts>> = async (
   return <WPImports.Posts {...props} getPosts={getPosts}></WPImports.Posts>;
 };
 
-const LandingPageProducts: FC<
-  ComponentProps<typeof WPImports.LandingPageProducts>
-> = async (props) => {
+const ProductsList: FC<ComponentProps<typeof WPImports.ProductsList>> = async (
+  props,
+) => {
   const { data } = await getProducts();
-  return <WPImports.LandingPageProducts {...props} products={data} />;
+  return <WPImports.ProductsList {...props} products={data} />;
 };
 
 const componentMap: Partial<ComponentMap> = {
@@ -72,7 +72,6 @@ const componentMap: Partial<ComponentMap> = {
   'ui/gallery-tile': WPImports.GalleryTile,
   'ui/iframe': WPImports.Iframe,
   'ui/jobs': Jobs,
-  'ui/landing-page-products': LandingPageProducts,
   'ui/main-block': WPImports.MainBlock,
   'ui/media-block': WPImports.MediaBlock,
   'ui/page-container': WPImports.PageContainer,
@@ -80,6 +79,7 @@ const componentMap: Partial<ComponentMap> = {
   'ui/partner-logo-container': WPImports.PartnerLogoContainer,
   'ui/people': People,
   'ui/posts': Posts,
+  'ui/products-list': ProductsList,
   'ui/products-topic': ProductsTopic,
   'ui/skeleton-video': WPImports.SkeletonVideo,
   'ui/tile': WPImports.Tile,
@@ -94,18 +94,19 @@ export const WPBlocks: FC<WPBlocksProps> = ({ blocks }) =>
   blocks.map((block, index) => {
     const Component = componentMap[block.blockName];
 
-    if (!Component)
+    if (!Component) {
       return (
         <div
-          dangerouslySetInnerHTML={{ __html: block.innerHTML ?? '' }}
+          dangerouslySetInnerHTML={{ __html: block.rendered ?? '' }}
           key={index}
         />
       );
+    }
 
-    const props = block.attrs as ComponentProps<typeof Component>;
     const hasChildren = block?.innerBlocks?.length > 0;
+    const props = block.attrs as ComponentProps<typeof Component>;
 
-    if (hasChildren)
+    if (hasChildren) {
       return (
         // eslint-disable-next-line
         // @ts-ignore
@@ -113,6 +114,7 @@ export const WPBlocks: FC<WPBlocksProps> = ({ blocks }) =>
           {hasChildren && <WPBlocks blocks={block.innerBlocks} />}
         </Component>
       );
+    }
 
     return (
       // eslint-disable-next-line

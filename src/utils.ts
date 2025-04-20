@@ -70,16 +70,3 @@ export const generatePageMetadata = async (slug: string): Promise<Metadata> => {
     }
   );
 };
-
-export function parseFieldOptions(options: string[]): Record<string, string> {
-  return options.reduce(
-    (acc, option) => {
-      const [key, value] = option.split(':');
-      if (key && value) {
-        acc[key.trim()] = value.trim();
-      }
-      return acc;
-    },
-    {} as Record<string, string>,
-  );
-}
