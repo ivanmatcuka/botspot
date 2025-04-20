@@ -5,7 +5,7 @@ const EMAIL = 'career@botspot.de';
 
 export const ExtraFooter = () => (
   <Box bgcolor="grey.100" mt="auto" overflow="auto" py={10}>
-    <PageContainer mb={0} mt={0}>
+    <PageContainer bgcolor="grey.100" mb={0} mt={0}>
       <SecondaryBlock
         sublineElement={
           <Typography variant="body1">

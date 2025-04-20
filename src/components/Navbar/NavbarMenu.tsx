@@ -23,7 +23,6 @@ export const NavbarMenu: FC<NavbarMenuProps> = ({ currentPath, item }) => {
         className={currentPath === item.href ? 'active' : ''}
         disabled={item.disabled}
         href={item.href ?? '/'}
-        key={item.label}
         variant="menuItem"
       >
         {item.label}
@@ -35,15 +34,10 @@ export const NavbarMenu: FC<NavbarMenuProps> = ({ currentPath, item }) => {
     <Link href={item.href || '#'}>
       <Menu
         className={currentPath === item.href ? 'active' : ''}
-        key={item.label}
         label={item.label}
       >
-        {item.children.map((child) => (
-          <NavbarMenu
-            currentPath={currentPath}
-            item={child}
-            key={child.label}
-          />
+        {item.children.map((child, index) => (
+          <NavbarMenu currentPath={currentPath} item={child} key={index} />
         ))}
       </Menu>
     </Link>

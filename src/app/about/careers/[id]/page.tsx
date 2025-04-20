@@ -1,5 +1,6 @@
+import { WPBlocks } from '@/components/WPBlocks';
 import { getPost } from '@/services';
-import { generateSeo } from '@/utils';
+import { generateSeo } from '@/utils/meta';
 import { Box, Grid, ThemedContainer, Typography } from '@botspot/ui';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -51,7 +52,7 @@ export default async function Job({
                 {job.title.rendered}
               </Typography>
               <Typography>{job.excerpt.protected}</Typography>
-              <Box dangerouslySetInnerHTML={{ __html: job.content.rendered }} />
+              {job.block_data && <WPBlocks blocks={job.block_data} />}
             </>
           </Grid>
         </Grid>

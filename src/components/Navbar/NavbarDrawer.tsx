@@ -51,7 +51,7 @@ type NavbarDrawerProps = { item: MenuItem; onOpen: () => void };
 export const NavbarDrawer: FC<NavbarDrawerProps> = ({ item, onOpen }) => {
   if (!item.children?.length) {
     return (
-      <ListItem key={item.label} onClick={onOpen}>
+      <ListItem onClick={onOpen}>
         <ListItemButton
           component={Link}
           href={item.href ?? '/'}
@@ -65,9 +65,9 @@ export const NavbarDrawer: FC<NavbarDrawerProps> = ({ item, onOpen }) => {
   }
 
   return (
-    <ControlledAccordion item={item} key={item.label} onOpen={onOpen}>
-      {item.children.map((child) => (
-        <NavbarDrawer item={child} key={child.label} onOpen={onOpen} />
+    <ControlledAccordion item={item} onOpen={onOpen}>
+      {item.children.map((child, index) => (
+        <NavbarDrawer item={child} key={index} onOpen={onOpen} />
       ))}
     </ControlledAccordion>
   );

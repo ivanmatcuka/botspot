@@ -4,7 +4,7 @@ import {
   getAreaBySlug,
   getPostBySlug,
 } from '@/services';
-import { getFeaturedImageUrl } from '@/utils';
+import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
 import { GalleryTile, SecondaryBlock } from '@botspot/ui';
 
 import { NextButton } from './NextButton';

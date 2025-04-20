@@ -6,7 +6,8 @@ import {
   getPostBySlug,
   getProductBySlug,
 } from '@/services';
-import { generateSeo, getFeaturedImageUrl } from '@/utils';
+import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
+import { generateSeo } from '@/utils/meta';
 import {
   Banner,
   GalleryTile,
@@ -76,7 +77,7 @@ export default async function Product({
           mediaBlockOptions={{ assetUrl: banner }}
           sublineElement={product.excerpt.rendered}
         >
-          <NextButton href={`/download-area/${product.slug}`} variant="primary">
+          <NextButton href={`${product.acf?.['demo-url']}`} variant="primary">
             Download Data Sheet
           </NextButton>
           <NextButton href={demoUrl} target="_blank" variant="secondary">

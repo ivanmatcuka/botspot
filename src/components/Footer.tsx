@@ -1,4 +1,5 @@
 import { CustomPost, getMenuBySlug } from '@/services';
+import { normalizeURL } from '@/utils/normalizeURL';
 import { Box, Container, Grid, IconLink, Typography } from '@botspot/ui';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -78,7 +79,7 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
               item
             >
               {productsLink?.map((item) => (
-                <Text href={item.url} key={item.ID}>
+                <Text href={normalizeURL(item.url)} key={item.ID}>
                   {item.title}
                 </Text>
               ))}
@@ -97,7 +98,7 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
               <Text>Resources</Text>
               <br />
               {resources?.map((item) => (
-                <Text href={item.url} key={item.ID}>
+                <Text href={normalizeURL(item.url)} key={item.ID}>
                   {item.title}
                 </Text>
               ))}
@@ -110,7 +111,7 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
               <Text>Company</Text>
               <br />
               {company?.map((item) => (
-                <Text href={item.url} key={item.ID}>
+                <Text href={normalizeURL(item.url)} key={item.ID}>
                   {item.title}
                 </Text>
               ))}
@@ -144,17 +145,25 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
             flexBasis="100%"
             flexDirection={{ md: 'row', xs: 'column' }}
             gap={3}
+            justifyContent={{ md: 'space-between', xs: 'center' }}
             md={10}
             mx="auto"
             xs={12}
             item
           >
             <Text>Copyright © 2024 botspot, All rights reserved</Text>
-            {submenu?.map((item) => (
-              <Text href={item.url} key={item.ID}>
-                {item.title}
-              </Text>
-            ))}
+            <Box
+              display="flex"
+              flexDirection={{ md: 'row', xs: 'column' }}
+              gap={3}
+              textAlign="center"
+            >
+              {submenu?.map((item) => (
+                <Text href={normalizeURL(item.url)} key={item.ID}>
+                  {item.title}
+                </Text>
+              ))}
+            </Box>
           </Grid>
         </Grid>
       </footer>

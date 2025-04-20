@@ -3,11 +3,11 @@ import {
   getJobs,
   getPeople,
   getPosts,
-  submitForm,
   WPComponentNames,
 } from '@/services';
 import { getForm } from '@/services/getForm';
-import * as WPImports from '@botspot/ui';
+import { submitForm } from '@/services/submitForm';
+import * as botspot from '@botspot/ui';
 import { ComponentProps, FC } from 'react';
 
 import { getProducts } from '../services/index';
@@ -16,22 +16,18 @@ import { ProductsTopic } from './ProductsTopic';
 
 type ComponentMap = Record<WPComponentNames, FC<ComponentProps<any>>>;
 
-const Form: FC<ComponentProps<typeof WPImports.DynamicForm>> = (props) => {
+const Form: FC<ComponentProps<typeof botspot.DynamicForm>> = (props) => {
   return (
-    <WPImports.DynamicForm
-      {...props}
-      getForm={getForm}
-      submitForm={submitForm}
-    />
+    <botspot.DynamicForm {...props} getForm={getForm} submitForm={submitForm} />
   );
 };
 
 const DownloadAreaContent: FC<
-  ComponentProps<typeof WPImports.DownloadAreaContent>
+  ComponentProps<typeof botspot.DownloadAreaContent>
 > = async (props) => {
   const { data } = await getProducts();
   return (
-    <WPImports.DownloadAreaContent
+    <botspot.DownloadAreaContent
       {...props}
       getForm={getForm}
       products={data}
@@ -42,48 +38,48 @@ const DownloadAreaContent: FC<
 
 const Jobs: FC = async () => {
   const { data } = await getJobs();
-  return <WPImports.Jobs jobs={data}></WPImports.Jobs>;
+  return <botspot.Jobs jobs={data}></botspot.Jobs>;
 };
 
 const People: FC = async () => {
   const { data } = await getPeople();
-  return <WPImports.People people={data}></WPImports.People>;
+  return <botspot.People people={data}></botspot.People>;
 };
 
-export const Posts: FC<ComponentProps<typeof WPImports.Posts>> = async (
+export const Posts: FC<ComponentProps<typeof botspot.Posts>> = async (
   props,
 ) => {
-  return <WPImports.Posts {...props} getPosts={getPosts}></WPImports.Posts>;
+  return <botspot.Posts {...props} getPosts={getPosts}></botspot.Posts>;
 };
 
-const ProductsList: FC<ComponentProps<typeof WPImports.ProductsList>> = async (
+const ProductsList: FC<ComponentProps<typeof botspot.ProductsList>> = async (
   props,
 ) => {
   const { data } = await getProducts();
-  return <WPImports.ProductsList {...props} products={data} />;
+  return <botspot.ProductsList {...props} products={data} />;
 };
 
 const componentMap: Partial<ComponentMap> = {
-  'ui/banner': WPImports.Banner,
+  'ui/banner': botspot.Banner,
   'ui/button': NextButton,
   'ui/download-area-content': DownloadAreaContent,
   'ui/dynamic-form': Form,
-  'ui/gallery': WPImports.Gallery,
-  'ui/gallery-tile': WPImports.GalleryTile,
-  'ui/iframe': WPImports.Iframe,
+  'ui/gallery': botspot.Gallery,
+  'ui/gallery-tile': botspot.GalleryTile,
+  'ui/iframe': botspot.Iframe,
   'ui/jobs': Jobs,
-  'ui/main-block': WPImports.MainBlock,
-  'ui/media-block': WPImports.MediaBlock,
-  'ui/page-container': WPImports.PageContainer,
-  'ui/partner-logo': WPImports.PartnerLogo,
-  'ui/partner-logo-container': WPImports.PartnerLogoContainer,
+  'ui/main-block': botspot.MainBlock,
+  'ui/media-block': botspot.MediaBlock,
+  'ui/page-container': botspot.PageContainer,
+  'ui/partner-logo': botspot.PartnerLogo,
+  'ui/partner-logo-container': botspot.PartnerLogoContainer,
   'ui/people': People,
   'ui/posts': Posts,
   'ui/products-list': ProductsList,
   'ui/products-topic': ProductsTopic,
-  'ui/skeleton-video': WPImports.SkeletonVideo,
-  'ui/tile': WPImports.Tile,
-  'ui/typography': WPImports.Typography,
+  'ui/skeleton-video': botspot.SkeletonVideo,
+  'ui/tile': botspot.Tile,
+  'ui/typography': botspot.Typography,
 };
 
 type WPBlocksProps = {

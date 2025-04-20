@@ -1,6 +1,5 @@
 'use client';
 
-import { getMenuBySlug } from '@/services';
 import {
   Box,
   Container,
@@ -61,8 +60,6 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
               justifyContent="flex-start"
               item
             >
-              {/* <Link className="hidden xl:block" href="/"> */}
-              {/* eslint-disable */}
               <Link href="/">
                 <Image
                   alt="logo"
@@ -72,15 +69,14 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
                   width={150}
                 />
               </Link>
-              {/* <div className="block xl:hidden">{cta}</div> */}
               {matches ? (
                 <>
                   <Box display="flex" flex={1}>
-                    {navItems.map((item) => (
+                    {navItems.map((item, index) => (
                       <NavbarMenu
                         currentPath={currentPath}
                         item={item}
-                        key={item.label}
+                        key={index}
                       />
                     ))}
                   </Box>
@@ -93,20 +89,20 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
                     className="block xl:none"
                     color="inherit"
                     edge="start"
-                    size="large"
                     onClick={() => setIsOpen(!isOpen)}
+                    size="large"
                   >
                     {isOpen ? <CloseIcon /> : <MenuIcon />}
                   </MuiIconButton>
                   <Drawer
+                    slotProps={{
+                      backdrop: { sx: { top: 64 } },
+                      root: { style: { top: 64 } },
+                    }}
                     anchor="top"
+                    onClose={() => setIsOpen(false)}
                     open={isOpen}
                     PaperProps={{ sx: { top: 64 } }}
-                    slotProps={{
-                      root: { style: { top: 64 } },
-                      backdrop: { sx: { top: 64 } },
-                    }}
-                    onClose={() => setIsOpen(false)}
                   >
                     <List>
                       {navItems.map((item, index) => (

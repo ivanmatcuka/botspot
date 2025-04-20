@@ -1,15 +1,15 @@
 import { WPBlocks } from '@/components/WPBlocks';
 import { getPage } from '@/services';
-import { generateSeo } from '@/utils';
+import { generateSeo } from '@/utils/meta';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
-  const slug = (await params).slug;
+  const slug = (await params).slug.pop() ?? '';
   const page = await getPage(slug);
 
   if (!page) return {};
@@ -24,9 +24,11 @@ export async function generateMetadata({
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string[] }>;
 }) {
-  const page = await getPage((await params).slug);
+  const slug = (await params).slug.pop() ?? '';
+  const page = await getPage(slug);
+
   if (!page) return notFound();
 
   const blocks = page.block_data;

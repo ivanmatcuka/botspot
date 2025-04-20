@@ -1,3 +1,5 @@
+'use server';
+
 const formsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/contact-form-7/v1/contact-forms`;
 
 export const submitForm = async (formData: FormData, formId: number) => {

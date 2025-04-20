@@ -1,7 +1,8 @@
 import { NextButton } from '@/components/NextButton';
 import { Posts } from '@/components/WPBlocks';
 import { getPostBySlug, getPosts } from '@/services';
-import { generateSeo, getFeaturedImageUrl } from '@/utils';
+import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
+import { generateSeo } from '@/utils/meta';
 import {
   Box,
   Grid,
@@ -40,7 +41,7 @@ export default async function Post({
 }) {
   const slug = (await params).slug;
   const post = await getPostBySlug(slug);
-  const featuredImage = post ? getFeaturedImageUrl(post) : null;
+  const featuredImage = getFeaturedImageUrl(post ?? undefined);
 
   if (!post) return notFound();
 

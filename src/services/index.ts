@@ -1,5 +1,28 @@
 'use server';
 
+export type WPComponentNames =
+  | 'ui/banner'
+  | 'ui/button'
+  | 'ui/media-block'
+  | 'ui/main-block'
+  | 'ui/page-container'
+  | 'ui/secondary-block'
+  | 'ui/tile'
+  | 'ui/gallery-tile'
+  | 'ui/iframe'
+  | 'ui/skeleton-video'
+  | 'ui/typography'
+  | 'ui/gallery'
+  | 'ui/posts'
+  | 'ui/people'
+  | 'ui/jobs'
+  | 'ui/partner-logo'
+  | 'ui/partner-logo-container'
+  | 'ui/dynamic-form'
+  | 'ui/download-area-content'
+  | 'ui/products-topic'
+  | 'ui/products-list';
+
 import type {
   WP_REST_API_Categories,
   WP_REST_API_Page,
@@ -42,7 +65,6 @@ export type CustomFields = {
 };
 
 const baseUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp/v2`;
-const formsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/contact-form-7/v1/contact-forms`;
 const customUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/botspot/v1`;
 
 const requestInit: RequestInit = {
@@ -135,7 +157,7 @@ export const getAreaBySlug = async (
   }
 };
 
-export type FooterResourceItem = {
+export type MenuItem = {
   attr_title: string;
   classes: string[];
   comment_count: string;
@@ -177,7 +199,7 @@ export type FooterResourceItem = {
 
 export const getMenuBySlug = async (
   slug: string,
-): Promise<FooterResourceItem[] | null> => {
+): Promise<MenuItem[] | null> => {
   const response = await fetch(`${customUrl}/menus/${slug}`, requestInit);
 
   try {
@@ -232,6 +254,29 @@ export const getProducts = async (): Promise<{
   }
 };
 
+export const getAreas = async (): Promise<{
+  count: number;
+  data: CustomPost[];
+}> => {
+  const response = await fetch(
+    `${baseUrl}/area?&per_page=100&acf_format=standard`,
+    requestInit,
+  );
+
+  try {
+    const data = await response.json();
+    const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
+
+    if (data?.data?.status) {
+      return { count: 0, data: [] };
+    }
+
+    return { count, data };
+  } catch {
+    return { count: 0, data: [] };
+  }
+};
+
 export const getJobs = async (): Promise<{
   count: number;
   data: CustomPost[];
@@ -268,29 +313,6 @@ export const getCategory = async (
     return null;
   }
 };
-
-export type WPComponentNames =
-  | 'ui/banner'
-  | 'ui/button'
-  | 'ui/media-block'
-  | 'ui/main-block'
-  | 'ui/page-container'
-  | 'ui/secondary-block'
-  | 'ui/tile'
-  | 'ui/gallery-tile'
-  | 'ui/iframe'
-  | 'ui/skeleton-video'
-  | 'ui/typography'
-  | 'ui/gallery'
-  | 'ui/posts'
-  | 'ui/people'
-  | 'ui/jobs'
-  | 'ui/partner-logo'
-  | 'ui/partner-logo-container'
-  | 'ui/dynamic-form'
-  | 'ui/download-area-content'
-  | 'ui/products-topic'
-  | 'ui/products-list';
 export type Block = {
   attrs: any;
   blockName: WPComponentNames;
@@ -333,22 +355,5 @@ export const getPages = async (): Promise<{
     return { count, data };
   } catch {
     return { count: 0, data: [] };
-  }
-};
-
-export const submitForm = async (formData: FormData, formId: number) => {
-  try {
-    const response = await fetch(`${formsUrl}/${formId}/feedback`, {
-      body: formData,
-      method: 'POST',
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to submit form');
-    }
-
-    return await response.json();
-  } catch (error) {
-    return error;
   }
 };
