@@ -1,9 +1,6 @@
-import {
-  CustomFields,
-  CustomPost,
-  getAreaBySlug,
-  getPostBySlug,
-} from '@/services';
+import { CustomFields, CustomPost } from '@/services';
+import { getAreaBySlug } from '@/services/getAreaBySlug';
+import { getPostBySlug } from '@/services/getPostBySlug';
 import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
 import { GalleryTile, SecondaryBlock } from '@botspot/ui';
 

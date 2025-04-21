@@ -1,11 +1,8 @@
 import { NextButton } from '@/components/NextButton';
 import { WPBlocks } from '@/components/WPBlocks';
-import {
-  CustomFields,
-  CustomPost,
-  getPostBySlug,
-  getProductBySlug,
-} from '@/services';
+import { CustomFields, CustomPost } from '@/services';
+import { getPostBySlug } from '@/services/getPostBySlug';
+import { getProductBySlug } from '@/services/getProductBySlug';
 import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
 import { generateSeo } from '@/utils/meta';
 import {

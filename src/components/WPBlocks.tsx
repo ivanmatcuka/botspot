@@ -1,16 +1,13 @@
-import {
-  Block,
-  getJobs,
-  getPeople,
-  getPosts,
-  WPComponentNames,
-} from '@/services';
+import { Block, WPComponentNames } from '@/services';
 import { getForm } from '@/services/getForm';
+import { getJobs } from '@/services/getJobs';
+import { getPeople } from '@/services/getPeople';
+import { getPosts } from '@/services/getPosts';
+import { getProducts } from '@/services/getProducts';
 import { submitForm } from '@/services/submitForm';
 import * as botspot from '@botspot/ui';
 import { ComponentProps, FC } from 'react';
 
-import { getProducts } from '../services/index';
 import { NextButton } from './NextButton';
 import { ProductsTopic } from './ProductsTopic';
 

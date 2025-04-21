@@ -1,5 +1,5 @@
 import { WPBlocks } from '@/components/WPBlocks';
-import { getPost } from '@/services';
+import { getPost } from '@/services/getPost';
 import { generateSeo } from '@/utils/meta';
 import {
   Grid,

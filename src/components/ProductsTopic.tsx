@@ -1,11 +1,10 @@
 'use client';
 
+import { getProducts } from '@/services/getProducts';
 import * as botspot from '@botspot/ui';
 import { useSearchParams } from 'next/navigation';
 import { ComponentProps, FC, Suspense } from 'react';
 import { useFormContext } from 'react-hook-form';
-
-import { getProducts } from '../services/index';
 
 const ProductsTopicWrapper: FC<ComponentProps<typeof botspot.ProductsTopic>> = (
   props,

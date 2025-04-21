@@ -1,5 +1,5 @@
 import { WPBlocks } from '@/components/WPBlocks';
-import { getPage } from '@/services';
+import { getPage } from '@/services/getPage';
 import { generateSeo } from '@/utils/meta';
 import { ThemedContainer } from '@botspot/ui';
 import { Metadata } from 'next';

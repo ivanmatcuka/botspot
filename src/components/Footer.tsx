@@ -1,4 +1,5 @@
-import { CustomPost, getMenuBySlug } from '@/services';
+import { CustomPost } from '@/services';
+import { getMenuBySlug } from '@/services/getMenuBySlug';
 import { normalizeURL } from '@/utils/normalizeURL';
 import { Box, Container, Grid, IconLink, Typography } from '@botspot/ui';
 import Image from 'next/image';

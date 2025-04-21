@@ -1,5 +1,6 @@
 import { WPBlocks } from '@/components/WPBlocks';
-import { getAreaBySlug, getProductBySlug } from '@/services';
+import { getAreaBySlug } from '@/services/getAreaBySlug';
+import { getProductBySlug } from '@/services/getProductBySlug';
 import { generateSeo } from '@/utils/meta';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
