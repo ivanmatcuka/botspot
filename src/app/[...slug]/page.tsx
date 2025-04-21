@@ -1,6 +1,7 @@
 import { WPBlocks } from '@/components/WPBlocks';
 import { getPage } from '@/services';
 import { generateSeo } from '@/utils/meta';
+import { ThemedContainer } from '@botspot/ui';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -33,5 +34,9 @@ export default async function Page({
 
   const blocks = page.block_data;
 
-  return <main className="">{blocks && <WPBlocks blocks={blocks} />}</main>;
+  return (
+    <ThemedContainer className="w-full">
+      {blocks && <WPBlocks blocks={blocks} />}
+    </ThemedContainer>
+  );
 }

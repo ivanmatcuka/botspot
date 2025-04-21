@@ -10,11 +10,11 @@ export function getOptions(
   ns: string | string[] = defaultNS,
 ): InitOptions {
   return {
-    supportedLngs: locales,
-    fallbackLng,
-    lng: lang,
-    fallbackNS: defaultNS,
     defaultNS,
+    fallbackLng,
+    fallbackNS: defaultNS,
+    lng: lang,
     ns,
+    supportedLngs: locales,
   };
 }

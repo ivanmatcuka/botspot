@@ -32,6 +32,7 @@ export const createDataTree = (dataset: MenuItem[]) => {
   dataset.forEach(
     (data) =>
       (hashTable[data.ID] = {
+        children: [],
         href: normalizeURL(data.url),
         label: data.title,
       }),
@@ -41,8 +42,8 @@ export const createDataTree = (dataset: MenuItem[]) => {
 
   dataset.forEach((data) => {
     if (data.menu_item_parent !== '0') {
-      hashTable[data.menu_item_parent].children = [];
-      hashTable[data.menu_item_parent].children?.push(hashTable[data.ID]);
+      const children = hashTable[data.menu_item_parent].children;
+      children?.push(hashTable[data.ID]);
     } else {
       dataTree.push(hashTable[data.ID]);
     }

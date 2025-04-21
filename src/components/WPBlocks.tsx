@@ -14,7 +14,7 @@ import { getProducts } from '../services/index';
 import { NextButton } from './NextButton';
 import { ProductsTopic } from './ProductsTopic';
 
-type ComponentMap = Record<WPComponentNames, FC<ComponentProps<any>>>;
+type ComponentMap = Record<WPComponentNames, unknown>;
 
 const Form: FC<ComponentProps<typeof botspot.DynamicForm>> = (props) => {
   return (
@@ -88,7 +88,7 @@ type WPBlocksProps = {
 
 export const WPBlocks: FC<WPBlocksProps> = ({ blocks }) =>
   blocks.map((block, index) => {
-    const Component = componentMap[block.blockName];
+    const Component = componentMap[block.blockName] as FC;
 
     if (!Component) {
       return (

@@ -1,23 +1,33 @@
 'use client';
 
-import * as WPImports from '@botspot/ui';
-import { ComponentProps, FC } from 'react';
+import * as botspot from '@botspot/ui';
+import { useSearchParams } from 'next/navigation';
+import { ComponentProps, FC, Suspense } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { getProducts } from '../services/index';
 
-export const ProductsTopic: FC<
-  ComponentProps<typeof WPImports.ProductsTopic>
-> = (props) => {
+const ProductsTopicWrapper: FC<ComponentProps<typeof botspot.ProductsTopic>> = (
+  props,
+) => {
   const { setValue } = useFormContext() ?? {};
+  const searchParams = useSearchParams();
+  const search = searchParams.get('default') ?? undefined;
 
   return (
-    <WPImports.ProductsTopic
+    <botspot.ProductsTopic
       {...props}
-      onChange={(topic) => {
-        setValue?.('your-topic', topic);
-      }}
+      defaultProductName={search}
       getProducts={getProducts}
+      onChange={(topic) => setValue?.('your-topic', topic)}
     />
   );
 };
+
+export const ProductsTopic: FC<ComponentProps<typeof botspot.ProductsTopic>> = (
+  props,
+) => (
+  <Suspense>
+    <ProductsTopicWrapper {...props} />
+  </Suspense>
+);

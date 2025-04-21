@@ -314,7 +314,7 @@ export const getCategory = async (
   }
 };
 export type Block = {
-  attrs: any;
+  attrs: unknown;
   blockName: WPComponentNames;
   innerBlocks: Block[];
   innerContent: unknown[];
