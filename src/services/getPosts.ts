@@ -1,3 +1,5 @@
+'use server';
+
 import { baseUrl, CustomPost } from '.';
 import { fetchCollection } from './fetchCollection';
 import { getCategory } from './getCategory';
