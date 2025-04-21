@@ -23,6 +23,15 @@ export type WPComponentNames =
   | 'ui/products-topic'
   | 'ui/products-list';
 
+export type Block = {
+  attrs: unknown;
+  blockName: WPComponentNames;
+  innerBlocks: Block[];
+  innerContent: unknown[];
+  innerHTML: string;
+  rendered: string;
+};
+
 import type {
   WP_REST_API_Categories,
   WP_REST_API_Page,
@@ -312,14 +321,6 @@ export const getCategory = async (
   } catch (error) {
     return null;
   }
-};
-export type Block = {
-  attrs: unknown;
-  blockName: WPComponentNames;
-  innerBlocks: Block[];
-  innerContent: unknown[];
-  innerHTML: string;
-  rendered: string;
 };
 export const getPage = async (
   slug: string,

@@ -1,4 +1,4 @@
-import { CustomPost, getPages } from '@/services';
+import { CustomPost, getPage } from '@/services';
 import { Metadata } from 'next';
 import { Robots } from 'next/dist/lib/metadata/types/metadata-types';
 import { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
@@ -41,8 +41,7 @@ export const generateSeo = (post: CustomPost) => {
 };
 
 export const generatePageMetadata = async (slug: string): Promise<Metadata> => {
-  const pages = await getPages();
-  const page = pages.data.find((page) => page.slug === slug);
+  const page = await getPage(slug);
 
   if (!page) {
     return {
