@@ -200,6 +200,8 @@ export type MenuItem = {
 export const getMenuBySlug = async (slug: string): Promise<MenuItem[]> => {
   const response = await fetch(`${customUrl}/menus/${slug}`, requestInit);
 
+  if (!response.ok) return [];
+
   try {
     const data = await response.json();
     return data;
