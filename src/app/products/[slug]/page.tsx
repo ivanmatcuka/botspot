@@ -3,8 +3,8 @@ import { WPBlocks } from '@/components/WPBlocks';
 import { CustomFields, CustomPost } from '@/services';
 import { getPostBySlug } from '@/services/getPostBySlug';
 import { getProductBySlug } from '@/services/getProductBySlug';
+import { generateSeo } from '@/utils/generateSeo';
 import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
-import { generateSeo } from '@/utils/meta';
 import {
   Banner,
   GalleryTile,

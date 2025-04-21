@@ -1,7 +1,6 @@
 import { WPBlocks } from '@/components/WPBlocks';
 import { getAreaBySlug } from '@/services/getAreaBySlug';
-import { getProductBySlug } from '@/services/getProductBySlug';
-import { generateSeo } from '@/utils/meta';
+import { generateSeo } from '@/utils/generateSeo';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
@@ -14,13 +13,13 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const slug = (await params).slug;
-  const product = await getProductBySlug(slug);
+  const area = await getAreaBySlug(slug);
 
-  if (!product) return {};
+  if (!area) return {};
 
   return (
-    generateSeo(product) ?? {
-      title: `${product.title.rendered} – botspot`,
+    generateSeo(area) ?? {
+      title: `${area.title.rendered} – botspot`,
     }
   );
 }

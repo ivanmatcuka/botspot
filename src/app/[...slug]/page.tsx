@@ -1,6 +1,6 @@
 import { WPBlocks } from '@/components/WPBlocks';
 import { getPage } from '@/services/getPage';
-import { generateSeo } from '@/utils/meta';
+import { generatePageMetadata } from '@/utils/generatePageMetadata';
 import { ThemedContainer } from '@botspot/ui';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -11,15 +11,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
   const slug = (await params).slug.pop() ?? '';
-  const page = await getPage(slug);
-
-  if (!page) return {};
-
-  return (
-    generateSeo(page) ?? {
-      title: `${page.title.rendered} – botspot`,
-    }
-  );
+  return generatePageMetadata(slug);
 }
 
 export default async function Page({

@@ -2,8 +2,8 @@ import { NextButton } from '@/components/NextButton';
 import { Posts } from '@/components/WPBlocks';
 import { getPostBySlug } from '@/services/getPostBySlug';
 import { getPosts } from '@/services/getPosts';
+import { generateSeo } from '@/utils/generateSeo';
 import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
-import { generateSeo } from '@/utils/meta';
 import {
   Box,
   Grid,
