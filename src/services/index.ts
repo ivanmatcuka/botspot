@@ -197,16 +197,14 @@ export type MenuItem = {
   xfn: string;
 };
 
-export const getMenuBySlug = async (
-  slug: string,
-): Promise<MenuItem[] | null> => {
+export const getMenuBySlug = async (slug: string): Promise<MenuItem[]> => {
   const response = await fetch(`${customUrl}/menus/${slug}`, requestInit);
 
   try {
     const data = await response.json();
     return data;
   } catch (error) {
-    return null;
+    return [];
   }
 };
 

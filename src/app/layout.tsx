@@ -70,7 +70,7 @@ export default async function RootLayout({
       href: '/areas-of-use',
       label: 'Areas of Use',
     },
-    ...createDataTree(menus ?? []),
+    ...createDataTree(menus),
   ];
 
   return (
