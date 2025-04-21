@@ -33,10 +33,12 @@ type FooterProps = {
   products: CustomPost[];
 };
 export const Footer: FC<FooterProps> = async ({ products }) => {
-  const resources = await getMenuBySlug('footer-resources');
-  const company = await getMenuBySlug('footer-company');
-  const submenu = await getMenuBySlug('footer-submenu');
-  const productsLink = await getMenuBySlug('footer-products');
+  const [resources, company, submenu, productsLink] = await Promise.all([
+    getMenuBySlug('footer-resources'),
+    getMenuBySlug('footer-company'),
+    getMenuBySlug('footer-submenu'),
+    getMenuBySlug('footer-products'),
+  ]);
 
   return (
     <>
