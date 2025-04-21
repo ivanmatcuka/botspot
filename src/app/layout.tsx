@@ -44,10 +44,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const { data: products } = await getProducts();
-  const { data: areas } = await getAreas();
-
-  const menus = await getMenuBySlug('header');
+  const [{ data: products }, { data: areas }, menus] = await Promise.all([
+    getProducts(),
+    getAreas(),
+    getMenuBySlug('header'),
+  ]);
 
   const productsLinks = products?.map((product) => ({
     href: `/products/${product.slug}`,
