@@ -1,4 +1,4 @@
-import { CustomFields, CustomPost } from '@/services';
+import { CustomFields } from '@/services';
 import { getAreaBySlug } from '@/services/getAreaBySlug';
 import { getPostBySlug } from '@/services/getPostBySlug';
 import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
@@ -12,7 +12,7 @@ type AreaPostProps = {
 export default async function AreaPost({ slug }: AreaPostProps) {
   const area = await getAreaBySlug(slug);
   const { post: acfPost }: Partial<CustomFields> = area?.acf ?? {};
-  const post: CustomPost | null = acfPost?.post_name
+  const post = acfPost?.post_name
     ? await getPostBySlug(acfPost.post_name)
     : null;
   const relatedImage = getFeaturedImageUrl(post ?? undefined);

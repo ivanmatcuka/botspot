@@ -16,11 +16,10 @@ The project follows a typical Next.js structure with some custom organization:
 
 - `public/`: Static assets including images and videos.
 - `src/app/`: Main application code.
-  - `components/`: Reusable React components.
-  - `theme/`: MUI theme customization.
   - `utils/`: Utility functions.
   - `service/`: Service layer for API calls and data fetching.
   - Various route directories (`3d-academy/`, `about/`, etc.): Each represents a route in the application.
+- `components/`: Reusable React components.
 - `.storybook/`: Storybook configuration.
 - `acf.json`: Advanced Custom Fields configuration.
 - `next.config.js`: Next.js configuration file.

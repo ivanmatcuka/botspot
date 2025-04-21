@@ -1,5 +1,3 @@
-'use client';
-
 import { Menu } from '@botspot/ui';
 import Link from 'next/link';
 import { FC } from 'react';
