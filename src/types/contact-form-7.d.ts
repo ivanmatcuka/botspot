@@ -1,14 +1,13 @@
 interface CF7FormField {
-  type: string;
+  labels?: string[];
   name: string;
   options?: string[];
-  labels?: string[];
+  type: string;
   values?: string[];
 }
 
 interface CF7Form {
   id: number;
-  title: string;
   locale: string;
   properties: {
     form: {
@@ -16,14 +15,15 @@ interface CF7Form {
       fields: Record<string, CF7FormField>;
     };
     mail: {
-      subject: string;
-      sender: string;
-      body: string;
-      recipient: string;
       additional_headers: string;
       attachments: string;
-      use_html: boolean;
+      body: string;
       exclude_blank: boolean;
+      recipient: string;
+      sender: string;
+      subject: string;
+      use_html: boolean;
     };
   };
+  title: string;
 }

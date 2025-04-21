@@ -1,29 +1,30 @@
-export const dynamic = 'force-dynamic';
+import '@botspot/ui/dist/ui.css';
 
 import './globals.scss';
 
-import { Box } from '@mui/material';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { GoogleTagManager } from '@next/third-parties/google';
-import { Inter } from 'next/font/google';
-import NextTopLoader from 'nextjs-toploader';
-import { ReactNode } from 'react';
-import Script from 'next/script';
-
-import { Button } from '@/components/Button';
-import { Footer } from '@/components/Footer';
-import { Navbar } from '@/components/Navbar/Navbar';
-import { SnackbarProvider } from '@/components/Snackbar';
-import { getProducts } from '@/services';
-import ThemeRegistry from '@/theme/ThemeRegistry';
-
 import type { Metadata } from 'next';
 
-const inter = Inter({ subsets: ['latin'] });
+import { Footer } from '@/components/Footer';
+import { Navbar } from '@/components/Navbar/Navbar';
+import { NextButton } from '@/components/NextButton';
+import { getAreas, getMenuBySlug, getProducts } from '@/services';
+import { createDataTree } from '@/utils/createDataTree';
+import { Box, SnackbarProvider, ThemeRegistry } from '@botspot/ui';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { GoogleTagManager } from '@next/third-parties/google';
+import { Poppins } from 'next/font/google';
+import Script from 'next/script';
+import NextTopLoader from 'nextjs-toploader';
+import { ReactNode } from 'react';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '600', '500', '700'],
+});
 
 export const metadata: Metadata = {
-  title: 'botspot',
   description: '3D Scanning Services',
+  title: 'botspot',
   icons: [
     {
       rel: 'apple-touch-icon',
@@ -44,47 +45,32 @@ export default async function RootLayout({
   children: ReactNode;
 }>) {
   const { data: products } = await getProducts();
+  const { data: areas } = await getAreas();
+
+  const menus = await getMenuBySlug('header');
 
   const productsLinks = products?.map((product) => ({
-    label: product.title.rendered,
     href: `/products/${product.slug}`,
+    label: product.title.rendered,
+  }));
+
+  const areasLinks = areas?.map((area) => ({
+    href: `/areas/${area.slug}`,
+    label: area.title.rendered,
   }));
 
   const navbarItems = [
     {
-      label: 'Products',
-      href: '/products',
       children: productsLinks,
-    },
-    { label: '3D Scan Service', href: '/service' },
-    {
-      label: 'Areas of use',
-      href: '/areas',
-      children: [
-        { label: 'Commercial', href: '/areas/commercial' },
-        { label: 'Industrial', href: '/areas/industrial' },
-        {
-          label: 'Custom Solutions',
-          href: '/areas/custom-solutions',
-        },
-      ],
+      href: '/products',
+      label: 'Products',
     },
     {
-      label: 'Learn About 3D Scanning',
-      href: '/learn',
-      children: [{ label: '3D Academy', href: '/3d-academy' }],
+      children: areasLinks,
+      href: '/areas-of-use',
+      label: 'Areas of Use',
     },
-    {
-      label: 'About Us',
-      href: '/about',
-      children: [
-        {
-          label: 'Innovation Lab',
-          href: '/about/innovation-lab',
-        },
-        { label: 'Careers', href: '/about/careers' },
-      ],
-    },
+    ...createDataTree(menus),
   ];
 
   return (
@@ -98,16 +84,16 @@ export default async function RootLayout({
         </Script>
         <Script src="https://app.varify.io/varify.js" />
       </head>
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
+      <body className={`${poppins.className} flex flex-col min-h-screen`}>
         <AppRouterCacheProvider>
           <ThemeRegistry>
             <SnackbarProvider>
               <NextTopLoader />
               <Navbar
                 cta={
-                  <Button href="/contact-us" variant="primary">
+                  <NextButton href="/contact-us" variant="primary">
                     Contact Us
-                  </Button>
+                  </NextButton>
                 }
                 navItems={navbarItems}
               />

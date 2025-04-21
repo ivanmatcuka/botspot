@@ -5,147 +5,147 @@ export type DeepPartial<T> = T extends object
   : T;
 
 export type Seo = {
-  title: string;
-  description: string;
-  robots: {
-    index: string;
-    follow: string;
-    'max-snippet': string;
-    'max-image-preview': string;
-    'max-video-preview': string;
-  };
-  canonical: string;
-  og_locale: string;
-  og_type: string;
-  og_title: string;
-  og_description: string;
-  og_url: string;
-  og_site_name: string;
-  article_publisher: string;
   article_author: string;
-  article_published_time: string;
   article_modified_time: string;
-  og_image: Array<{
-    width: number;
-    height: number;
-    url: string;
-    type: string;
-  }>;
+  article_published_time: string;
+  article_publisher: string;
   author: string;
+  canonical: string;
+  description: string;
+  og_description: string;
+  og_locale: string;
+  og_site_name: string;
+  og_title: string;
+  og_type: string;
+  og_url: string;
+  title: string;
   twitter_card: string;
   twitter_creator: string;
   twitter_site: string;
-  twitter_misc: {
-    'Written by': string;
-    'Est. reading time': string;
+  og_image: Array<{
+    height: number;
+    type: string;
+    url: string;
+    width: number;
+  }>;
+  robots: {
+    follow: string;
+    index: string;
+    'max-image-preview': string;
+    'max-snippet': string;
+    'max-video-preview': string;
   };
   schema: {
     '@context': string;
     '@graph': Array<{
-      '@type': unknown;
       '@id': string;
-      isPartOf?: {
-        '@id': string;
-      };
-      author?: {
-        name: string;
-        '@id': string;
-      };
-      headline?: string;
-      datePublished?: string;
-      dateModified?: string;
-      mainEntityOfPage?: {
-        '@id': string;
-      };
-      wordCount?: number;
+      '@type': unknown;
       commentCount?: number;
-      publisher?: {
-        '@id': string;
-      };
-      image?: {
-        '@type'?: string;
-        inLanguage?: string;
-        '@id': string;
-        url?: string;
-        contentUrl?: string;
-        caption?: string;
-      };
-      thumbnailUrl?: string;
-      keywords?: string;
-      inLanguage?: string;
-      potentialAction?: Array<{
-        '@type': string;
-        target: unknown;
-        'query-input'?: {
-          '@type': string;
-          valueRequired: boolean;
-          valueName: string;
-        };
-        name?: string;
-      }>;
-      url?: string;
-      name?: string;
-      primaryImageOfPage?: {
-        '@id': string;
-      };
+      contentUrl?: string;
+      dateModified?: string;
+      datePublished?: string;
       description?: string;
+      foundingDate?: string;
+      gender?: string;
+      headline?: string;
+      height?: number;
+      honorificSuffix?: string;
+      inLanguage?: string;
+      jobTitle?: string;
+      keywords?: string;
+      legalName?: string;
+      name?: string;
+      numberOfEmployees?: number;
+      sameAs?: Array<string>;
+      slogan?: string;
+      thumbnailUrl?: string;
+      url?: string;
+      width?: number;
+      wordCount?: number;
+      author?: {
+        '@id': string;
+        name: string;
+      };
       breadcrumb?: {
         '@id': string;
       };
-      contentUrl?: string;
-      width?: number;
-      height?: number;
-      itemListElement?: Array<{
-        '@type': string;
-        position: number;
-        name: string;
-        item?: string;
-      }>;
       copyrightHolder?: {
         '@id': string;
       };
-      logo?: {
-        '@type': string;
-        inLanguage: string;
-        '@id': string;
-        url: string;
-        contentUrl: string;
-        width: number;
-        height: number;
-        caption: string;
-      };
-      sameAs?: Array<string>;
-      numberOfEmployees?: number;
       founder?: {
         '@type': string;
         name: string;
         sameAs: string;
       };
-      foundingDate?: string;
-      slogan?: string;
-      legalName?: string;
-      parentOrganization?: {
+      image?: {
+        '@id': string;
+        '@type'?: string;
+        caption?: string;
+        contentUrl?: string;
+        inLanguage?: string;
+        url?: string;
+      };
+      isPartOf?: {
+        '@id': string;
+      };
+      itemListElement?: Array<{
         '@type': string;
+        item?: string;
         name: string;
-        description: string;
+        position: number;
+      }>;
+      logo?: {
+        '@id': string;
+        '@type': string;
+        caption: string;
+        contentUrl: string;
+        height: number;
+        inLanguage: string;
         url: string;
-        sameAs: Array<string>;
-        logo: string;
+        width: number;
+      };
+      mainEntityOfPage?: {
+        '@id': string;
       };
       memberOf?: {
         '@type': string;
-        name: string;
         description: string;
-        url: string;
-        sameAs: Array<string>;
         logo: string;
+        name: string;
+        sameAs: Array<string>;
+        url: string;
       };
-      honorificSuffix?: string;
-      gender?: string;
-      jobTitle?: string;
+      parentOrganization?: {
+        '@type': string;
+        description: string;
+        logo: string;
+        name: string;
+        sameAs: Array<string>;
+        url: string;
+      };
+      potentialAction?: Array<{
+        '@type': string;
+        name?: string;
+        target: unknown;
+        'query-input'?: {
+          '@type': string;
+          valueName: string;
+          valueRequired: boolean;
+        };
+      }>;
+      primaryImageOfPage?: {
+        '@id': string;
+      };
+      publisher?: {
+        '@id': string;
+      };
       worksFor?: {
         '@id': string;
       };
     }>;
+  };
+  twitter_misc: {
+    'Est. reading time': string;
+    'Written by': string;
   };
 };

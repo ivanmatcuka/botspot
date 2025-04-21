@@ -1,31 +1,24 @@
-import { Box } from '@mui/material';
-import parse from 'html-react-parser';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { isValidElement, ReactElement } from 'react';
-
-import { Iframe } from '@/components/3dIframe';
-import { Banner } from '@/components/Banner';
-import { Button } from '@/components/Button';
-import { FeedbackForm } from '@/components/FeedbackForm';
-import { Gallery } from '@/components/Gallery';
-import { GalleryTile } from '@/components/GalleryTile';
-import { MainBlock } from '@/components/MainBlock';
-import { MediaBlock } from '@/components/MediaBlock';
-import { PageContainer } from '@/components/PageContainer';
-import { SecondaryBlock } from '@/components/SecondaryBlock';
-import { SkeletonVideo } from '@/components/SkeletonVideo';
-import { ThemedContainer } from '@/components/ThemedContainer';
-import { Tile } from '@/components/Tile';
-import { UnorderedList } from '@/components/UnorderedList';
-import { UnorderedListItem } from '@/components/UnorderedListItem';
+import { NextButton } from '@/components/NextButton';
+import { WPBlocks } from '@/components/WPBlocks';
 import {
   CustomFields,
   CustomPost,
   getPostBySlug,
   getProductBySlug,
 } from '@/services';
-import { generateSeo, getFeaturedImageUrl } from '@/utils';
+import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
+import { generateSeo } from '@/utils/meta';
+import {
+  Banner,
+  GalleryTile,
+  MainBlock,
+  MediaBlock,
+  PageContainer,
+  SecondaryBlock,
+  SkeletonVideo,
+} from '@botspot/ui';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params,
@@ -43,6 +36,7 @@ export async function generateMetadata({
     }
   );
 }
+
 export default async function Product({
   params,
 }: {
@@ -50,39 +44,28 @@ export default async function Product({
 }) {
   const slug = (await params).slug;
   const product = await getProductBySlug(slug);
+  if (!product) return notFound();
+
+  const blocks = product.block_data;
 
   if (!product) return notFound();
 
   const {
-    picture,
-    closeup,
     banner,
-
+    closeup,
+    'demo-url': demoUrl,
     'demo-video': demoVideo,
-
-    'first-animation': firstAnimation,
-    'second-animation': secondAnimation,
-
     'first-headline': firstHeadline,
     'first-subline': firstSubline,
+    picture,
+    post: acfPost,
     'second-headline': secondHeadline,
     'second-subline': secondSubline,
-
-    post: acfPost,
   }: Partial<CustomFields> = product.acf ?? {};
 
   const post: CustomPost | null = acfPost?.post_name
     ? await getPostBySlug(acfPost.post_name)
     : null;
-
-  const parsedContent = parse(product.content.rendered) as ReactElement[];
-  const tileHeadlines = parsedContent.filter(
-    (element) => element.type === 'h4',
-  );
-  const groups = parsedContent.find((element) =>
-    element.props?.className?.includes('wp-block-group'),
-  );
-  const lists = parsedContent.filter((element) => element.type === 'ul');
 
   const relatedImage = getFeaturedImageUrl(post ?? undefined);
 
@@ -92,21 +75,15 @@ export default async function Product({
         <Banner
           headline={product.title.rendered}
           mediaBlockOptions={{ assetUrl: banner }}
-          primaryCta={
-            <Button href={`/download-area/${product.slug}`} variant="primary">
-              Download Data Sheet
-            </Button>
-          }
-          secondaryCta={
-            <Button
-              href="https://outlook.office365.com/book/Contactbotspot3DScanGmbH@botspot.de/s/ob7tkWl_QESAXQPuuaQR_w2"
-              variant="secondary"
-            >
-              Request a Demo
-            </Button>
-          }
           sublineElement={product.excerpt.rendered}
-        />
+        >
+          <NextButton href={`${product.acf?.['demo-url']}`} variant="primary">
+            Download Data Sheet
+          </NextButton>
+          <NextButton href={demoUrl} target="_blank" variant="secondary">
+            Request a Demo
+          </NextButton>
+        </Banner>
       )}
 
       {/* XS */}
@@ -125,49 +102,20 @@ export default async function Product({
         banner
       />
 
-      <PageContainer mt={{ xs: 5, md: 10 }}>
+      <PageContainer my={{ md: 10, xs: 5 }}>
         <MainBlock headline={firstHeadline} subline={firstSubline} />
       </PageContainer>
 
       <MediaBlock assetUrl={closeup} objectFit="cover" fullHeight />
 
-      <PageContainer mt={{ xs: 10, md: 15 }}>
+      <PageContainer mt={{ md: 15, xs: 10 }}>
         <MainBlock headline={secondHeadline} subline={secondSubline} />
       </PageContainer>
 
-      {lists.map((item: ReactElement, index: number) => (
-        <Tile headline={tileHeadlines[index]?.props?.children} key={item.key}>
-          <UnorderedList>
-            {item.props?.children
-              ?.filter((item: unknown) => isValidElement(item))
-              .map((item: ReactElement) => (
-                <UnorderedListItem key={item.key}>
-                  {item.props.children}
-                </UnorderedListItem>
-              ))}
-          </UnorderedList>
-        </Tile>
-      ))}
-
-      {firstAnimation && secondAnimation && (
-        <Box my={{ xs: 5, md: 10 }}>
-          <Gallery
-            firstChild={<Iframe src={firstAnimation} />}
-            secondChild={<Iframe src={secondAnimation} />}
-          />
-        </Box>
-      )}
-
-      {groups?.props?.children && (
-        <PageContainer my={{ xs: 5, md: 10 }}>
-          <ThemedContainer className="!p-0" maxWidth="xl">
-            {groups.props.children}
-          </ThemedContainer>
-        </PageContainer>
-      )}
+      {!!blocks && <WPBlocks blocks={blocks} />}
 
       {demoVideo && (
-        <PageContainer>
+        <PageContainer my={{ md: 15, xs: 10 }}>
           <SkeletonVideo videoSrc={demoVideo} autoPlay loop muted />
         </PageContainer>
       )}
@@ -176,17 +124,14 @@ export default async function Product({
         <GalleryTile imgUrl={relatedImage}>
           <SecondaryBlock
             headline={post.title.rendered}
-            primaryCta={
-              <Button href={`/3d-academy/${post.slug}`} variant="primary">
-                Read Full Story
-              </Button>
-            }
             sublineElement={post.excerpt.rendered}
-          />
+          >
+            <NextButton href={`/3d-academy/${post.slug}`} variant="primary">
+              Read Full Story
+            </NextButton>
+          </SecondaryBlock>
         </GalleryTile>
       )}
-
-      <FeedbackForm defaultTopic={product.title.rendered} />
     </main>
   );
 }

@@ -4,40 +4,57 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
+  "plugins": ["perfectionist", "react-refresh"],
   "rules": {
-    "import/order": [
+    "perfectionist/sort-imports": "error",
+    "perfectionist/sort-objects": [
       "error",
       {
-        "groups": [
-          "index",
-          "sibling",
-          "parent",
-          "internal",
-          "external",
-          "builtin",
-          "object",
-          "type"
-        ],
-        "newlines-between": "always",
-        "pathGroups": [
-          {
-            "pattern": "@/**",
-            "group": "external",
-            "position": "after"
-          }
-        ]
+        "groups": ["unknown", "method", "multiline-member"]
       }
     ],
-    "@typescript-eslint/no-explicit-any": "error",
-    "react/jsx-sort-props": [
-      2,
+    "perfectionist/sort-interfaces": ["error"],
+    "perfectionist/sort-jsx-props": [
+      "error",
       {
-        "callbacksLast": true,
-        "shorthandFirst": false,
-        "shorthandLast": true,
+        "type": "alphabetical",
+        "order": "asc",
+        "fallbackSort": {
+          "type": "unsorted"
+        },
         "ignoreCase": true,
-        "noSortAlphabetically": false
+        "specialCharacters": "keep",
+        "partitionByNewLine": false,
+        "newlinesBetween": "ignore",
+        "groups": ["multiline", "unknown", "shorthand"]
       }
-    ]
+    ],
+    "perfectionist/sort-intersection-types": [
+      "error",
+      {
+        "type": "alphabetical",
+        "order": "asc",
+        "fallbackSort": {
+          "type": "unsorted"
+        },
+        "ignoreCase": true,
+        "specialCharacters": "keep",
+        "partitionByComment": false,
+        "partitionByNewLine": false,
+        "newlinesBetween": "ignore"
+      }
+    ],
+    "perfectionist/sort-object-types": [
+      "error",
+      {
+        "type": "alphabetical",
+        "order": "asc",
+        "ignoreCase": true,
+        "specialCharacters": "keep",
+        "sortBy": "name",
+        "groups": ["unknown", "method", "multiline-member"]
+      }
+    ],
+    "react-refresh/only-export-components": ["off"]
   }
 }

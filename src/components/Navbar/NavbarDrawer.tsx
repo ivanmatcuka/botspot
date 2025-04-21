@@ -1,31 +1,30 @@
 'use client';
 
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Accordion,
-  AccordionProps,
   AccordionSummary,
   ListItem,
   ListItemButton,
-} from '@mui/material';
+} from '@botspot/ui';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Link from 'next/link';
-import { FC, useState } from 'react';
+import { ComponentProps, FC, useState } from 'react';
 
 type MenuItem = {
-  label: string;
-  href?: string;
   children?: MenuItem[];
   disabled?: boolean;
+  href?: string;
+  label: string;
   onClick?: () => void;
 };
 
-type ControlledAccordionProps = AccordionProps & {
+type ControlledAccordionProps = {
   item: MenuItem;
   onOpen: () => void;
-};
+} & ComponentProps<typeof Accordion>;
 const ControlledAccordion: FC<ControlledAccordionProps> = ({
-  item,
   children,
+  item,
   onOpen,
 }) => {
   const [expanded, setExpanded] = useState(false);
@@ -52,7 +51,7 @@ type NavbarDrawerProps = { item: MenuItem; onOpen: () => void };
 export const NavbarDrawer: FC<NavbarDrawerProps> = ({ item, onOpen }) => {
   if (!item.children?.length) {
     return (
-      <ListItem key={item.label} onClick={onOpen}>
+      <ListItem onClick={onOpen}>
         <ListItemButton
           component={Link}
           href={item.href ?? '/'}
@@ -66,9 +65,9 @@ export const NavbarDrawer: FC<NavbarDrawerProps> = ({ item, onOpen }) => {
   }
 
   return (
-    <ControlledAccordion item={item} key={item.label} onOpen={onOpen}>
-      {item.children.map((child) => (
-        <NavbarDrawer item={child} key={child.label} onOpen={onOpen} />
+    <ControlledAccordion item={item} onOpen={onOpen}>
+      {item.children.map((child, index) => (
+        <NavbarDrawer item={child} key={index} onOpen={onOpen} />
       ))}
     </ControlledAccordion>
   );

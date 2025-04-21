@@ -1,20 +1,19 @@
-import { palette } from './src/theme/palette';
-
 import type { Config } from 'tailwindcss';
 
+import { palette } from '@botspot/ui';
+
 const config: Config = {
+  plugins: [],
+  safelist: ['object-cover', 'object-contain'],
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  safelist: ['object-cover', 'object-contain'],
   theme: {
     extend: {
       colors: palette,
     },
   },
-  plugins: [],
 };
 
 export default config;

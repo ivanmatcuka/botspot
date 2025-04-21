@@ -1,67 +1,73 @@
-import { getRedirects } from './src/services/getRedirects';
-
 import { NextConfig } from 'next';
 
+import { getRedirects } from './src/services/getRedirects';
+
 type JsonData = {
-  url: string;
   action_code: number;
   match_url: string;
+  url: string;
   action_data: {
+    server?: string;
     url?: string;
     url_from?: string;
-    server?: string;
   };
 }[];
 
 const adaptRedirectsForNextJs = (jsonData: JsonData) =>
   jsonData.map((redirect) => {
-    const { url, action_data, action_code, match_url } = redirect;
-    const { url: action_url, url_from, server } = action_data;
+    const { action_code, action_data, match_url, url } = redirect;
+    const { server, url: action_url, url_from } = action_data;
 
     const source = match_url.replace(/\/$/, '');
     const destination = action_url || url_from || server || url;
 
     return {
-      source,
       destination,
       permanent: action_code === 301,
+      source,
     };
   });
 
 const nextConfig: NextConfig = {
-  sassOptions: {
-    silenceDeprecations: ['color-functions', 'mixed-decls', 'legacy-js-api'],
-  },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '8080',
-      },
-      {
-        protocol: 'https',
-        hostname: 'botspot.live-website.com',
-        port: '',
-      },
-      {
-        protocol: 'https',
-        hostname: 'botspot.matcuka.dev',
-        port: '',
-      },
-    ],
-  },
-  experimental: {
-    inlineCss: true,
-    esmExternals: true,
-    webpackMemoryOptimizations: true,
-  },
   output: 'standalone',
   async redirects() {
     const jsonData = await getRedirects();
     const nextJsRedirects = adaptRedirectsForNextJs(jsonData.data);
 
     return nextJsRedirects;
+  },
+  experimental: {
+    esmExternals: true,
+    inlineCss: true,
+    webpackMemoryOptimizations: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'localhost',
+        port: '8080',
+        protocol: 'http',
+      },
+      {
+        hostname: 'botspot.live-website.com',
+        port: '',
+        protocol: 'https',
+      },
+      {
+        hostname: 'botspot.matcuka.dev',
+        port: '',
+        protocol: 'https',
+      },
+    ],
+  },
+  sassOptions: {
+    silenceDeprecations: [
+      'global-builtin',
+      'color-functions',
+      'mixed-decls',
+      'legacy-js-api',
+      'import',
+    ],
   },
 };
 
