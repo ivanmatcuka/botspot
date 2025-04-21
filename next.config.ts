@@ -36,6 +36,9 @@ const nextConfig: NextConfig = {
 
     return nextJsRedirects;
   },
+  env: {
+    nodeEnv: process.env.NODE_ENV,
+  },
   experimental: {
     esmExternals: true,
     inlineCss: true,

@@ -79,13 +79,15 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        {process.env.NEXT_PUBLIC_GTM_ID && (
-          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        {process.env.nodeEnv === 'production' && (
+          <>
+            <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID ?? ''} />
+            <Script id="varify">
+              {`window.varify = window.varify || {}; window.varify.iid = ${process.env.NEXT_PUBLIC_VARIFY_ID};`}
+            </Script>
+            <Script src="https://app.varify.io/varify.js" />
+          </>
         )}
-        <Script id="varify">
-          {`window.varify = window.varify || {}; window.varify.iid = 4004;`}
-        </Script>
-        <Script src="https://app.varify.io/varify.js" />
       </head>
       <body className={`${poppins.className} flex flex-col min-h-screen`}>
         <AppRouterCacheProvider>
