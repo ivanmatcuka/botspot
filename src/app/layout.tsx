@@ -47,7 +47,7 @@ export default async function RootLayout({
   const { data: products } = await getProducts();
   const { data: areas } = await getAreas();
 
-  const menus = (await getMenuBySlug('header')) ?? [];
+  const menus = await getMenuBySlug('header');
 
   const productsLinks = products?.map((product) => ({
     href: `/products/${product.slug}`,
@@ -70,7 +70,7 @@ export default async function RootLayout({
       href: '/areas-of-use',
       label: 'Areas of Use',
     },
-    ...createDataTree(menus),
+    ...createDataTree(menus ?? []),
   ];
 
   return (
