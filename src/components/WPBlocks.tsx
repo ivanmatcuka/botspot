@@ -1,10 +1,10 @@
+import { submitForm } from '@/actions/submitForm';
 import { Block, WPComponentNames } from '@/services';
 import { getForm } from '@/services/getForm';
 import { getJobs } from '@/services/getJobs';
 import { getPeople } from '@/services/getPeople';
 import { getPosts } from '@/services/getPosts';
 import { getProducts } from '@/services/getProducts';
-import { submitForm } from '@/services/submitForm';
 import * as botspot from '@botspot/ui';
 import { ComponentProps, FC } from 'react';
 
