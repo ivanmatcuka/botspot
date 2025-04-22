@@ -1,10 +1,18 @@
 import { CustomPost } from '@/services';
 import { getMenuBySlug } from '@/services/getMenuBySlug';
+import { getPage } from '@/services/getPage';
 import { normalizeURL } from '@/utils/normalizeURL';
-import { Box, Container, Grid, IconLink, Typography } from '@botspot/ui';
-import Image from 'next/image';
+import {
+  Box,
+  Container,
+  Grid,
+  LegacyPostContainer,
+  Typography,
+} from '@botspot/ui';
 import Link from 'next/link';
 import { FC, PropsWithChildren } from 'react';
+
+import { WPBlocks } from './WPBlocks';
 
 type TextProps = {
   href?: string;
@@ -41,39 +49,18 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
     getMenuBySlug('footer-products'),
   ]);
 
+  const page = await getPage('footer-contacts');
+  const blocks = page?.block_data;
+
   return (
     <>
       <footer className="bg-info-main">
         <Container maxWidth="xl">
           <Grid md={10} mx="auto" py={8} xs={12} container>
             <Grid flexBasis={{ md: '40%', xs: '100%' }} item>
-              <Image
-                alt="logo"
-                className="ml-[-8px]"
-                height={74}
-                loading="lazy"
-                src="/logo_white.svg"
-                width={184}
-              />
-              <Text>botspot 3D Scan GmbH</Text>
-              <Text>Bruno-Bürgel-Weg 134-144</Text>
-              <Text>12439 Berlin</Text>
-              <br />
-              <Text href="tel:+49 30 985 40 400">+49 30 985 40 400</Text>
-              <br />
-              <Text href="mailto:mail@botspot.de">mail@botspot.de</Text>
-              <Box display={{ md: 'flex', xs: 'none' }} gap={3} mt={3}>
-                <IconLink alt="ig" href="https://instagram.com/botspot3d/" />
-                <IconLink alt="x" href="https://x.com/botspot3d" />
-                <IconLink
-                  alt="linkedin"
-                  href="https://linkedin.com/company/botspot-3d-scan/"
-                />
-                <IconLink
-                  alt="youtube"
-                  href="https://www.youtube.com/@botspot3D"
-                />
-              </Box>
+              <LegacyPostContainer className="text-white">
+                {blocks && <WPBlocks blocks={blocks} />}
+              </LegacyPostContainer>
             </Grid>
             <Grid
               flexBasis={{ md: '20%', xs: '100%' }}
@@ -119,24 +106,6 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
                 </Text>
               ))}
             </Grid>
-            <Box
-              display={{ md: 'none', xs: 'flex' }}
-              gap={3}
-              justifyContent="center"
-              mt={3}
-              mx="auto"
-            >
-              <IconLink alt="ig" href="https://instagram.com/botspot3d/" />
-              <IconLink alt="x" href="https://x.com/botspot3d" />
-              <IconLink
-                alt="linkedin"
-                href="https://linkedin.com/company/botspot-3d-scan/"
-              />
-              <IconLink
-                alt="youtube"
-                href="https://www.youtube.com/@botspot3D"
-              />
-            </Box>
           </Grid>
         </Container>
       </footer>

@@ -25,3 +25,17 @@ body {
     scrollbar-width: none; /* Firefox */
   }
 }
+
+// @TODO: terrible hack
+footer:first-of-type {
+  & div p {
+    text-align: left !important;
+  }
+  .is-layout-flex {
+    display: flex;
+
+    &.wp-block-group-is-layout-flex {
+      gap: 24;
+    }
+  }
+}
