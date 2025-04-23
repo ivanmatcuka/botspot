@@ -1,3 +1,4 @@
+import { MenuItem } from '@/services';
 import { CustomPost } from '@botspot/ui';
 
 import { Link } from './createDataTree';
@@ -8,17 +9,15 @@ export const attachPage = (
   navbarItems: Link[],
   domain: 'areas' | 'products',
 ) => {
-  const link = {
+  const linkItem = {
     href: `/${domain}/${page.slug}`,
     label: page.title.rendered,
   };
 
-  const parent = navbarItems.find((item) => {
-    const link = page.acf?.['parent-page'];
-    const pathname = link ? normalizeURL(link) : '';
+  const link = page.acf?.['parent-page'] ?? '';
+  const parent = navbarItems.find(
+    (item) => normalizeURL(item.href) === normalizeURL(link),
+  );
 
-    return item.href === pathname;
-  });
-
-  parent?.children?.push(link);
+  parent?.children?.push(linkItem);
 };
