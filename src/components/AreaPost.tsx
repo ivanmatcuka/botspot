@@ -1,7 +1,7 @@
-import { CustomFields } from '@/services';
 import { getAreaBySlug } from '@/services/getAreaBySlug';
 import { getPostBySlug } from '@/services/getPostBySlug';
 import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
+import { CustomFields } from '@botspot/ui';
 import { GalleryTile, SecondaryBlock } from '@botspot/ui';
 
 import { NextButton } from './NextButton';

@@ -1,23 +1,6 @@
 'use server';
 
-type Field = {
-  attr: string;
-  basetype: string;
-  content: string;
-  labels: string[];
-  name: string;
-  options: string[];
-  pipes: Record<string, unknown>;
-  raw_name: string;
-  raw_values: string[];
-  type: string;
-  values: string[];
-};
-
-type ApiResponse = {
-  fields: Field[];
-  status: number;
-};
+import { ApiResponse } from '@botspot/ui';
 
 const customFormsUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/botspot/v1/forms`;
 

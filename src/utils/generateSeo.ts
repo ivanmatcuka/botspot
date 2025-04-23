@@ -1,4 +1,4 @@
-import { CustomPost } from '@/services';
+import { CustomPost } from '@botspot/ui';
 import { Metadata } from 'next';
 import { Robots } from 'next/dist/lib/metadata/types/metadata-types';
 import { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';

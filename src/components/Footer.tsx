@@ -1,7 +1,7 @@
-import { CustomPost } from '@/services';
 import { getMenuBySlug } from '@/services/getMenuBySlug';
 import { getPage } from '@/services/getPage';
 import { normalizeURL } from '@/utils/normalizeURL';
+import { CustomPost } from '@botspot/ui';
 import {
   Box,
   Container,

@@ -1,10 +1,10 @@
 import { NextButton } from '@/components/NextButton';
 import { WPBlocks } from '@/components/WPBlocks';
-import { CustomFields, CustomPost } from '@/services';
 import { getPostBySlug } from '@/services/getPostBySlug';
 import { getProductBySlug } from '@/services/getProductBySlug';
 import { generateSeo } from '@/utils/generateSeo';
 import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
+import { CustomFields, CustomPost } from '@botspot/ui';
 import {
   Banner,
   GalleryTile,
@@ -34,6 +34,8 @@ export async function generateMetadata({
   );
 }
 
+const DOWNLOAD_AREA_FALLBACK = '/download-area';
+
 export default async function Product({
   params,
 }: {
@@ -52,6 +54,7 @@ export default async function Product({
     closeup,
     'demo-url': demoUrl,
     'demo-video': demoVideo,
+    'download-link': downloadLink = DOWNLOAD_AREA_FALLBACK,
     'first-headline': firstHeadline,
     'first-subline': firstSubline,
     picture,
@@ -74,7 +77,10 @@ export default async function Product({
           mediaBlockOptions={{ assetUrl: banner }}
           sublineElement={product.excerpt.rendered}
         >
-          <NextButton href={`${product.acf?.['demo-url']}`} variant="primary">
+          <NextButton
+            href={`${downloadLink}?default=${product.title.rendered}`}
+            variant="primary"
+          >
             Download Data Sheet
           </NextButton>
           <NextButton href={demoUrl} target="_blank" variant="secondary">

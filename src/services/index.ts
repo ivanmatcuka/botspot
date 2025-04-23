@@ -30,46 +30,6 @@ export type Block = {
   rendered: string;
 };
 
-import type { WP_REST_API_Post } from 'wp-types';
-
-import { DeepPartial, Seo } from '@/types/yoast';
-
-export type CustomPost = {
-  acf?: Partial<CustomFields>;
-  block_data: Block[];
-  has_blocks: true;
-  yoast_head_json?: DeepPartial<Seo>;
-} & WP_REST_API_Post;
-
-export type CustomFields = {
-  banner: string;
-  closeup: string;
-  datasheet: string;
-  'demo-url': string;
-  'demo-video': string;
-  'first-headline': string;
-  'first-subline': string;
-  'full-name': string;
-  picture: string;
-  'second-animation': string;
-  'second-headline': string;
-  'second-subline': string;
-  'short-name': string;
-
-  photo_gallery: {
-    animation: { full_image_url: string }[];
-  };
-
-  post: {
-    post_excerpt: string;
-    post_name: string;
-    post_title: string;
-  } & CustomPost;
-};
-
-export const baseUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp/v2`;
-export const customUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/botspot/v1`;
-
 export type MenuItem = {
   attr_title: string;
   classes: string[];
@@ -109,3 +69,6 @@ export type MenuItem = {
   url: string;
   xfn: string;
 };
+
+export const baseUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp/v2`;
+export const customUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/botspot/v1`;
