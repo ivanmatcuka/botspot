@@ -1,4 +1,3 @@
-import { MenuItem } from '@/services';
 import { CustomPost } from '@botspot/ui';
 
 import { Link } from './createDataTree';

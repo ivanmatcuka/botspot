@@ -58,7 +58,7 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
         <Container maxWidth="xl">
           <Grid md={10} mx="auto" py={8} xs={12} container>
             <Grid flexBasis={{ md: '40%', xs: '100%' }} item>
-              <LegacyPostContainer className="text-white">
+              <LegacyPostContainer>
                 {blocks && <WPBlocks blocks={blocks} />}
               </LegacyPostContainer>
             </Grid>
