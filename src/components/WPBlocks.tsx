@@ -35,18 +35,18 @@ const DownloadAreaContent: FC<
 
 const Jobs: FC = async () => {
   const { data } = await getJobs();
-  return <botspot.Jobs jobs={data}></botspot.Jobs>;
+  return <botspot.Jobs jobs={data} />;
 };
 
 const People: FC = async () => {
   const { data } = await getPeople();
-  return <botspot.People people={data}></botspot.People>;
+  return <botspot.People people={data} />;
 };
 
 export const Posts: FC<ComponentProps<typeof botspot.Posts>> = async (
   props,
 ) => {
-  return <botspot.Posts {...props} getPosts={getPosts}></botspot.Posts>;
+  return <botspot.Posts {...props} getPosts={getPosts} />;
 };
 
 const ProductsList: FC<ComponentProps<typeof botspot.ProductsList>> = async (
