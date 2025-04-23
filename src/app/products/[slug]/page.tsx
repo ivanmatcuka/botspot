@@ -12,7 +12,6 @@ import {
   MediaBlock,
   PageContainer,
   SecondaryBlock,
-  SkeletonVideo,
 } from '@botspot/ui';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -52,9 +51,10 @@ export default async function Product({
   const {
     banner,
     closeup,
+    'demo-cta': demoCta,
     'demo-url': demoUrl,
-    'demo-video': demoVideo,
-    'download-link': downloadLink = DOWNLOAD_AREA_FALLBACK,
+    'download-cta': downloadCta,
+    'download-url': downloadUrl = DOWNLOAD_AREA_FALLBACK,
     'first-headline': firstHeadline,
     'first-subline': firstSubline,
     picture,
@@ -78,13 +78,13 @@ export default async function Product({
           sublineElement={product.excerpt.rendered}
         >
           <NextButton
-            href={`${downloadLink}?default=${product.title.rendered}`}
+            href={`${downloadUrl}?default=${product.title.rendered}`}
             variant="primary"
           >
-            Download Data Sheet
+            {downloadCta}
           </NextButton>
           <NextButton href={demoUrl} target="_blank" variant="secondary">
-            Request a Demo
+            {demoCta}
           </NextButton>
         </Banner>
       )}
@@ -116,12 +116,6 @@ export default async function Product({
       </PageContainer>
 
       {!!blocks && <WPBlocks blocks={blocks} />}
-
-      {demoVideo && (
-        <PageContainer my={{ md: 15, xs: 10 }}>
-          <SkeletonVideo videoSrc={demoVideo} autoPlay loop muted />
-        </PageContainer>
-      )}
 
       {post && (
         <GalleryTile imgUrl={relatedImage}>
