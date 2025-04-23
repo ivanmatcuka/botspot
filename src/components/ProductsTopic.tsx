@@ -11,7 +11,7 @@ const ProductsTopicWrapper: FC<ComponentProps<typeof botspot.ProductsTopic>> = (
 ) => {
   const { setValue } = useFormContext() ?? {};
   const searchParams = useSearchParams();
-  const search = searchParams.get('default') ?? undefined;
+  const search = searchParams.get('default') ?? props.defaultProductName;
 
   return (
     <botspot.ProductsTopic
