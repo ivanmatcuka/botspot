@@ -6,10 +6,12 @@ import type { Metadata } from 'next';
 
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar/Navbar';
-import { NextButton } from '@/components/NextButton';
+import { WPBlocks } from '@/components/WPBlocks';
 import { getAreas } from '@/services/getAreas';
 import { getMenuBySlug } from '@/services/getMenuBySlug';
+import { getPage } from '@/services/getPage';
 import { getProducts } from '@/services/getProducts';
+import { attachPage } from '@/utils/attachPage';
 import { createDataTree } from '@/utils/createDataTree';
 import { Box, SnackbarProvider, ThemeRegistry } from '@botspot/ui';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
@@ -46,35 +48,19 @@ export default async function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const [{ data: products }, { data: areas }, menus] = await Promise.all([
-    getProducts(),
-    getAreas(),
-    getMenuBySlug('header'),
-  ]);
+  const [{ data: products }, { data: areas }, menus, navbarPage] =
+    await Promise.all([
+      getProducts(),
+      getAreas(),
+      getMenuBySlug('header'),
+      getPage('navbar-item'),
+    ]);
 
-  const productsLinks = products?.map((product) => ({
-    href: `/products/${product.slug}`,
-    label: product.title.rendered,
-  }));
+  const navbarItems = [...createDataTree(menus)];
+  areas?.forEach((area) => attachPage(area, navbarItems, 'areas'));
+  products?.forEach((product) => attachPage(product, navbarItems, 'products'));
 
-  const areasLinks = areas?.map((area) => ({
-    href: `/areas/${area.slug}`,
-    label: area.title.rendered,
-  }));
-
-  const navbarItems = [
-    {
-      children: productsLinks,
-      href: '/products',
-      label: 'Products',
-    },
-    {
-      children: areasLinks,
-      href: '/areas-of-use',
-      label: 'Areas of Use',
-    },
-    ...createDataTree(menus),
-  ];
+  const blocks = navbarPage?.block_data;
 
   return (
     <html lang="en">
@@ -93,11 +79,7 @@ export default async function RootLayout({
             <SnackbarProvider>
               <NextTopLoader />
               <Navbar
-                cta={
-                  <NextButton href="/contact-us" variant="primary">
-                    Contact Us
-                  </NextButton>
-                }
+                cta={blocks && <WPBlocks blocks={blocks} />}
                 navItems={navbarItems}
               />
               <Box className="flex-1 flex flex-col">{children}</Box>

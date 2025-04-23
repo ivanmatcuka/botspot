@@ -2,7 +2,7 @@
 import { MenuItem } from '@/services';
 import { normalizeURL } from '@/utils/normalizeURL';
 
-type Link = {
+export type Link = {
   children?: Link[];
   href: string;
   label: string;
