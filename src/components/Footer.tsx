@@ -42,15 +42,18 @@ type FooterProps = {
   products: CustomPost[];
 };
 export const Footer: FC<FooterProps> = async ({ products }) => {
-  const [resources, company, submenu, productsLink] = await Promise.all([
-    getMenuBySlug('footer-resources'),
-    getMenuBySlug('footer-company'),
-    getMenuBySlug('footer-submenu'),
-    getMenuBySlug('footer-products'),
-  ]);
+  const [resources, company, submenu, productsLink, footerContacts, subfooter] =
+    await Promise.all([
+      getMenuBySlug('footer-resources'),
+      getMenuBySlug('footer-company'),
+      getMenuBySlug('footer-submenu'),
+      getMenuBySlug('footer-products'),
+      getPage('footer-contacts'),
+      getPage('subfooter'),
+    ]);
 
-  const page = await getPage('footer-contacts');
-  const blocks = page?.block_data;
+  const footerContactsBlocks = footerContacts?.block_data;
+  const subfooterBlocks = subfooter?.block_data;
 
   return (
     <>
@@ -59,7 +62,9 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
           <Grid md={10} mx="auto" py={8} xs={12} container>
             <Grid flexBasis={{ md: '40%', xs: '100%' }} item>
               <LegacyPostContainer>
-                {blocks && <WPBlocks blocks={blocks} />}
+                {footerContactsBlocks && (
+                  <WPBlocks blocks={footerContactsBlocks} />
+                )}
               </LegacyPostContainer>
             </Grid>
             <Grid
@@ -123,7 +128,7 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
             xs={12}
             item
           >
-            <Text>Copyright © 2024 botspot, All rights reserved</Text>
+            {subfooterBlocks && <WPBlocks blocks={subfooterBlocks} />}
             <Box
               display="flex"
               flexDirection={{ md: 'row', xs: 'column' }}
