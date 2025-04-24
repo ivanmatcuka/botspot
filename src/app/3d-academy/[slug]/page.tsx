@@ -49,11 +49,7 @@ export default async function Post({
   return (
     <LegacyPostContainer>
       <PageContainer>
-        <Box
-          maxWidth={{ md: '83%', xs: '100%' }}
-          mx="auto"
-          my={{ md: 15, xs: 8 }}
-        >
+        <Box maxWidth="100%" mx="auto" my={{ md: 15, xs: 8 }}>
           {featuredImage && (
             <Image
               alt={post.title.rendered}
@@ -81,7 +77,7 @@ export default async function Post({
       <PageContainer>
         <Box
           className="flex gap-2 flex-col md:flex-row items-center"
-          maxWidth={{ md: '83%', xs: '100%' }}
+          maxWidth="100%"
           mx="auto"
         >
           {blocks && <WPBlocks blocks={blocks} />}
@@ -89,11 +85,7 @@ export default async function Post({
       </PageContainer>
 
       <PageContainer>
-        <Box
-          maxWidth={{ md: '83%', xs: '100%' }}
-          mx="auto"
-          my={{ md: 15, xs: 8 }}
-        >
+        <Box maxWidth="100%" mx="auto" my={{ md: 15, xs: 8 }}>
           <hr />
           <Typography
             component="h2"
