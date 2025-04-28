@@ -57,6 +57,7 @@ export default async function RootLayout({
     ]);
 
   const navbarItems = [...createDataTree(menus)];
+
   areas?.forEach((area) => attachPage(area, navbarItems, 'areas'));
   products?.forEach((product) => attachPage(product, navbarItems, 'products'));
 

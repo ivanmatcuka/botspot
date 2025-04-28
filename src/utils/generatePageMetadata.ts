@@ -3,14 +3,17 @@ import { Metadata } from 'next';
 
 import { generateSeo } from './generateSeo';
 
-export const generatePageMetadata = async (slug: string): Promise<Metadata> => {
-  const page = await getPage(slug);
+export const generatePageMetadata = async (
+  slug?: string,
+): Promise<Metadata> => {
+  const defaultMeta = {
+    title: 'botspot',
+  };
 
-  if (!page) {
-    return {
-      title: 'botspot',
-    };
-  }
+  if (!slug) return defaultMeta;
+
+  const page = await getPage(slug);
+  if (!page) return defaultMeta;
 
   return (
     generateSeo(page) ?? {

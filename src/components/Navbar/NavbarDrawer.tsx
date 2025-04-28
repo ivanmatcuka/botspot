@@ -50,12 +50,7 @@ export const NavbarDrawer: FC<NavbarDrawerProps> = ({ item, onOpen }) => {
   if (!item.children?.length) {
     return (
       <ListItem onClick={onOpen}>
-        <ListItemButton
-          component={Link}
-          href={item.href ?? '/'}
-          prefetch={false}
-          disableRipple
-        >
+        <ListItemButton component={Link} href={item.href ?? '/'} disableRipple>
           {item.label}
         </ListItemButton>
       </ListItem>

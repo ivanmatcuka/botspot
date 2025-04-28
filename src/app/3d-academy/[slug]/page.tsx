@@ -16,20 +16,23 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
+const POST_SOCIAL_MEDIA_PAGE_SLUG = 'post-social-media';
+const DEFAULT_META = {
+  title: 'botspot – 3D Academy',
+};
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const slug = (await params).slug;
+  if (!slug) return DEFAULT_META;
+
   const post = await getPostBySlug(slug);
-  if (!post) return {};
+  if (!post) return DEFAULT_META;
 
-  const result: Metadata = generateSeo(post) ?? {
-    title: `${post.title.rendered} – botspot`,
-  };
-
-  return result;
+  return generateSeo(post) ?? DEFAULT_META;
 }
 
 export default async function Post({
@@ -38,13 +41,15 @@ export default async function Post({
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
-  const post = await getPostBySlug(slug);
-  const featuredImage = getFeaturedImageUrl(post ?? undefined);
-
-  const page = await getPage('post-social-media');
-  const blocks = page?.block_data;
+  const [post, page] = await Promise.all([
+    getPostBySlug(slug),
+    getPage(POST_SOCIAL_MEDIA_PAGE_SLUG),
+  ]);
 
   if (!post) return notFound();
+
+  const featuredImage = getFeaturedImageUrl(post);
+  const blocks = page?.block_data;
 
   return (
     <LegacyPostContainer>

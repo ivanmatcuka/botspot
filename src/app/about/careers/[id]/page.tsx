@@ -10,7 +10,11 @@ import {
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { ExtraFooter } from '../../../../components/ExtraFooter';
+import { JobsFooter } from '../../../../components/JobsFooter';
+
+const DEFAULT_META = {
+  title: 'botspot – Job Page',
+};
 
 export async function generateMetadata({
   params,
@@ -20,13 +24,9 @@ export async function generateMetadata({
   const id = (await params).id;
   const job = await getPost(+id);
 
-  if (!job) return {};
+  if (!job) return DEFAULT_META;
 
-  return (
-    generateSeo(job) ?? {
-      title: `${job.title.rendered} – botspot`,
-    }
-  );
+  return generateSeo(job) ?? DEFAULT_META;
 }
 
 export default async function Job({
@@ -40,15 +40,12 @@ export default async function Job({
   if (!job) return notFound();
 
   return (
-    <>
+    <main className="">
       <PageContainer>
         <LegacyPostContainer className="flex flex-col flex-1">
           <Grid mx="auto" px={2} xs={12} container>
             <Grid my={{ md: 15, xs: 8 }} xs={12} item>
               <>
-                <Typography component="span" variant="body1">
-                  Open Positions
-                </Typography>
                 <Typography
                   component="h1"
                   mb={{ md: 4, xs: 3 }}
@@ -65,7 +62,7 @@ export default async function Job({
         </LegacyPostContainer>
       </PageContainer>
 
-      <ExtraFooter />
-    </>
+      <JobsFooter />
+    </main>
   );
 }

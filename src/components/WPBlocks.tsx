@@ -13,11 +13,13 @@ import { ProductsTopic } from './ProductsTopic';
 
 type ComponentMap = Record<WPComponentNames, unknown>;
 
-const Form: FC<ComponentProps<typeof botspot.DynamicForm>> = (props) => {
-  return (
-    <botspot.DynamicForm {...props} getForm={getForm} submitForm={submitForm} />
-  );
-};
+const Form: FC<ComponentProps<typeof botspot.DynamicForm>> = (props) => (
+  <botspot.DynamicForm {...props} getForm={getForm} submitForm={submitForm} />
+);
+
+export const Posts: FC<ComponentProps<typeof botspot.Posts>> = async (
+  props,
+) => <botspot.Posts {...props} getPosts={getPosts} />;
 
 const DownloadAreaContent: FC<
   ComponentProps<typeof botspot.DownloadAreaContent>
@@ -41,12 +43,6 @@ const Jobs: FC = async () => {
 const People: FC = async () => {
   const { data } = await getPeople();
   return <botspot.People people={data} />;
-};
-
-export const Posts: FC<ComponentProps<typeof botspot.Posts>> = async (
-  props,
-) => {
-  return <botspot.Posts {...props} getPosts={getPosts} />;
 };
 
 const ProductsList: FC<ComponentProps<typeof botspot.ProductsList>> = async (
@@ -74,6 +70,7 @@ const componentMap: Partial<ComponentMap> = {
   'ui/posts': Posts,
   'ui/products-list': ProductsList,
   'ui/products-topic': ProductsTopic,
+  'ui/secondary-block': botspot.SecondaryBlock,
   'ui/skeleton-video': botspot.SkeletonVideo,
   'ui/tile': botspot.Tile,
   'ui/typography': botspot.Typography,

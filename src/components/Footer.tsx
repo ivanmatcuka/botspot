@@ -1,3 +1,4 @@
+import { MenuItem } from '@/services';
 import { getMenuBySlug } from '@/services/getMenuBySlug';
 import { getPage } from '@/services/getPage';
 import { normalizeURL } from '@/utils/normalizeURL';
@@ -24,7 +25,7 @@ const Text: FC<PropsWithChildren<TextProps>> = ({
 }) => {
   let link;
 
-  if (href) {
+  if (href && href !== '#') {
     link = (
       <Link className="hover:underline" href={href}>
         {children}
@@ -38,21 +39,58 @@ const Text: FC<PropsWithChildren<TextProps>> = ({
     </Typography>
   );
 };
+
+type FooterMenuProps = {
+  items: MenuItem[];
+};
+const FooterMenu: FC<FooterMenuProps> = ({ items }) => {
+  const subItems = [...items];
+  const main = subItems.shift();
+
+  if (!main) return null;
+
+  return (
+    <>
+      <Text href={normalizeURL(main.url)} key={main.ID}>
+        {main.title}
+      </Text>
+      <br />
+      <FooterMenuItems items={subItems} />
+    </>
+  );
+};
+
+type FooterMenuItemsProps = {
+  items: MenuItem[];
+};
+const FooterMenuItems: FC<FooterMenuItemsProps> = ({ items }) =>
+  items.map((item) => (
+    <Text href={normalizeURL(item.url)} key={item.ID}>
+      {item.title}
+    </Text>
+  ));
+
 type FooterProps = {
   products: CustomPost[];
 };
 export const Footer: FC<FooterProps> = async ({ products }) => {
-  const [resources, company, submenu, productsLink, footerContacts, subfooter] =
-    await Promise.all([
-      getMenuBySlug('footer-resources'),
-      getMenuBySlug('footer-company'),
-      getMenuBySlug('footer-submenu'),
-      getMenuBySlug('footer-products'),
-      getPage('footer-contacts'),
-      getPage('subfooter'),
-    ]);
+  const [
+    resourcesLinks,
+    companyLinks,
+    submenuLinks,
+    productsLink,
+    footer,
+    subfooter,
+  ] = await Promise.all([
+    getMenuBySlug('footer-resources'),
+    getMenuBySlug('footer-company'),
+    getMenuBySlug('footer-submenu'),
+    getMenuBySlug('footer-products'),
+    getPage('footer-contacts'),
+    getPage('subfooter'),
+  ]);
 
-  const footerContactsBlocks = footerContacts?.block_data;
+  const footerContactsBlocks = footer?.block_data;
   const subfooterBlocks = subfooter?.block_data;
 
   return (
@@ -73,11 +111,7 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
               pr={2}
               item
             >
-              {productsLink?.map((item) => (
-                <Text href={normalizeURL(item.url)} key={item.ID}>
-                  {item.title}
-                </Text>
-              ))}
+              <FooterMenuItems items={productsLink} />
               <br />
               {products.map((product, index) => (
                 <Text href={`/products/${product.slug}`} key={index}>
@@ -90,26 +124,14 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
               mt={{ md: 9.25, xs: 5 }}
               item
             >
-              <Text>Resources</Text>
-              <br />
-              {resources?.map((item) => (
-                <Text href={normalizeURL(item.url)} key={item.ID}>
-                  {item.title}
-                </Text>
-              ))}
+              <FooterMenu items={resourcesLinks} />
             </Grid>
             <Grid
               flexBasis={{ md: '20%', xs: '100%' }}
               mt={{ md: 9.25, xs: 5 }}
               item
             >
-              <Text>Company</Text>
-              <br />
-              {company?.map((item) => (
-                <Text href={normalizeURL(item.url)} key={item.ID}>
-                  {item.title}
-                </Text>
-              ))}
+              <FooterMenu items={companyLinks} />
             </Grid>
           </Grid>
         </Container>
@@ -135,11 +157,7 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
               gap={3}
               textAlign="center"
             >
-              {submenu?.map((item) => (
-                <Text href={normalizeURL(item.url)} key={item.ID}>
-                  {item.title}
-                </Text>
-              ))}
+              <FooterMenuItems items={submenuLinks} />
             </Box>
           </Grid>
         </Grid>

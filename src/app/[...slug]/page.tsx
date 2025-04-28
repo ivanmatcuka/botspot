@@ -10,7 +10,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
-  const slug = (await params).slug.pop() ?? '';
+  const slug = (await params).slug.pop();
   return generatePageMetadata(slug);
 }
 
@@ -19,9 +19,10 @@ export default async function Page({
 }: {
   params: Promise<{ slug: string[] }>;
 }) {
-  const slug = (await params).slug.pop() ?? '';
-  const page = await getPage(slug);
+  const slug = (await params).slug.pop();
+  if (!slug) return notFound();
 
+  const page = await getPage(slug);
   if (!page) return notFound();
 
   const blocks = page.block_data;

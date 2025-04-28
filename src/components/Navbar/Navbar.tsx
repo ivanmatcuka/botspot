@@ -22,6 +22,9 @@ import { FC, ReactNode, useState } from 'react';
 import { NavbarDrawer } from './NavbarDrawer';
 import { NavbarMenu } from './NavbarMenu';
 
+// Legacy?
+const DEFAULT_LOGO_SRC = '/logo.svg';
+
 type MenuItem = {
   children?: MenuItem[];
   disabled?: boolean;
@@ -32,9 +35,14 @@ type MenuItem = {
 
 type NavbarProps = {
   cta: ReactNode;
+  logoSrc?: string;
   navItems: MenuItem[];
 };
-export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
+export const Navbar: FC<NavbarProps> = ({
+  cta,
+  logoSrc = DEFAULT_LOGO_SRC,
+  navItems,
+}) => {
   const currentPath = usePathname();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +73,7 @@ export const Navbar: FC<NavbarProps> = ({ cta, navItems }) => {
                   alt="logo"
                   height={46}
                   loading="lazy"
-                  src="/logo.svg"
+                  src={logoSrc}
                   width={150}
                 />
               </Link>

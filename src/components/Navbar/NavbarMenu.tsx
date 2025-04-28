@@ -12,13 +12,25 @@ type MenuItem = {
   onClick?: () => void;
 };
 
-type NavbarMenuProps = { currentPath: string; item: MenuItem };
-
-export const NavbarMenu: FC<NavbarMenuProps> = ({ currentPath, item }) => {
+type NavbarMenuProps = {
+  currentPath: string;
+  hasParent?: boolean;
+  item: MenuItem;
+};
+export const NavbarMenu: FC<NavbarMenuProps> = ({
+  currentPath,
+  hasParent = false,
+  item,
+}) => {
   if (!item.children?.length) {
+    // @TODO: secure
+    const isActive = currentPath + '/' === item.href;
+    const roundedClass = hasParent ? '!rounded-none' : '';
+    const activeClass = isActive ? 'active' : '';
+
     return (
       <NextButton
-        className={currentPath === item.href ? 'active' : ''}
+        className={`${activeClass} ${roundedClass}`}
         disabled={item.disabled}
         href={item.href ?? '/'}
         variant="menuItem"
@@ -35,7 +47,12 @@ export const NavbarMenu: FC<NavbarMenuProps> = ({ currentPath, item }) => {
         label={item.label}
       >
         {item.children.map((child, index) => (
-          <NavbarMenu currentPath={currentPath} item={child} key={index} />
+          <NavbarMenu
+            currentPath={currentPath}
+            hasParent={true}
+            item={child}
+            key={index}
+          />
         ))}
       </Menu>
     </Link>

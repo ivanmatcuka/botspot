@@ -1,20 +1,21 @@
+import AttachedPost from '@/components/AttachedPost';
 import { NextButton } from '@/components/NextButton';
 import { WPBlocks } from '@/components/WPBlocks';
-import { getPostBySlug } from '@/services/getPostBySlug';
+import { getPost } from '@/services/getPost';
 import { getProductBySlug } from '@/services/getProductBySlug';
 import { generateSeo } from '@/utils/generateSeo';
 import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
-import { CustomFields, CustomPost } from '@botspot/ui';
-import {
-  Banner,
-  GalleryTile,
-  MainBlock,
-  MediaBlock,
-  PageContainer,
-  SecondaryBlock,
-} from '@botspot/ui';
+import { CustomFields } from '@botspot/ui';
+import { Banner, MainBlock, MediaBlock, PageContainer } from '@botspot/ui';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
+
+const POST_CTA_DEFAULT = 'Read Full Story'; // Legacy
+const DOWNLOAD_AREA_FALLBACK = '/download-area';
+const DEFAULT_META = {
+  title: 'botspot – Product Page',
+};
 
 export async function generateMetadata({
   params,
@@ -24,16 +25,10 @@ export async function generateMetadata({
   const slug = (await params).slug;
   const product = await getProductBySlug(slug);
 
-  if (!product) return {};
+  if (!product) return DEFAULT_META;
 
-  return (
-    generateSeo(product) ?? {
-      title: `${product.title.rendered} – botspot`,
-    }
-  );
+  return generateSeo(product) ?? DEFAULT_META;
 }
-
-const DOWNLOAD_AREA_FALLBACK = '/download-area';
 
 export default async function Product({
   params,
@@ -41,12 +36,12 @@ export default async function Product({
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
+  if (!slug) return notFound();
+
   const product = await getProductBySlug(slug);
   if (!product) return notFound();
 
   const blocks = product.block_data;
-
-  if (!product) return notFound();
 
   const {
     banner,
@@ -58,15 +53,13 @@ export default async function Product({
     'first-headline': firstHeadline,
     'first-subline': firstSubline,
     picture,
-    post: acfPost,
+    post: postId,
+    'post-cta': postCta = POST_CTA_DEFAULT,
     'second-headline': secondHeadline,
     'second-subline': secondSubline,
   }: Partial<CustomFields> = product.acf ?? {};
 
-  const post: CustomPost | null = acfPost?.post_name
-    ? await getPostBySlug(acfPost.post_name)
-    : null;
-
+  const post = postId ? await getPost(+String(postId)) : null;
   const relatedImage = getFeaturedImageUrl(post ?? undefined);
 
   return (
@@ -118,16 +111,13 @@ export default async function Product({
       {!!blocks && <WPBlocks blocks={blocks} />}
 
       {post && (
-        <GalleryTile imgUrl={relatedImage}>
-          <SecondaryBlock
-            headline={post.title.rendered}
-            sublineElement={post.excerpt.rendered}
-          >
-            <NextButton href={`/3d-academy/${post.slug}`} variant="primary">
-              Read Full Story
-            </NextButton>
-          </SecondaryBlock>
-        </GalleryTile>
+        <Suspense>
+          <AttachedPost
+            post={post}
+            postCta={postCta}
+            relatedImage={relatedImage}
+          />
+        </Suspense>
       )}
     </main>
   );
