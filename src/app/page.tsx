@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import { WPBlocks } from '@/components/WPBlocks';
 import { getPage } from '@/services/getPage';
 import { notFound } from 'next/navigation';
