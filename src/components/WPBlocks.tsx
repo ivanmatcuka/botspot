@@ -7,6 +7,7 @@ import { getPeople } from '@/services/getPeople';
 import { getProducts } from '@/services/getProducts';
 import * as botspot from '@botspot/ui';
 import { ComponentProps, FC } from 'react';
+import { Fragment } from 'react';
 
 import { NextButton } from './NextButton';
 import { ProductsTopic } from './ProductsTopic';
@@ -79,36 +80,44 @@ const componentMap: Partial<ComponentMap> = {
 type WPBlocksProps = {
   blocks: Block[];
 };
-
-export const WPBlocks: FC<WPBlocksProps> = ({ blocks }) =>
-  blocks.map((block, index) => {
+export function* renderBlocks(blocks: Block[]) {
+  for (let index = 0; index < blocks.length; index++) {
+    const block = blocks[index];
     const Component = componentMap[block.blockName] as FC;
 
     if (!Component) {
-      return (
+      yield (
         <div
           dangerouslySetInnerHTML={{ __html: block.rendered ?? '' }}
           key={index}
         />
       );
+      continue;
     }
 
     const hasChildren = block?.innerBlocks?.length > 0;
     const props = block.attrs as ComponentProps<typeof Component>;
 
     if (hasChildren) {
-      return (
+      yield (
         // eslint-disable-next-line
         // @ts-ignore
         <Component key={index} {...props}>
-          {hasChildren && <WPBlocks blocks={block.innerBlocks} />}
+          <Fragment key={`child-${index}`}>
+            {[...renderBlocks(block.innerBlocks)]}
+          </Fragment>
         </Component>
       );
+    } else {
+      yield (
+        // eslint-disable-next-line
+        // @ts-ignore
+        <Component key={index} {...props} />
+      );
     }
+  }
+}
 
-    return (
-      // eslint-disable-next-line
-      // @ts-ignore
-      <Component key={index} {...props} />
-    );
-  });
+export const WPBlocks: FC<WPBlocksProps> = ({ blocks }) => {
+  return <>{[...renderBlocks(blocks)]}</>;
+};
