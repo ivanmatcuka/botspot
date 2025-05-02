@@ -23,7 +23,7 @@ import { ReactNode } from 'react';
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['300', '400', '600', '500', '700'],
+  weight: ['300', '400', '600'],
 });
 
 export const metadata: Metadata = {
