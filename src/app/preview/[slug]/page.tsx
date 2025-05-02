@@ -1,3 +1,7 @@
+/**
+ * This page is just a placeholder and is to be used
+ * as preview page.
+ */
 import { WPBlocks } from '@/components/WPBlocks';
 import { getPage } from '@/services/getPage';
 import { generatePageMetadata } from '@/utils/generatePageMetadata';

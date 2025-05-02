@@ -8,8 +8,8 @@ import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar/Navbar';
 import { WPBlocks } from '@/components/WPBlocks';
 import { getAreas } from '@/services/getAreas';
+import { getComponentBySlug } from '@/services/getComponentBySlug';
 import { getMenuBySlug } from '@/services/getMenuBySlug';
-import { getPage } from '@/services/getPage';
 import { getProducts } from '@/services/getProducts';
 import { attachPage } from '@/utils/attachPage';
 import { createDataTree } from '@/utils/createDataTree';
@@ -48,20 +48,20 @@ export default async function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const [{ data: products }, { data: areas }, menus, navbarPage] =
+  const [{ data: products }, { data: areas }, menus, navbar] =
     await Promise.all([
       getProducts(),
       getAreas(),
       getMenuBySlug('header'),
-      getPage('navbar-item'),
+      getComponentBySlug('navbar-item'),
     ]);
 
   const navbarItems = [...createDataTree(menus)];
 
-  areas?.forEach((area) => attachPage(area, navbarItems, 'areas'));
-  products?.forEach((product) => attachPage(product, navbarItems, 'products'));
+  for (const area of areas) attachPage(area, navbarItems, 'areas');
+  for (const product of products) attachPage(product, navbarItems, 'products');
 
-  const blocks = navbarPage?.block_data;
+  const blocks = navbar?.block_data;
 
   return (
     <html lang="en">

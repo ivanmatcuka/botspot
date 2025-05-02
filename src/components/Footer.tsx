@@ -1,6 +1,6 @@
 import { MenuItem } from '@/services';
+import { getComponentBySlug } from '@/services/getComponentBySlug';
 import { getMenuBySlug } from '@/services/getMenuBySlug';
-import { getPage } from '@/services/getPage';
 import { normalizeURL } from '@/utils/normalizeURL';
 import { CustomPost } from '@botspot/ui';
 import {
@@ -86,8 +86,8 @@ export const Footer: FC<FooterProps> = async ({ products }) => {
     getMenuBySlug('footer-company'),
     getMenuBySlug('footer-submenu'),
     getMenuBySlug('footer-products'),
-    getPage('footer-contacts'),
-    getPage('subfooter'),
+    getComponentBySlug('footer-contacts'),
+    getComponentBySlug('subfooter'),
   ]);
 
   const footerContactsBlocks = footer?.block_data;
