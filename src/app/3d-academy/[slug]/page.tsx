@@ -1,6 +1,6 @@
 import { getPosts } from '@/actions/getPosts';
 import { Posts, WPBlocks } from '@/components/WPBlocks';
-import { getPage } from '@/services/getPage';
+import { getComponentBySlug } from '@/services/getComponentBySlug';
 import { getPostBySlug } from '@/services/getPostBySlug';
 import { generateSeo } from '@/utils/generateSeo';
 import { getFeaturedImageUrl } from '@/utils/getFeaturedImageUrl';
@@ -43,7 +43,7 @@ export default async function Post({
   const slug = (await params).slug;
   const [post, page] = await Promise.all([
     getPostBySlug(slug),
-    getPage(POST_SOCIAL_MEDIA_PAGE_SLUG),
+    getComponentBySlug(POST_SOCIAL_MEDIA_PAGE_SLUG),
   ]);
 
   if (!post) return notFound();
