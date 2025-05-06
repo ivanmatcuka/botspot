@@ -19,6 +19,7 @@ export type WPComponentNames =
   | 'ui/dynamic-form'
   | 'ui/download-area-content'
   | 'ui/products-topic'
+  | 'ui/share-button'
   | 'ui/products-list';
 
 export type Block = {
